@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoltBot Cloud - Autonomous VM Rentals</title>
+    <!-- Modern Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="glass-nav">
+        <div class="logo">MoltBot <span>Cloud</span></div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#provision" class="btn-primary">Deploy Now</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Autonomous Development. <span>Turnkey Infrastructure.</span></h1>
+            <p>Rent high-performance Windows VMs pre-configured with the MoltBot 10-Agent Swarm. Bypass hardware
+                constraints and accelerate your AI native development today.</p>
+            <div class="hero-actions">
+                <a href="#provision" class="btn-primary large">Start Provisioning</a>
+                <a href="#pricing" class="btn-secondary large">Compare Prices</a>
+            </div>
+        </div>
+        <div class="hero-graphic">
+            <div class="orbit">
+                <div class="planet"></div>
+                <div class="satellite s1"></div>
+                <div class="satellite s2"></div>
+                <div class="satellite s3"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Why MoltBot Cloud?</h2>
+        <div class="feature-grid">
+            <div class="feature-card glass-card">
+                <div class="icon">🚀</div>
+                <h3>Pre-Installed Swarm</h3>
+                <p>Comes natively equipped with the OpenClaw 10-Agent ecosystem running on port 18789. No complex setups
+                    needed.</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="icon">🖥️</div>
+                <h3>Native Windows GUI</h3>
+                <p>Unlike Vast.ai or RunPod which default to headless Linux boxes, our VMs provide a full Windows
+                    Desktop Experience.</p>
+            </div>
+            <div class="feature-card glass-card">
+                <div class="icon">⚡</div>
+                <h3>Zero Latency Streaming</h3>
+                <p>Powered by bleeding-edge NVIDIA GPUs (A10G/T4) optimized for low-latency desktop streaming.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2>Transparent GPU Pricing</h2>
+        <p class="subtitle">See how MoltBot Cloud compares against bare-metal providers.</p>
+
+        <div class="pricing-table">
+            <div class="table-header">
+                <div>Provider</div>
+                <div>GPU Model</div>
+                <div>Hourly Rate</div>
+                <div>OS</div>
+            </div>
+            <!-- Moltbot Cloud (Vagon Backend) -->
+            <div class="table-row highlight">
+                <div><strong>MoltBot Cloud</strong></div>
+                <div>16GB NVIDIA T4 (Planet)</div>
+                <div>$0.99 / hr</div>
+                <div>Windows 11 GUI</div>
+            </div>
+            <div class="table-row highlight">
+                <div><strong>MoltBot Cloud</strong></div>
+                <div>24GB NVIDIA A10G (Spark)</div>
+                <div>$1.67 / hr</div>
+                <div>Windows 11 GUI</div>
+            </div>
+
+            <!-- Competitors -->
+            <div class="table-row">
+                <div>RunPod (On-Demand)</div>
+                <div>24GB RTX 4090</div>
+                <div>~$0.34 / hr</div>
+                <div>Linux / Docker</div>
+            </div>
+            <div class="table-row">
+                <div>Vast.ai (Interruptible)</div>
+                <div>24GB RTX 3090</div>
+                <div>~$0.12 / hr</div>
+                <div>Linux / Docker</div>
+            </div>
+            <div class="table-row">
+                <div>Vast.ai (On-Demand)</div>
+                <div>80GB H100</div>
+                <div>~$1.55 / hr</div>
+                <div>Linux / Docker</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="provision" class="provision">
+        <div class="glass-card checkout-panel">
+            <h2>Deploy Your Workspace</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="tier">Select Hardware Tier</label>
+                    <select id="tier" required>
+                        <option value="planet">Planet (T4 - $0.99/hr)</option>
+                        <option value="spark">Spark (A10G - $1.67/hr)</option>
+                        <option value="flame">Flame (A10G 8-Core - $2.27/hr)</option>
+                    </select>
+                </div>
+                <!-- Mock Payment -->
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="mock-card">
+                        <input type="text" placeholder="Card Number (Mock)" disabled>
+                        <div>
+                            <input type="text" placeholder="MM/YY" disabled>
+                            <input type="text" placeholder="CVC" disabled>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn-submit" onclick="mockProvision()">Initialize Deployment</button>
+            </form>
+            <div id="provisionStatus" class="status-message hidden">
+                <div class="spinner"></div>
+                <p>Spinning up MoltBot Instance...</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MoltBot Infrastructure. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
