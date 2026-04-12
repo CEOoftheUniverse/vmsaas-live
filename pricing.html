@@ -72,7 +72,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 <li>Cron scheduling (24/7 tasks)</li>
 <li>Web browsing + API access</li>
 </ul>
-<a href="#waitlist" class="btn btn-s">Join Waitlist →</a>
+<a href="signup.html?plan=base" class="btn btn-s">Get Started →</a>
 </div>
 
 <div class="card pop">
@@ -88,7 +88,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 <li>Priority support</li>
 <li>Omnisphere API access ($10 credits)</li>
 </ul>
-<a href="#waitlist" class="btn btn-p">Join Waitlist →</a>
+<a href="signup.html?plan=swarm" class="btn btn-p">Get Started →</a>
 </div>
 
 <div class="card">
@@ -103,7 +103,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 <li>API access + webhooks</li>
 <li>Dedicated support engineer</li>
 </ul>
-<a href="#waitlist" class="btn btn-s">Contact Sales →</a>
+<a href="signup.html?plan=enterprise" class="btn btn-s">Contact Sales →</a>
 </div>
 </div>
 
@@ -158,10 +158,13 @@ document.getElementById('wl-form').addEventListener('submit', async (e) => {
     const res = document.getElementById('wl-result');
     try {
         // Try backend first, fall back to static confirmation
-        const r = await fetch('https://YOUR_BACKEND/api/waitlist', {
+        const r = await fetch('https://moltbot-cloud-saas.vercel.app/api/waitlist', {
             method: 'POST', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ email, tier: 'base' })
-        }).catch(() => null);
+            body: JSON.stringify({ email, tier: 'base', referral: localStorage.getItem('moltbot_referral') || '' })
+        }).catch(() => fetch('http://127.0.0.1:3000/api/waitlist', {
+            method: 'POST', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ email, tier: 'base', referral: localStorage.getItem('moltbot_referral') || '' })
+        })).catch(() => null);
         if (r?.ok) {
             const d = await r.json();
             res.innerHTML = `<span style="color:#22c55e">✅ You're #${d.position} on the list!</span>`;

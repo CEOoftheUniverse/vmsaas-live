@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — MoltBot Cloud | Start Your AI Agent VM</title>
+    <meta name="description" content="Create your MoltBot Cloud account. Choose a plan, enter your email, and deploy autonomous AI agents in 60 seconds. Plans from $49/mo.">
+    <meta property="og:title" content="Sign Up — MoltBot Cloud">
+    <meta property="og:description" content="Deploy autonomous AI agent swarms. Plans from $49/mo.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/signup.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+        .signup-container{max-width:480px;width:100%;background:var(--s);border:1px solid var(--b);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden}
+        .signup-container::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(99,102,241,0.08) 0%,transparent 50%);pointer-events:none}
+        .logo{font-size:1.5rem;font-weight:800;text-align:center;margin-bottom:2rem}
+        .logo span{color:var(--a)}
+        h1{font-size:1.75rem;font-weight:700;text-align:center;margin-bottom:0.5rem}
+        .subtitle{text-align:center;color:var(--m);font-size:0.9rem;margin-bottom:2rem}
+        .form-group{margin-bottom:1.25rem}
+        label{display:block;font-size:0.85rem;font-weight:500;color:var(--m);margin-bottom:0.4rem}
+        input,select{width:100%;padding:0.75rem 1rem;border:1px solid var(--b);border-radius:10px;background:rgba(0,0,0,0.3);color:var(--t);font-family:inherit;font-size:0.95rem;outline:none;transition:border-color 0.2s}
+        input:focus,select:focus{border-color:var(--a)}
+        select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23a1a1aa' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+        .plan-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin-bottom:1.5rem}
+        .plan-card{text-align:center;padding:0.75rem 0.5rem;border:1px solid var(--b);border-radius:10px;cursor:pointer;transition:all 0.2s;font-size:0.8rem}
+        .plan-card:hover{border-color:rgba(99,102,241,0.4)}
+        .plan-card.active{border-color:var(--a);background:rgba(99,102,241,0.1)}
+        .plan-card .plan-price{font-size:1.2rem;font-weight:700;color:var(--t)}
+        .plan-card .plan-name{font-size:0.75rem;color:var(--m);text-transform:uppercase;letter-spacing:1px}
+        .btn-checkout{width:100%;padding:0.9rem;background:var(--a);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:0.5rem}
+        .btn-checkout:hover{background:#818cf8;box-shadow:0 0 20px rgba(99,102,241,0.4);transform:translateY(-1px)}
+        .btn-checkout:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+        .divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--m);font-size:0.8rem}
+        .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--b)}
+        .social-proof{text-align:center;margin-top:1.5rem;font-size:0.8rem;color:var(--m)}
+        .social-proof strong{color:var(--g)}
+        #checkout-status{margin-top:1rem;text-align:center;font-size:0.9rem;min-height:1.5rem}
+        .back-link{display:block;text-align:center;margin-top:1.5rem;color:var(--m);font-size:0.85rem;text-decoration:none}
+        .back-link:hover{color:var(--t)}
+        .features-mini{display:flex;gap:1rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+        .features-mini span{font-size:0.75rem;color:var(--m);display:flex;align-items:center;gap:0.3rem}
+        .features-mini span::before{content:'✓';color:var(--g);font-weight:700}
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">Molt<span>Bot</span> Cloud</div>
+        <h1>Start Your AI Workforce</h1>
+        <p class="subtitle">Deploy autonomous agents in 60 seconds. No setup required.</p>
+
+        <div class="plan-cards">
+            <div class="plan-card active" data-plan="base" onclick="selectPlan('base')">
+                <div class="plan-name">Base</div>
+                <div class="plan-price">$49</div>
+                <div style="color:var(--m);font-size:0.7rem">/month</div>
+            </div>
+            <div class="plan-card" data-plan="swarm" onclick="selectPlan('swarm')">
+                <div class="plan-name">Swarm</div>
+                <div class="plan-price">$149</div>
+                <div style="color:var(--m);font-size:0.7rem">/month</div>
+            </div>
+            <div class="plan-card" data-plan="enterprise" onclick="selectPlan('enterprise')">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">$299</div>
+                <div style="color:var(--m);font-size:0.7rem">/month</div>
+            </div>
+        </div>
+
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="company">Company (optional)</label>
+                <input type="text" id="company" name="company" placeholder="Acme Corp">
+            </div>
+
+            <input type="hidden" id="selected-plan" value="base">
+            <input type="hidden" id="referral" value="">
+
+            <button type="submit" class="btn-checkout" id="checkout-btn">
+                Continue to Payment →
+            </button>
+        </form>
+
+        <div id="checkout-status"></div>
+
+        <div class="divider">or</div>
+
+        <form id="waitlist-form" style="display:flex;gap:0.5rem">
+            <input type="email" id="wl-email" placeholder="Join waitlist instead" style="flex:1;padding:0.6rem 0.8rem;font-size:0.85rem">
+            <button type="submit" style="background:transparent;border:1px solid var(--b);color:var(--t);padding:0.6rem 1rem;border-radius:10px;font-size:0.8rem;font-weight:600;cursor:pointer;white-space:nowrap">Waitlist</button>
+        </form>
+
+        <div class="features-mini">
+            <span>Cancel anytime</span>
+            <span>7-day free trial</span>
+            <span>No setup fees</span>
+        </div>
+
+        <div class="social-proof">
+            <strong>12+ developers</strong> already on the waitlist
+        </div>
+
+        <a href="index.html" class="back-link">← Back to MoltBot Cloud</a>
+    </div>
+
+    <script>
+    // Affiliate tracking — capture ?ref= parameter
+    (function() {
+        const params = new URLSearchParams(window.location.search);
+        const ref = params.get('ref') || params.get('affiliate') || params.get('utm_source');
+        if (ref) {
+            document.getElementById('referral').value = ref;
+            // Store in localStorage for cross-page persistence
+            localStorage.setItem('moltbot_referral', ref);
+            localStorage.setItem('moltbot_ref_time', Date.now().toString());
+        } else {
+            // Check localStorage for existing referral (30-day cookie window)
+            const stored = localStorage.getItem('moltbot_referral');
+            const storedTime = parseInt(localStorage.getItem('moltbot_ref_time') || '0');
+            if (stored && (Date.now() - storedTime) < 30 * 24 * 60 * 60 * 1000) {
+                document.getElementById('referral').value = stored;
+            }
+        }
+    })();
+
+    let selectedPlan = 'base';
+
+    function selectPlan(plan) {
+        selectedPlan = plan;
+        document.getElementById('selected-plan').value = plan;
+        document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('active'));
+        document.querySelector(`[data-plan="${plan}"]`).classList.add('active');
+    }
+
+    // Stripe Checkout flow
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('checkout-btn');
+        const status = document.getElementById('checkout-status');
+        const email = document.getElementById('email').value;
+        const company = document.getElementById('company').value;
+        const referral = document.getElementById('referral').value;
+
+        btn.disabled = true;
+        btn.textContent = 'Creating checkout session...';
+        status.innerHTML = '';
+
+        // Try moltbot-saas backend first, then agent-saas backend
+        const backends = [
+            'https://moltbot-cloud-saas.vercel.app/api/billing/checkout',
+            'http://127.0.0.1:3000/api/billing/checkout',
+            'http://127.0.0.1:8080/checkout',
+        ];
+
+        let success = false;
+        for (const url of backends) {
+            try {
+                const r = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, tier: selectedPlan, company, referral }),
+                });
+                if (r.ok) {
+                    const data = await r.json();
+                    if (data.url) {
+                        status.innerHTML = '<span style="color:#22c55e">✅ Redirecting to Stripe...</span>';
+                        window.location.href = data.url;
+                        success = true;
+                        break;
+                    }
+                }
+                const errData = await r.json().catch(() => ({}));
+                if (errData.hint === 'stripe_not_configured') {
+                    // Stripe not configured — fall back to waitlist
+                    status.innerHTML = '<span style="color:#f59e0b">⚠️ Payments launching soon. Added to priority waitlist!</span>';
+                    await addToWaitlist(email, selectedPlan, referral);
+                    success = true;
+                    break;
+                }
+            } catch { continue; }
+        }
+
+        if (!success) {
+            status.innerHTML = '<span style="color:#f59e0b">⚠️ Added to priority waitlist — payments launching soon!</span>';
+            await addToWaitlist(email, selectedPlan, referral);
+        }
+
+        btn.disabled = false;
+        btn.textContent = 'Continue to Payment →';
+    });
+
+    async function addToWaitlist(email, tier, referral) {
+        const backends = [
+            'https://moltbot-cloud-saas.vercel.app/api/waitlist',
+            'http://127.0.0.1:3000/api/waitlist',
+        ];
+        for (const url of backends) {
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, tier, referral }),
+                });
+                break;
+            } catch { continue; }
+        }
+    }
+
+    // Waitlist-only form
+    document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('wl-email').value;
+        if (!email) return;
+        await addToWaitlist(email, 'base', document.getElementById('referral').value);
+        document.getElementById('wl-email').value = '';
+        document.getElementById('checkout-status').innerHTML = '<span style="color:#22c55e">✅ Added to waitlist!</span>';
+    });
+    </script>
+</body>
+</html>

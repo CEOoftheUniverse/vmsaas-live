@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoltBot Cloud — Dashboard</title>
+    <meta name="description" content="MoltBot Cloud admin dashboard. Monitor agent VMs, deploy nodes, track revenue, and manage your autonomous AI workforce.">
+    <meta property="og:title" content="MoltBot Cloud Dashboard">
+    <meta property="og:type" content="website">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body { margin: 0; padding: 20px; font-family: 'Outfit', sans-serif; background: #0F0F1A; color: white; }
@@ -35,9 +39,10 @@
     <div class="header">
         <h1>MOLTBOT CLOUD SERVER</h1>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="/blog-autonomous-saas.html" style="color: #a0aec0; text-decoration: none; font-size: 0.95rem; margin-right: 15px; font-weight: 500;">Research Blog</a>
+            <a href="index.html" style="color: #a0aec0; text-decoration: none; font-size: 0.95rem; margin-right: 15px; font-weight: 500;">Home</a>
+            <a href="blog-autonomous-saas.html" style="color: #a0aec0; text-decoration: none; font-size: 0.95rem; margin-right: 15px; font-weight: 500;">Blog</a>
             <div id="auth-mount-point"></div>
-            <button onclick="downloadCopilot()" style="background: linear-gradient(135deg, #10b981, #059669);">Download Copilot ($50/mo)</button>
+            <button onclick="window.location.href='signup.html'" style="background: linear-gradient(135deg, #10b981, #059669);">Sign Up — From $49/mo</button>
             <button onclick="deployAgent()">Deploy Node</button>
         </div>
     </div>
