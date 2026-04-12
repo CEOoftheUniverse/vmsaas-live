@@ -54,9 +54,16 @@
     </div>
 
     <script>
+        async function getClerkToken() {
+            if (window.Clerk && window.Clerk.session) return await window.Clerk.session.getToken();
+            return null;
+        }
+
         async function fetchMetrics() {
             try {
-                const res = await fetch('/metrics');
+                const token = await getClerkToken();
+                const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+                const res = await fetch('/metrics', { headers });
                 const data = await res.json();
                 document.getElementById('metrics-data').innerHTML = `
                     <div class="data-row"><span>Total Revenue:</span> <span>$${data.total_revenue_usd.toFixed(2)}</span></div>
@@ -96,9 +103,15 @@
 
         async function deployAgent() {
             try {
+                const token = await getClerkToken();
+                const headers = {
+                    'Content-Type': 'application/json',
+                    ...(token && { 'Authorization': `Bearer ${token}` })
+                };
+                
                 await fetch('/jobs', {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
+                    headers: headers,
                     body: JSON.stringify({ task: "Dashboard triggered verification task", tenant_id: "moltbot_admin" })
                 });
                 alert('Job Deployment Dispatched!');
