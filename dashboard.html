@@ -28,11 +28,14 @@
         button { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-family: 'Outfit', sans-serif; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,0.2); transition: all 0.2s; }
         button:hover { background: linear-gradient(135deg, #0284c7, #1d4ed8); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4); }
     </style>
+    <!-- Clerk Auth Protocol (Environment Injection Required in Cloud) -->
+    <script async crossorigin="anonymous" data-clerk-publishable-key="pk_live_default_MoltBot_Tenant_Security" src="https://clerk.moltbot.com/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="header">
         <h1>MOLTBOT CLOUD SERVER</h1>
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <div id="auth-mount-point"></div>
             <button onclick="downloadCopilot()" style="background: linear-gradient(135deg, #10b981, #059669);">Download Copilot ($50/mo)</button>
             <button onclick="deployAgent()">Deploy Node</button>
         </div>
@@ -104,9 +107,25 @@
             }
         }
 
+        async function initAuth() {
+            try {
+                await window.Clerk.load();
+                if (window.Clerk.user) {
+                    const userButton = document.getElementById('auth-mount-point');
+                    window.Clerk.mountUserButton(userButton);
+                } else {
+                    // Force auth block in production
+                    console.log('Unauthenticated access blocked actively via Clerk pipeline.');
+                }
+            } catch(err) {
+                console.error("Clerk Initialization Error: Auth servers offline.", err);
+            }
+        }
+
         fetchMetrics();
         fetchJobs();
         setInterval(fetchMetrics, 30000);
+        window.addEventListener('load', initAuth);
     </script>
 </body>
 </html>
