@@ -83,21 +83,26 @@
 
         async function downloadCopilot() {
             try {
-                // Mock Stripe Checkout redirect
-                alert('Redirecting to Stripe Checkout for $50/mo MoltBot Copilot...');
+                const token = await getClerkToken();
+                const headers = {
+                    'Content-Type': 'application/json',
+                    ...(token && { 'Authorization': `Bearer ${token}` })
+                };
                 
-                // Simulate successful payment routing
-                setTimeout(() => {
-                    const link = document.createElement('a');
-                    link.href = '/autoagents-vscode-0.2.3.vsix';
-                    link.download = 'moltbot-copilot-estel.vsix';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }, 1500);
+                const res = await fetch('/checkout?plan_id=copilot&tenant_id=web_visitor', {
+                    method: 'POST',
+                    headers: headers,
+                });
+                const data = await res.json();
                 
+                if (data.checkout_url) {
+                    window.location.href = data.checkout_url;
+                } else {
+                    alert('Checkout session created (dev mode). In production, this redirects to Stripe.');
+                }
             } catch(e) {
                 console.error('Error initiating checkout:', e);
+                alert('Payment system temporarily unavailable. Please try again.');
             }
         }
 
