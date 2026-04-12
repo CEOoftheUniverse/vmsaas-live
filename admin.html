@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoltBot Admin — Analytics & Monitoring</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444;--o:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:1.5rem}
+header{display:flex;justify-content:space-between;align-items:center;padding-bottom:1.5rem;border-bottom:1px solid var(--b)}
+.brand{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:800}
+.brand span{color:var(--a)}
+.badge{background:var(--a);color:#fff;padding:.2rem .6rem;border-radius:6px;font-size:.7rem;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.stat-card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem;transition:transform .2s}
+.stat-card:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.3)}
+.stat-value{font-size:2rem;font-weight:700;font-family:'Outfit',sans-serif}
+.stat-label{font-size:.8rem;color:var(--m);text-transform:uppercase;letter-spacing:1px}
+.stat-change{font-size:.75rem;margin-top:.25rem}
+.up{color:var(--g)}
+.down{color:var(--r)}
+.section{margin:2rem 0}
+.section h2{font-family:'Outfit',sans-serif;font-size:1.25rem;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden}
+th,td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--b);font-size:.85rem}
+th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.7rem}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.log-box{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1rem;max-height:300px;overflow-y:auto;font-family:monospace;font-size:.8rem;line-height:1.8}
+.log-entry{padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.pill{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:600}
+.pill-g{background:rgba(34,197,94,.15);color:var(--g)}
+.pill-b{background:rgba(99,102,241,.15);color:var(--a)}
+.pill-o{background:rgba(245,158,11,.15);color:var(--o)}
+.pill-r{background:rgba(239,68,68,.15);color:var(--r)}
+.refresh-btn{background:var(--a);color:#fff;border:none;padding:.5rem 1.25rem;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .2s}
+.refresh-btn:hover{background:#818cf8}
+#last-update{color:var(--m);font-size:.75rem}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <div><div class="brand">Molt<span>Bot</span> Admin</div><span id="last-update"></span></div>
+    <div style="display:flex;gap:.75rem;align-items:center">
+        <span class="badge">PHASE 30</span>
+        <button class="refresh-btn" onclick="refreshAll()">↻ Refresh</button>
+        <a href="index.html" style="color:var(--m);text-decoration:none;font-size:.85rem">← Back</a>
+    </div>
+</header>
+
+<!-- Stats Cards -->
+<div class="stats" id="stats-grid">
+    <div class="stat-card"><div class="stat-value" id="s-waitlist">—</div><div class="stat-label">Waitlist</div></div>
+    <div class="stat-card"><div class="stat-value" id="s-subscribers">—</div><div class="stat-label">Email Subscribers</div></div>
+    <div class="stat-card"><div class="stat-value" id="s-pageviews">—</div><div class="stat-label">Page Views (24h)</div></div>
+    <div class="stat-card"><div class="stat-value" id="s-signups">—</div><div class="stat-label">Signup Clicks (24h)</div></div>
+    <div class="stat-card"><div class="stat-value" id="s-gateway">—</div><div class="stat-label">Gateway Models</div></div>
+    <div class="stat-card"><div class="stat-value" id="s-agents">—</div><div class="stat-label">Active Agents</div></div>
+</div>
+
+<div class="grid-2">
+    <!-- Top Pages -->
+    <div class="section">
+        <h2>📊 Top Pages (24h)</h2>
+        <table><thead><tr><th>Page</th><th>Views</th></tr></thead><tbody id="top-pages"><tr><td colspan="2" style="color:var(--m)">Loading...</td></tr></tbody></table>
+    </div>
+
+    <!-- Recent Waitlist -->
+    <div class="section">
+        <h2>📧 Recent Signups</h2>
+        <div class="log-box" id="waitlist-log">Loading...</div>
+    </div>
+</div>
+
+<div class="grid-2">
+    <!-- System Health -->
+    <div class="section">
+        <h2>🏥 System Health</h2>
+        <table>
+            <thead><tr><th>Service</th><th>Status</th><th>Info</th></tr></thead>
+            <tbody id="health-table"><tr><td colspan="3" style="color:var(--m)">Checking...</td></tr></tbody>
+        </table>
+    </div>
+
+    <!-- Drip Queue -->
+    <div class="section">
+        <h2>📬 Email Drip Queue</h2>
+        <div class="log-box" id="drip-log">Loading...</div>
+    </div>
+</div>
+</div>
+
+<script>
+const BACKENDS = {
+    saas: 'https://moltbot-cloud-saas.vercel.app',
+    saasLocal: 'http://127.0.0.1:3000',
+    gateway: 'http://127.0.0.1:3005',
+    fastapi: 'http://127.0.0.1:8080',
+};
+
+async function tryFetch(urls, opts = {}) {
+    for (const url of (Array.isArray(urls) ? urls : [urls])) {
+        try {
+            const r = await fetch(url, { ...opts, signal: AbortSignal.timeout(5000) });
+            if (r.ok) return await r.json();
+        } catch { continue; }
+    }
+    return null;
+}
+
+async function refreshAll() {
+    document.getElementById('last-update').textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+
+    // Waitlist count
+    const wl = await tryFetch([`${BACKENDS.saas}/api/waitlist/count`, `${BACKENDS.saasLocal}/api/waitlist/count`]);
+    if (wl) document.getElementById('s-waitlist').textContent = wl.count;
+
+    // Analytics summary
+    const an = await tryFetch([`${BACKENDS.saas}/api/analytics/summary`, `${BACKENDS.saasLocal}/api/analytics/summary`]);
+    if (an) {
+        document.getElementById('s-pageviews').textContent = an.pageViews;
+        document.getElementById('s-signups').textContent = an.signupClicks;
+        document.getElementById('s-subscribers').textContent = an.totalEvents > 0 ? '~' + Math.round(an.totalEvents / 10) : '—';
+
+        // Top pages
+        const entries = Object.entries(an.topPages || {}).sort((a,b) => b[1]-a[1]).slice(0, 8);
+        document.getElementById('top-pages').innerHTML = entries.length
+            ? entries.map(([p,v]) => `<tr><td>${p}</td><td><span class="pill pill-b">${v}</span></td></tr>`).join('')
+            : '<tr><td colspan="2" style="color:var(--m)">No data yet</td></tr>';
+    }
+
+    // Gateway status
+    const gw = await tryFetch([`${BACKENDS.gateway}/api/status`]);
+    if (gw) {
+        document.getElementById('s-gateway').textContent = gw.models?.length || '—';
+    }
+
+    // FastAPI health
+    const fa = await tryFetch([`${BACKENDS.fastapi}/health`]);
+    if (fa) {
+        document.getElementById('s-agents').textContent = fa.agents_loaded || '—';
+    }
+
+    // Health table
+    const checks = [
+        { name: 'FastAPI Backend', url: `${BACKENDS.fastapi}/health`, port: 8080 },
+        { name: 'Omnisphere Gateway', url: `${BACKENDS.gateway}/api/status`, port: 3005 },
+        { name: 'MoltBot SaaS', url: `${BACKENDS.saasLocal}/api/status`, port: 3000 },
+    ];
+
+    let healthRows = '';
+    for (const svc of checks) {
+        try {
+            const r = await fetch(svc.url, { signal: AbortSignal.timeout(3000) });
+            if (r.ok) {
+                const d = await r.json();
+                healthRows += `<tr><td>${svc.name}</td><td><span class="pill pill-g">UP</span></td><td>Port ${svc.port} · ${d.version || d.status || 'ok'}</td></tr>`;
+            } else {
+                healthRows += `<tr><td>${svc.name}</td><td><span class="pill pill-r">ERROR</span></td><td>HTTP ${r.status}</td></tr>`;
+            }
+        } catch {
+            healthRows += `<tr><td>${svc.name}</td><td><span class="pill pill-o">DOWN</span></td><td>Port ${svc.port} unreachable</td></tr>`;
+        }
+    }
+    document.getElementById('health-table').innerHTML = healthRows;
+
+    // Recent waitlist
+    const status = await tryFetch([`${BACKENDS.saasLocal}/api/status`, `${BACKENDS.saas}/api/status`]);
+    if (status) {
+        document.getElementById('s-waitlist').textContent = status.waitlistCount || wl?.count || '—';
+        document.getElementById('waitlist-log').innerHTML =
+            `<div class="log-entry">Total signups: <strong>${status.metrics?.waitlistSignups || 0}</strong></div>` +
+            `<div class="log-entry">Total requests: <strong>${status.metrics?.totalRequests || 0}</strong></div>` +
+            `<div class="log-entry">Uptime: <strong>${Math.round(status.uptime / 60)}min</strong></div>` +
+            `<div class="log-entry">Memory: <strong>${status.memory?.heapUsed || '—'}</strong></div>`;
+    }
+
+    // Drip queue
+    document.getElementById('drip-log').innerHTML =
+        '<div class="log-entry" style="color:var(--m)">Email drip runs on schedule. Check /api/email/drip/:email for individual status.</div>';
+}
+
+refreshAll();
+setInterval(refreshAll, 30000); // Auto-refresh every 30s
+</script>
+</body>
+</html>
