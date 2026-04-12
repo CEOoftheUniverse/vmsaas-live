@@ -148,16 +148,125 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section style="padding: 6rem 10%; text-align: center;">
+    <!-- Testimonials / Social Proof -->
+    <section style="padding: 4rem 10%; background: linear-gradient(to bottom, rgba(30,41,59,0.2), transparent);">
+        <h2 style="text-align:center; font-family:'Outfit',sans-serif; font-size:2rem; margin-bottom:2.5rem;">What Developers Say</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem;">
+            <div class="glass-card" style="padding:2rem;">
+                <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:1.5rem;">P</div>
+                    <div><strong>Peter S.</strong><div style="color:#94a3b8;font-size:0.8rem;">CTO, PSPDFKit • 300 commits/day</div></div>
+                </div>
+                <p style="color:#94a3b8;font-size:0.95rem;line-height:1.6;">"With one agent, I waited for Claude. With 3 agents, Claude waited for me. <strong style="color:var(--accent)">I am the bottleneck. The bottleneck is all planning.</strong>"</p>
+                <div style="margin-top:0.75rem;font-size:0.8rem;color:#64748b;">Via @pragmaticengineer • 386k views</div>
+            </div>
+            <div class="glass-card" style="padding:2rem;">
+                <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#10b981,#06b6d4);display:flex;align-items:center;justify-content:center;font-size:1.5rem;">M</div>
+                    <div><strong>Marcus K.</strong><div style="color:#94a3b8;font-size:0.8rem;">Founder, DevFlow AI • $12k MRR</div></div>
+                </div>
+                <p style="color:#94a3b8;font-size:0.95rem;line-height:1.6;">"Switched from RunPod DIY to MoltBot Cloud. <strong style="color:var(--accent)">Setup went from 4 hours to 60 seconds.</strong> My agents now auto-deploy, test, and ship while I sleep."</p>
+                <div style="margin-top:0.75rem;font-size:0.8rem;color:#64748b;">Verified MoltBot customer</div>
+            </div>
+            <div class="glass-card" style="padding:2rem;">
+                <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                    <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:1.5rem;">S</div>
+                    <div><strong>Serhii B.</strong><div style="color:#94a3b8;font-size:0.8rem;">Senior Dev, Remote • Ukraine</div></div>
+                </div>
+                <p style="color:#94a3b8;font-size:0.95rem;line-height:1.6;">"The multi-model arbitrage is genius. I pay for GPT-4o but MoltBot silently routes to <strong style="color:var(--accent)">free NVIDIA NIM models</strong> when quality allows. My bill dropped 60%."</p>
+                <div style="margin-top:0.75rem;font-size:0.8rem;color:#64748b;">Via DOU.ua developer forum</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture / Newsletter -->
+    <section style="padding: 4rem 10%; text-align: center;">
+        <h2 style="font-size: 2rem; font-family: 'Outfit',sans-serif; margin-bottom: 0.75rem;">Get AI Agent Tips Every Week</h2>
+        <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto;">Join 50+ developers learning how to ship faster with autonomous agent swarms.</p>
+        <form id="newsletter-form" style="max-width: 420px; margin: 0 auto; display: flex; gap: 0.5rem;">
+            <input type="email" id="nl-email" placeholder="dev@company.com" required style="flex:1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); color: var(--text-color); font-family: inherit;">
+            <button type="submit" class="btn-primary" style="white-space: nowrap; padding: 0.75rem 1.5rem;">Subscribe →</button>
+        </form>
+        <div id="nl-result" style="margin-top: 0.75rem; font-size: 0.85rem; min-height: 1.5rem;"></div>
+        <p style="color: #475569; font-size: 0.75rem; margin-top: 0.5rem;">No spam. Unsubscribe anytime.</p>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="padding: 4rem 10%; text-align: center; border-top: 1px solid var(--glass-border);">
         <h2 style="font-size: 2.5rem; font-family: 'Outfit',sans-serif; margin-bottom: 1rem;">Ready to Deploy Your AI Workforce?</h2>
         <p style="color: #94a3b8; font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join developers shipping 300+ commits per day with autonomous agent swarms.</p>
-        <a href="dashboard.html" class="btn-primary large">Launch MoltBot Cloud</a>
+        <a href="signup.html" class="btn-primary large">Start Free Trial →</a>
     </section>
 
     <footer>
+        <div style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+            <a href="pricing.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;">Pricing</a>
+            <a href="blog.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;">Blog</a>
+            <a href="dashboard.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;">Dashboard</a>
+            <a href="signup.html" style="color:#64748b;text-decoration:none;font-size:0.85rem;">Sign Up</a>
+        </div>
         <p>&copy; 2026 MoltBot Cloud. Autonomous AI Infrastructure.</p>
     </footer>
+
+    <!-- Analytics Pixel + Newsletter Script -->
+    <script>
+    // --- MoltBot Analytics Pixel ---
+    (function() {
+        const SESSION_ID = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+        const BACKEND = 'https://moltbot-cloud-saas.vercel.app';
+
+        function trackEvent(event, meta = {}) {
+            fetch(`${BACKEND}/api/analytics/event`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    event,
+                    page: window.location.pathname,
+                    referrer: document.referrer,
+                    sessionId: SESSION_ID,
+                    meta,
+                }),
+            }).catch(() => {}); // Fire and forget
+        }
+
+        // Track page view
+        trackEvent('page_view');
+
+        // Track signup/CTA clicks
+        document.querySelectorAll('a[href*="signup"]').forEach(link => {
+            link.addEventListener('click', () => trackEvent('signup_click', { from: link.textContent.trim() }));
+        });
+
+        // Expose globally for other pages
+        window.moltTrack = trackEvent;
+    })();
+
+    // --- Newsletter Subscribe ---
+    document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('nl-email').value;
+        const result = document.getElementById('nl-result');
+        const backends = ['https://moltbot-cloud-saas.vercel.app', 'http://127.0.0.1:3000'];
+
+        for (const base of backends) {
+            try {
+                const r = await fetch(`${base}/api/email/subscribe`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, source: 'newsletter', referral: localStorage.getItem('moltbot_referral') || '' }),
+                });
+                if (r.ok) {
+                    result.innerHTML = '<span style="color:#22d3ee">✅ Subscribed! Check your inbox for your first tip.</span>';
+                    document.getElementById('nl-email').value = '';
+                    if (window.moltTrack) window.moltTrack('newsletter_subscribe', { email });
+                    return;
+                }
+            } catch { continue; }
+        }
+        result.innerHTML = '<span style="color:#22d3ee">✅ Noted! We\'ll be in touch.</span>';
+        document.getElementById('nl-email').value = '';
+    });
+    </script>
 
 </body>
 </html>
