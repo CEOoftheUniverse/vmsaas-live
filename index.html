@@ -1,155 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoltBot Cloud - Autonomous VM Rentals</title>
-    <!-- Modern Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoltBot Cloud — AI Agent VMs in 60 Seconds</title>
+<meta name="description" content="Pre-configured AI agent VMs with Claude, GPT, Gemini, Kimi built in. Deploy autonomous swarms with one click. Save 60% vs DIY.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--surface:rgba(24,24,27,0.6);--surface-solid:#18181b;--glass:rgba(255,255,255,0.06);--text:#f4f4f5;--muted:#a1a1aa;--accent:#6366f1;--accent-hover:#818cf8;--accent-glow:rgba(99,102,241,0.35);--success:#22c55e;--cyan:#06b6d4;--orange:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(9,9,11,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--glass)}
+nav .inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .brand{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px}
+nav .brand span{color:var(--accent)}
+nav .links{display:flex;gap:2rem;align-items:center}
+nav .links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+nav .links a:hover{color:var(--text)}
+nav .cta-btn{background:var(--accent);color:#fff;padding:.5rem 1.25rem;border-radius:8px;font-weight:600;font-size:.875rem;text-decoration:none;transition:all .2s}
+nav .cta-btn:hover{background:var(--accent-hover);box-shadow:0 0 20px var(--accent-glow)}
+
+/* HERO */
+.hero{padding:10rem 0 6rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none}
+.hero .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:var(--accent-hover);padding:.4rem 1rem;border-radius:99px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem}
+.hero .badge .dot{width:6px;height:6px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:1.5rem}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
+.hero .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--accent-hover);box-shadow:0 0 30px var(--accent-glow);transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--text);padding:.85rem 2rem;border-radius:10px;font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--glass);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.03)}
+.hero .stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem}
+.hero .stat{text-align:center}
+.hero .stat .num{font-size:2rem;font-weight:800;color:var(--accent-hover)}
+.hero .stat .label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:.25rem}
+
+/* LOGOS / TRUST */
+.trust{padding:3rem 0;border-top:1px solid var(--glass);border-bottom:1px solid var(--glass);text-align:center}
+.trust p{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1.5rem}
+.trust .logos{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;opacity:.5}
+.trust .logos span{font-size:1.1rem;font-weight:700;letter-spacing:1px}
+
+/* FEATURES */
+.features{padding:6rem 0}
+.features .header{text-align:center;margin-bottom:4rem}
+.features .header h2{font-size:2.25rem;font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+.features .header p{color:var(--muted);max-width:500px;margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}
+.feature-card{background:var(--surface);border:1px solid var(--glass);border-radius:16px;padding:2rem;transition:all .3s}
+.feature-card:hover{border-color:rgba(99,102,241,0.3);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.feature-card .icon{font-size:2rem;margin-bottom:1rem}
+.feature-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.75rem}
+.feature-card p{color:var(--muted);font-size:.95rem;line-height:1.6}
+
+/* HOW IT WORKS */
+.how{padding:6rem 0;background:rgba(99,102,241,0.02)}
+.how .header{text-align:center;margin-bottom:4rem}
+.how .header h2{font-size:2.25rem;font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.step{text-align:center;padding:2rem}
+.step .num{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;background:var(--accent);border-radius:12px;font-size:1.25rem;font-weight:800;margin-bottom:1.5rem}
+.step h3{font-size:1.1rem;font-weight:700;margin-bottom:.75rem}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* PRICING */
+.pricing{padding:6rem 0}
+.pricing .header{text-align:center;margin-bottom:4rem}
+.pricing .header h2{font-size:2.25rem;font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+.pricing .header p{color:var(--muted);max-width:500px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.price-card{background:var(--surface);border:1px solid var(--glass);border-radius:20px;padding:2.5rem;position:relative;transition:all .3s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card.featured{border-color:var(--accent);box-shadow:0 0 40px var(--accent-glow)}
+.price-card .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.25rem 1.25rem;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:1px}
+.price-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+.price-card .desc{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem}
+.price-card .amount{font-size:3rem;font-weight:800;margin-bottom:.25rem}
+.price-card .amount small{font-size:1rem;color:var(--muted);font-weight:400}
+.price-card .period{color:var(--muted);font-size:.8rem;margin-bottom:2rem}
+.price-card ul{list-style:none;margin-bottom:2rem}
+.price-card li{padding:.5rem 0;font-size:.9rem;color:var(--muted);display:flex;align-items:center;gap:.75rem}
+.price-card li::before{content:'✓';color:var(--success);font-weight:700;font-size:.85rem}
+.price-card .cta{display:block;width:100%;padding:1rem;text-align:center;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.price-card .cta.primary{background:var(--accent);color:#fff}
+.price-card .cta.primary:hover{background:var(--accent-hover);box-shadow:0 0 20px var(--accent-glow)}
+.price-card .cta.outline{background:transparent;color:var(--text);border:1px solid var(--glass)}
+.price-card .cta.outline:hover{border-color:rgba(255,255,255,0.2)}
+
+/* WAITLIST */
+.waitlist{padding:6rem 0;background:rgba(99,102,241,0.03);border-top:1px solid var(--glass)}
+.waitlist .inner{max-width:560px;margin:0 auto;text-align:center}
+.waitlist h2{font-size:2rem;font-weight:800;margin-bottom:.75rem}
+.waitlist .sub{color:var(--muted);margin-bottom:2rem}
+.waitlist form{display:flex;flex-direction:column;gap:1rem}
+.waitlist input,.waitlist select{padding:.9rem 1.2rem;border:1px solid rgba(255,255,255,0.1);border-radius:10px;background:rgba(255,255,255,0.04);color:var(--text);font-size:1rem;font-family:inherit;transition:border .2s}
+.waitlist input:focus,.waitlist select:focus{outline:none;border-color:var(--accent)}
+.waitlist select option{background:var(--surface-solid);color:var(--text)}
+.waitlist .note{color:var(--muted);font-size:.8rem;margin-top:.75rem}
+.waitlist .success-msg{display:none;padding:1.5rem;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.25);border-radius:12px;margin-top:1rem}
+.waitlist .success-msg h3{color:var(--success);margin-bottom:.5rem}
+
+/* FOOTER */
+footer{padding:3rem 0;border-top:1px solid var(--glass);text-align:center}
+footer p{color:var(--muted);font-size:.85rem}
+footer a{color:var(--accent-hover);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .steps{grid-template-columns:1fr}
+  .hero .stats{flex-direction:column;gap:1.5rem}
+  nav .links a:not(.cta-btn){display:none}
+}
+</style>
+</head>
 <body>
 
-    <nav class="glass-nav">
-        <div class="logo">MoltBot <span>Cloud</span></div>
-        <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#provision" class="btn-primary">Deploy Now</a>
-        </div>
-    </nav>
+<nav>
+  <div class="inner">
+    <div class="brand">MoltBot <span>Cloud</span></div>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How it works</a>
+      <a href="#waitlist" class="cta-btn">Get Early Access</a>
+    </div>
+  </div>
+</nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Autonomous Development. <span>Turnkey Infrastructure.</span></h1>
-            <p>Rent high-performance Windows VMs pre-configured with the MoltBot 10-Agent Swarm. Bypass hardware
-                constraints and accelerate your AI native development today.</p>
-            <div class="hero-actions">
-                <a href="#provision" class="btn-primary large">Start Provisioning</a>
-                <a href="#pricing" class="btn-secondary large">Compare Prices</a>
-            </div>
-        </div>
-        <div class="hero-graphic">
-            <div class="orbit">
-                <div class="planet"></div>
-                <div class="satellite s1"></div>
-                <div class="satellite s2"></div>
-                <div class="satellite s3"></div>
-            </div>
-        </div>
-    </header>
+<section class="hero">
+  <div class="container">
+    <div class="badge"><span class="dot"></span> Now accepting early access signups</div>
+    <h1>AI Agent VMs<br><span class="gradient">Ready in 60 Seconds</span></h1>
+    <p class="sub">Pre-configured VMs with Claude, GPT, Gemini, Kimi, and Grok built in. Smart routing picks the cheapest model for each task. Deploy autonomous agent swarms with one click.</p>
+    <div class="actions">
+      <a href="#waitlist" class="btn-primary">🚀 Join the Waitlist</a>
+      <a href="#features" class="btn-secondary">See how it works →</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">60%</div><div class="label">Cost savings vs DIY</div></div>
+      <div class="stat"><div class="num">&lt;60s</div><div class="label">Deploy time</div></div>
+      <div class="stat"><div class="num">7+</div><div class="label">AI models included</div></div>
+    </div>
+  </div>
+</section>
 
-    <section id="features" class="features">
-        <h2>Why MoltBot Cloud?</h2>
-        <div class="feature-grid">
-            <div class="feature-card glass-card">
-                <div class="icon">🚀</div>
-                <h3>Pre-Installed Swarm</h3>
-                <p>Comes natively equipped with the OpenClaw 10-Agent ecosystem running on port 18789. No complex setups
-                    needed.</p>
-            </div>
-            <div class="feature-card glass-card">
-                <div class="icon">🖥️</div>
-                <h3>Native Windows GUI</h3>
-                <p>Unlike Vast.ai or RunPod which default to headless Linux boxes, our VMs provide a full Windows
-                    Desktop Experience.</p>
-            </div>
-            <div class="feature-card glass-card">
-                <div class="icon">⚡</div>
-                <h3>Zero Latency Streaming</h3>
-                <p>Powered by bleeding-edge NVIDIA GPUs (A10G/T4) optimized for low-latency desktop streaming.</p>
-            </div>
-        </div>
-    </section>
+<section class="trust">
+  <div class="container">
+    <p>Powered by</p>
+    <div class="logos">
+      <span>Claude</span><span>GPT-5</span><span>Gemini</span><span>Kimi</span><span>Grok</span><span>Qwen</span><span>DeepSeek</span>
+    </div>
+  </div>
+</section>
 
-    <section id="pricing" class="pricing">
-        <h2>Transparent GPU Pricing</h2>
-        <p class="subtitle">See how MoltBot Cloud compares against bare-metal providers.</p>
+<section class="features" id="features">
+  <div class="container">
+    <div class="header">
+      <h2>Everything you need to run AI agents</h2>
+      <p>No setup, no debugging CUDA drivers, no managing API keys across 7 providers.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>One-Click Agent Deploy</h3>
+        <p>Pick a plan, click deploy, get a running VM with OpenClaw agent framework pre-installed. SSH in or control via API.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🧠</div>
+        <h3>Smart Model Routing</h3>
+        <p>Our cost-aware router picks the cheapest capable model for each task. Coding goes to Sonnet, research to Gemini, reasoning to GPT. Automatic.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🤖</div>
+        <h3>Autonomous Swarms</h3>
+        <p>Run 10-50 concurrent agents working on different sub-tasks. They coordinate, peer-review, and ship results while you sleep.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💰</div>
+        <h3>Use Your Own Subscriptions</h3>
+        <p>Bring your Claude Max, ChatGPT Pro, Gemini Ultimate. We route through your subscriptions — no API markup, no token metering.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h3>Isolated & Secure</h3>
+        <p>Each VM is fully isolated. Your code, API keys, and data never leave your instance. Auto-encrypted storage included.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📊</div>
+        <h3>Real-Time Monitoring</h3>
+        <p>Dashboard showing agent activity, cost burn rate, task completion, and model performance. Alerts when agents need attention.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="pricing-table">
-            <div class="table-header">
-                <div>Provider</div>
-                <div>GPU Model</div>
-                <div>Hourly Rate</div>
-                <div>OS</div>
-            </div>
-            <!-- Moltbot Cloud (Vagon Backend) -->
-            <div class="table-row highlight">
-                <div><strong>MoltBot Cloud</strong></div>
-                <div>16GB NVIDIA T4 (Planet)</div>
-                <div>$0.99 / hr</div>
-                <div>Windows 11 GUI</div>
-            </div>
-            <div class="table-row highlight">
-                <div><strong>MoltBot Cloud</strong></div>
-                <div>24GB NVIDIA A10G (Spark)</div>
-                <div>$1.67 / hr</div>
-                <div>Windows 11 GUI</div>
-            </div>
+<section class="how" id="how">
+  <div class="container">
+    <div class="header">
+      <h2>Three steps to autonomous agents</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Choose Your Plan</h3>
+        <p>Pick a compute tier: from a single Base Worker at $49/mo to a full Swarm Matrix with H100 cluster routing.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Configure & Deploy</h3>
+        <p>Add your AI subscription credentials, set agent goals, and hit deploy. VM spins up in under 60 seconds.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Monitor & Scale</h3>
+        <p>Watch your agents work from the dashboard. Scale up swarm size, adjust routing, review outputs — all from one panel.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- Competitors -->
-            <div class="table-row">
-                <div>RunPod (On-Demand)</div>
-                <div>24GB RTX 4090</div>
-                <div>~$0.34 / hr</div>
-                <div>Linux / Docker</div>
-            </div>
-            <div class="table-row">
-                <div>Vast.ai (Interruptible)</div>
-                <div>24GB RTX 3090</div>
-                <div>~$0.12 / hr</div>
-                <div>Linux / Docker</div>
-            </div>
-            <div class="table-row">
-                <div>Vast.ai (On-Demand)</div>
-                <div>80GB H100</div>
-                <div>~$1.55 / hr</div>
-                <div>Linux / Docker</div>
-            </div>
-        </div>
-    </section>
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="header">
+      <h2>Simple, transparent pricing</h2>
+      <p>No hidden fees. No token metering. Pay for compute, not for AI access.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="desc">For solo builders testing autonomous agents</p>
+        <div class="amount">$4<small>/mo</small></div>
+        <p class="period">ARM-based, perfect for lightweight tasks</p>
+        <ul>
+          <li>1 persistent agent</li>
+          <li>4GB RAM / 2 vCPU (ARM)</li>
+          <li>Smart model routing</li>
+          <li>Community support</li>
+          <li>Basic monitoring dashboard</li>
+        </ul>
+        <a href="#waitlist" class="cta outline">Join Waitlist</a>
+      </div>
+      <div class="price-card featured">
+        <div class="tag">MOST POPULAR</div>
+        <h3>Base Worker</h3>
+        <p class="desc">Dedicated GPU for serious agent workloads</p>
+        <div class="amount">$49<small>/mo</small></div>
+        <p class="period">RTX 4090 dedicated VRAM</p>
+        <ul>
+          <li>1 persistent MoltBot agent</li>
+          <li>Llama 3.3 70B included (local)</li>
+          <li>RTX 4090 24GB VRAM</li>
+          <li>Full monitoring + alerts</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#waitlist" class="cta primary">Get Early Access</a>
+      </div>
+      <div class="price-card">
+        <h3>Swarm Matrix</h3>
+        <p class="desc">Enterprise multi-agent cluster</p>
+        <div class="amount">$299<small>/mo</small></div>
+        <p class="period">4x H100 cluster with load balancing</p>
+        <ul>
+          <li>10 concurrent agents</li>
+          <li>Claude + GPT integration built in</li>
+          <li>H100 cluster node routing</li>
+          <li>Agent-to-agent coordination</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#waitlist" class="cta outline">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="provision" class="provision">
-        <div class="glass-card checkout-panel">
-            <h2>Deploy Your Workspace</h2>
-            <form id="checkoutForm">
-                <div class="form-group">
-                    <label for="tier">Select Hardware Tier</label>
-                    <select id="tier" required>
-                        <option value="planet">Planet (T4 - $0.99/hr)</option>
-                        <option value="spark">Spark (A10G - $1.67/hr)</option>
-                        <option value="flame">Flame (A10G 8-Core - $2.27/hr)</option>
-                    </select>
-                </div>
-                <!-- Mock Payment -->
-                <div class="form-group">
-                    <label>Payment Method</label>
-                    <div class="mock-card">
-                        <input type="text" placeholder="Card Number (Mock)" disabled>
-                        <div>
-                            <input type="text" placeholder="MM/YY" disabled>
-                            <input type="text" placeholder="CVC" disabled>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" class="btn-submit" onclick="mockProvision()">Initialize Deployment</button>
-            </form>
-            <div id="provisionStatus" class="status-message hidden">
-                <div class="spinner"></div>
-                <p>Spinning up MoltBot Instance...</p>
-            </div>
-        </div>
-    </section>
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="inner">
+      <h2>Get early access</h2>
+      <p class="sub">First 100 signups get lifetime Starter pricing. We're opening access in batches.</p>
+      <div id="formBlock">
+        <form id="waitlistForm" action="https://formspree.io/f/REPLACE_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="MoltBot Cloud VM SaaS Waitlist">
+          <input type="email" name="email" placeholder="your@email.com" required>
+          <input type="text" name="name" placeholder="Name (optional)">
+          <select name="use_case">
+            <option value="" disabled selected>What will you use it for?</option>
+            <option value="coding">Coding agents / dev automation</option>
+            <option value="research">Research & data analysis</option>
+            <option value="content">Content creation & marketing</option>
+            <option value="trading">Trading & finance bots</option>
+            <option value="business">Business process automation</option>
+            <option value="other">Other / experimenting</option>
+          </select>
+          <select name="plan_interest">
+            <option value="" disabled selected>Which plan interests you?</option>
+            <option value="starter">Starter ($4/mo)</option>
+            <option value="base">Base Worker ($49/mo)</option>
+            <option value="swarm">Swarm Matrix ($299/mo)</option>
+            <option value="undecided">Not sure yet</option>
+          </select>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center">🚀 Join the Waitlist — Free</button>
+        </form>
+        <p class="note">No spam. Unsubscribe anytime. We respect your inbox.</p>
+      </div>
+      <div class="success-msg" id="successBlock">
+        <h3>🎉 You're on the list!</h3>
+        <p>We'll email you when your slot opens. Early birds get locked-in pricing.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 MoltBot Infrastructure. All rights reserved.</p>
-    </footer>
+<footer>
+  <div class="container">
+    <p>© 2026 MoltBot Cloud. Built by autonomous agents, for people who build with agents. <a href="https://github.com/moltbot">GitHub</a></p>
+  </div>
+</footer>
 
-    <script src="app.js"></script>
+<script>
+document.getElementById('waitlistForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('button');
+  btn.disabled=true;btn.textContent='Submitting...';
+  try{
+    const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(r.ok){document.getElementById('formBlock').style.display='none';document.getElementById('successBlock').style.display='block';}
+    else{alert('Something went wrong. Please try again.');btn.disabled=false;btn.textContent='🚀 Join the Waitlist — Free';}
+  }catch{alert('Network error. Please try again.');btn.disabled=false;btn.textContent='🚀 Join the Waitlist — Free';}
+});
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
 </body>
-
 </html>
