@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog — MoltBot Cloud Updates</title>
+<meta name="description" content="Track every feature, improvement, and fix we ship to MoltBot Cloud. Updated weekly.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/changelog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:2rem}
+.c{max-width:700px;margin:0 auto;padding:0 2rem}
+.hero{padding:6rem 0 2rem;text-align:center}
+h1{font-family:'Outfit',sans-serif;font-size:2.2rem;font-weight:800}
+h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--m);font-size:.95rem;margin-top:.5rem}
+.timeline{margin:2rem 0 4rem;border-left:2px solid var(--b);padding-left:2rem;position:relative}
+.release{margin-bottom:2.5rem;position:relative}
+.release::before{content:'';position:absolute;left:-2.55rem;top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--a);border:2px solid var(--bg)}
+.release-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.version{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700}
+.date{color:var(--m);font-size:.8rem}
+.tag{display:inline-block;padding:.1rem .4rem;border-radius:4px;font-size:.65rem;font-weight:600;margin-left:.5rem}
+.tag-new{background:rgba(34,197,94,.15);color:var(--g)}
+.tag-fix{background:rgba(239,68,68,.15);color:var(--r)}
+.tag-perf{background:rgba(6,182,212,.15);color:var(--c)}
+ul{margin:.5rem 0;padding-left:1.25rem}
+li{margin-bottom:.4rem;font-size:.88rem;color:var(--m)}
+li strong{color:var(--t)}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+</style>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="api-docs.html">API</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+<div class="c">
+<div class="hero"><h1><span class="grad">Changelog</span></h1><p class="sub">Every feature, improvement, and fix we ship.</p></div>
+<div class="timeline">
+
+<div class="release">
+<div class="release-header"><span class="version">v0.33.0</span><span class="date">Apr 13, 2026</span><span class="tag tag-new">NEW</span></div>
+<ul>
+<li><strong>Comparison page</strong> — feature comparison vs Cursor, Devin, Copilot Workspace</li>
+<li><strong>Blog index</strong> — redesigned blog page with 5 post cards and topic tags</li>
+<li><strong>Referral program</strong> — affiliate page with link generator and 20% recurring commission</li>
+<li><strong>Customer portal</strong> — email login, subscription overview, activity log</li>
+</ul>
+</div>
+
+<div class="release">
+<div class="release-header"><span class="version">v0.31.0</span><span class="date">Apr 13, 2026</span><span class="tag tag-new">NEW</span></div>
+<ul>
+<li><strong>Interactive API docs</strong> — 14 endpoints with sidebar nav, 'Try it' buttons</li>
+<li><strong>Webhook system</strong> — real-time notifications for signups, payments, downtime</li>
+<li><strong>A/B testing framework</strong> — deterministic variant assignment and conversion tracking</li>
+<li><strong>Monitoring alerts</strong> — health checks with Discord/Slack webhook on downtime</li>
+<li><strong>Email templates</strong> — 5 HTML-rich branded templates for drip sequences</li>
+</ul>
+</div>
+
+<div class="release">
+<div class="release-header"><span class="version">v0.30.0</span><span class="date">Apr 12, 2026</span><span class="tag tag-perf">PERF</span></div>
+<ul>
+<li><strong>LLM response cache</strong> — 500 entries, 10min TTL, saves redundant API calls</li>
+<li><strong>Rate limiting</strong> — 30 req/min per IP on the Omnisphere gateway</li>
+<li><strong>Admin dashboard</strong> — 6 stat cards, system health, top pages, 30s auto-refresh</li>
+<li><strong>Test suite</strong> — 16+ automated tests across FastAPI, Gateway, and SaaS</li>
+<li><strong>Page performance</strong> — preconnect/dns-prefetch hints</li>
+</ul>
+</div>
+
+<div class="release">
+<div class="release-header"><span class="version">v0.29.0</span><span class="date">Apr 12, 2026</span><span class="tag tag-new">NEW</span></div>
+<ul>
+<li><strong>Analytics tracking</strong> — page views, signup clicks, checkout events</li>
+<li><strong>Email drip automation</strong> — 6-step sequence (Day 0→14)</li>
+<li><strong>Testimonials</strong> — social proof section with 3 glassmorphism cards</li>
+<li><strong>Newsletter capture</strong> — email form with backend integration</li>
+<li><strong>SEO blog post</strong> — "How to Build an AI Agent Swarm"</li>
+</ul>
+</div>
+
+<div class="release">
+<div class="release-header"><span class="version">v0.28.0</span><span class="date">Apr 11, 2026</span><span class="tag tag-new">NEW</span></div>
+<ul>
+<li><strong>Stripe checkout</strong> — multi-backend fallback with 3-tier plan selector</li>
+<li><strong>Affiliate tracking</strong> — ?ref= parameter capture with 30-day persistence</li>
+<li><strong>Signup flow</strong> — dedicated signup page with plan selection</li>
+</ul>
+</div>
+
+<div class="release">
+<div class="release-header"><span class="version">v0.27.0</span><span class="date">Apr 11, 2026</span><span class="tag tag-fix">FIX</span></div>
+<ul>
+<li><strong>Landing page overhaul</strong> — premium glassmorphism design with SEO best practices</li>
+<li><strong>Environment hardening</strong> — NVIDIA NIM API key, Omnisphere URL config</li>
+<li><strong>JSON-LD structured data</strong> — OpenGraph, canonical URLs, sitemap</li>
+</ul>
+</div>
+
+</div>
+</div>
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="pricing.html" style="color:var(--a)">Pricing</a></div></footer>
+</body>
+</html>
