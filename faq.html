@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — MoltBot Cloud</title>
+<meta name="description" content="Frequently asked questions about MoltBot Cloud: pricing, features, security, setup, and more.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/faq.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--c:#06b6d4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:2rem}
+.c{max-width:700px;margin:0 auto;padding:5.5rem 2rem 4rem}
+h1{font-family:'Outfit',sans-serif;font-size:2.2rem;font-weight:800;text-align:center;margin-bottom:.5rem}
+h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--m);font-size:.95rem;text-align:center;margin-bottom:2.5rem}
+.category{margin:2rem 0}
+.cat-title{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--a);margin-bottom:1rem;font-size:.8rem}
+.faq{border:1px solid var(--b);border-radius:10px;margin-bottom:.5rem;overflow:hidden;background:var(--s)}
+.faq summary{padding:1rem 1.25rem;cursor:pointer;font-weight:600;font-size:.9rem;list-style:none;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq summary:hover{background:rgba(255,255,255,.02)}
+.faq summary::after{content:'＋';color:var(--a);font-size:1.1rem;flex-shrink:0}
+.faq[open] summary::after{content:'−'}
+.faq[open] summary{border-bottom:1px solid var(--b)}
+.faq-body{padding:1rem 1.25rem;color:var(--m);font-size:.85rem}
+.faq-body a{color:var(--a)}
+.cta{text-align:center;padding:2.5rem 0;margin-top:2rem;border-top:1px solid var(--b)}
+.btn{display:inline-block;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
+.btn:hover{background:#818cf8;transform:translateY(-2px)}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is MoltBot Cloud?","acceptedAnswer":{"@type":"Answer","text":"MoltBot Cloud provides pre-configured AI agent VMs for software development. Each VM runs 5-10 AI agents in parallel with 12 LLM models and persistent memory."}},
+{"@type":"Question","name":"How is MoltBot different from Cursor or Copilot?","acceptedAnswer":{"@type":"Answer","text":"MoltBot runs multiple agents in parallel on a dedicated VM with persistent memory. Cursor and Copilot are single-agent IDE tools without dedicated infrastructure."}},
+{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Plans start at $49/mo for 3-5 agents. Swarm plan is $149/mo for 5-10 agents. Enterprise is $299/mo with priority GPU and 24/7 support."}},
+{"@type":"Question","name":"Is there a free trial?","acceptedAnswer":{"@type":"Answer","text":"Yes, all plans include a 7-day free trial with no credit card required."}}
+]}
+</script>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+
+<div class="c">
+<h1>Frequently Asked <span class="grad">Questions</span></h1>
+<p class="sub">Everything you need to know about MoltBot Cloud.</p>
+
+<div class="category">
+<div class="cat-title">🤖 General</div>
+
+<details class="faq">
+<summary>What is MoltBot Cloud?</summary>
+<div class="faq-body">MoltBot Cloud provides pre-configured AI agent VMs for software development. Each VM runs 5-10 AI agents in parallel, powered by 12 LLM models with smart routing, persistent ChromaDB memory, and self-healing infrastructure. Think of it as having a full AI development team on a dedicated server.</div>
+</details>
+
+<details class="faq">
+<summary>How is MoltBot different from Cursor, Devin, or Copilot?</summary>
+<div class="faq-body">MoltBot runs <strong>multiple agents in parallel</strong> on a dedicated VM with persistent memory across sessions. Cursor and Copilot are single-agent IDE plugins. Devin is a single agent in a sandboxed environment at $500/mo. MoltBot gives you 5-10 agents with 12 models for $49-$299/mo. <a href="compare.html">See the full comparison →</a></div>
+</details>
+
+<details class="faq">
+<summary>What can MoltBot agents do?</summary>
+<div class="faq-body">MoltBot agents can write code, run terminal commands, edit files, manage git repos, deploy to production, debug errors, write tests, generate documentation, and communicate via Telegram — all autonomously. They can work on multiple projects simultaneously.</div>
+</details>
+</div>
+
+<div class="category">
+<div class="cat-title">💰 Pricing & Billing</div>
+
+<details class="faq">
+<summary>How much does MoltBot Cloud cost?</summary>
+<div class="faq-body"><strong>Base:</strong> $49/mo (3-5 agents) · <strong>Swarm:</strong> $149/mo (5-10 agents) · <strong>Enterprise:</strong> $299/mo (10+ agents, priority GPU, 24/7 support). All plans include a 7-day free trial. <a href="pricing.html">View full pricing →</a></div>
+</details>
+
+<details class="faq">
+<summary>Is there a free trial?</summary>
+<div class="faq-body">Yes! All plans include a <strong>7-day free trial</strong> with no credit card required. You get full access to all features during the trial period.</div>
+</details>
+
+<details class="faq">
+<summary>Can I change plans or cancel anytime?</summary>
+<div class="faq-body">Yes. Upgrade or downgrade anytime — changes take effect immediately. Cancel anytime with no penalties; cancellation takes effect at the end of your current billing period. Your data is preserved for 30 days after cancellation.</div>
+</details>
+
+<details class="faq">
+<summary>Do I need to pay for LLM API keys separately?</summary>
+<div class="faq-body">No. MoltBot includes smart model routing that uses <strong>free NVIDIA NIM models</strong> for simple tasks at zero cost. For premium models (Claude, GPT-4), usage is included in your plan up to your tier's limits.</div>
+</details>
+</div>
+
+<div class="category">
+<div class="cat-title">🔒 Security & Data</div>
+
+<details class="faq">
+<summary>Who can access my VM and code?</summary>
+<div class="faq-body">Only you. Each customer gets a <strong>dedicated, isolated VM</strong>. MoltBot staff cannot access your VM without your explicit permission. Your code never leaves your VM unless you deploy it.</div>
+</details>
+
+<details class="faq">
+<summary>Is my code used to train AI models?</summary>
+<div class="faq-body"><strong>No.</strong> We never use your code, prompts, or agent outputs to train AI models. Your data is yours. See our <a href="terms.html">privacy policy</a> for full details.</div>
+</details>
+
+<details class="faq">
+<summary>What happens to my data if I cancel?</summary>
+<div class="faq-body">Your data is preserved on the VM for 30 days after cancellation. You can download everything via RDP during that period. After 30 days, the VM is securely wiped.</div>
+</details>
+</div>
+
+<div class="category">
+<div class="cat-title">🛠️ Technical</div>
+
+<details class="faq">
+<summary>What OS do the VMs run?</summary>
+<div class="faq-body">Windows Server with full GUI access via Remote Desktop (RDP). All development tools, Node.js, Python, Git, VS Code, and the agent infrastructure come pre-installed.</div>
+</details>
+
+<details class="faq">
+<summary>Can I install my own software on the VM?</summary>
+<div class="faq-body">Yes! You have full administrator access. Install any IDE, framework, database, or tool you need. The VM is yours to customize.</div>
+</details>
+
+<details class="faq">
+<summary>What happens if a service crashes?</summary>
+<div class="faq-body">MoltBot includes <strong>self-healing infrastructure</strong>. Services auto-restart on failure, health checks run every 60 seconds, and you're notified via the status page. 99.5% uptime SLA. <a href="status.html">Check system status →</a></div>
+</details>
+
+<details class="faq">
+<summary>Can I use the API with my existing tools?</summary>
+<div class="faq-body">Yes. MoltBot exposes an <strong>OpenAI-compatible API</strong> at /v1/chat/completions. Any tool that works with OpenAI (LangChain, LlamaIndex, Continue.dev, etc.) works with MoltBot — just change the base URL. <a href="api-docs.html">View API docs →</a></div>
+</details>
+</div>
+
+<div class="cta">
+    <p style="color:var(--m);margin-bottom:1rem">Still have questions?</p>
+    <a href="signup.html" class="btn">Start Free Trial →</a>
+</div>
+</div>
+
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="terms.html" style="color:var(--a)">Terms</a></div></footer>
+</body>
+</html>
