@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoltBot Cloud vs Competitors — Feature Comparison</title>
+<meta name="description" content="Compare MoltBot Cloud to Cursor, Devin, and Copilot Workspace. See why multi-agent swarms outperform single-agent coding assistants.">
+<meta property="og:title" content="MoltBot Cloud vs Cursor vs Devin vs Copilot Workspace">
+<meta property="og:description" content="Full feature comparison: parallel agents, model arbitrage, persistent memory, and pricing.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/compare.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:2rem}
+.c{max-width:1000px;margin:0 auto;padding:0 2rem}
+.hero{text-align:center;padding:6rem 0 3rem}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:.75rem}
+h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--m);font-size:1rem;max-width:600px;margin:0 auto 2rem}
+.compare-table{width:100%;border-collapse:collapse;background:var(--s);border-radius:16px;overflow:hidden;margin:2rem 0}
+.compare-table th,.compare-table td{padding:.85rem 1rem;text-align:center;border-bottom:1px solid var(--b);font-size:.85rem}
+.compare-table th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.7rem;position:sticky;top:64px;background:var(--s)}
+.compare-table th:first-child,.compare-table td:first-child{text-align:left;font-weight:500;min-width:200px}
+.compare-table th.highlight{color:var(--a);font-weight:700}
+.compare-table td.highlight{background:rgba(99,102,241,.03);border-left:1px solid rgba(99,102,241,.1);border-right:1px solid rgba(99,102,241,.1)}
+.y{color:var(--g);font-weight:700}
+.n{color:#52525b}
+.p{color:var(--c)}
+.winner-badge{display:inline-block;background:var(--a);color:#fff;font-size:.6rem;font-weight:700;padding:.15rem .4rem;border-radius:4px;margin-left:.5rem;vertical-align:middle}
+.cta{text-align:center;padding:3rem 0;margin:2rem 0;border-top:1px solid var(--b)}
+.btn{display:inline-block;background:var(--a);color:#fff;padding:.8rem 2rem;border-radius:10px;text-decoration:none;font-weight:700;transition:all .2s}
+.btn:hover{background:#818cf8;transform:translateY(-2px)}
+.section{margin:2.5rem 0}
+.section h2{font-family:'Outfit',sans-serif;font-size:1.4rem;margin-bottom:1rem;text-align:center}
+.verdict-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
+.verdict{background:var(--s);border:1px solid var(--b);border-radius:14px;padding:1.5rem;transition:transform .2s}
+.verdict:hover{transform:translateY(-3px)}
+.verdict h3{font-size:1rem;margin-bottom:.5rem}
+.verdict p{color:var(--m);font-size:.85rem}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+@media(max-width:768px){.compare-table{font-size:.75rem}.compare-table th,.compare-table td{padding:.5rem}}
+</style>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="pricing.html">Pricing</a><a href="api-docs.html">API</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+
+<div class="c">
+<div class="hero">
+<h1>MoltBot Cloud vs <span class="grad">The Competition</span></h1>
+<p class="sub">See how autonomous multi-agent swarms compare to single-agent coding assistants on features, pricing, and capabilities.</p>
+</div>
+
+<table class="compare-table">
+<thead><tr>
+    <th>Feature</th>
+    <th class="highlight">MoltBot Cloud <span class="winner-badge">BEST</span></th>
+    <th>Cursor Pro</th>
+    <th>Devin</th>
+    <th>Copilot Workspace</th>
+</tr></thead>
+<tbody>
+<tr><td><strong>Parallel Agents</strong></td><td class="highlight"><span class="y">5-10 agents</span></td><td><span class="n">1 agent</span></td><td><span class="p">1 agent</span></td><td><span class="n">1 agent</span></td></tr>
+<tr><td><strong>LLM Models</strong></td><td class="highlight"><span class="y">12 models</span></td><td><span class="p">3 models</span></td><td><span class="p">1 model</span></td><td><span class="p">2 models</span></td></tr>
+<tr><td><strong>Smart Model Routing</strong></td><td class="highlight"><span class="y">✓ Automatic</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td></tr>
+<tr><td><strong>Persistent Memory</strong></td><td class="highlight"><span class="y">✓ ChromaDB</span></td><td><span class="n">✗ Session only</span></td><td><span class="p">✓ Limited</span></td><td><span class="n">✗</span></td></tr>
+<tr><td><strong>Dedicated GPU VM</strong></td><td class="highlight"><span class="y">✓ Full VM</span></td><td><span class="n">✗ Cloud IDE</span></td><td><span class="p">✓ Sandboxed</span></td><td><span class="n">✗ Browser</span></td></tr>
+<tr><td><strong>Self-Healing Infra</strong></td><td class="highlight"><span class="y">✓ Auto-restart</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td></tr>
+<tr><td><strong>OpenAI-Compatible API</strong></td><td class="highlight"><span class="y">✓ Drop-in</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td></tr>
+<tr><td><strong>Git Auto-Deploy</strong></td><td class="highlight"><span class="y">✓ GitHub Pages</span></td><td><span class="n">✗ Manual</span></td><td><span class="p">✓</span></td><td><span class="p">✓ PR-based</span></td></tr>
+<tr><td><strong>Free Model Access</strong></td><td class="highlight"><span class="y">✓ NVIDIA NIM</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td><td><span class="n">✗</span></td></tr>
+<tr><td><strong>Starting Price</strong></td><td class="highlight"><span class="y">$49/mo</span></td><td><span class="p">$20/mo</span></td><td><span class="n">$500/mo</span></td><td><span class="n">Included*</span></td></tr>
+<tr><td><strong>Price per Agent</strong></td><td class="highlight"><span class="y">$9.80/agent</span></td><td><span class="n">$20/agent</span></td><td><span class="n">$500/agent</span></td><td><span class="n">N/A</span></td></tr>
+</tbody>
+</table>
+
+<div class="section">
+    <h2>The Verdict</h2>
+    <div class="verdict-grid">
+        <div class="verdict">
+            <h3>🏆 vs Cursor Pro</h3>
+            <p>Cursor is a great IDE with AI autocomplete, but it's a <strong>single-agent tool</strong>. MoltBot runs 5-10 agents in parallel — fundamentally different throughput. Cursor is $20/mo for 1 agent; MoltBot is $49/mo for 5 agents ($9.80/agent).</p>
+        </div>
+        <div class="verdict">
+            <h3>🏆 vs Devin</h3>
+            <p>Devin can autonomously solve tasks, but at <strong>$500/mo</strong> for a single agent in a sandboxed environment. MoltBot gives you a full Windows VM with 12 models and parallel agents for 1/10th the price.</p>
+        </div>
+        <div class="verdict">
+            <h3>🏆 vs Copilot Workspace</h3>
+            <p>Copilot Workspace is browser-based and limited to GitHub PRs. MoltBot gives you a <strong>persistent VM</strong> with ChromaDB memory that remembers your entire project context across sessions.</p>
+        </div>
+    </div>
+</div>
+
+<div class="cta">
+    <h2 style="font-family:'Outfit',sans-serif;margin-bottom:.5rem">Ready to Try Multi-Agent Development?</h2>
+    <p style="color:var(--m);margin-bottom:1rem">7-day free trial. No credit card required.</p>
+    <a href="signup.html" class="btn">Start Free Trial — From $49/mo →</a>
+</div>
+</div>
+
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="pricing.html" style="color:var(--a)">Pricing</a> · <a href="referral.html" style="color:var(--a)">Refer & Earn</a></div></footer>
+
+<script>
+(function(){const S=crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2);fetch('https://moltbot-cloud-saas.vercel.app/api/analytics/event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'page_view',page:'/compare.html',sessionId:S})}).catch(()=>{});})();
+</script>
+</body>
+</html>
