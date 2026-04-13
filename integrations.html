@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrations — MoltBot Cloud Works With Your Stack</title>
+<meta name="description" content="MoltBot Cloud integrates with LangChain, VS Code, Telegram, GitHub, Docker, and 20+ tools. OpenAI-compatible API means zero migration effort.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/integrations.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:2rem}
+.c{max-width:1000px;margin:0 auto;padding:0 2rem}
+.hero{text-align:center;padding:6rem 0 2rem}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-1px;margin-bottom:.75rem}
+h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--m);font-size:1rem;max-width:550px;margin:0 auto}
+.category{margin:2.5rem 0}
+.cat-title{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:1rem;padding-left:.5rem;border-left:3px solid var(--a)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem;text-align:center;transition:all .2s}
+.card:hover{border-color:rgba(99,102,241,.3);transform:translateY(-2px)}
+.card-icon{font-size:2rem;margin-bottom:.5rem}
+.card-name{font-weight:700;font-size:.9rem;margin-bottom:.25rem}
+.card-desc{color:var(--m);font-size:.72rem;line-height:1.4}
+.card-badge{display:inline-block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:.1rem .4rem;border-radius:3px;margin-top:.5rem}
+.b-native{background:rgba(34,197,94,.12);color:var(--g)}
+.b-api{background:rgba(99,102,241,.12);color:var(--a)}
+.b-plugin{background:rgba(6,182,212,.12);color:var(--c)}
+.callout{background:rgba(99,102,241,.04);border:1px solid rgba(99,102,241,.12);border-radius:14px;padding:1.5rem 2rem;margin:2rem 0;text-align:center}
+.callout p{color:var(--m);font-size:.88rem;margin-bottom:1rem}
+code{background:rgba(6,182,212,.1);padding:.15rem .4rem;border-radius:4px;font-size:.82rem;color:var(--c);font-family:'Courier New',monospace}
+.cta{text-align:center;padding:2.5rem 0;margin:1rem 0;border-top:1px solid var(--b)}
+.btn{display:inline-block;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
+.btn:hover{background:#818cf8;transform:translateY(-2px)}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+@media(max-width:500px){.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+
+<div class="c">
+<div class="hero">
+<h1>Works With Your <span class="grad">Entire Stack</span></h1>
+<p class="sub">MoltBot Cloud's OpenAI-compatible API integrates with every major framework, IDE, and platform. Zero migration effort.</p>
+</div>
+
+<div class="callout">
+<p>MoltBot exposes a standard <code>/v1/chat/completions</code> endpoint. Any tool that works with OpenAI works with MoltBot — just change the base URL.</p>
+</div>
+
+<div class="category">
+<div class="cat-title">🧠 AI Frameworks</div>
+<div class="grid">
+    <div class="card"><div class="card-icon">🦜</div><div class="card-name">LangChain</div><div class="card-desc">Build chains and agents with MoltBot as the LLM backend</div><span class="card-badge b-api">API Compatible</span></div>
+    <div class="card"><div class="card-icon">🦙</div><div class="card-name">LlamaIndex</div><div class="card-desc">RAG pipelines using MoltBot's multi-model routing</div><span class="card-badge b-api">API Compatible</span></div>
+    <div class="card"><div class="card-icon">🤗</div><div class="card-name">Hugging Face</div><div class="card-desc">Use HF models alongside MoltBot's 12 providers</div><span class="card-badge b-plugin">Plugin</span></div>
+    <div class="card"><div class="card-icon">⚡</div><div class="card-name">CrewAI</div><div class="card-desc">Multi-agent crews powered by MoltBot's Omnisphere</div><span class="card-badge b-api">API Compatible</span></div>
+</div>
+</div>
+
+<div class="category">
+<div class="cat-title">💻 Development Tools</div>
+<div class="grid">
+    <div class="card"><div class="card-icon">📝</div><div class="card-name">VS Code</div><div class="card-desc">Continue.dev + Cody extensions connect via API</div><span class="card-badge b-api">API Compatible</span></div>
+    <div class="card"><div class="card-icon">🔧</div><div class="card-name">Cursor</div><div class="card-desc">Use MoltBot as a custom model backend in Cursor</div><span class="card-badge b-api">API Compatible</span></div>
+    <div class="card"><div class="card-icon">🐙</div><div class="card-name">GitHub</div><div class="card-desc">Git integration, PR automation, code review</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🐳</div><div class="card-name">Docker</div><div class="card-desc">Pre-installed on every VM for containerized workflows</div><span class="card-badge b-native">Native</span></div>
+</div>
+</div>
+
+<div class="category">
+<div class="cat-title">💬 Communication</div>
+<div class="grid">
+    <div class="card"><div class="card-icon">✈️</div><div class="card-name">Telegram</div><div class="card-desc">Chat with agents, receive code, and trigger deployments</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">💬</div><div class="card-name">Discord</div><div class="card-desc">Bot integration for team notifications and commands</div><span class="card-badge b-plugin">Plugin</span></div>
+    <div class="card"><div class="card-icon">📧</div><div class="card-name">Email</div><div class="card-desc">Automated email notifications for deployments and alerts</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🪝</div><div class="card-name">Webhooks</div><div class="card-desc">Custom webhook endpoints for any event trigger</div><span class="card-badge b-native">Native</span></div>
+</div>
+</div>
+
+<div class="category">
+<div class="cat-title">☁️ Infrastructure</div>
+<div class="grid">
+    <div class="card"><div class="card-icon">▲</div><div class="card-name">Vercel</div><div class="card-desc">Deploy frontend and serverless functions directly</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🔶</div><div class="card-name">AWS</div><div class="card-desc">S3, Lambda, and EC2 integration via CLI</div><span class="card-badge b-plugin">Plugin</span></div>
+    <div class="card"><div class="card-icon">💎</div><div class="card-name">Stripe</div><div class="card-desc">Billing integration for SaaS products your agents build</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🗄️</div><div class="card-name">PostgreSQL</div><div class="card-desc">Database management with schema migrations</div><span class="card-badge b-native">Native</span></div>
+</div>
+</div>
+
+<div class="category">
+<div class="cat-title">🧪 AI Models (via Omnisphere)</div>
+<div class="grid">
+    <div class="card"><div class="card-icon">🟣</div><div class="card-name">Claude</div><div class="card-desc">Anthropic Claude 3.5 Sonnet for complex logic</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🟢</div><div class="card-name">GPT-4o</div><div class="card-desc">OpenAI's flagship for code review and docs</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🔵</div><div class="card-name">Gemini 2.5</div><div class="card-desc">Google's model for large context windows</div><span class="card-badge b-native">Native</span></div>
+    <div class="card"><div class="card-icon">🟡</div><div class="card-name">NVIDIA NIM</div><div class="card-desc">Free models for simple tasks (zero cost)</div><span class="card-badge b-native">Native</span></div>
+</div>
+</div>
+
+<div class="cta">
+<h2 style="font-family:'Outfit',sans-serif;margin-bottom:.5rem">Plug In and Ship</h2>
+<p style="color:var(--m);margin-bottom:1rem">All integrations available on every plan. 7-day free trial.</p>
+<a href="signup.html" class="btn">Start Free Trial →</a>
+</div>
+</div>
+
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="features.html" style="color:var(--a)">Features</a> · <a href="api-docs.html" style="color:var(--a)">API Docs</a></div></footer>
+</body>
+</html>
