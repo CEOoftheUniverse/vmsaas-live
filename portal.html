@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Portal — MoltBot Cloud</title>
+<meta name="description" content="Manage your MoltBot Cloud subscription, view usage metrics, update billing, and access your AI agent dashboard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444;--o:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.portal-nav{background:var(--s);border-bottom:1px solid var(--b);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+.portal-nav .brand{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:800}
+.portal-nav .brand span{color:var(--a)}
+.portal-nav .user-info{display:flex;align-items:center;gap:1rem}
+.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--c));display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.main{display:flex;flex:1}
+.sidebar{width:220px;background:var(--s);border-right:1px solid var(--b);padding:1.5rem 1rem}
+.sidebar a{display:flex;align-items:center;gap:.6rem;color:var(--m);text-decoration:none;font-size:.85rem;padding:.5rem .75rem;border-radius:8px;margin-bottom:4px;transition:all .15s}
+.sidebar a:hover,.sidebar a.active{color:var(--t);background:rgba(255,255,255,.05)}
+.sidebar a.active{color:var(--a);background:rgba(99,102,241,.1)}
+.content{flex:1;padding:2rem;max-width:900px}
+h1{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:.25rem}
+.breadcrumb{color:var(--m);font-size:.8rem;margin-bottom:1.5rem}
+
+/* Login state */
+#login-view,#portal-view{display:none}
+.login-box{max-width:400px;margin:4rem auto;background:var(--s);border:1px solid var(--b);border-radius:16px;padding:2.5rem;text-align:center}
+.login-box h2{font-family:'Outfit',sans-serif;font-size:1.5rem;margin-bottom:.5rem}
+.login-box p{color:var(--m);font-size:.85rem;margin-bottom:1.5rem}
+.login-box input{width:100%;background:var(--bg);border:1px solid var(--b);color:var(--t);padding:.75rem 1rem;border-radius:10px;font-size:.9rem;margin-bottom:.75rem;font-family:'Inter',sans-serif}
+.login-box input:focus{outline:none;border-color:var(--a)}
+.btn{width:100%;background:var(--a);color:#fff;border:none;padding:.75rem;border-radius:10px;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s}
+.btn:hover{background:#818cf8}
+.error{color:var(--r);font-size:.8rem;margin-top:.5rem;display:none}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem;transition:transform .2s}
+.card:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.2)}
+.card-val{font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:800}
+.card-label{color:var(--m);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}
+.section{margin:2rem 0}
+.section h2{font-family:'Outfit',sans-serif;font-size:1.2rem;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden}
+th,td{padding:.65rem 1rem;text-align:left;border-bottom:1px solid var(--b);font-size:.85rem}
+th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.7rem}
+.pill{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:600}
+.pill-g{background:rgba(34,197,94,.15);color:var(--g)}
+.pill-a{background:rgba(99,102,241,.15);color:var(--a)}
+.pill-o{background:rgba(245,158,11,.15);color:var(--o)}
+.plan-card{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(6,182,212,.05));border:1px solid rgba(99,102,241,.3);border-radius:16px;padding:2rem;display:flex;justify-content:space-between;align-items:center;margin:1.5rem 0}
+.plan-name{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:800}
+.plan-price{font-size:1.1rem;color:var(--m)}
+.plan-price strong{color:var(--t);font-size:1.5rem}
+.upgrade-btn{background:var(--a);color:#fff;border:none;padding:.6rem 1.5rem;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;text-decoration:none}
+@media(max-width:768px){.main{flex-direction:column}.sidebar{width:100%;border-right:none;border-bottom:1px solid var(--b);display:flex;overflow-x:auto;padding:.5rem}
+.sidebar a{white-space:nowrap}}
+</style>
+</head>
+<body>
+
+<!-- Login View -->
+<div id="login-view">
+<div class="login-box">
+    <h2>Molt<span style="color:var(--a)">Bot</span> Portal</h2>
+    <p>Sign in with your email to manage your subscription.</p>
+    <input type="email" id="login-email" placeholder="Email address" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="btn" onclick="doLogin()">Sign In →</button>
+    <div class="error" id="login-error">Email not found. <a href="signup.html" style="color:var(--a)">Sign up first</a>.</div>
+    <p style="color:var(--m);font-size:.75rem;margin-top:1rem">Don't have an account? <a href="signup.html" style="color:var(--a)">Sign up</a></p>
+</div>
+</div>
+
+<!-- Portal View -->
+<div id="portal-view">
+<nav class="portal-nav">
+    <div class="brand">Molt<span>Bot</span> Portal</div>
+    <div class="user-info">
+        <span style="color:var(--m);font-size:.85rem" id="user-email"></span>
+        <div class="avatar" id="user-avatar">?</div>
+        <a href="#" onclick="doLogout()" style="color:var(--m);text-decoration:none;font-size:.8rem">Logout</a>
+    </div>
+</nav>
+
+<div class="main">
+<aside class="sidebar">
+    <a href="#" class="active" data-view="overview">📊 Overview</a>
+    <a href="#" data-view="billing">💳 Billing</a>
+    <a href="#" data-view="usage">📈 Usage</a>
+    <a href="#" data-view="settings">⚙️ Settings</a>
+    <a href="dashboard.html">🤖 Agent Dashboard</a>
+    <a href="referral.html">🔗 Refer & Earn</a>
+</aside>
+
+<main class="content" id="portal-content">
+    <!-- Overview -->
+    <div id="view-overview">
+        <h1>Welcome back</h1>
+        <div class="breadcrumb">Portal → Overview</div>
+        <div class="cards">
+            <div class="card"><div class="card-val" style="color:var(--a)" id="p-plan">—</div><div class="card-label">Current Plan</div></div>
+            <div class="card"><div class="card-val" style="color:var(--g)" id="p-agents">5</div><div class="card-label">Active Agents</div></div>
+            <div class="card"><div class="card-val" style="color:var(--c)" id="p-models">12</div><div class="card-label">Models Available</div></div>
+            <div class="card"><div class="card-val" style="color:var(--o)" id="p-uptime">99.7%</div><div class="card-label">Uptime (30d)</div></div>
+        </div>
+        <div class="plan-card">
+            <div><div class="plan-name" id="p-plan-name">Swarm Plan</div><div class="plan-price"><strong id="p-plan-price">$149</strong>/mo</div></div>
+            <a href="signup.html" class="upgrade-btn">Upgrade Plan</a>
+        </div>
+        <div class="section">
+            <h2>Recent Activity</h2>
+            <table><thead><tr><th>Date</th><th>Event</th><th>Status</th></tr></thead>
+            <tbody id="activity-log">
+                <tr><td>Apr 13</td><td>Agent deployment</td><td><span class="pill pill-g">Success</span></td></tr>
+                <tr><td>Apr 12</td><td>Model cache cleared</td><td><span class="pill pill-a">Info</span></td></tr>
+                <tr><td>Apr 11</td><td>Billing updated</td><td><span class="pill pill-g">Success</span></td></tr>
+            </tbody></table>
+        </div>
+    </div>
+</main>
+</div>
+</div>
+
+<script>
+// Session management
+function doLogin() {
+    const email = document.getElementById('login-email').value.trim();
+    if (!email || !email.includes('@')) {
+        document.getElementById('login-error').style.display = 'block';
+        return;
+    }
+    localStorage.setItem('moltbot_user', email);
+    showPortal(email);
+}
+
+function doLogout() {
+    localStorage.removeItem('moltbot_user');
+    document.getElementById('login-view').style.display = 'block';
+    document.getElementById('portal-view').style.display = 'none';
+}
+
+function showPortal(email) {
+    document.getElementById('login-view').style.display = 'none';
+    document.getElementById('portal-view').style.display = 'flex';
+    document.getElementById('portal-view').style.flexDirection = 'column';
+    document.getElementById('user-email').textContent = email;
+    document.getElementById('user-avatar').textContent = email.charAt(0).toUpperCase();
+
+    // Set plan based on signup data
+    const plan = localStorage.getItem('moltbot_plan') || 'Swarm';
+    const prices = { Base: '$49', Swarm: '$149', Enterprise: '$299' };
+    document.getElementById('p-plan').textContent = plan;
+    document.getElementById('p-plan-name').textContent = plan + ' Plan';
+    document.getElementById('p-plan-price').textContent = prices[plan] || '$149';
+
+    // Track login
+    fetch('https://moltbot-cloud-saas.vercel.app/api/analytics/event', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event: 'portal_login', page: '/portal.html', meta: { email } }),
+    }).catch(() => {});
+}
+
+// Sidebar nav
+document.querySelectorAll('.sidebar a[data-view]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
+        a.classList.add('active');
+    });
+});
+
+// Auto-login if session exists
+const savedUser = localStorage.getItem('moltbot_user');
+if (savedUser) { showPortal(savedUser); } else { document.getElementById('login-view').style.display = 'block'; }
+</script>
+</body>
+</html>
