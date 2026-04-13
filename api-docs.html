@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Documentation — MoltBot Cloud & Omnisphere</title>
+<meta name="description" content="Complete API reference for MoltBot Cloud SaaS backend and Omnisphere multi-LLM gateway. Endpoints, authentication, and code examples.">
+<meta property="og:title" content="MoltBot Cloud API Documentation">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/api-docs.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444;--o:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;display:flex}
+.sidebar{width:260px;height:100vh;position:fixed;background:var(--s);border-right:1px solid var(--b);padding:1.5rem;overflow-y:auto}
+.sidebar .brand{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:1.5rem}
+.sidebar .brand span{color:var(--a)}
+.sidebar h3{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--m);margin:1.25rem 0 .5rem}
+.sidebar a{display:block;color:var(--m);text-decoration:none;font-size:.85rem;padding:.35rem .75rem;border-radius:6px;margin-bottom:2px;transition:all .15s}
+.sidebar a:hover{color:var(--t);background:rgba(255,255,255,.05)}
+.sidebar a.active{color:var(--a);background:rgba(99,102,241,.1);font-weight:500}
+.content{margin-left:260px;flex:1;padding:2rem 3rem;max-width:900px}
+h1{font-family:'Outfit',sans-serif;font-size:2.2rem;font-weight:800;margin-bottom:.5rem}
+h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{color:var(--m);font-size:1rem;margin-bottom:2.5rem}
+h2{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:700;margin:2.5rem 0 .75rem;padding-top:1rem;border-top:1px solid var(--b)}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:1rem;font-weight:600;margin:1.5rem 0 .5rem}
+p{color:var(--m);margin-bottom:1rem;font-size:.9rem}
+.endpoint{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem;margin:1rem 0 1.5rem}
+.endpoint-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.method{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.75rem;padding:.2rem .5rem;border-radius:4px;letter-spacing:.5px}
+.GET{background:rgba(34,197,94,.15);color:var(--g)}
+.POST{background:rgba(99,102,241,.15);color:var(--a)}
+.DELETE{background:rgba(239,68,68,.15);color:var(--r)}
+.path{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--t)}
+.desc{color:var(--m);font-size:.85rem;margin-bottom:.75rem}
+pre{background:#0c0c14;border:1px solid var(--b);border-radius:8px;padding:1rem;overflow-x:auto;margin:.75rem 0;font-family:'JetBrains Mono',monospace;font-size:.8rem;line-height:1.6;color:var(--c)}
+code{font-family:'JetBrains Mono',monospace;font-size:.85rem}
+.param-table{width:100%;border-collapse:collapse;margin:.75rem 0}
+.param-table th,.param-table td{padding:.5rem .75rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.04);font-size:.8rem}
+.param-table th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:.7rem}
+.type{color:var(--c);font-family:'JetBrains Mono',monospace;font-size:.75rem}
+.required{color:var(--r);font-size:.7rem;font-weight:600}
+.optional{color:var(--m);font-size:.7rem}
+.badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.7rem;font-weight:600}
+.badge-free{background:rgba(34,197,94,.15);color:var(--g)}
+.badge-auth{background:rgba(245,158,11,.15);color:var(--o)}
+.try-btn{background:var(--a);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.try-btn:hover{background:#818cf8}
+.response-box{display:none;margin-top:.75rem}
+footer{margin-top:3rem;padding:1.5rem 0;border-top:1px solid var(--b);text-align:center;color:#52525b;font-size:.8rem}
+@media(max-width:768px){.sidebar{display:none}.content{margin-left:0;padding:1.5rem}}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+    <div class="brand">Molt<span>Bot</span> API</div>
+    <h3>MoltBot SaaS</h3>
+    <a href="#status">GET /api/status</a>
+    <a href="#waitlist">POST /api/waitlist</a>
+    <a href="#waitlist-count">GET /api/waitlist/count</a>
+    <a href="#analytics-event">POST /api/analytics/event</a>
+    <a href="#analytics-summary">GET /api/analytics/summary</a>
+    <a href="#email-subscribe">POST /api/email/subscribe</a>
+    <a href="#email-unsubscribe">POST /api/email/unsubscribe</a>
+    <a href="#billing-checkout">POST /api/billing/checkout</a>
+    <a href="#webhooks">POST /api/webhooks</a>
+    <h3>Omnisphere Gateway</h3>
+    <a href="#gw-status">GET /api/status</a>
+    <a href="#gw-chat">POST /v1/chat/completions</a>
+    <a href="#gw-models">GET /api/models</a>
+    <a href="#gw-compare">POST /api/compare</a>
+    <a href="#gw-smart-route">POST /api/smart-route</a>
+    <h3>Links</h3>
+    <a href="index.html">← Home</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="admin.html">Admin</a>
+</aside>
+
+<main class="content">
+<h1>API <span class="grad">Reference</span></h1>
+<p class="subtitle">Complete documentation for MoltBot Cloud SaaS and Omnisphere Gateway APIs.</p>
+
+<!-- ==================== MOLTBOT SAAS ==================== -->
+<h2 id="saas">MoltBot Cloud SaaS</h2>
+<p>Base URL: <code>https://moltbot-cloud-saas.vercel.app</code> (production) or <code>http://localhost:3000</code> (local)</p>
+
+<div class="endpoint" id="status">
+    <div class="endpoint-header"><span class="method GET">GET</span><span class="path">/api/status</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Health check. Returns system status, metrics, memory usage, and waitlist count.</div>
+    <pre>curl https://moltbot-cloud-saas.vercel.app/api/status</pre>
+    <pre>// Response
+{
+  "status": "ok",
+  "version": "0.3.0",
+  "activeInstances": 2,
+  "stripeConfigured": true,
+  "waitlistCount": 14,
+  "metrics": { "totalRequests": 2841, "deployments": 5 },
+  "uptime": 86400
+}</pre>
+    <button class="try-btn" onclick="tryEndpoint(this, 'GET', '/api/status')">Try it →</button>
+    <div class="response-box"><pre></pre></div>
+</div>
+
+<div class="endpoint" id="waitlist">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/waitlist</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Add an email to the waitlist. Rate limited to 5/hour per IP.</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody>
+        <tr><td>email</td><td><span class="type">string</span></td><td><span class="required">required</span></td><td>Email address</td></tr>
+        <tr><td>tier</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td><td>Plan: base | swarm | enterprise</td></tr>
+        <tr><td>referral</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td><td>Affiliate referral code</td></tr>
+    </tbody></table>
+    <pre>curl -X POST https://moltbot-cloud-saas.vercel.app/api/waitlist \
+  -H "Content-Type: application/json" \
+  -d '{"email":"dev@company.com","tier":"swarm"}'</pre>
+    <pre>// Response
+{ "success": true, "message": "You're on the list!", "position": 15, "total": 15 }</pre>
+</div>
+
+<div class="endpoint" id="waitlist-count">
+    <div class="endpoint-header"><span class="method GET">GET</span><span class="path">/api/waitlist/count</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Returns the total number of waitlist signups.</div>
+    <pre>// Response
+{ "count": 14 }</pre>
+</div>
+
+<div class="endpoint" id="analytics-event">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/analytics/event</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Track a page view, signup click, or custom event. Rate limited to 60/min per IP.</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead><tbody>
+        <tr><td>event</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>page</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+        <tr><td>referrer</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+        <tr><td>sessionId</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+        <tr><td>meta</td><td><span class="type">object</span></td><td><span class="optional">optional</span></td></tr>
+    </tbody></table>
+</div>
+
+<div class="endpoint" id="analytics-summary">
+    <div class="endpoint-header"><span class="method GET">GET</span><span class="path">/api/analytics/summary</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">24-hour analytics summary: page views, signup clicks, checkout starts, top pages.</div>
+    <pre>// Response
+{ "period": "24h", "pageViews": 142, "signupClicks": 8, "checkoutStarts": 2, "topPages": {"/": 80, "/pricing.html": 30} }</pre>
+</div>
+
+<div class="endpoint" id="email-subscribe">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/email/subscribe</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Subscribe to newsletter. Triggers 6-step email drip sequence (Day 0→14).</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead><tbody>
+        <tr><td>email</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>source</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+        <tr><td>referral</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+    </tbody></table>
+    <pre>// Response
+{ "success": true, "message": "Subscribed!", "dripScheduled": 6 }</pre>
+</div>
+
+<div class="endpoint" id="email-unsubscribe">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/email/unsubscribe</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">GDPR-compliant unsubscribe. Marks subscriber as unsubscribed without deletion.</div>
+</div>
+
+<div class="endpoint" id="billing-checkout">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/billing/checkout</span><span class="badge badge-auth">Stripe Required</span></div>
+    <div class="desc">Create a Stripe Checkout session. Returns a redirect URL to Stripe's hosted payment page.</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead><tbody>
+        <tr><td>email</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>tier</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+    </tbody></table>
+    <pre>// Response (Stripe configured)
+{ "url": "https://checkout.stripe.com/...", "sessionId": "cs_xxx" }
+// Response (Stripe not configured)
+{ "error": "Stripe not configured", "hint": "stripe_not_configured" }</pre>
+</div>
+
+<div class="endpoint" id="webhooks">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/webhooks</span><span class="badge badge-auth">API Key</span></div>
+    <div class="desc">Register a webhook URL to receive real-time notifications for signups, payments, and downtime events.</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead><tbody>
+        <tr><td>url</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>events</td><td><span class="type">string[]</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>secret</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+    </tbody></table>
+    <pre>// Events: waitlist.signup, email.subscribe, billing.checkout, alert.downtime
+curl -X POST /api/webhooks \
+  -d '{"url":"https://hooks.slack.com/xxx","events":["waitlist.signup","alert.downtime"]}'</pre>
+</div>
+
+<!-- ==================== OMNISPHERE ==================== -->
+<h2 id="gateway">Omnisphere Gateway</h2>
+<p>Base URL: <code>http://localhost:3005</code>. OpenAI-compatible multi-LLM arbitrage router with 12 models and smart routing.</p>
+
+<div class="endpoint" id="gw-status">
+    <div class="endpoint-header"><span class="method GET">GET</span><span class="path">/api/status</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Gateway health: loaded models, provider status, cost tiers, uptime.</div>
+    <button class="try-btn" onclick="tryEndpoint(this, 'GET', '/api/status', 'http://127.0.0.1:3005')">Try it →</button>
+    <div class="response-box"><pre></pre></div>
+</div>
+
+<div class="endpoint" id="gw-chat">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/v1/chat/completions</span><span class="badge badge-free">OpenAI-Compatible</span></div>
+    <div class="desc">Send a chat completion request. Supports all 12 models with automatic fallback. Drop-in replacement for OpenAI SDK.</div>
+    <pre>curl http://localhost:3005/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model":"claude-sonnet-4","messages":[{"role":"user","content":"Hello"}]}'</pre>
+    <pre>// Response (OpenAI-compatible)
+{
+  "id": "chatcmpl-xxx",
+  "model": "claude-sonnet-4",
+  "choices": [{ "message": { "role": "assistant", "content": "..." } }],
+  "usage": { "prompt_tokens": 10, "completion_tokens": 50 }
+}</pre>
+</div>
+
+<div class="endpoint" id="gw-models">
+    <div class="endpoint-header"><span class="method GET">GET</span><span class="path">/api/models</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">List all available models with cost tiers and provider status.</div>
+</div>
+
+<div class="endpoint" id="gw-compare">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/compare</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Compare responses from multiple models side-by-side with cost and latency metrics.</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead><tbody>
+        <tr><td>prompt</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>models</td><td><span class="type">string[]</span></td><td><span class="required">required</span></td></tr>
+    </tbody></table>
+</div>
+
+<div class="endpoint" id="gw-smart-route">
+    <div class="endpoint-header"><span class="method POST">POST</span><span class="path">/api/smart-route</span><span class="badge badge-free">Public</span></div>
+    <div class="desc">Automatically route to the optimal model based on cost tier, complexity, and provider health.</div>
+    <table class="param-table"><thead><tr><th>Param</th><th>Type</th><th>Required</th></tr></thead><tbody>
+        <tr><td>prompt</td><td><span class="type">string</span></td><td><span class="required">required</span></td></tr>
+        <tr><td>tier</td><td><span class="type">string</span></td><td><span class="optional">optional</span></td></tr>
+    </tbody></table>
+    <pre>// Tiers: premium, balanced, budget, ultraCheap, free</pre>
+</div>
+
+<footer>© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="pricing.html" style="color:var(--a)">Pricing</a></footer>
+</main>
+
+<script>
+// Interactive "Try it" buttons
+async function tryEndpoint(btn, method, path, base) {
+    const box = btn.nextElementSibling;
+    const pre = box.querySelector('pre');
+    box.style.display = 'block';
+    pre.textContent = 'Loading...';
+    const url = (base || 'https://moltbot-cloud-saas.vercel.app') + path;
+    try {
+        const r = await fetch(url, { method, signal: AbortSignal.timeout(8000) });
+        const d = await r.json();
+        pre.textContent = JSON.stringify(d, null, 2);
+    } catch (e) {
+        pre.textContent = `Error: ${e.message}\n\nTip: Make sure the service is running locally.`;
+    }
+}
+
+// Highlight active sidebar link on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+            const link = document.querySelector(`.sidebar a[href="#${e.target.id}"]`);
+            if (link) link.classList.add('active');
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('.endpoint').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
