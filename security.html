@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security — MoltBot Cloud Enterprise Security</title>
+<meta name="description" content="MoltBot Cloud security: dedicated VMs, encrypted data, no AI training on your code, SOC 2 roadmap, GDPR compliant. Enterprise-grade security from day one.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/security.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:2rem}
+.c{max-width:800px;margin:0 auto;padding:0 2rem}
+.hero{text-align:center;padding:6rem 0 2.5rem}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:.75rem}
+h1 .grad{background:linear-gradient(135deg,var(--g),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--m);font-size:.95rem;max-width:500px;margin:0 auto}
+h2{font-family:'Outfit',sans-serif;font-size:1.15rem;margin:2.5rem 0 1rem;display:flex;align-items:center;gap:.5rem}
+p{color:var(--m);font-size:.88rem;margin-bottom:1rem}
+.pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin:2rem 0}
+.pillar{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem;text-align:center}
+.pillar-icon{font-size:2rem;margin-bottom:.5rem}
+.pillar-title{font-weight:700;font-size:.9rem;margin-bottom:.3rem}
+.pillar-desc{color:var(--m);font-size:.75rem}
+.checklist{list-style:none;margin:1rem 0}
+.checklist li{padding:.4rem 0;font-size:.85rem;color:var(--m);display:flex;align-items:flex-start;gap:.5rem}
+.checklist li::before{content:'✅';flex-shrink:0}
+.badge-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:2rem 0}
+.badge{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:.6rem 1.2rem;font-size:.78rem;font-weight:600;display:flex;align-items:center;gap:.4rem}
+.promise{background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.15);border-radius:14px;padding:1.5rem 2rem;margin:2rem 0}
+.promise h3{color:var(--g);font-size:.9rem;margin-bottom:.75rem}
+.cta{text-align:center;padding:2.5rem 0;margin:1rem 0;border-top:1px solid var(--b)}
+.btn{display:inline-block;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
+.btn:hover{background:#818cf8;transform:translateY(-2px)}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+</style>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+
+<div class="c">
+<div class="hero">
+<h1>Enterprise-Grade <span class="grad">Security</span></h1>
+<p class="sub">Your code stays on your VM. We never train on it. Dedicated infrastructure with full isolation.</p>
+</div>
+
+<div class="badge-row">
+    <span class="badge">🔒 Encrypted at Rest</span>
+    <span class="badge">🔐 TLS 1.3 in Transit</span>
+    <span class="badge">🛡️ Dedicated VMs</span>
+    <span class="badge">📋 GDPR Compliant</span>
+</div>
+
+<div class="pillars">
+    <div class="pillar"><div class="pillar-icon">🏰</div><div class="pillar-title">Full Isolation</div><div class="pillar-desc">Dedicated VM per customer. No shared compute, no container neighbors.</div></div>
+    <div class="pillar"><div class="pillar-icon">🚫</div><div class="pillar-title">Zero Training</div><div class="pillar-desc">Your code is never used to train AI models. Period.</div></div>
+    <div class="pillar"><div class="pillar-icon">🔑</div><div class="pillar-title">Your Keys</div><div class="pillar-desc">Bring your own API keys. We store them encrypted, never log them.</div></div>
+    <div class="pillar"><div class="pillar-icon">💾</div><div class="pillar-title">Daily Backups</div><div class="pillar-desc">Automated daily snapshots. 30-day retention after cancellation.</div></div>
+</div>
+
+<h2>🔐 Infrastructure Security</h2>
+<ul class="checklist">
+    <li>Each customer gets a <strong>dedicated Windows VM</strong> — no shared containers or multi-tenant compute</li>
+    <li>All data encrypted at rest using <strong>AES-256</strong></li>
+    <li>All connections secured with <strong>TLS 1.3</strong></li>
+    <li>VM access via <strong>RDP with unique credentials</strong> — only you have the password</li>
+    <li>Network-level isolation between customer VMs</li>
+    <li>Regular security patches and OS updates applied automatically</li>
+</ul>
+
+<h2>🛡️ Data Privacy</h2>
+<ul class="checklist">
+    <li>Your code, prompts, and agent outputs are <strong>never used to train AI models</strong></li>
+    <li>LLM API calls are made from your VM, not through our infrastructure</li>
+    <li>ChromaDB memory stores are <strong>local to your VM only</strong></li>
+    <li>No telemetry or analytics collected from agent activity</li>
+    <li><strong>GDPR and CCPA</strong> compliant — full data deletion on request</li>
+</ul>
+
+<h2>🔑 Access Control</h2>
+<ul class="checklist">
+    <li>Full admin access to your VM — you control everything</li>
+    <li>MoltBot staff <strong>cannot access your VM</strong> without explicit permission</li>
+    <li>API keys stored with <strong>envelope encryption</strong></li>
+    <li>Webhook endpoints require HMAC signature verification</li>
+    <li>Rate limiting on all public API endpoints</li>
+</ul>
+
+<h2>📊 Monitoring & Compliance</h2>
+<ul class="checklist">
+    <li>Health checks run every <strong>60 seconds</strong> with auto-restart on failure</li>
+    <li>Public status page at <a href="status.html" style="color:var(--a)">status.moltbot.cloud</a></li>
+    <li><strong>99.5% uptime SLA</strong> on all plans</li>
+    <li>Incident response within 4 hours (Enterprise: 1 hour)</li>
+    <li>SOC 2 Type II certification <strong>in progress</strong> (target Q3 2026)</li>
+</ul>
+
+<div class="promise">
+    <h3>🤝 Our Security Promise</h3>
+    <p>We believe your code is your most valuable asset. That's why every MoltBot VM is fully isolated, every byte is encrypted, and we will <strong>never</strong> use your data to train models. If we ever change this policy, you'll get 90 days notice and a full refund.</p>
+</div>
+
+<div class="cta">
+<h2 style="font-family:'Outfit',sans-serif;font-size:1.2rem;margin:0 0 .5rem">Questions About Security?</h2>
+<p style="color:var(--m);margin-bottom:1rem">Contact us for a security review or custom compliance requirements.</p>
+<a href="signup.html" class="btn">Start Secure Trial →</a>
+</div>
+</div>
+
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="terms.html" style="color:var(--a)">Terms</a> · <a href="status.html" style="color:var(--a)">Status</a></div></footer>
+</body>
+</html>
