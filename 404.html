@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | MoltBot Cloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--a:#6366f1;--t:#f4f4f5;--m:#a1a1aa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.container{max-width:500px}
+.code{font-family:'Outfit',sans-serif;font-size:8rem;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--a),#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem}
+h1{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.75rem}
+p{color:var(--m);font-size:.95rem;margin-bottom:2rem}
+.links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.links a{color:var(--a);text-decoration:none;font-weight:600;font-size:.9rem;padding:.6rem 1.25rem;border:1px solid rgba(99,102,241,.3);border-radius:10px;transition:all .2s}
+.links a:hover{background:rgba(99,102,241,.1);border-color:var(--a)}
+.links a.primary{background:var(--a);color:#fff;border-color:var(--a)}
+.links a.primary:hover{background:#818cf8}
+.bot{margin-top:3rem;font-size:4rem;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="code">404</div>
+    <h1>This page doesn't exist</h1>
+    <p>The agent swarm searched everywhere but couldn't find what you're looking for. Let's get you back on track.</p>
+    <div class="links">
+        <a href="index.html" class="primary">← Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="status.html">Status</a>
+    </div>
+    <div class="bot">🤖</div>
+</div>
+</body>
+</html>

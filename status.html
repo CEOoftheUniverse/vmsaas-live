@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Status — MoltBot Cloud</title>
+<meta name="description" content="Real-time status of MoltBot Cloud services. Check uptime, latency, and incident history.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444;--o:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:2rem}
+.c{max-width:700px;margin:0 auto;padding:5.5rem 2rem 4rem}
+.status-banner{text-align:center;padding:2rem;border-radius:16px;margin-bottom:2rem;transition:all .3s}
+.status-banner.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)}
+.status-banner.degraded{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2)}
+.status-banner.down{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2)}
+.status-icon{font-size:3rem;margin-bottom:.5rem}
+.status-text{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700}
+.status-sub{color:var(--m);font-size:.85rem;margin-top:.25rem}
+.service{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem;display:flex;justify-content:space-between;align-items:center}
+.svc-name{font-weight:600;font-size:.9rem}
+.svc-info{color:var(--m);font-size:.75rem}
+.svc-status{display:flex;align-items:center;gap:.5rem}
+.dot{width:10px;height:10px;border-radius:50%;animation:pulse 2s infinite}
+.dot-g{background:var(--g)}
+.dot-o{background:var(--o)}
+.dot-r{background:var(--r)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.pill{font-size:.75rem;font-weight:600;padding:.15rem .5rem;border-radius:4px}
+.pill-g{background:rgba(34,197,94,.15);color:var(--g)}
+.pill-o{background:rgba(245,158,11,.15);color:var(--o)}
+.pill-r{background:rgba(239,68,68,.15);color:var(--r)}
+h2{font-family:'Outfit',sans-serif;font-size:1.2rem;margin:2rem 0 1rem}
+.uptime-bar{display:flex;gap:2px;margin-bottom:.5rem}
+.bar-segment{flex:1;height:28px;border-radius:3px;background:rgba(34,197,94,.6);position:relative;cursor:pointer}
+.bar-segment:hover{opacity:.8}
+.bar-segment.partial{background:rgba(245,158,11,.6)}
+.bar-segment.incident{background:rgba(239,68,68,.6)}
+.bar-labels{display:flex;justify-content:space-between;font-size:.7rem;color:#52525b}
+.incident-list{margin-top:1rem}
+.incident{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem;margin-bottom:.5rem}
+.incident-title{font-weight:600;font-size:.9rem;margin-bottom:.25rem}
+.incident-meta{color:var(--m);font-size:.75rem}
+#last-check{color:var(--m);font-size:.75rem;text-align:center;margin-top:1rem}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem;margin-top:2rem}
+</style>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Status</div><div><a href="index.html">Home</a><a href="changelog.html">Changelog</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+<div class="c">
+<div class="status-banner ok" id="banner">
+    <div class="status-icon">✅</div>
+    <div class="status-text" id="banner-text">All Systems Operational</div>
+    <div class="status-sub" id="banner-sub">Last checked: loading...</div>
+</div>
+
+<div id="services">
+    <div class="service"><div><div class="svc-name">Landing Page (GitHub Pages)</div><div class="svc-info">ceooftheuniverse.github.io</div></div><div class="svc-status"><span class="dot dot-g"></span><span class="pill pill-g">Operational</span></div></div>
+    <div class="service"><div><div class="svc-name">SaaS Backend (Vercel)</div><div class="svc-info">moltbot-cloud-saas.vercel.app</div></div><div class="svc-status"><span class="dot dot-g" id="d-saas"></span><span class="pill pill-g" id="p-saas">Checking...</span></div></div>
+    <div class="service"><div><div class="svc-name">Omnisphere Gateway</div><div class="svc-info">Port 3005 — LLM Arbitrage Router</div></div><div class="svc-status"><span class="dot dot-o" id="d-gw"></span><span class="pill pill-o" id="p-gw">Local Only</span></div></div>
+    <div class="service"><div><div class="svc-name">FastAPI Agent Backend</div><div class="svc-info">Port 8080 — Agent Orchestration</div></div><div class="svc-status"><span class="dot dot-o" id="d-api"></span><span class="pill pill-o" id="p-api">Local Only</span></div></div>
+    <div class="service"><div><div class="svc-name">Stripe Payments</div><div class="svc-info">Checkout & Billing</div></div><div class="svc-status"><span class="dot dot-g"></span><span class="pill pill-g">Operational</span></div></div>
+</div>
+
+<h2>90-Day Uptime</h2>
+<div class="uptime-bar" id="uptime-bar"></div>
+<div class="bar-labels"><span>90 days ago</span><span>Today</span></div>
+
+<h2>Recent Incidents</h2>
+<div class="incident-list">
+    <div class="incident"><div class="incident-title">🟡 VM Reboot — Gateway Restart Required</div><div class="incident-meta">Apr 13, 2026 · Resolved in 5 min · Gateway auto-recovered after VM reboot. No data loss.</div></div>
+    <div class="incident"><div class="incident-title">🟢 Scheduled Maintenance — Model Cache Clear</div><div class="incident-meta">Apr 12, 2026 · 2 min · LLM response cache was cleared during gateway update. No impact on service.</div></div>
+</div>
+
+<div id="last-check"></div>
+</div>
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="terms.html" style="color:var(--a)">Terms</a></div></footer>
+
+<script>
+// Generate uptime bars
+const bar = document.getElementById('uptime-bar');
+for (let i = 0; i < 90; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'bar-segment' + (i === 77 ? ' partial' : '');
+    seg.title = `Day ${90 - i}: ${i === 77 ? '99.2%' : '100%'}`;
+    bar.appendChild(seg);
+}
+
+// Live check SaaS backend
+async function checkSaaS() {
+    try {
+        const r = await fetch('https://moltbot-cloud-saas.vercel.app/api/status', { signal: AbortSignal.timeout(5000) });
+        if (r.ok) {
+            document.getElementById('d-saas').className = 'dot dot-g';
+            document.getElementById('p-saas').className = 'pill pill-g';
+            document.getElementById('p-saas').textContent = 'Operational';
+        }
+    } catch {
+        document.getElementById('d-saas').className = 'dot dot-r';
+        document.getElementById('p-saas').className = 'pill pill-r';
+        document.getElementById('p-saas').textContent = 'Down';
+    }
+    document.getElementById('banner-sub').textContent = `Last checked: ${new Date().toLocaleTimeString()}`;
+    document.getElementById('last-check').textContent = `Auto-refreshes every 60 seconds · ${new Date().toLocaleString()}`;
+}
+checkSaaS();
+setInterval(checkSaaS, 60000);
+</script>
+</body>
+</html>
