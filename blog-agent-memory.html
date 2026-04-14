@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Memory Systems: ChromaDB, Embeddings & Persistent Context — MoltBot Blog</title>
+  <meta name="description" content="How to give your AI agents persistent memory using ChromaDB, vector embeddings, and hierarchical memory systems. Production patterns with code.">
+  <meta name="keywords" content="AI agent memory, ChromaDB tutorial, vector database AI agents, LLM persistent memory, agent context management, long-term memory AI">
+  <meta property="og:title" content="AI Agent Memory Systems: ChromaDB & Persistent Context">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory.html">
+  <meta property="article:published_time" content="2026-04-14">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"AI Agent Memory Systems: ChromaDB, Embeddings & Persistent Context","datePublished":"2026-04-14","author":{"@type":"Organization","name":"MoltBot"},"url":"https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory.html"}
+  </script>
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.8rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.15rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.1rem;color:var(--accent);margin:2rem 0 .75rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul,.blog-content ol{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    pre{background:rgba(0,0,0,.5);border:1px solid var(--glass-border);border-radius:10px;padding:1.5rem;overflow-x:auto;margin:1rem 0 1.5rem}
+    pre code{font-family:monospace;font-size:.87rem;color:#e2e8f0}
+    .callout{border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+    .callout.info{background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.2)}
+    .callout.tip{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2)}
+    .callout h4{margin-bottom:.5rem;font-size:.95rem}
+    .callout.info h4{color:var(--accent)}
+    .callout.tip h4{color:#4ade80}
+    .callout p{color:#94a3b8;margin:0;font-size:.92rem}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .sidebar-card a:hover{color:var(--accent)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr} .blog-sidebar{display:none} .blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="blog.html">Blog</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta">
+      <span>📅 April 14, 2026</span><span>⏱ 9 min read</span><span>✍️ MoltBot Engineering</span>
+    </div>
+    <div><span class="tag">Memory</span><span class="tag">ChromaDB</span><span class="tag">Embeddings</span></div>
+    <h1>AI Agent Memory Systems: ChromaDB, Embeddings & Persistent Context</h1>
+    <p class="lead">Stateless agents forget everything between sessions. Stateful agents learn, adapt, and compound knowledge over time. Here's how to build the memory layer that makes the difference — with production code.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The biggest gap between demo agents and production agents isn't model quality — it's memory. Demo agents start fresh every session. Production agents remember every past decision, every codebase quirk, every user preference. The infrastructure to make that happen is surprisingly straightforward.</p>
+
+      <h2>The 4 Types of Agent Memory</h2>
+      <p>Before building, understand what you're building. Agent memory systems typically handle four categories:</p>
+      <ul>
+        <li><strong>Working memory</strong> — the current conversation context (in-window). Limited by model context length.</li>
+        <li><strong>Episodic memory</strong> — past actions, decisions, and outcomes. "What did I do last time?"</li>
+        <li><strong>Semantic memory</strong> — facts about the world, the user, and the codebase. "What does this function do?"</li>
+        <li><strong>Procedural memory</strong> — learned workflows and preferences. "The user prefers pytest over unittest."</li>
+      </ul>
+
+      <div class="callout info">
+        <h4>ℹ️ Architecture insight</h4>
+        <p>MoltBot agents use ChromaDB for episodic + semantic memory, Redis for fast working-memory overflow, and a SQLite preference store for procedural memory. Three different systems, unified behind a single Memory API.</p>
+      </div>
+
+      <h2>ChromaDB: The Core Memory Store</h2>
+      <p>ChromaDB is an open-source vector database — you store embeddings of text (memories), then retrieve the most semantically similar memories at query time. Perfect for episodic and semantic memory.</p>
+
+      <pre><code>import chromadb
+from chromadb.config import Settings
+
+# Initialize persistent ChromaDB
+client = chromadb.PersistentClient(
+    path="/data/agent_memory",
+    settings=Settings(anonymized_telemetry=False)
+)
+
+# One collection per agent (or per user)
+memory = client.get_or_create_collection(
+    name="agent_001",
+    metadata={"hnsw:space": "cosine"}
+)</code></pre>
+
+      <h3>Storing Memories</h3>
+      <p>Every significant agent action, observation, or user instruction gets stored as an embedding with metadata.</p>
+      <pre><code>from datetime import datetime
+import hashlib
+
+def store_memory(agent_id: str, text: str, memory_type: str, metadata: dict = {}):
+    """Store a memory with embedding and metadata."""
+    collection = client.get_collection(f"agent_{agent_id}")
+    
+    # Generate stable ID from content hash
+    doc_id = hashlib.sha256(text.encode()).hexdigest()[:16]
+    
+    collection.add(
+        documents=[text],
+        metadatas=[{
+            "type": memory_type,   # "episodic" | "semantic" | "procedural"
+            "timestamp": datetime.utcnow().isoformat(),
+            "importance": metadata.get("importance", 0.5),
+            **metadata
+        }],
+        ids=[doc_id]
+    )
+
+# Example usage
+store_memory("001", 
+    "User prefers concise code with type hints. Rejected verbose example.",
+    "procedural",
+    {"importance": 0.9, "topic": "code_style"}
+)</code></pre>
+
+      <h3>Retrieving Relevant Memories</h3>
+      <p>At the start of each task, query ChromaDB for the most relevant past memories and inject them into the prompt as context.</p>
+      <pre><code>def recall(agent_id: str, query: str, n: int = 5, memory_type: str = None) -> list:
+    """Retrieve N most relevant memories for a given query."""
+    collection = client.get_collection(f"agent_{agent_id}")
+    
+    where_filter = {"type": memory_type} if memory_type else None
+    
+    results = collection.query(
+        query_texts=[query],
+        n_results=n,
+        where=where_filter
+    )
+    
+    return [
+        {"text": doc, "metadata": meta, "distance": dist}
+        for doc, meta, dist in zip(
+            results["documents"][0],
+            results["metadatas"][0],
+            results["distances"][0]
+        )
+    ]
+
+# Inject memories into system prompt
+memories = recall("001", "writing unit tests for auth module")
+memory_block = "\n".join([f"- {m['text']}" for m in memories])
+system_prompt = f"Relevant context from past sessions:\n{memory_block}\n\nNow: {task}"</code></pre>
+
+      <h2>Hierarchical Memory Compression</h2>
+      <p>Raw memories accumulate fast. Without compression, retrieval degrades. Use hierarchical summarization to keep the memory store lean.</p>
+      <pre><code>def compress_old_memories(agent_id: str, days_old: int = 7):
+    """Summarize memories older than N days into compressed episodes."""
+    cutoff = (datetime.utcnow() - timedelta(days=days_old)).isoformat()
+    
+    collection = client.get_collection(f"agent_{agent_id}")
+    old_memories = collection.get(
+        where={"timestamp": {"$lt": cutoff}}
+    )
+    
+    if len(old_memories["documents"]) < 10:
+        return  # Not enough to compress
+    
+    # Summarize with a cheap, fast model
+    summary = call_model("gemini-flash",
+        f"Summarize these agent memories into key learnings:\n"
+        + "\n".join(old_memories["documents"])
+    )
+    
+    # Store summary, delete originals
+    store_memory(agent_id, summary, "episodic_compressed", 
+                 {"importance": 0.8, "original_count": len(old_memories["documents"])})
+    
+    collection.delete(ids=old_memories["ids"])</code></pre>
+
+      <h2>Importance Scoring</h2>
+      <p>Not all memories are equal. Assign importance scores so lower-ranked memories are compressed or evicted first.</p>
+      <pre><code>def score_importance(event: str) -> float:
+    """Score memory importance 0-1 using a fast classifier."""
+    keywords = {
+        "user preference": 0.9, "bug fix": 0.8, "architecture decision": 0.85,
+        "error": 0.7, "success": 0.6, "routine": 0.3
+    }
+    score = 0.5  # Default
+    for keyword, weight in keywords.items():
+        if keyword in event.lower():
+            score = max(score, weight)
+    return score</code></pre>
+
+      <h2>Memory-Augmented Prompting</h2>
+      <p>Full pattern: retrieve relevant memories, format them, inject into the system prompt, then run the agent. This is the full loop MoltBot uses.</p>
+      <pre><code>async def run_agent_with_memory(agent_id: str, task: str, model: str):
+    # 1. Recall relevant memories
+    episodic = recall(agent_id, task, n=3, memory_type="episodic")
+    procedural = recall(agent_id, task, n=3, memory_type="procedural")
+    
+    # 2. Build memory-augmented prompt
+    system = f"""You are an autonomous coding agent.
+
+Past relevant experiences:
+{format_memories(episodic)}
+
+User preferences and learned behaviors:
+{format_memories(procedural)}
+
+Use these memories to inform your approach, but don't repeat past mistakes."""
+
+    # 3. Run agent
+    result = await call_model_async(model, task, system_prompt=system)
+    
+    # 4. Store new memories from this session
+    store_memory(agent_id, f"Task: {task}. Outcome: {result.summary}", 
+                 "episodic", {"importance": score_importance(result.summary)})
+    
+    return result</code></pre>
+
+      <div class="callout tip">
+        <h4>✓ MoltBot does all of this automatically</h4>
+        <p>Every MoltBot agent ships with a pre-configured ChromaDB instance, automatic memory compression, and importance scoring. Your agents remember everything from day one.</p>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Deploy memory-enabled agents in minutes</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">MoltBot provisions ChromaDB, persistent storage, and the full memory stack automatically. No configuration needed.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-llm-orchestration.html">LLM Orchestration in 2026</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs by 90%</a>
+        <a href="blog-build-ai-swarm.html">Build Your First Swarm</a>
+        <a href="blog-ai-agent-security.html">AI Agent Security</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Agents that remember</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">ChromaDB memory built in. Start for $49/mo.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a> · <a href="docs.html" style="color:#64748b">Docs</a></p>
+  </footer>
+</body>
+</html>
