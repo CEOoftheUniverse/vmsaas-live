@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing LLM Applications: Unit Tests, Regression Suites & Evals | MoltBot Blog</title>
+  <meta name="description" content="How to test LLM-powered applications — unit testing prompts, building regression suites with golden datasets, LLM-as-judge evaluation, and CI/CD integration for AI systems.">
+  <meta name="keywords" content="testing LLM application, unit testing prompts, LLM regression testing, LLM eval CI/CD, AI testing golden dataset, LLM as judge testing, prompt testing framework, AI quality assurance">
+  <meta property="og:title" content="Testing LLM Applications: Unit Tests, Regression Suites & Evals">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-testing.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-testing.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .test-type{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin:1rem 0;border-left:3px solid #818cf8}
+    .test-type h3{margin:0 0 .4rem;font-size:1.05rem;color:#c4b5fd}
+    .test-type p{margin:0 0 .75rem;color:#94a3b8;font-size:.88rem;line-height:1.7}
+    .test-type .when{font-size:.8rem;color:#64748b}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Testing</span><span class="tag">LLMOps</span><span class="tag">CI/CD</span></div>
+    <h1>Testing LLM Applications: Unit Tests, Regression Suites & Evals</h1>
+    <p class="lead">LLM outputs are non-deterministic — traditional unit testing doesn't work. Here are the testing strategies that do work: golden datasets, LLM-as-judge evaluation, property-based tests, and how to integrate all of it into CI/CD.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>When you change a prompt, you can accidentally break outputs that were previously working. Without a test suite, you discover this through user complaints in production. The solution is a structured testing approach adapted for the non-deterministic nature of LLMs.</p>
+
+      <h2>The four LLM testing strategies</h2>
+
+      <div class="test-type">
+        <h3>1. Golden Dataset (Regression Testing)</h3>
+        <p>A curated set of 50–200 input/expected-output pairs. Run your pipeline against these after every change. Flag outputs that deviate from the expected results. This is the single most valuable test type for catching regressions.</p>
+        <div class="when">When: Every prompt change, model upgrade, or retrieval system update.</div>
+      </div>
+
+      <div class="test-type">
+        <h3>2. LLM-as-Judge</h3>
+        <p>Use a separate, high-quality LLM (e.g., Claude Opus) to evaluate your agent's outputs for correctness, relevance, and safety. Score outputs 1–5 and alert when average score drops below threshold. More flexible than exact-match evaluation.</p>
+        <div class="when">When: Open-ended outputs (summaries, drafts) where exact-match comparison is too strict.</div>
+      </div>
+
+      <div class="test-type">
+        <h3>3. Property-Based Tests</h3>
+        <p>Assert structural properties of outputs that must always hold: "response is valid JSON," "no PII in output," "response length is under 500 tokens," "language is EN." Fast, cheap, and catches format regressions instantly.</p>
+        <div class="when">When: Any structured output — JSON extraction, classification, data transformation.</div>
+      </div>
+
+      <div class="test-type">
+        <h3>4. Adversarial / Red-Team Tests</h3>
+        <p>A fixed set of adversarial inputs — prompt injection attempts, ambiguous queries, edge cases — run against every release. Ensures safety and robustness properties don't regress as you iterate.</p>
+        <div class="when">When: Any agent with tool access or user-facing deployment.</div>
+      </div>
+
+      <h2>Automated eval suite with MoltBot</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot.eval <span class="kw">import</span> EvalSuite, GoldenDataset, LLMJudge
+
+suite = EvalSuite(
+    dataset=GoldenDataset.load(<span class="str">"./evals/golden.jsonl"</span>),
+    judges=[
+        LLMJudge(model=<span class="str">"claude-opus-4"</span>, criteria=[
+            <span class="str">"correctness"</span>, <span class="str">"relevance"</span>, <span class="str">"safety"</span>
+        ]),
+    ],
+    property_checks=[
+        <span class="kw">lambda</span> r: r.is_valid_json(),
+        <span class="kw">lambda</span> r: r.contains_no_pii(),
+        <span class="kw">lambda</span> r: len(r.text) &lt; 2000,
+    ],
+    fail_threshold=0.85,   <span class="cm"># fail CI if score drops below 85%</span>
+)
+
+results = suite.run(agent)
+suite.report()             <span class="cm"># prints per-test breakdown</span>
+      </div>
+
+      <h2>CI/CD integration</h2>
+      <ul>
+        <li>Run property-based tests on every PR (fast, cheap, ~5 seconds).</li>
+        <li>Run golden dataset + LLM-as-judge on merge to main (1–5 minutes).</li>
+        <li>Run full red-team suite before production releases.</li>
+        <li>Set score thresholds in your pipeline — block deployment if eval score drops below baseline.</li>
+        <li>Track eval scores over time — a gradual drift is as dangerous as a sharp regression.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Built-in eval suite on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Golden datasets, LLM-as-judge, property checks, and CI/CD integration — zero setup. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-agent-evaluation.html">Agent Evaluation</a>
+        <a href="blog-ai-security.html">AI Security</a>
+        <a href="blog-fine-tuning.html">Fine-Tuning LLMs</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Evals in CI/CD</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
