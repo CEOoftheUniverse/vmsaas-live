@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Memory Types: Episodic, Semantic & Working Memory in AI Agents | MoltBot Blog</title>
+  <meta name="description" content="A developer guide to the three types of AI agent memory — working (in-context), episodic (conversation history), and semantic (long-term vector storage) — and when to use each.">
+  <meta name="keywords" content="AI agent memory, episodic memory AI agent, semantic memory agent, working memory LLM, agent long-term memory, vector memory agent, agent memory architecture, persistent agent memory">
+  <meta property="og:title" content="Agent Memory Types: Episodic, Semantic & Working Memory">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory-types.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory-types.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .mem-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin:1rem 0;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+    .mem-icon{font-size:2rem}
+    .mem-card h3{margin:0 0 .4rem;font-size:1.05rem}
+    .mem-card p{margin:0 0 .6rem;color:#94a3b8;font-size:.88rem;line-height:1.7}
+    .mem-card .sc{display:flex;gap:.5rem;flex-wrap:wrap}
+    .mem-card .sc span{background:rgba(79,70,229,.1);border:1px solid rgba(79,70,229,.2);border-radius:20px;padding:.15rem .55rem;font-size:.75rem;color:#818cf8}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Memory</span><span class="tag">Agent Architecture</span></div>
+    <h1>Agent Memory Types: Episodic, Semantic & Working Memory</h1>
+    <p class="lead">Stateless agents forget everything between turns. Agents with memory can learn, personalize, and maintain context across sessions. Here are the three types of agent memory, when each one applies, and how to implement them.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>A truly capable agent doesn't just respond to the current message — it remembers what happened before, knows what it's learned, and can retrieve relevant past context. This requires implementing memory deliberately, because LLMs themselves are stateless between API calls.</p>
+
+      <h2>The three memory types</h2>
+
+      <div class="mem-card">
+        <div class="mem-icon">🧠</div>
+        <div>
+          <h3>Working Memory (In-Context)</h3>
+          <p>Everything in the current context window — the conversation so far, system prompt, retrieved chunks, and tool outputs. Fast to access (already in context) but limited by context window size and resets every session.</p>
+          <div class="sc"><span>Immediate context</span><span>This conversation</span><span>Tool outputs</span></div>
+        </div>
+      </div>
+
+      <div class="mem-card">
+        <div class="mem-icon">📖</div>
+        <div>
+          <h3>Episodic Memory (Conversation History)</h3>
+          <p>Stored records of past interactions — summarized or verbatim. Lets the agent recall "last week you mentioned you prefer Python" or "we discussed this issue in March." Stored externally (database) and retrieved selectively into context.</p>
+          <div class="sc"><span>Past conversations</span><span>User preferences</span><span>Prior decisions</span></div>
+        </div>
+      </div>
+
+      <div class="mem-card">
+        <div class="mem-icon">🗃️</div>
+        <div>
+          <h3>Semantic Memory (Long-Term Knowledge)</h3>
+          <p>Domain knowledge embedded and stored in a vector database. The agent retrieves the most relevant knowledge chunks at query time — product documentation, policies, past solutions. This is the foundation of RAG.</p>
+          <div class="sc"><span>Documents</span><span>Knowledge bases</span><span>Policies</span><span>Vector search</span></div>
+        </div>
+      </div>
+
+      <h2>Combining all three with MoltBot</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot <span class="kw">import</span> Agent
+<span class="kw">from</span> moltbot.memory <span class="kw">import</span> EpisodicMemory, SemanticMemory
+
+agent = Agent(
+    model=<span class="str">"claude-sonnet-4"</span>,
+    memory=EpisodicMemory(
+        store=<span class="str">"postgres"</span>,            <span class="cm"># persist conversations</span>
+        max_history_tokens=2000,     <span class="cm"># how much history to inject</span>
+        summarize_after=20,          <span class="cm"># auto-summarize long histories</span>
+    ),
+    knowledge=SemanticMemory(
+        vector_store=<span class="str">"pinecone"</span>,      <span class="cm"># your knowledge base</span>
+        top_k=5,                     <span class="cm"># chunks per query</span>
+    ),
+)
+
+response = agent.chat(
+    user_id=<span class="str">"user_123"</span>,             <span class="cm"># scopes episodic memory per user</span>
+    message=<span class="str">"What did we discuss about pricing?"</span>
+)
+      </div>
+
+      <h2>When to use each type</h2>
+      <ul>
+        <li><strong>Working memory only</strong> — Simple Q&A bots, single-turn tasks where session history doesn't matter.</li>
+        <li><strong>+ Episodic</strong> — Customer service agents, personal assistants, any use case where remembering the user's history improves quality.</li>
+        <li><strong>+ Semantic</strong> — Knowledge-intensive tasks: support bots, internal wikis, research assistants. Anywhere the agent needs to recall facts beyond what fits in context.</li>
+        <li><strong>All three</strong> — Enterprise agents that need to know both the user's history AND the company's knowledge base simultaneously.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">All three memory types on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Episodic, semantic, and working memory — configured per agent. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-vector-databases.html">Vector Databases</a>
+        <a href="blog-context-window-vs-rag.html">Context Window vs RAG</a>
+        <a href="blog-agent-planning.html">Agent Planning</a>
+        <a href="blog-tool-calling.html">Tool Calling</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Agents that remember</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
