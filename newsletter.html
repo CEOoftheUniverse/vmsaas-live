@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Newsletter — MoltBot Weekly</title>
+  <meta name="description" content="Join 8,400+ AI builders. Weekly digest of AI agent patterns, cost optimization tips, model releases, and MoltBot tutorials. Free forever.">
+  <meta name="keywords" content="AI newsletter, AI agent newsletter, LLM weekly, AI engineering newsletter, autonomous agent tips">
+  <meta property="og:title" content="MoltBot Weekly — AI Agent Newsletter">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/newsletter.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/newsletter.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .nl-hero{min-height:85vh;display:flex;align-items:center;justify-content:center;padding:6rem 10%;text-align:center;position:relative;overflow:hidden}
+    .nl-hero::before{content:'';position:absolute;top:10%;left:25%;width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,.18) 0%,transparent 70%);border-radius:50%;z-index:-1}
+    .nl-hero h1{font-size:3.5rem;margin-bottom:1.5rem;max-width:700px}
+    .nl-hero p{color:#94a3b8;font-size:1.1rem;max-width:520px;margin:0 auto 2.5rem}
+    .signup-box{display:flex;gap:.75rem;max-width:500px;margin:0 auto 1.5rem;flex-wrap:wrap}
+    .signup-box input{flex:1;background:rgba(0,0,0,.4);border:1px solid var(--glass-border);border-radius:10px;padding:.85rem 1.25rem;color:white;font-family:inherit;font-size:.95rem;outline:none;min-width:220px;transition:border-color .2s}
+    .signup-box input:focus{border-color:var(--primary)}
+    .trust-row{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:1rem;font-size:.85rem;color:#64748b}
+    .social-proof{display:flex;justify-content:center;gap:.5rem;margin-bottom:1.5rem}
+    .avatar{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg);margin-left:-10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:var(--glass-bg)}
+    .avatar:first-child{margin-left:0}
+    .features-section{padding:4rem 10%;background:linear-gradient(180deg,transparent,rgba(30,41,59,.2))}
+    .features-section h2{font-size:2rem;text-align:center;margin-bottom:2.5rem}
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+    .feat-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.75rem}
+    .feat-card .icon{font-size:2rem;margin-bottom:.75rem}
+    .feat-card h3{margin-bottom:.5rem}
+    .feat-card p{color:#94a3b8;font-size:.88rem}
+    .past-issues{padding:4rem 10%}
+    .past-issues h2{font-size:1.5rem;margin-bottom:1.5rem}
+    .issue-row{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:10px;margin-bottom:.75rem;gap:1rem;flex-wrap:wrap;text-decoration:none;color:inherit;transition:all .2s}
+    .issue-row:hover{border-color:rgba(79,70,229,.3);transform:translateX(4px)}
+    .issue-title{font-weight:600;font-size:.95rem}
+    .issue-meta{color:#64748b;font-size:.8rem}
+    .issue-badge{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .65rem;border-radius:20px;font-size:.75rem;white-space:nowrap}
+    .bottom-cta{padding:5rem 10%;text-align:center}
+    .bottom-cta h2{font-size:2rem;margin-bottom:1rem}
+    .bottom-cta p{color:#94a3b8;margin-bottom:2rem}
+    @media(max-width:768px){.nl-hero h1{font-size:2.2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="community.html">Community</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="nl-hero">
+    <div>
+      <div class="social-proof">
+        <div class="avatar">😎</div>
+        <div class="avatar">🧑‍💻</div>
+        <div class="avatar">👩‍🔬</div>
+        <div class="avatar">🦸</div>
+        <div class="avatar">🧠</div>
+      </div>
+      <p style="color:#64748b;font-size:.9rem;margin-bottom:2rem">Join <strong style="color:white">8,413 AI builders</strong> already subscribed</p>
+      <h1>The weekly digest for <span style="background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">AI agent engineers</span></h1>
+      <p>Every Tuesday: production patterns, model benchmarks, cost optimization case studies, and what's shipping in MoltBot. No fluff — straight to your inbox.</p>
+      <form class="signup-box" onsubmit="handleSignup(event)">
+        <input type="email" id="nl-email" placeholder="you@company.com" required>
+        <button type="submit" class="btn-primary" id="nl-btn" style="border:none;cursor:pointer;font-family:inherit;padding:.85rem 1.75rem">Subscribe Free →</button>
+      </form>
+      <div id="nl-success" style="display:none;margin:0 auto 1rem;padding:.75rem 1.5rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;color:#4ade80;font-weight:600;max-width:400px">
+        ✓ You're in! Check your inbox to confirm.
+      </div>
+      <div class="trust-row">
+        <span>✓ Free forever</span>
+        <span>✓ No spam, ever</span>
+        <span>✓ Unsubscribe in 1 click</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>What you'll get every Tuesday</h2>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="icon">📦</div><h3>Production Patterns</h3><p>Real agent architectures used in production — memory management, tool chaining, error recovery, and orchestration techniques.</p></div>
+      <div class="feat-card"><div class="icon">💸</div><h3>Cost Optimization</h3><p>Case studies on drastic API cost reductions. Model arbitrage tactics, caching wins, and token-efficiency techniques that work.</p></div>
+      <div class="feat-card"><div class="icon">🧪</div><h3>Model Benchmarks</h3><p>Practical benchmarks that matter for coding agents: accuracy, speed, context quality, and cost across Claude, GPT, Gemini, Qwen, and more.</p></div>
+      <div class="feat-card"><div class="icon">🔐</div><h3>Security & Safety</h3><p>Prompt injection defenses, credential hygiene, sandboxing patterns, and SOC 2 readiness for teams deploying agents in production.</p></div>
+      <div class="feat-card"><div class="icon">🚀</div><h3>MoltBot Updates</h3><p>New features, GPU tier announcements, integration launches, and community highlights from the MoltBot ecosystem.</p></div>
+      <div class="feat-card"><div class="icon">📖</div><h3>Curated Reading</h3><p>The 3 best AI engineering papers, blog posts, and GitHub repos from the week — curated by our engineering team.</p></div>
+    </div>
+  </section>
+
+  <section class="past-issues">
+    <h2>Recent issues</h2>
+    <a href="blog-llm-orchestration.html" class="issue-row">
+      <div><div class="issue-title">Issue #47: LLM Orchestration Patterns in 2026</div><div class="issue-meta">Apr 14, 2026 · 4 patterns, 3 code samples</div></div>
+      <span class="issue-badge">🎛️ Architecture</span>
+    </a>
+    <a href="blog-reduce-ai-costs.html" class="issue-row">
+      <div><div class="issue-title">Issue #46: Cut Your AI API Bill by 90%</div><div class="issue-meta">Apr 7, 2026 · Model arbitrage case study</div></div>
+      <span class="issue-badge">💸 Cost</span>
+    </a>
+    <a href="blog-ai-agent-security.html" class="issue-row">
+      <div><div class="issue-title">Issue #45: 8 AI Agent Security Risks Solved</div><div class="issue-meta">Mar 31, 2026 · Prompt injection + mitigations</div></div>
+      <span class="issue-badge">🔐 Security</span>
+    </a>
+    <a href="blog-build-ai-swarm.html" class="issue-row">
+      <div><div class="issue-title">Issue #44: Build a 3-Agent Coding Swarm</div><div class="issue-meta">Mar 24, 2026 · Full tutorial + repo</div></div>
+      <span class="issue-badge">🤖 Tutorial</span>
+    </a>
+    <a href="blog-ai-agent-roi-calculator.html" class="issue-row">
+      <div><div class="issue-title">Issue #43: ROI Calculators for AI Agent Teams</div><div class="issue-meta">Mar 17, 2026 · Benchmarking your agent ROI</div></div>
+      <span class="issue-badge">📊 Business</span>
+    </a>
+  </section>
+
+  <section class="bottom-cta">
+    <h2>Ready to ship faster with AI agents?</h2>
+    <p>Start your free trial of MoltBot — dedicated GPU infrastructure for autonomous AI agents.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="signup.html" class="btn-primary large">Start 14-Day Free Trial</a>
+      <a href="blog.html" class="btn-secondary large">Read the Blog →</a>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a> · <a href="community.html" style="color:#64748b">Community</a> · <a href="contact.html" style="color:#64748b">Unsubscribe</a></p>
+  </footer>
+  <script>
+  function handleSignup(e){
+    e.preventDefault();
+    const btn=document.getElementById('nl-btn');
+    btn.disabled=true; btn.textContent='Sending…';
+    setTimeout(()=>{
+      document.querySelector('.signup-box').style.display='none';
+      document.getElementById('nl-success').style.display='block';
+    },800);
+  }
+  </script>
+</body>
+</html>
