@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoltBot API Reference — REST Endpoints, SDKs & Authentication | Docs</title>
+  <meta name="description" content="Complete MoltBot API reference: REST endpoints for agent management, billing, instances, and logs. Python and Node.js SDK quickstart. Authentication with API keys.">
+  <meta name="keywords" content="MoltBot API, AI agent API, REST API AI agents, Python SDK AI agents, MoltBot SDK, agent management API">
+  <meta property="og:title" content="MoltBot API Reference — REST Endpoints & SDKs">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/api-reference.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/api-reference.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .api-layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;padding-top:70px}
+    .api-sidebar{background:rgba(0,0,0,.3);border-right:1px solid var(--glass-border);padding:2rem 1.5rem;position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto}
+    .api-sidebar h3{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#475569;margin:1.5rem 0 .5rem}
+    .api-sidebar a{display:block;color:#94a3b8;text-decoration:none;font-size:.88rem;padding:.35rem .5rem;border-radius:6px;transition:all .15s}
+    .api-sidebar a:hover,.api-sidebar a.active{background:rgba(79,70,229,.15);color:#818cf8}
+    .api-main{padding:3rem 4rem;max-width:900px}
+    .api-main h1{font-size:2.2rem;margin-bottom:.5rem}
+    .api-main .desc{color:#94a3b8;margin-bottom:2.5rem;font-size:1rem}
+    .endpoint{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;margin-bottom:2rem;overflow:hidden}
+    .endpoint-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;border-bottom:1px solid var(--glass-border)}
+    .method{font-family:monospace;font-weight:700;font-size:.85rem;padding:.25rem .65rem;border-radius:6px;min-width:60px;text-align:center}
+    .method.get{background:rgba(34,197,94,.15);color:#4ade80}
+    .method.post{background:rgba(79,70,229,.15);color:#818cf8}
+    .method.delete{background:rgba(248,113,113,.15);color:#f87171}
+    .method.patch{background:rgba(251,146,60,.15);color:#fb923c}
+    .endpoint-path{font-family:monospace;font-size:.95rem;color:white}
+    .endpoint-desc{color:#64748b;font-size:.85rem;margin-left:auto}
+    .endpoint-body{padding:1.5rem}
+    .param-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:.88rem}
+    .param-table th{text-align:left;color:#64748b;font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;padding:.5rem 1rem;border-bottom:1px solid var(--glass-border)}
+    .param-table td{padding:.5rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);color:#94a3b8;vertical-align:top}
+    .param-table td:first-child{font-family:monospace;color:white;font-size:.85rem}
+    .type{background:rgba(99,102,241,.1);color:#818cf8;padding:.1rem .4rem;border-radius:4px;font-size:.75rem;font-family:monospace}
+    .required{background:rgba(248,113,113,.1);color:#f87171;padding:.1rem .4rem;border-radius:4px;font-size:.75rem}
+    pre{background:rgba(0,0,0,.5);border:1px solid var(--glass-border);border-radius:8px;padding:1.25rem;overflow-x:auto;font-size:.85rem;margin:.5rem 0}
+    pre code{color:#e2e8f0;font-family:monospace}
+    .divider{height:1px;background:var(--glass-border);margin:3rem 0}
+    @media(max-width:768px){.api-layout{grid-template-columns:1fr} .api-sidebar{display:none} .api-main{padding:2rem 5%}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="docs.html">Docs</a>
+      <a href="community.html">Community</a>
+      <a href="signin.html">Sign In</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="api-layout">
+    <aside class="api-sidebar">
+      <h3>Getting Started</h3>
+      <a href="#auth" class="active">Authentication</a>
+      <a href="#base-url">Base URL</a>
+      <a href="#errors">Errors</a>
+      <h3>Agents</h3>
+      <a href="#list-agents">List agents</a>
+      <a href="#create-agent">Create agent</a>
+      <a href="#get-agent">Get agent</a>
+      <a href="#stop-agent">Stop agent</a>
+      <h3>Tasks</h3>
+      <a href="#run-task">Run task</a>
+      <a href="#get-task">Get task status</a>
+      <h3>Logs</h3>
+      <a href="#get-logs">Get logs</a>
+      <h3>SDKs</h3>
+      <a href="#python-sdk">Python</a>
+      <a href="#node-sdk">Node.js</a>
+    </aside>
+
+    <main class="api-main">
+      <h1>API Reference</h1>
+      <p class="desc">REST API for programmatic control of MoltBot agents, tasks, and infrastructure.</p>
+
+      <h2 id="auth">Authentication</h2>
+      <p style="color:#94a3b8;margin-bottom:1rem">All API requests require a Bearer token in the Authorization header. Generate API keys in your <a href="signin.html" style="color:var(--accent)">dashboard</a>.</p>
+      <pre><code>Authorization: Bearer mk_live_xxxxxxxxxxxxxxxxxxxx</code></pre>
+
+      <h2 id="base-url" style="margin-top:2rem">Base URL</h2>
+      <pre><code>https://api.moltbot.cloud/v1</code></pre>
+
+      <div class="divider"></div>
+      <h2>Agents</h2>
+
+      <div class="endpoint" id="list-agents">
+        <div class="endpoint-header">
+          <span class="method get">GET</span>
+          <span class="endpoint-path">/agents</span>
+          <span class="endpoint-desc">List all agents</span>
+        </div>
+        <div class="endpoint-body">
+          <p style="color:#94a3b8;font-size:.9rem;margin-bottom:1rem">Returns all agents in your workspace with their status and resource info.</p>
+          <pre><code># Request
+curl https://api.moltbot.cloud/v1/agents \
+  -H "Authorization: Bearer mk_live_xxx"
+
+# Response
+{
+  "agents": [
+    {
+      "id": "agent_01ABCDEF",
+      "name": "coding-agent-1",
+      "status": "running",
+      "gpu": "rtx4090",
+      "created_at": "2026-04-14T12:00:00Z",
+      "memory_gb": 24,
+      "active_task": "task_01XYZABC"
+    }
+  ],
+  "total": 1
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint" id="create-agent">
+        <div class="endpoint-header">
+          <span class="method post">POST</span>
+          <span class="endpoint-path">/agents</span>
+          <span class="endpoint-desc">Create a new agent</span>
+        </div>
+        <div class="endpoint-body">
+          <table class="param-table">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>name</td><td><span class="type">string</span></td><td><span class="required">required</span></td><td>Human-readable agent name</td></tr>
+              <tr><td>gpu</td><td><span class="type">string</span></td><td><span class="required">required</span></td><td><code>rtx4090</code> | <code>a100</code> | <code>h100</code></td></tr>
+              <tr><td>system_prompt</td><td><span class="type">string</span></td><td>optional</td><td>Initial system prompt for the agent</td></tr>
+              <tr><td>model</td><td><span class="type">string</span></td><td>optional</td><td>Default LLM model (default: <code>claude-opus-4</code>)</td></tr>
+            </tbody>
+          </table>
+          <pre><code>curl -X POST https://api.moltbot.cloud/v1/agents \
+  -H "Authorization: Bearer mk_live_xxx" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"my-agent","gpu":"rtx4090","model":"claude-opus-4"}'</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint" id="run-task">
+        <div class="endpoint-header">
+          <span class="method post">POST</span>
+          <span class="endpoint-path">/agents/{id}/tasks</span>
+          <span class="endpoint-desc">Run a task on an agent</span>
+        </div>
+        <div class="endpoint-body">
+          <table class="param-table">
+            <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>task</td><td><span class="type">string</span></td><td><span class="required">required</span></td><td>Natural language task description</td></tr>
+              <tr><td>tools</td><td><span class="type">array</span></td><td>optional</td><td>Tool names to enable for this task</td></tr>
+              <tr><td>timeout</td><td><span class="type">integer</span></td><td>optional</td><td>Max seconds (default: 300)</td></tr>
+            </tbody>
+          </table>
+          <pre><code>curl -X POST https://api.moltbot.cloud/v1/agents/agent_01ABCDEF/tasks \
+  -H "Authorization: Bearer mk_live_xxx" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "task": "Review the open PRs in github.com/myorg/myrepo and summarize each one",
+    "tools": ["github", "web_search"],
+    "timeout": 120
+  }'
+
+# Response
+{
+  "task_id": "task_01XYZABC",
+  "status": "running",
+  "estimated_completion_seconds": 45
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="endpoint" id="stop-agent">
+        <div class="endpoint-header">
+          <span class="method delete">DELETE</span>
+          <span class="endpoint-path">/agents/{id}</span>
+          <span class="endpoint-desc">Stop and delete agent</span>
+        </div>
+        <div class="endpoint-body">
+          <pre><code>curl -X DELETE https://api.moltbot.cloud/v1/agents/agent_01ABCDEF \
+  -H "Authorization: Bearer mk_live_xxx"
+
+# Response 204 No Content</code></pre>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h2 id="python-sdk">Python SDK</h2>
+      <pre><code>pip install moltbot</code></pre>
+      <pre><code>from moltbot import MoltBot
+
+client = MoltBot(api_key="mk_live_xxx")
+
+# Create and run an agent
+agent = client.agents.create(name="my-agent", gpu="rtx4090")
+task = agent.run("Audit our GitHub repo for security vulnerabilities")
+
+# Poll for completion
+result = task.wait()
+print(result.output)</code></pre>
+
+      <div class="divider"></div>
+      <h2 id="node-sdk">Node.js SDK</h2>
+      <pre><code>npm install @moltbot/sdk</code></pre>
+      <pre><code>import { MoltBot } from '@moltbot/sdk';
+
+const client = new MoltBot({ apiKey: 'mk_live_xxx' });
+
+const agent = await client.agents.create({ name: 'my-agent', gpu: 'rtx4090' });
+const task = await agent.run('Generate unit tests for all untested functions');
+const result = await task.wait();
+console.log(result.output);</code></pre>
+
+      <div style="margin-top:3rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Ready to build?</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Get your API key in seconds. 14-day free trial, no credit card.</p>
+        <a href="signup.html" class="btn-primary">Get API Key →</a>
+      </div>
+    </main>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="docs.html" style="color:#64748b">Docs</a> · <a href="community.html" style="color:#64748b">Community</a></p>
+  </footer>
+</body>
+</html>
