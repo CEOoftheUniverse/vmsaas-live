@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Databases Explained: Pinecone, Weaviate, pgvector & How to Choose | MoltBot Blog</title>
+  <meta name="description" content="A practical guide to vector databases in 2026 — how embeddings work, the top vector DB options compared, and when to use a managed service vs pgvector in Postgres.">
+  <meta name="keywords" content="vector database, Pinecone vs Weaviate, pgvector Postgres, vector search AI, embeddings database, RAG vector store, Qdrant Chroma comparison, vector DB 2026">
+  <meta property="og:title" content="Vector Databases Explained: Pinecone, Weaviate, pgvector & How to Choose">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-vector-databases.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-vector-databases.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .db-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .db-table th{padding:.85rem 1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .db-table td{padding:.7rem 1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.85rem;color:#94a3b8}
+    .db-table td:first-child{font-weight:600;color:white}
+    .db-table .y{color:#4ade80}.db-table .n{color:#f87171}.db-table .m{color:#fbbf24}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}.db-table{font-size:.78rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Vector DBs</span><span class="tag">RAG</span><span class="tag">Architecture</span></div>
+    <h1>Vector Databases Explained: Pinecone, Weaviate, pgvector & How to Choose</h1>
+    <p class="lead">Every RAG system needs a vector store. The choice between a managed vector database and pgvector in your existing Postgres has major implications for cost, scale, and operational complexity. Here's how to decide.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>A vector database stores high-dimensional embeddings — numerical representations of text, images, or other data — and enables fast approximate nearest-neighbor (ANN) search to find the most semantically similar items given a query embedding. They're the engine behind every RAG pipeline.</p>
+
+      <h2>How vector search works</h2>
+      <p>When you embed a query ("what's our refund policy?"), you get a vector like <code>[0.23, -0.71, 0.44, ...]</code>. The vector DB finds the stored chunks with the smallest cosine distance from that query vector. The closest chunks are your most semantically relevant results — regardless of keyword overlap.</p>
+
+      <h2>2026 vector database comparison</h2>
+      <table class="db-table">
+        <thead><tr><th>Database</th><th>Managed</th><th>Scale</th><th>Filtering</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>Pinecone</td><td class="y">✓ Fully</td><td class="y">Billions</td><td class="y">Strong</td><td>Production RAG, fast start</td></tr>
+          <tr><td>Weaviate</td><td class="m">Self/Cloud</td><td class="y">Billions</td><td class="y">Strong</td><td>Hybrid search, multi-modal</td></tr>
+          <tr><td>Qdrant</td><td class="m">Self/Cloud</td><td class="y">Hundreds of M</td><td class="y">Strong</td><td>On-prem, cost-sensitive</td></tr>
+          <tr><td>Chroma</td><td class="n">Self-hosted</td><td class="m">Millions</td><td class="m">Basic</td><td>Local dev, prototyping</td></tr>
+          <tr><td>pgvector</td><td class="m">Via Postgres</td><td class="m">Tens of M</td><td class="y">Full SQL</td><td>Existing Postgres, simplicity</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When to use pgvector</h2>
+      <ul>
+        <li>Your corpus is under 5–10M vectors and doesn't need sub-10ms latency at scale.</li>
+        <li>You already run Postgres and want to avoid another managed service.</li>
+        <li>You need rich SQL filtering (e.g., <code>WHERE tenant_id = 'acme' AND created_at > '2026-01-01'</code>) alongside vector search.</li>
+        <li>You're building an MVP — pgvector lets you start fast and migrate later if needed.</li>
+      </ul>
+
+      <h2>Connecting to your vector store on MoltBot</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot.rag <span class="kw">import</span> RAGPipeline
+<span class="kw">from</span> moltbot.vector_stores <span class="kw">import</span> Pinecone, Weaviate, PGVector
+
+<span class="cm"># Choose your vector store — same API regardless</span>
+vector_store = Pinecone(
+    index_name=<span class="str">"production-docs"</span>,
+    api_key=os.environ[<span class="str">"PINECONE_API_KEY"</span>]
+)
+
+pipeline = RAGPipeline(
+    vector_store=vector_store,
+    embedding_model=<span class="str">"text-embedding-3-large"</span>,
+    top_k=5,
+    reranker=<span class="str">"cohere-rerank-3"</span>   <span class="cm"># optional reranking step</span>
+)
+
+result = pipeline.query(<span class="str">"What is our enterprise SLA?"</span>)
+      </div>
+
+      <h2>Decision guide</h2>
+      <ul>
+        <li><strong>Start with pgvector</strong> if you're early-stage — it's free, uses existing infrastructure, and works well at modest scale.</li>
+        <li><strong>Upgrade to Pinecone or Qdrant</strong> when you exceed 10M vectors, need sub-20ms p99 latency, or are building a multi-tenant SaaS.</li>
+        <li><strong>Use Weaviate</strong> for hybrid keyword+semantic search or multi-modal (text + image) retrieval.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Plug any vector store into MoltBot RAG</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Pinecone, Weaviate, Qdrant, Chroma, pgvector — unified API, automatic chunking, reranking. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-context-window-vs-rag.html">Context Window vs RAG</a>
+        <a href="blog-context-windows.html">Context Windows Explained</a>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Any vector store, one API</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
