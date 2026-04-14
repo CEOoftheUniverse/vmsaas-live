@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoltBot for Startups — Ship 10x Faster with AI Agent Teams</title>
+  <meta name="description" content="Startups use MoltBot Cloud to replace tedious dev work with autonomous AI agents. Code review, testing, content, research — all automated. From $49/mo.">
+  <meta name="keywords" content="AI agents for startups, autonomous coding agents, replace junior developer AI, startup AI tools, cheap AI automation">
+  <meta property="og:title" content="MoltBot for Startups — Ship 10x Faster">
+  <meta property="og:description" content="Autonomous AI agents that work 24/7 on your codebase. Code review, testing, content, research — all on autopilot.">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/lp-startup.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/lp-startup.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .lp-hero { min-height: 100vh; display: flex; align-items: center; padding: 0 10%; position: relative; overflow: hidden; margin-top: 70px; }
+    .lp-hero::before { content:''; position:absolute; top:-30%; right:-10%; width:700px; height:700px; background:radial-gradient(circle, rgba(79,70,229,0.25) 0%, transparent 70%); border-radius:50%; z-index:-1; }
+    .lp-hero::after { content:''; position:absolute; bottom:-20%; left:-5%; width:500px; height:500px; background:radial-gradient(circle, rgba(34,211,238,0.1) 0%, transparent 70%); border-radius:50%; z-index:-1; }
+    .badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(79,70,229,0.15); border:1px solid rgba(79,70,229,0.3); border-radius:20px; padding:0.3rem 1rem; font-size:0.85rem; color:#818cf8; margin-bottom:1.5rem; }
+    .lp-hero h1 { font-size:3.8rem; line-height:1.1; margin-bottom:1.5rem; }
+    .lp-hero h1 .grad { background:linear-gradient(135deg,var(--accent),var(--primary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .lp-hero p { font-size:1.2rem; color:#94a3b8; max-width:580px; margin-bottom:2.5rem; }
+    .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
+    .social-proof { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .sp-item { display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#64748b; }
+    .sp-item .check { color:#22c55e; }
+    .pain-section { padding:5rem 10%; background:linear-gradient(180deg,transparent,rgba(30,41,59,0.3)); }
+    .pain-section h2 { font-size:2.2rem; text-align:center; margin-bottom:0.75rem; }
+    .pain-section .sub { text-align:center; color:#94a3b8; margin-bottom:3rem; }
+    .pain-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.5rem; }
+    .pain-item { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:12px; padding:1.5rem; }
+    .pain-item .icon { font-size:2rem; margin-bottom:0.75rem; }
+    .pain-item h3 { font-size:1rem; margin-bottom:0.5rem; }
+    .pain-item p { color:#64748b; font-size:0.9rem; }
+    .solution-section { padding:5rem 10%; }
+    .solution-section h2 { font-size:2.5rem; text-align:center; margin-bottom:1rem; }
+    .solution-section .sub { text-align:center; color:#94a3b8; margin-bottom:3rem; max-width:600px; margin-left:auto; margin-right:auto; }
+    .agent-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+    .agent-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:2rem; position:relative; overflow:hidden; transition:all 0.3s; }
+    .agent-card:hover { transform:translateY(-5px); border-color:rgba(79,70,229,0.4); }
+    .agent-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--primary),var(--accent)); }
+    .agent-card .emoji { font-size:2.5rem; margin-bottom:1rem; }
+    .agent-card h3 { margin-bottom:0.5rem; }
+    .agent-card p { color:#94a3b8; font-size:0.9rem; }
+    .agent-card .saves { margin-top:1rem; display:inline-block; background:rgba(34,197,94,0.1); color:#4ade80; padding:0.25rem 0.75rem; border-radius:20px; font-size:0.8rem; font-weight:600; }
+    .math-section { padding:5rem 10%; text-align:center; }
+    .math-section h2 { font-size:2.5rem; margin-bottom:1rem; }
+    .math-section .sub { color:#94a3b8; margin-bottom:3rem; }
+    .math-card { max-width:700px; margin:0 auto; background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:20px; padding:2.5rem; }
+    .math-row { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .math-row:last-child { border:none; padding-bottom:0; }
+    .math-label { color:#94a3b8; text-align:left; }
+    .math-old { color:#f87171; text-decoration:line-through; }
+    .math-new { color:#4ade80; font-weight:700; font-size:1.1rem; }
+    .math-save { color:#22d3ee; font-size:0.85rem; }
+    .testimonials { padding:5rem 10%; }
+    .testimonials h2 { font-size:2.5rem; text-align:center; margin-bottom:3rem; }
+    .t-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+    .t-card { background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:16px; padding:2rem; }
+    .t-card blockquote { color:#cbd5e1; font-style:italic; line-height:1.8; margin-bottom:1.5rem; font-size:0.95rem; }
+    .t-author { display:flex; align-items:center; gap:0.75rem; }
+    .t-avatar { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+    .t-author strong { display:block; font-size:0.95rem; }
+    .t-author small { color:#64748b; font-size:0.8rem; }
+    .final-cta { padding:6rem 10%; text-align:center; position:relative; }
+    .final-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(79,70,229,0.12) 0%, transparent 70%); }
+    .final-cta h2 { font-size:3rem; margin-bottom:1rem; position:relative; }
+    .final-cta p { color:#94a3b8; font-size:1.1rem; margin-bottom:2.5rem; position:relative; }
+    .final-cta .btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; }
+    @media(max-width:768px){ .lp-hero{flex-direction:column;padding-top:7rem;text-align:center} .lp-hero h1{font-size:2.5rem} .hero-ctas,.social-proof{justify-content:center} }
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Start Free →</a>
+    </div>
+  </nav>
+
+  <section class="lp-hero">
+    <div>
+      <div class="badge">🚀 Built for seed-stage to Series B startups</div>
+      <h1>Ship <span class="grad">10× faster</span><br>with AI agent teams</h1>
+      <p>Deploy autonomous AI agents that handle code review, testing, content, research, and customer support — 24/7, on dedicated GPU infrastructure — for less than one contractor hour per day.</p>
+      <div class="hero-ctas">
+        <a href="signup.html" class="btn-primary large">Start Free Trial — $49/mo</a>
+        <a href="demo.html" class="btn-secondary large">See Live Demo</a>
+      </div>
+      <div class="social-proof">
+        <div class="sp-item"><span class="check">✓</span> No credit card for trial</div>
+        <div class="sp-item"><span class="check">✓</span> Deploy in 5 minutes</div>
+        <div class="sp-item"><span class="check">✓</span> Cancel anytime</div>
+        <div class="sp-item"><span class="check">✓</span> SOC 2 compliant</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pain-section">
+    <h2>The startup AI problem</h2>
+    <p class="sub">You're paying premium API rates for agents that crash, forget context, and go offline every reboot.</p>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <div class="icon">💸</div>
+        <h3>API bills spiral out of control</h3>
+        <p>Every GPT-4o call eats margin. At scale, $0.015/call becomes $15K/month before you notice.</p>
+      </div>
+      <div class="pain-item">
+        <div class="icon">🔄</div>
+        <h3>Agents lose memory on restart</h3>
+        <p>Stateless agents forget everything. Every reboot = context lost = wasted tokens reloading state.</p>
+      </div>
+      <div class="pain-item">
+        <div class="icon">⚙️</div>
+        <h3>Infrastructure babysitting</h3>
+        <p>GPU setup, model serving, monitoring — your engineers are DevOps babysitters, not builders.</p>
+      </div>
+      <div class="pain-item">
+        <div class="icon">🧩</div>
+        <h3>Single-model brittleness</h3>
+        <p>One model goes down = everything stops. No fallback, no rate limit handling, no arbitrage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="solution-section">
+    <h2>Your autonomous agent team</h2>
+    <p class="sub">MoltBot agents run 24/7 on dedicated GPUs, never lose memory, and automatically route to the cheapest model that can handle the task.</p>
+    <div class="agent-grid">
+      <div class="agent-card">
+        <div class="emoji">👨‍💻</div>
+        <h3>Code Review Agent</h3>
+        <p>Reviews every PR automatically. Catches bugs, checks style, suggests improvements, posts GitHub comments in 90 seconds.</p>
+        <span class="saves">Saves 8 hrs/week per dev</span>
+      </div>
+      <div class="agent-card">
+        <div class="emoji">🧪</div>
+        <h3>Test Writer Agent</h3>
+        <p>Generates unit + integration tests for new code. Achieves 80%+ coverage targets autonomously. Runs on commit hooks.</p>
+        <span class="saves">Saves 12 hrs/week QA</span>
+      </div>
+      <div class="agent-card">
+        <div class="emoji">📊</div>
+        <h3>Research Agent</h3>
+        <p>Monitor competitors, aggregate market data, summarize news — nightly reports in your inbox every morning.</p>
+        <span class="saves">Replaces $4K/mo analyst</span>
+      </div>
+      <div class="agent-card">
+        <div class="emoji">✍️</div>
+        <h3>Content Agent</h3>
+        <p>SEO blog posts, social content, email copy — scheduled, generated, and ready for review weekly.</p>
+        <span class="saves">Saves $2K/mo agency fees</span>
+      </div>
+      <div class="agent-card">
+        <div class="emoji">🎧</div>
+        <h3>Support Triage Agent</h3>
+        <p>Classifies, tags, and drafts replies to support tickets. Handles Tier-1 tickets autonomously with 94% accuracy.</p>
+        <span class="saves">Reduces response time 8×</span>
+      </div>
+      <div class="agent-card">
+        <div class="emoji">📈</div>
+        <h3>Data Pipeline Agent</h3>
+        <p>Transforms, validates, and summarizes data from any source. Replaces bespoke ETL scripts with intent-driven pipelines.</p>
+        <span class="saves">Eliminates 80% ETL work</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="math-section">
+    <h2>The math is obvious</h2>
+    <p class="sub">Compare MoltBot to alternatives for a 5-person startup</p>
+    <div class="math-card">
+      <div class="math-row">
+        <div class="math-label">Freelance AI engineer (part-time)</div>
+        <div><span class="math-old">$3,200/mo</span></div>
+        <div class="math-new">$49/mo <span class="math-save">save 98%</span></div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Raw API costs (GPT-4o, 50K calls/mo)</div>
+        <div><span class="math-old">$750/mo</span></div>
+        <div class="math-new">$49/mo <span class="math-save">save 93%</span></div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Content agency (4 posts/mo)</div>
+        <div><span class="math-old">$2,000/mo</span></div>
+        <div class="math-new">$49/mo <span class="math-save">save 98%</span></div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Self-hosted GPU (A100 on Lambda Labs)</div>
+        <div><span class="math-old">$780/mo</span></div>
+        <div class="math-new">$149/mo <span class="math-save">save 81%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What startup founders say</h2>
+    <div class="t-grid">
+      <div class="t-card">
+        <blockquote>"We replaced our QA contractor with a MoltBot test agent. 12 hours to find the right test patterns, then it just… runs. Our test coverage went from 31% to 78% in a month."</blockquote>
+        <div class="t-author">
+          <div class="t-avatar" style="background:rgba(79,70,229,0.3)">🧑</div>
+          <div><strong>Marcus T.</strong><small>CTO, SynthLabs (YC W26)</small></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <blockquote>"Our burn rate dropped $4,200/mo on day one. The model arbitrage alone paid for 3 years of MoltBot. I wish we'd done this on day 1 of the company."</blockquote>
+        <div class="t-author">
+          <div class="t-avatar" style="background:rgba(34,211,238,0.2)">👩</div>
+          <div><strong>Priya S.</strong><small>Founder, FlowMetrics</small></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <blockquote>"The persistent memory is the killer feature. Our agents remember what they learned last week. We're not paying to re-educate them every call. It compounds like a real employee."</blockquote>
+        <div class="t-author">
+          <div class="t-avatar" style="background:rgba(251,146,60,0.2)">🧑‍💼</div>
+          <div><strong>Jordan K.</strong><small>CEO, Archetype AI</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <h2>Start your agent team today</h2>
+    <p>First 14 days free. No credit card. Cancel anytime. Deploys in 5 minutes.</p>
+    <div class="btns">
+      <a href="signup.html" class="btn-primary large">Deploy My First Agent →</a>
+      <a href="case-studies.html" class="btn-secondary large">Read Case Studies</a>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:.75rem;font-size:.85rem">
+      <a href="index.html" style="color:#64748b;text-decoration:none">Home</a>
+      <a href="features.html" style="color:#64748b;text-decoration:none">Features</a>
+      <a href="pricing.html" style="color:#64748b;text-decoration:none">Pricing</a>
+      <a href="docs.html" style="color:#64748b;text-decoration:none">Docs</a>
+      <a href="compare.html" style="color:#64748b;text-decoration:none">Compare</a>
+      <a href="terms.html" style="color:#64748b;text-decoration:none">Terms</a>
+    </div>
+    <p style="font-size:.75rem">© 2026 MoltBot Cloud. Autonomous AI Infrastructure for Startups.</p>
+  </footer>
+</body>
+</html>
