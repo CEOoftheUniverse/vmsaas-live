@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimodal AI Agents: Text, Images, Audio & Document Processing | MoltBot Blog</title>
+  <meta name="description" content="How multimodal AI agents process text, images, PDFs, audio, and video together — real use cases, model capabilities in 2026, and how to build a multimodal agent pipeline.">
+  <meta name="keywords" content="multimodal AI agent, multimodal LLM, GPT-4V agent, Claude multimodal, multimodal RAG, image understanding AI, document AI agent, audio AI agent, vision language model 2026">
+  <meta property="og:title" content="Multimodal AI Agents: Text, Images, Audio & Document Processing">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-multimodal-agents.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-multimodal-agents.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .modal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+    .modal-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.25rem}
+    .modal-card .icon{font-size:1.8rem;margin-bottom:.5rem}
+    .modal-card h4{margin:0 0 .4rem;font-size:.95rem}
+    .modal-card p{margin:0;color:#94a3b8;font-size:.83rem;line-height:1.7}
+    .model-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .model-table th{padding:.85rem 1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .model-table td{padding:.7rem 1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.85rem;color:#94a3b8}
+    .model-table td:first-child{font-weight:600;color:white}
+    .y{color:#4ade80}.m{color:#fbbf24}.n{color:#f87171}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}.modal-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Multimodal</span><span class="tag">Vision</span><span class="tag">Agent Architecture</span></div>
+    <h1>Multimodal AI Agents: Text, Images, Audio & Document Processing</h1>
+    <p class="lead">LLMs in 2026 process far more than text. Agents can now see images, read PDFs natively, transcribe audio, and analyze video frames — enabling entirely new categories of automation. Here's how multimodal agents work and where they unlock the most value.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Text-only agents are just the beginning. The most valuable enterprise workflows are document-heavy, image-rich, or audio-based. Multimodal agents handle all of these input types natively, enabling automation that wasn't possible when agents could only read text.</p>
+
+      <h2>The four modalities your agents can use</h2>
+      <div class="modal-grid">
+        <div class="modal-card"><div class="icon">📝</div><h4>Text</h4><p>Emails, chat messages, code, structured data — the foundation all agents start with.</p></div>
+        <div class="modal-card"><div class="icon">🖼️</div><h4>Images / Screenshots</h4><p>UI analysis, chart interpretation, product photos, handwritten forms, visual inspection.</p></div>
+        <div class="modal-card"><div class="icon">📄</div><h4>Documents (PDF, DOCX)</h4><p>Contracts, invoices, reports — native parsing preserves layout and table structure.</p></div>
+        <div class="modal-card"><div class="icon">🎤</div><h4>Audio / Video</h4><p>Meeting transcription, call analysis, video frame extraction, spoken-language input.</p></div>
+      </div>
+
+      <h2>2026 multimodal model capabilities</h2>
+      <table class="model-table">
+        <thead><tr><th>Model</th><th>Images</th><th>PDFs</th><th>Audio</th><th>Video</th></tr></thead>
+        <tbody>
+          <tr><td>Claude Sonnet 4</td><td class="y">✓</td><td class="y">✓</td><td class="m">Via transcription</td><td class="n">✗</td></tr>
+          <tr><td>GPT-4o</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓ Native</td><td class="m">Frame extraction</td></tr>
+          <tr><td>Gemini 2.5 Pro</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓ Native</td><td class="y">✓ Native</td></tr>
+          <tr><td>Llama 3.2 Vision</td><td class="y">✓</td><td class="m">Via parsing</td><td class="n">✗</td><td class="n">✗</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Building a multimodal document agent</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot <span class="kw">import</span> Agent
+<span class="kw">from</span> moltbot.inputs <span class="kw">import</span> Document, Image
+
+agent = Agent(model=<span class="str">"gemini-2.5-pro"</span>)
+
+<span class="cm"># Process a PDF invoice + screenshot of the product</span>
+response = agent.run(
+    inputs=[
+        Document(<span class="str">"invoice_march_2026.pdf"</span>),
+        Image(<span class="str">"product_photo.jpg"</span>),
+    ],
+    prompt=<span class="str">"""
+    Extract all line items from the invoice.
+    Verify the product photo matches item 3 (SKU: X-441).
+    Flag any discrepancies.
+    """</span>
+)
+      </div>
+
+      <h2>High-value multimodal use cases</h2>
+      <ul>
+        <li><strong>Contract review:</strong> Upload a PDF contract → agent extracts key terms, flags non-standard clauses, and compares against your standard template.</li>
+        <li><strong>Invoice processing:</strong> Process PDF + image invoices with native layout understanding — no brittle regex parsing needed.</li>
+        <li><strong>Meeting summarization:</strong> Record → transcribe → summarize → extract action items. One agent, four steps.</li>
+        <li><strong>UI testing:</strong> Screenshot-based agents can navigate web UIs, fill forms, and validate that rendered output matches design specs.</li>
+        <li><strong>Visual QC:</strong> Manufacturing inspection agents process product images to detect defects faster and more consistently than human inspectors.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Multimodal agents on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Text, images, PDFs, audio — unified input API across Claude, GPT-4o, and Gemini. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-memory-types.html">Agent Memory Types</a>
+        <a href="blog-agent-planning.html">Agent Planning</a>
+        <a href="blog-tool-calling.html">Tool Calling</a>
+        <a href="blog-llm-routing.html">LLM Routing</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Multimodal out of the box</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
