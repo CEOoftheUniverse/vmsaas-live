@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Security: How to Harden AI Agents for Production | MoltBot Blog</title>
+  <meta name="description" content="AI agents introduce new security risks: prompt injection, tool misuse, data exfiltration, and excessive privilege. Here's a practical guide to securing agent deployments in production.">
+  <meta name="keywords" content="AI agent security, prompt injection defenses, LLM security production, agent tool sandboxing, AI agent audit trail, secure AI deployment, AI agent permissions">
+  <meta property="og:title" content="AI Agent Security: How to Harden Agents for Production">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-security.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-security.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.15rem;margin:1.75rem 0 .5rem;color:#e2e8f0}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .threat-card{background:var(--glass-bg);border:1px solid rgba(239,68,68,.15);border-radius:14px;padding:1.5rem;margin:1rem 0}
+    .threat-card .threat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+    .threat-card h3{margin:0;font-size:1rem}
+    .severity{font-size:.72rem;padding:.15rem .6rem;border-radius:20px;font-weight:600}
+    .sev-critical{background:rgba(239,68,68,.15);color:#f87171}
+    .sev-high{background:rgba(251,146,60,.15);color:#fb923c}
+    .sev-med{background:rgba(234,179,8,.15);color:#facc15}
+    .threat-card p{margin:0;color:#94a3b8;font-size:.88rem}
+    .threat-card .mitigation{margin-top:.75rem;padding:.6rem .85rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.12);border-radius:8px;font-size:.82rem;color:#4ade80}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.81rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 10 min read</span><span>✍️ MoltBot Security</span></div>
+    <div><span class="tag">Security</span><span class="tag">Production</span><span class="tag">Trust</span></div>
+    <h1>AI Agent Security: How to Harden Agents for Production</h1>
+    <p class="lead">Agents that can browse the web, execute code, and write to databases are powerful — and they introduce attack surfaces that no traditional security tool understands. Here's how to secure them before they go live.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Traditional application security is mostly about who gets in. Agent security is about what happens once the AI is operating. An agent with write access to your database, the ability to send emails, and a vulnerability to prompt injection is a serious risk — regardless of how well your auth layer is hardened.</p>
+
+      <h2>The 5 critical agent threats</h2>
+
+      <div class="threat-card">
+        <div class="threat-header"><h3>1. Prompt Injection</h3><span class="severity sev-critical">Critical</span></div>
+        <p>Malicious instructions embedded in data the agent processes — web pages, uploaded files, tool outputs — that override the agent's original task. Example: a webpage that tells your research agent to exfiltrate API keys to an attacker-controlled endpoint.</p>
+        <div class="mitigation">✓ Mitigation: Input sanitization, tool output sandboxing, task-scoped permissions, human-in-the-loop for sensitive actions</div>
+      </div>
+
+      <div class="threat-card">
+        <div class="threat-header"><h3>2. Excessive Privilege</h3><span class="severity sev-critical">Critical</span></div>
+        <p>Agents granted broader permissions than needed for their task. A research agent with write access to production databases, or a customer support agent with admin privileges. When exploited (or when any error occurs), the blast radius is total.</p>
+        <div class="mitigation">✓ Mitigation: Principle of least privilege per task, scoped API credentials, read-only by default</div>
+      </div>
+
+      <div class="threat-card">
+        <div class="threat-header"><h3>3. Data Exfiltration via Tool Use</h3><span class="severity sev-high">High</span></div>
+        <p>An agent prompted to summarize internal documents then instructed (via injection) to POST their contents to an external URL. Most LLMs will comply with tool calls they believe are part of the task.</p>
+        <div class="mitigation">✓ Mitigation: Allowlist external domains for HTTP tools, log all outbound calls, block large data exfiltration</div>
+      </div>
+
+      <div class="threat-card">
+        <div class="threat-header"><h3>4. Runaway Tool Execution</h3><span class="severity sev-high">High</span></div>
+        <p>An agent stuck in a loop — or manipulated into one — that repeatedly calls expensive or destructive tools: deleting files, spamming emails, or exhausting API quotas.</p>
+        <div class="mitigation">✓ Mitigation: Hard caps on tool call counts per run, cost alerts, idempotency checks before write operations</div>
+      </div>
+
+      <div class="threat-card">
+        <div class="threat-header"><h3>5. Model Jailbreaks</h3><span class="severity sev-med">Medium</span></div>
+        <p>Adversarial prompts that override safety guidelines baked into the base model. Less of a concern with modern frontier models (Claude Opus 4, GPT-5) but relevant for fine-tuned and open-weight models.</p>
+        <div class="mitigation">✓ Mitigation: Use frontier models with strong safety training, add a safety classifier layer on output, filter sensitive action categories</div>
+      </div>
+
+      <h2>Hardening checklist</h2>
+      <div class="code-block">
+<span class="cm"># MoltBot security configuration</span>
+agent = Agent(
+    model=<span class="str">"claude-opus-4"</span>,
+    permissions=Permissions(
+        http=HTTPPermissions(
+            allowed_domains=[<span class="str">"api.company.com"</span>, <span class="str">"trusted-data-source.com"</span>],
+            max_response_size_kb=512
+        ),
+        filesystem=<span class="kw">None</span>,     <span class="cm"># No filesystem access</span>
+        code_exec=<span class="kw">False</span>,        <span class="cm"># No arbitrary code execution</span>
+        db_write=<span class="kw">False</span>           <span class="cm"># Read-only DB access</span>
+    ),
+    limits=Limits(
+        max_tool_calls=20,
+        max_duration_seconds=120,
+        max_cost_usd=0.50
+    ),
+    human_in_loop=[<span class="str">"send_email"</span>, <span class="str">"delete_record"</span>]  <span class="cm"># Require approval</span>
+)
+      </div>
+
+      <h2>The security principle that matters most</h2>
+      <p>Every agent should operate with exactly the permissions it needs for its task and nothing more. A research agent needs read access to documents and web search — not email send, not database write, not code execution. Scope permissions to task at deploy time, not at request time. This single principle prevents most real-world agent security incidents.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Production-ready agent security on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Granular permissions, domain allowlists, human-in-the-loop controls, and full audit logs. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-observability.html">Agent Observability</a>
+        <a href="blog-multiagent-systems.html">Multi-Agent Systems</a>
+        <a href="blog-fine-tuning-vs-prompting.html">Fine-Tuning vs Prompting</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Deploy secure agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a> · <a href="trust.html" style="color:#64748b">Trust Center</a></p>
+  </footer>
+</body>
+</html>
