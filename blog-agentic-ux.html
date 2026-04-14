@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic UX: Designing Interfaces for AI Agents | MoltBot Blog</title>
+  <meta name="description" content="How to design user interfaces for AI agents in 2026 — streaming output, progressive disclosure, confidence indicators, human-in-the-loop controls, undo patterns, and transparency requirements for production agentic systems.">
+  <meta name="keywords" content="agentic UX 2026, AI agent interface design, streaming UI AI, progressive disclosure AI, human-in-the-loop UI, AI transparency design, undo AI actions, agentic product design">
+  <meta property="og:title" content="Agentic UX: Designing Interfaces for AI Agents">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agentic-ux.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .ux-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .ux-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.25rem}
+    .ux-card .ico{font-size:1.5rem;margin-bottom:.5rem}
+    .ux-card h3{font-size:.9rem;margin-bottom:.3rem}
+    .ux-card p{color:#94a3b8;font-size:.82rem;margin:0;line-height:1.65}
+    .principle{background:rgba(79,70,229,.06);border:1px solid rgba(79,70,229,.15);border-radius:12px;padding:1.25rem;margin:.75rem 0}
+    .principle h3{margin:0 0 .3rem;font-size:.95rem;color:#a5b4fc}
+    .principle p{margin:0;color:#94a3b8;font-size:.86rem;line-height:1.7}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}.ux-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Design Team</span></div>
+    <div><span class="tag">Product Design</span><span class="tag">Agentic UX</span><span class="tag">AI Interface</span></div>
+    <h1>Agentic UX: Designing Interfaces for AI Agents</h1>
+    <p class="lead">AI agents break the assumptions underlying every UI pattern we've designed for the past 30 years. Deterministic actions → probabilistic outputs. Instant feedback → streaming results. Clear undo → irreversible side effects. Designing for agents requires a new pattern library.</p>
+  </div>
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The biggest UX failure mode for AI agents isn't wrong outputs — it's interfaces that leave users unable to understand what the agent did, why, or how to intervene. Trust breaks down not from errors but from opacity.</p>
+
+      <h2>Eight agentic UI patterns</h2>
+      <div class="ux-grid">
+        <div class="ux-card"><div class="ico">🌊</div><h3>Streaming Output</h3><p>Stream responses token-by-token rather than waiting for completion. Reduces perceived latency by 60–80% and lets users interrupt if the output takes a wrong direction before it's finished.</p></div>
+        <div class="ux-card"><div class="ico">📊</div><h3>Confidence Indicators</h3><p>Show uncertainty where it exists — hedging language, confidence scores for classifications, source counts for RAG responses. Users calibrate trust appropriately instead of treating all outputs as equally reliable.</p></div>
+        <div class="ux-card"><div class="ico">🔍</div><h3>Action Transparency</h3><p>Show what the agent is doing in real time — "Searching customer database…", "Reading 3 documents…", "Calling CRM API…". Users understand agent behavior rather than watching a black box.</p></div>
+        <div class="ux-card"><div class="ico">✋</div><h3>Confirmation Gates</h3><p>Require explicit confirmation before irreversible or high-impact actions (send email, delete record, make payment). One of the highest-trust-building patterns in agentic UX.</p></div>
+        <div class="ux-card"><div class="ico">↩️</div><h3>Undo Patterns</h3><p>Where possible, soft-delete actions with a time-windowed undo. Where not possible, make the irreversibility explicit before action — not after. Users need to know what can be recovered.</p></div>
+        <div class="ux-card"><div class="ico">📋</div><h3>Audit Trails</h3><p>Log every agent action with timestamp, input, output, and tool calls. Users should be able to see exactly what the agent did and why — essential for regulated industries and trust recovery after errors.</p></div>
+        <div class="ux-card"><div class="ico">⚙️</div><h3>Progressive Control</h3><p>Start with sensible defaults and progressively expose controls to advanced users. Novice users need a working agent out of the box; power users need configurability.</p></div>
+        <div class="ux-card"><div class="ico">🔄</div><h3>Feedback Loops</h3><p>Make it easy to provide explicit feedback (thumbs up/down, corrections) that improves agent behavior. Close the loop between user signal and agent improvement visibly.</p></div>
+      </div>
+
+      <h2>The core principle: legible agency</h2>
+      <div class="principle"><h3>Users must always know what the agent did, what it will do next, and how to stop it.</h3><p>Every interaction should reinforce user understanding and control. When users feel in control of an agent, they use it more. When they feel uncertain, they abandon it — even if outputs are correct. Design for understanding, not just for capability.</p></div>
+
+      <div style="margin-top:2rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Transparent AI agents on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Streaming, action logs, confirmation gates, audit trails — all built-in. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-prompt-injection.html">Prompt Injection</a>
+        <a href="blog-function-calling.html">Function Calling</a>
+        <a href="blog-llm-evaluation.html">LLM Evaluation</a>
+        <a href="blog-autonomous-agent-tutorial.html">Agent Tutorial</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Agents users trust</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>

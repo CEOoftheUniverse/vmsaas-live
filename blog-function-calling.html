@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Calling in LLMs: How AI Agents Use Tools | MoltBot Blog</title>
+  <meta name="description" content="What function calling is, how it works in GPT-4o, Claude, and Gemini, how to define tool schemas, handle parallel calls, manage errors, and build reliable agentic workflows with tool use in 2026.">
+  <meta name="keywords" content="LLM function calling 2026, tool use AI agents, GPT-4o function calling, Claude tool use, Gemini function calling, parallel tool calls LLM, agentic workflows tool use, AI tool schema design">
+  <meta property="og:title" content="Function Calling in LLMs: How AI Agents Use Tools">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-function-calling.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .code-block{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:1.25rem 1.5rem;font-family:monospace;font-size:.82rem;color:#86efac;margin:1.5rem 0;overflow-x:auto;line-height:1.8}
+    .fc-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-left:3px solid #818cf8;border-radius:14px;padding:1.25rem;margin:.75rem 0}
+    .fc-card h3{margin:0 0 .35rem;font-size:.95rem;color:#c4b5fd}
+    .fc-card p{margin:0;color:#94a3b8;font-size:.86rem;line-height:1.7}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Function Calling</span><span class="tag">Tool Use</span><span class="tag">Agentic AI</span></div>
+    <h1>Function Calling in LLMs: How AI Agents Use Tools</h1>
+    <p class="lead">Function calling transforms LLMs from text generators into action-taking agents. Instead of describing what to do, the model calls real APIs, queries databases, executes code, and returns structured results. It's the foundational capability behind every production AI agent in 2026.</p>
+  </div>
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Function calling works the same way across GPT-4o, Claude 3.7, and Gemini: you define tools as JSON schemas, the model decides which tool(s) to call and with what arguments, your code executes them, and the results return to the model for a final response. The devil is in the implementation details.</p>
+
+      <h2>A minimal tool definition</h2>
+      <div class="code-block">{
+  "name": "search_database",
+  "description": "Search the customer database for records matching criteria.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Search query term or customer name"
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Max results to return (default: 10)"
+      }
+    },
+    "required": ["query"]
+  }
+}</div>
+      <p>The <code>description</code> field is where most developers underinvest. The model uses it to decide <em>when</em> to call this tool. Vague descriptions cause missed calls; precise descriptions with examples cause correct calls. Write descriptions as if explaining to a junior developer what this function does and when to use it.</p>
+
+      <h2>Four patterns for reliable tool use</h2>
+      <div class="fc-card"><h3>Parallel Tool Calls</h3><p>Modern models can call multiple tools simultaneously when calls are independent — no point making three sequential API calls when they can run in parallel. Enable with <code>tool_choice: "auto"</code> and handle parallel call arrays in your tool execution loop. 3× latency improvement on multi-tool workflows.</p></div>
+      <div class="fc-card"><h3>Tool Call Validation</h3><p>Validate the model's tool call arguments against your schema before executing. Models hallucinate parameters occasionally, especially for complex schemas. Validate, return a structured error if invalid, and let the model retry with corrected arguments rather than passing bad data to your systems.</p></div>
+      <div class="fc-card"><h3>Graceful Error Handling</h3><p>When tool execution fails (API timeout, permission denied, rate limit), return a descriptive error message as the tool result rather than throwing. The model can reason about errors and decide whether to retry, try a different tool, or inform the user — only if it receives a meaningful error message.</p></div>
+      <div class="fc-card"><h3>Tool Result Summarization</h3><p>For tools that return large payloads (database query with 500 rows, API response with deeply nested JSON), summarize or truncate the result before returning to the model. Oversized tool results waste context window and increase cost. Return the most relevant fields, not the full response.</p></div>
+
+      <div style="margin-top:2rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Tool use built into every MoltBot agent</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Connect your APIs, databases, and SaaS tools in minutes. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-autonomous-agent-tutorial.html">Agent Tutorial</a>
+        <a href="blog-structured-outputs.html">Structured Outputs</a>
+        <a href="blog-context-windows.html">Context Windows</a>
+        <a href="blog-prompt-injection.html">Prompt Injection</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Build tool-using agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
