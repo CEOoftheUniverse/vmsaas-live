@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Tool Use: How Agents Execute Code, Search the Web & Call APIs — MoltBot Blog</title>
+  <meta name="description" content="A complete guide to AI agent tool use — how function calling works, how to build safe tool wrappers, and the 6 essential tools every production agent needs.">
+  <meta name="keywords" content="AI agent tool use, function calling LLM, AI agent tools, autonomous agent API calls, agent code execution, LLM tool calling guide">
+  <meta property="og:title" content="AI Agent Tool Use: Code, Web Search & API Calls Explained">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-tools.html">
+  <meta property="article:published_time" content="2026-04-14">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-tools.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"AI Agent Tool Use: How Agents Execute Code, Search the Web & Call APIs","datePublished":"2026-04-14","author":{"@type":"Organization","name":"MoltBot"},"url":"https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-tools.html"}
+  </script>
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.1rem;color:var(--accent);margin:2rem 0 .75rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    pre{background:rgba(0,0,0,.5);border:1px solid var(--glass-border);border-radius:10px;padding:1.5rem;overflow-x:auto;margin:1rem 0 1.5rem}
+    pre code{font-family:monospace;font-size:.87rem;color:#e2e8f0}
+    .callout{border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+    .callout.warning{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.2)}
+    .callout.tip{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2)}
+    .callout h4{margin-bottom:.5rem;font-size:.95rem}
+    .callout.warning h4{color:#fb923c}
+    .callout.tip h4{color:#4ade80}
+    .callout p{color:#94a3b8;margin:0;font-size:.92rem}
+    .tool-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+    .tool-card h3{margin:0 0 .5rem;font-size:1rem;display:flex;align-items:center;gap:.5rem}
+    .tool-card p{color:#94a3b8;font-size:.88rem;margin:0}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .sidebar-card a:hover{color:var(--accent)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr} .blog-sidebar{display:none} .blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta">
+      <span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span>
+    </div>
+    <div><span class="tag">Tools</span><span class="tag">Function Calling</span><span class="tag">Production</span></div>
+    <h1>AI Agent Tool Use: How Agents Execute Code, Search the Web & Call APIs</h1>
+    <p class="lead">Tool use transforms LLMs from text generators into autonomous agents that act in the world. Here's how function calling works under the hood — and the 6 tools every production agent needs.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>A language model without tools answers questions. A language model with tools gets things done. Tool use — also called function calling — is the mechanism that lets an AI agent write files, run code, query databases, search the web, and call any API. It's the single capability that separates chatbots from agents.</p>
+
+      <h2>How Function Calling Works</h2>
+      <p>When you register tools with an LLM, you send a JSON schema describing each tool's name, description, and parameters. The model reads this schema and decides when to call a tool based on the task.</p>
+
+      <pre><code># Define tools for the model
+tools = [
+    {
+        "name": "run_code",
+        "description": "Execute Python code and return stdout/stderr",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "code": {"type": "string", "description": "Python code to execute"},
+                "timeout": {"type": "integer", "description": "Max execution seconds", "default": 30}
+            },
+            "required": ["code"]
+        }
+    },
+    {
+        "name": "web_search",
+        "description": "Search the web and return top results",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "query": {"type": "string"},
+                "num_results": {"type": "integer", "default": 5}
+            },
+            "required": ["query"]
+        }
+    }
+]
+
+# Call the model with tools
+response = anthropic_client.messages.create(
+    model="claude-opus-4",
+    tools=tools,
+    messages=[{"role": "user", "content": task}],
+    max_tokens=4096
+)</code></pre>
+
+      <p>If the model decides to call a tool, it returns a <code>tool_use</code> block instead of text. Your code executes the tool and sends the result back.</p>
+
+      <pre><code># Handle tool call
+if response.stop_reason == "tool_use":
+    tool_call = next(b for b in response.content if b.type == "tool_use")
+    
+    # Dispatch to actual tool function
+    result = dispatch_tool(tool_call.name, tool_call.input)
+    
+    # Send result back to model
+    messages.append({"role": "assistant", "content": response.content})
+    messages.append({
+        "role": "user",
+        "content": [{
+            "type": "tool_result",
+            "tool_use_id": tool_call.id,
+            "content": str(result)
+        }]
+    })
+    
+    # Continue conversation
+    response = anthropic_client.messages.create(
+        model="claude-opus-4",
+        tools=tools,
+        messages=messages,
+        max_tokens=4096
+    )</code></pre>
+
+      <h2>The 6 Essential Agent Tools</h2>
+
+      <div class="tool-card">
+        <h3>⚙️ 1. Code Executor</h3>
+        <p>Runs Python (or any language) in a sandboxed subprocess. Essential for data analysis, file manipulation, and computation. Always enforce a timeout and capture stderr separately.</p>
+      </div>
+      <div class="tool-card">
+        <h3>🔍 2. Web Search</h3>
+        <p>Queries Brave, Serper, or Google Custom Search. Gives the agent access to real-time information beyond its training cutoff. Return URL + snippet, not raw HTML.</p>
+      </div>
+      <div class="tool-card">
+        <h3>📁 3. File System</h3>
+        <p>Read, write, and list files within a scoped workspace directory. The most dangerous tool — always constrain to an allowed path prefix (e.g., <code>/workspace/</code>).</p>
+      </div>
+      <div class="tool-card">
+        <h3>🐙 4. Git / GitHub</h3>
+        <p>Clone, commit, push, and open PRs. This is what makes coding agents actually useful — they can ship changes to real repos, not just generate code in a chat window.</p>
+      </div>
+      <div class="tool-card">
+        <h3>📡 5. HTTP / API Caller</h3>
+        <p>Makes arbitrary REST API calls. Used for Slack notifications, database inserts, webhook triggers, and any external integration. Whitelist allowed domains in production.</p>
+      </div>
+      <div class="tool-card">
+        <h3>🧠 6. Memory (ChromaDB)</h3>
+        <p>Store and retrieve long-term memories. The agent uses this to remember past decisions, user preferences, and code patterns across sessions. See our <a href="blog-agent-memory.html" style="color:var(--accent)">memory guide</a>.</p>
+      </div>
+
+      <h2>Safe Tool Wrapper Pattern</h2>
+      <p>Never expose raw tools to the model. Wrap every tool with validation, logging, and error handling.</p>
+      <pre><code>import subprocess, os, re
+from pathlib import Path
+
+WORKSPACE = Path("/workspace/agent_001")
+
+def safe_run_code(code: str, timeout: int = 30) -> dict:
+    """Execute code safely with timeout and output capture."""
+    # Block dangerous imports
+    forbidden = ["os.system", "subprocess.call", "shutil.rmtree", "__import__"]
+    for f in forbidden:
+        if f in code:
+            return {"error": f"Forbidden operation: {f}", "stdout": "", "stderr": ""}
+    
+    try:
+        result = subprocess.run(
+            ["python3", "-c", code],
+            capture_output=True, text=True,
+            timeout=timeout,
+            cwd=str(WORKSPACE)
+        )
+        return {
+            "stdout": result.stdout[:4000],  # Limit output size
+            "stderr": result.stderr[:1000],
+            "returncode": result.returncode
+        }
+    except subprocess.TimeoutExpired:
+        return {"error": f"Code timed out after {timeout}s", "stdout": "", "stderr": ""}
+    except Exception as e:
+        return {"error": str(e), "stdout": "", "stderr": ""}
+
+def safe_file_write(path: str, content: str) -> dict:
+    """Write file within allowed workspace only."""
+    full_path = (WORKSPACE / path).resolve()
+    if not str(full_path).startswith(str(WORKSPACE)):
+        return {"error": "Path traversal attempt blocked"}
+    
+    full_path.parent.mkdir(parents=True, exist_ok=True)
+    full_path.write_text(content)
+    return {"success": True, "path": str(full_path)}</code></pre>
+
+      <div class="callout warning">
+        <h4>⚠️ Security critical</h4>
+        <p>Always sandbox code execution, whitelist file paths, restrict network calls to approved domains, and log every tool invocation. Never let an agent call arbitrary shell commands or access credentials outside its designated scope.</p>
+      </div>
+
+      <h2>Parallel Tool Calls</h2>
+      <p>Modern models (Claude Opus 4, GPT-5) support parallel tool calls — requesting multiple tools in a single response. Always handle this in your dispatch loop.</p>
+      <pre><code>async def dispatch_all_tools(tool_calls: list) -> list:
+    """Execute multiple tool calls in parallel."""
+    tasks = [dispatch_tool_async(tc.name, tc.input) for tc in tool_calls]
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+    
+    return [
+        {
+            "type": "tool_result",
+            "tool_use_id": tc.id,
+            "content": str(result) if not isinstance(result, Exception) else f"Error: {result}"
+        }
+        for tc, result in zip(tool_calls, results)
+    ]</code></pre>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">All 6 tools, pre-configured and safe</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Every MoltBot agent ships with sandboxed code execution, web search, GitHub integration, and ChromaDB memory out of the box. No setup required.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-memory.html">Agent Memory with ChromaDB</a>
+        <a href="blog-llm-orchestration.html">LLM Orchestration Patterns</a>
+        <a href="blog-ai-agent-security.html">AI Agent Security</a>
+        <a href="blog-build-ai-swarm.html">Build an Agent Swarm</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Agents with real tools</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">Full tool suite built in. Start for $49/mo.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a> · <a href="docs.html" style="color:#64748b">Docs</a></p>
+  </footer>
+</body>
+</html>
