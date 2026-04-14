@@ -16,7 +16,10 @@
 <meta name="twitter:description" content="Deploy your first AI agent swarm in under 5 minutes.">
 <meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Getting Started with MoltBot Cloud","author":{"@type":"Organization","name":"MoltBot Cloud"},"datePublished":"2026-04-13","publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/getting-started.html"}}
+{"@context":"https://schema.org","@type":"Article","headline":"Getting Started with MoltBot Cloud","author":{"@type":"Organization","name":"MoltBot Cloud"},"datePublished":"2026-04-13","dateModified":"2026-04-14","publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/getting-started.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Deploy Your First AI Agent Swarm on MoltBot Cloud","description":"Get up and running with MoltBot Cloud in under 5 minutes. Step-by-step guide to deploying your first AI agent swarm.","totalTime":"PT5M","estimatedCost":{"@type":"MonetaryAmount","currency":"USD","value":"0"},"step":[{"@type":"HowToStep","position":1,"name":"Sign Up & Choose a Plan","text":"Head to the signup page and select your plan. All plans include a 7-day free trial. Start with the Base plan ($49/mo, 3-5 agents)."},{"@type":"HowToStep","position":2,"name":"Access Your VM","text":"After signup, you'll receive credentials for your dedicated Windows VM via email. Connect using Remote Desktop (RDP) with mstsc /v:your-vm-ip:3389."},{"@type":"HowToStep","position":3,"name":"Your Agent Swarm is Pre-Configured","text":"MoltBot Cloud VMs come fully configured. OpenClaw Agent Gateway (port 18789), Omnisphere LLM Router (port 3005), FastAPI Backend (port 8080), and ChromaDB Memory Store (port 8000) are already running."},{"@type":"HowToStep","position":4,"name":"Send Your First Prompt","text":"Use the OpenAI-compatible API endpoint at localhost:3005/v1/chat/completions to start coding. Set model to auto to let Omnisphere route your prompt to the best model automatically."},{"@type":"HowToStep","position":5,"name":"Use the Dashboard","text":"Open http://localhost:8080 in your browser to monitor agent activity, configure model preferences, view conversation history, search persistent memory, and track token usage."},{"@type":"HowToStep","position":6,"name":"Chat via Telegram (Optional)","text":"Your VM includes a Telegram bot integration. Search for your bot in Telegram and start chatting — agents respond in real-time with code, file edits, and terminal output."}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Getting Started","item":"https://ceooftheuniverse.github.io/vmsaas-live/getting-started.html"}]}
@@ -126,11 +129,21 @@ xfreerdp /v:your-vm-ip /u:Administrator</code></pre>
 <a href="features.html">→ Explore all features in detail</a>
 <a href="api-docs.html">→ Browse the full API documentation</a>
 <a href="blog-ai-agent-swarm-guide.html">→ Read: How to Build an AI Agent Swarm</a>
+<a href="cheap-openclaw-guide.html">→ Run OpenClaw for Under $10/Month</a>
 <a href="case-studies.html">→ See how other teams use MoltBot</a>
+<a href="faq.html">→ Frequently Asked Questions</a>
 <a href="referral.html">→ Earn 20% by referring friends</a>
 </div>
 </div>
 
-<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="status.html" style="color:var(--a)">Status</a> · <a href="terms.html" style="color:var(--a)">Terms</a></div></footer>
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:1000px;margin:0 auto">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2rem;font-size:.78rem">
+<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Product</div><a href="features.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Features</a><a href="pricing.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Pricing</a><a href="compare.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Compare</a><a href="integrations.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Integrations</a></div>
+<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Resources</div><a href="blog.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Blog</a><a href="api-docs.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">API Docs</a><a href="faq.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">FAQ</a><a href="changelog.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Changelog</a></div>
+<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Company</div><a href="case-studies.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Case Studies</a><a href="referral.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Refer & Earn</a><a href="https://ceooftheuniverse.github.io/omnisphere/" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Omnisphere</a><a href="status.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Status</a></div>
+<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Legal</div><a href="terms.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Terms</a><a href="terms.html#privacy" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Privacy</a><a href="security.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Security</a></div>
+</div>
+<div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
 </body>
 </html>
