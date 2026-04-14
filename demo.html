@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Demo — MoltBot Cloud Agent Platform</title>
+  <meta name="description" content="See MoltBot Cloud in action. Interactive demo showing multi-agent orchestration, model arbitrage, and autonomous task execution.">
+  <meta property="og:title" content="MoltBot Cloud Live Demo">
+  <meta property="og:description" content="Interactive demo of autonomous AI agent orchestration with multi-model arbitrage.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/demo.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/demo.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--r:#ef4444;--y:#eab308}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+    a{color:var(--c);text-decoration:none}
+
+    nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+    nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+    nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+    nav .brand span{color:var(--a)}
+    nav .links a{color:var(--m);font-size:.875rem;font-weight:500;margin-left:2rem}
+
+    .c{max-width:1100px;margin:0 auto;padding:0 2rem}
+    .hero{padding:5.5rem 0 2rem;text-align:center}
+    h1{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;margin-bottom:.5rem}
+    h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
+    .sub{color:var(--m);font-size:.95rem;max-width:500px;margin:0 auto}
+
+    .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+    .demo-panel{background:var(--s);border:1px solid var(--b);border-radius:14px;overflow:hidden}
+    .panel-header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-bottom:1px solid var(--b);background:rgba(0,0,0,.2)}
+    .panel-title{font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:.4rem}
+    .panel-body{padding:1rem;min-height:280px;position:relative}
+
+    .terminal{background:#0a0a0f;border-radius:8px;padding:1rem;font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.8;min-height:250px;overflow-y:auto}
+    .t-prompt{color:var(--g)}
+    .t-info{color:var(--c)}
+    .t-warn{color:var(--y)}
+    .t-err{color:var(--r)}
+    .t-dim{color:#52525b}
+    .t-accent{color:var(--a)}
+
+    .agent-list{display:flex;flex-direction:column;gap:.6rem}
+    .agent-row{display:flex;align-items:center;gap:.8rem;padding:.6rem .8rem;background:rgba(0,0,0,.15);border-radius:8px;border:1px solid var(--b);transition:all .3s}
+    .agent-row.active{border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.05)}
+    .agent-row.thinking{border-color:rgba(234,179,8,.3);background:rgba(234,179,8,.05)}
+    .agent-icon{font-size:1.2rem;flex-shrink:0}
+    .agent-info{flex:1}
+    .agent-name{font-weight:600;font-size:.85rem}
+    .agent-status{font-size:.7rem;color:var(--m)}
+    .agent-badge{font-size:.6rem;padding:.15rem .4rem;border-radius:4px;font-weight:700}
+    .badge-active{background:rgba(34,197,94,.15);color:var(--g)}
+    .badge-thinking{background:rgba(234,179,8,.15);color:var(--y)}
+    .badge-idle{background:rgba(161,161,170,.1);color:var(--m)}
+
+    .model-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+    .model-chip{font-size:.65rem;padding:.2rem .5rem;border-radius:12px;background:rgba(99,102,241,.1);color:var(--a);border:1px solid rgba(99,102,241,.2)}
+    .model-chip.selected{background:rgba(99,102,241,.25);border-color:var(--a)}
+
+    .cost-display{text-align:center;padding:1.5rem}
+    .cost-big{font-family:'Outfit',sans-serif;font-size:2.5rem;font-weight:800;color:var(--g)}
+    .cost-label{color:var(--m);font-size:.8rem;margin-top:.25rem}
+    .cost-savings{color:var(--g);font-size:.9rem;font-weight:600;margin-top:.5rem}
+    .cost-bar{height:6px;background:var(--b);border-radius:3px;margin-top:1rem;overflow:hidden}
+    .cost-fill{height:100%;background:linear-gradient(90deg,var(--g),var(--c));border-radius:3px;transition:width 1s ease}
+
+    .btn-demo{background:linear-gradient(135deg,var(--a),var(--c));color:white;border:none;padding:.7rem 1.5rem;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+    .btn-demo:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(99,102,241,.3)}
+    .btn-demo:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+    .cta-section{text-align:center;padding:3rem 0;margin:2rem 0;border-top:1px solid var(--b)}
+    .cta-section h3{font-family:'Outfit',sans-serif;font-size:1.5rem;margin-bottom:.5rem}
+    .cta-section p{color:var(--m);margin-bottom:1.5rem;max-width:400px;margin-left:auto;margin-right:auto}
+
+    footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+    @media(max-width:768px){.demo-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav><div class="inner"><a href="index.html" class="brand">Molt<span>Bot</span> Cloud</a><div class="links"><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="roadmap.html">Roadmap</a><a href="blog.html">Blog</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+
+<div class="c">
+<div class="hero">
+  <h1>See MoltBot <span class="grad">In Action</span></h1>
+  <p class="sub">Watch autonomous agents plan, code, and ship — with real-time model arbitrage and cost optimization.</p>
+  <div style="margin-top:1.5rem"><button class="btn-demo" id="run-demo" onclick="startDemo()">▶ Run Demo Simulation</button></div>
+</div>
+
+<div class="demo-grid">
+  <!-- Agent Swarm Panel -->
+  <div class="demo-panel">
+    <div class="panel-header">
+      <div class="panel-title">🤖 Agent Swarm</div>
+      <div style="font-size:.7rem;color:var(--m)" id="agent-count">5 agents</div>
+    </div>
+    <div class="panel-body">
+      <div class="agent-list" id="agents">
+        <div class="agent-row" id="a-planner"><div class="agent-icon">🧠</div><div class="agent-info"><div class="agent-name">Planner</div><div class="agent-status">Idle — waiting for task</div></div><span class="agent-badge badge-idle">IDLE</span></div>
+        <div class="agent-row" id="a-coder"><div class="agent-icon">💻</div><div class="agent-info"><div class="agent-name">Coder</div><div class="agent-status">Idle — waiting for task</div></div><span class="agent-badge badge-idle">IDLE</span></div>
+        <div class="agent-row" id="a-reviewer"><div class="agent-icon">🔍</div><div class="agent-info"><div class="agent-name">Reviewer</div><div class="agent-status">Idle — waiting for task</div></div><span class="agent-badge badge-idle">IDLE</span></div>
+        <div class="agent-row" id="a-tester"><div class="agent-icon">🧪</div><div class="agent-info"><div class="agent-name">Tester</div><div class="agent-status">Idle — waiting for task</div></div><span class="agent-badge badge-idle">IDLE</span></div>
+        <div class="agent-row" id="a-deployer"><div class="agent-icon">🚀</div><div class="agent-info"><div class="agent-name">Deployer</div><div class="agent-status">Idle — waiting for task</div></div><span class="agent-badge badge-idle">IDLE</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terminal Output -->
+  <div class="demo-panel">
+    <div class="panel-header">
+      <div class="panel-title">⚡ Execution Log</div>
+      <div style="font-size:.7rem;color:var(--m)" id="timer">00:00</div>
+    </div>
+    <div class="panel-body">
+      <div class="terminal" id="terminal">
+        <div class="t-dim">MoltBot Cloud v3.0 — Agent Orchestrator</div>
+        <div class="t-dim">Press "Run Demo" to start simulation...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Model Arbitrage -->
+  <div class="demo-panel">
+    <div class="panel-header">
+      <div class="panel-title">⚙️ Model Arbitrage Router</div>
+      <div style="font-size:.7rem;color:var(--m)" id="req-count">0 requests</div>
+    </div>
+    <div class="panel-body">
+      <div style="font-size:.8rem;color:var(--m);margin-bottom:.75rem">Active model selection</div>
+      <div class="model-bar" id="models">
+        <span class="model-chip">GPT-5</span>
+        <span class="model-chip">Claude 4.5</span>
+        <span class="model-chip">Gemini 2.5</span>
+        <span class="model-chip">DeepSeek V3</span>
+        <span class="model-chip">NVIDIA GLM-4</span>
+        <span class="model-chip">Qwen 2.5</span>
+      </div>
+      <div style="margin-top:1.5rem">
+        <div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--m)"><span>Cost per request</span><span id="cost-per-req">$0.000</span></div>
+        <div class="cost-bar"><div class="cost-fill" id="cost-bar-fill" style="width:0%"></div></div>
+      </div>
+      <div style="margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <div style="flex:1;min-width:100px;text-align:center;padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px"><div style="font-size:1.2rem;font-weight:700;color:var(--g)" id="total-saved">$0.00</div><div style="font-size:.65rem;color:var(--m)">Saved</div></div>
+        <div style="flex:1;min-width:100px;text-align:center;padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px"><div style="font-size:1.2rem;font-weight:700;color:var(--c)" id="total-cost">$0.00</div><div style="font-size:.65rem;color:var(--m)">Actual Cost</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Progress -->
+  <div class="demo-panel">
+    <div class="panel-header">
+      <div class="panel-title">📋 Task Progress</div>
+      <div style="font-size:.7rem;color:var(--m)" id="task-pct">0%</div>
+    </div>
+    <div class="panel-body">
+      <div id="task-list" style="font-size:.82rem">
+        <div style="padding:.4rem 0;color:var(--m)">⬜ Analyze requirements</div>
+        <div style="padding:.4rem 0;color:var(--m)">⬜ Design architecture</div>
+        <div style="padding:.4rem 0;color:var(--m)">⬜ Implement core logic</div>
+        <div style="padding:.4rem 0;color:var(--m)">⬜ Write unit tests</div>
+        <div style="padding:.4rem 0;color:var(--m)">⬜ Code review</div>
+        <div style="padding:.4rem 0;color:var(--m)">⬜ Deploy to staging</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h3>Ready to deploy your own swarm?</h3>
+  <p>Get autonomous agents shipping code in under 60 seconds. No infrastructure to manage.</p>
+  <a href="signup.html" class="btn-demo" style="text-decoration:none">Start Free Trial →</a>
+</div>
+</div>
+
+<footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="pricing.html" style="color:var(--a)">Pricing</a> · <a href="roadmap.html" style="color:var(--a)">Roadmap</a> · <a href="terms.html" style="color:var(--a)">Terms</a></div></footer>
+
+<script>
+const STEPS = [
+  {agent:'planner',status:'thinking',badge:'THINKING',log:'<span class="t-prompt">▸</span> Task received: "Build user auth API"',model:'Claude 4.5',cost:.012,task:0},
+  {agent:'planner',status:'active',badge:'ACTIVE',log:'<span class="t-info">  ├─ Breaking down into 6 subtasks...</span>',model:'Claude 4.5',cost:.008,task:0},
+  {agent:'planner',status:'active',badge:'DONE',log:'<span class="t-info">  └─ Plan complete: 3 endpoints, JWT, bcrypt</span>',model:null,cost:0,task:0,done:true},
+  {agent:'coder',status:'thinking',badge:'THINKING',log:'<span class="t-prompt">▸</span> Coder picked up: design architecture',model:'GPT-5',cost:.015,task:1},
+  {agent:'coder',status:'active',badge:'ACTIVE',log:'<span class="t-info">  ├─ Routing to DeepSeek V3 (73% cheaper)</span>',model:'DeepSeek V3',cost:.004,task:1,done:true},
+  {agent:'coder',status:'active',badge:'ACTIVE',log:'<span class="t-accent">  ├─ Writing /api/auth/register...</span>',model:'DeepSeek V3',cost:.003,task:2},
+  {agent:'coder',status:'active',badge:'ACTIVE',log:'<span class="t-accent">  ├─ Writing /api/auth/login...</span>',model:'NVIDIA GLM-4',cost:0,task:2},
+  {agent:'coder',status:'active',badge:'ACTIVE',log:'<span class="t-info">  └─ 3 endpoints generated (247 lines)</span>',model:null,cost:0,task:2,done:true},
+  {agent:'tester',status:'thinking',badge:'THINKING',log:'<span class="t-prompt">▸</span> Tester generating unit tests...',model:'Qwen 2.5',cost:0,task:3},
+  {agent:'tester',status:'active',badge:'ACTIVE',log:'<span class="t-info">  ├─ 12 test cases (NVIDIA NIM — $0.00)</span>',model:'NVIDIA GLM-4',cost:0,task:3},
+  {agent:'tester',status:'active',badge:'DONE',log:'<span class="t-prompt">  └─ ✓ All 12 tests passing</span>',model:null,cost:0,task:3,done:true},
+  {agent:'reviewer',status:'thinking',badge:'THINKING',log:'<span class="t-prompt">▸</span> Reviewer analyzing code quality...',model:'Claude 4.5',cost:.018,task:4},
+  {agent:'reviewer',status:'active',badge:'ACTIVE',log:'<span class="t-warn">  ├─ Found: missing rate limiting on /login</span>',model:'Claude 4.5',cost:.005,task:4},
+  {agent:'coder',status:'active',badge:'HOTFIX',log:'<span class="t-accent">  ├─ Coder auto-fixing rate limit...</span>',model:'DeepSeek V3',cost:.002,task:4},
+  {agent:'reviewer',status:'active',badge:'DONE',log:'<span class="t-info">  └─ Code review passed ✓</span>',model:null,cost:0,task:4,done:true},
+  {agent:'deployer',status:'thinking',badge:'THINKING',log:'<span class="t-prompt">▸</span> Deploying to staging...',model:'Gemini 2.5',cost:.003,task:5},
+  {agent:'deployer',status:'active',badge:'ACTIVE',log:'<span class="t-info">  ├─ Docker build → push → deploy</span>',model:null,cost:0,task:5},
+  {agent:'deployer',status:'active',badge:'DONE',log:'<span class="t-prompt">  └─ ✓ Live at staging.moltbot.cloud/api/auth</span>',model:null,cost:0,task:5,done:true},
+];
+
+const TASKS=['Analyze requirements','Design architecture','Implement core logic','Write unit tests','Code review','Deploy to staging'];
+let running=false,step=0,totalCost=0,totalSaved=0,reqs=0,timer=0,interval;
+
+function startDemo(){
+  if(running)return;
+  running=true;
+  step=0;totalCost=0;totalSaved=0;reqs=0;timer=0;
+  document.getElementById('run-demo').disabled=true;
+  document.getElementById('terminal').innerHTML='<div class="t-dim">MoltBot Cloud v3.0 — Starting orchestration...</div>';
+  document.getElementById('task-list').innerHTML=TASKS.map(t=>`<div style="padding:.4rem 0;color:var(--m)">⬜ ${t}</div>`).join('');
+  interval=setInterval(()=>{timer++;document.getElementById('timer').textContent=`${String(Math.floor(timer/60)).padStart(2,'0')}:${String(timer%60).padStart(2,'0')}`},1000);
+  runStep();
+}
+
+function runStep(){
+  if(step>=STEPS.length){
+    document.getElementById('terminal').innerHTML+='<div style="margin-top:.5rem"><span class="t-prompt">━━━ Task complete in '+timer+'s ━━━</span></div>';
+    document.getElementById('terminal').innerHTML+='<div class="t-info">Total cost: $'+totalCost.toFixed(3)+' (saved $'+totalSaved.toFixed(3)+' via arbitrage)</div>';
+    document.getElementById('task-pct').textContent='100%';
+    clearInterval(interval);
+    document.getElementById('run-demo').disabled=false;
+    running=false;
+    return;
+  }
+  const s=STEPS[step];
+  // Update agent
+  const agents={planner:'a-planner',coder:'a-coder',reviewer:'a-reviewer',tester:'a-tester',deployer:'a-deployer'};
+  const el=document.getElementById(agents[s.agent]);
+  if(s.status==='thinking'){el.className='agent-row thinking';}
+  else{el.className='agent-row active';}
+  el.querySelector('.agent-status').textContent=s.badge==='DONE'?'Completed':'Working...';
+  el.querySelector('.agent-badge').className='agent-badge '+(s.badge==='THINKING'?'badge-thinking':s.badge==='IDLE'?'badge-idle':'badge-active');
+  el.querySelector('.agent-badge').textContent=s.badge;
+  // Log
+  document.getElementById('terminal').innerHTML+='<div>'+s.log+'</div>';
+  document.getElementById('terminal').scrollTop=99999;
+  // Model highlight
+  if(s.model){
+    reqs++;
+    document.getElementById('req-count').textContent=reqs+' requests';
+    const chips=document.querySelectorAll('.model-chip');
+    chips.forEach(c=>{c.className='model-chip';if(c.textContent===s.model)c.className='model-chip selected'});
+  }
+  // Cost
+  const premiumCost=s.cost*3;
+  totalCost+=s.cost;totalSaved+=premiumCost-s.cost;
+  document.getElementById('total-cost').textContent='$'+totalCost.toFixed(3);
+  document.getElementById('total-saved').textContent='$'+totalSaved.toFixed(3);
+  document.getElementById('cost-per-req').textContent='$'+s.cost.toFixed(4);
+  document.getElementById('cost-bar-fill').style.width=Math.min(100,totalCost/0.1*100)+'%';
+  // Task
+  if(s.done!==undefined){
+    const idx=s.task;
+    const items=document.getElementById('task-list').children;
+    if(items[idx])items[idx].innerHTML='<span style="color:var(--g)">✅ '+TASKS[idx]+'</span>';
+    const done=document.querySelectorAll('#task-list span[style*="color:var(--g)"]').length;
+    document.getElementById('task-pct').textContent=Math.round(done/TASKS.length*100)+'%';
+  }
+  step++;
+  setTimeout(runStep,800+Math.random()*600);
+}
+</script>
+</body>
+</html>
