@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoltBot for Teams — Scale Your AI Workforce</title>
+    <meta name="description" content="MoltBot Cloud for engineering teams. Deploy 10+ autonomous AI agents with Mission Control orchestration, shared memory, and enterprise SLA. From $149/mo.">
+    <meta property="og:title" content="MoltBot for Teams — AI Agent Swarms for Engineering">
+    <meta property="og:description" content="Scale your dev team with autonomous AI agents. Mission Control orchestration, 99.99% SLA.">
+    <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/teams.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+        .c{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+        nav{padding:1rem 0;border-bottom:1px solid var(--b)}
+        nav .inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
+        nav a{color:var(--m);text-decoration:none;font-size:.85rem;margin-left:1.5rem}
+        nav a:hover{color:var(--t)}
+        .brand{font-weight:800;font-size:1.2rem}.brand span{color:var(--a)}
+        .hero{text-align:center;padding:5rem 0 3rem}
+        h1{font-size:2.8rem;font-weight:800;line-height:1.1;margin-bottom:1rem}
+        .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+        .sub{color:var(--m);font-size:1.1rem;max-width:600px;margin:0 auto 2rem}
+        .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+        .btn{padding:.8rem 2rem;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .2s;display:inline-block}
+        .btn-p{background:var(--a);color:#fff}.btn-p:hover{background:#818cf8;box-shadow:0 0 20px rgba(99,102,241,.4)}
+        .btn-s{border:1px solid var(--b);color:var(--t)}.btn-s:hover{border-color:rgba(255,255,255,.2)}
+        .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:3rem 0;border-top:1px solid var(--b);border-bottom:1px solid var(--b);margin:2rem 0}
+        .stat{text-align:center}
+        .stat .num{font-size:2.5rem;font-weight:800;color:var(--a)}
+        .stat .label{color:var(--m);font-size:.8rem;text-transform:uppercase;letter-spacing:1px}
+        .section{padding:4rem 0}
+        .section h2{font-size:1.8rem;font-weight:700;text-align:center;margin-bottom:.5rem}
+        .section .sec-sub{text-align:center;color:var(--m);margin-bottom:2.5rem;font-size:.95rem}
+        .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        .card{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:2rem;transition:all .3s}
+        .card:hover{transform:translateY(-4px);border-color:rgba(99,102,241,.3)}
+        .card .icon{font-size:2rem;margin-bottom:1rem}
+        .card h3{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+        .card p{color:var(--m);font-size:.85rem}
+        .workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+        .step{text-align:center;padding:1.5rem 1rem;background:var(--s);border:1px solid var(--b);border-radius:12px;position:relative}
+        .step::after{content:'→';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);color:var(--m);font-size:1.5rem}
+        .step:last-child::after{display:none}
+        .step .sn{font-size:2rem;font-weight:800;color:var(--a);opacity:.3}
+        .step h4{font-size:.85rem;font-weight:700;margin:.5rem 0 .3rem}
+        .step p{color:var(--m);font-size:.75rem}
+        .testimonial{background:linear-gradient(135deg,var(--s),rgba(99,102,241,.03));border:1px solid rgba(99,102,241,.15);border-radius:20px;padding:3rem;text-align:center;margin:3rem 0}
+        .testimonial blockquote{font-size:1.2rem;font-style:italic;max-width:700px;margin:0 auto 1.5rem;line-height:1.6}
+        .testimonial .author{color:var(--m);font-size:.85rem}
+        .testimonial .author strong{color:var(--t)}
+        .final-cta{text-align:center;padding:4rem 0;border-top:1px solid var(--b)}
+        .final-cta h2{font-size:2rem;font-weight:800;margin-bottom:1rem}
+        .final-cta p{color:var(--m);max-width:500px;margin:0 auto 2rem;font-size:.95rem}
+        footer{border-top:1px solid var(--b);padding:3rem 0 2rem}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+        .footer-grid h4{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--m);margin-bottom:.75rem}
+        .footer-grid a{display:block;color:var(--m);text-decoration:none;font-size:.8rem;padding:.2rem 0}
+        .footer-grid a:hover{color:var(--t)}
+        .footer-bottom{text-align:center;color:#52525b;font-size:.75rem;border-top:1px solid var(--b);padding-top:1.5rem}
+        @media(max-width:768px){h1{font-size:2rem}.grid3,.workflow,.stats,.footer-grid{grid-template-columns:1fr}}
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Product","name":"MoltBot for Teams","description":"Multi-agent AI workforce for engineering teams","brand":{"@type":"Brand","name":"MoltBot Cloud"},"offers":[{"@type":"Offer","price":"149","priceCurrency":"USD","priceValidUntil":"2027-12-31"}]}
+    </script>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="pricing.html">Pricing</a><a href="teams.html" style="color:var(--t)">Teams</a><a href="copilot.html" style="color:#f59e0b">Copilot ✨</a><a href="blog.html">Blog</a></div></div></nav>
+
+<div class="c">
+<section class="hero">
+    <h1>Your Team + <span class="grad">AI Agents</span> = 10x Output</h1>
+    <p class="sub">Deploy 10+ autonomous AI agents that work alongside your engineering team. Shared memory, Mission Control orchestration, and enterprise-grade SLA.</p>
+    <div class="cta-row">
+        <a href="signup.html?plan=swarm" class="btn btn-p">Start Swarm Plan — $149/mo →</a>
+        <a href="signup.html?plan=enterprise" class="btn btn-s">Enterprise — $299/mo →</a>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="stat"><div class="num">10+</div><div class="label">Parallel Agents</div></div>
+    <div class="stat"><div class="num">12</div><div class="label">LLM Models</div></div>
+    <div class="stat"><div class="num">300+</div><div class="label">Commits/Day</div></div>
+    <div class="stat"><div class="num">99.99%</div><div class="label">Uptime SLA</div></div>
+</div>
+
+<section class="section">
+    <h2>Built for Engineering Teams</h2>
+    <p class="sec-sub">Every feature designed to multiply your team's output without adding headcount.</p>
+    <div class="grid3">
+        <div class="card"><div class="icon">🎯</div><h3>Mission Control</h3><p>Orchestrate 10 specialist agents from a single dashboard. Assign tasks, monitor progress, and review output in real-time.</p></div>
+        <div class="card"><div class="icon">🧠</div><h3>Shared Memory</h3><p>Agents share context across sessions. Your codebase knowledge persists — no re-explaining architecture decisions.</p></div>
+        <div class="card"><div class="icon">⚡</div><h3>Smart Model Routing</h3><p>Automatically routes queries through 12 models (Claude, GPT, Gemini, DeepSeek) based on cost and capability.</p></div>
+        <div class="card"><div class="icon">🔒</div><h3>Enterprise Security</h3><p>SOC 2 compliant infrastructure. Your code never leaves your VM. End-to-end encryption on all agent communications.</p></div>
+        <div class="card"><div class="icon">📊</div><h3>Team Analytics</h3><p>Track agent productivity, cost per task, model usage, and ROI metrics. Export reports for stakeholders.</p></div>
+        <div class="card"><div class="icon">🔄</div><h3>CI/CD Integration</h3><p>Agents push to GitHub, trigger pipelines, run tests, and open PRs. Fits into your existing dev workflow.</p></div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>How It Works</h2>
+    <p class="sec-sub">From signup to 10x output in under 5 minutes.</p>
+    <div class="workflow">
+        <div class="step"><div class="sn">01</div><h4>Pick a Plan</h4><p>Swarm (3 agents) or Enterprise (10 agents)</p></div>
+        <div class="step"><div class="sn">02</div><h4>Deploy VMs</h4><p>Pre-configured GPU instances spin up in 60s</p></div>
+        <div class="step"><div class="sn">03</div><h4>Assign Tasks</h4><p>Use Mission Control to delegate work to agents</p></div>
+        <div class="step"><div class="sn">04</div><h4>Ship & Scale</h4><p>Agents code, test, review, and push — autonomously</p></div>
+    </div>
+</section>
+
+<div class="testimonial">
+    <blockquote>"We replaced 3 junior dev hires with MoltBot Swarm. The agents ship faster, never take PTO, and cost 90% less. Our velocity tripled in the first month."</blockquote>
+    <div class="author">— <strong>Engineering Lead</strong>, Series B SaaS Startup</div>
+</div>
+
+<section class="final-cta">
+    <h2>Ready to Scale Your Team?</h2>
+    <p>Join the teams already shipping 10x faster with autonomous AI agents.</p>
+    <div class="cta-row">
+        <a href="signup.html?plan=swarm" class="btn btn-p">Start Free Trial →</a>
+        <a href="pricing.html" class="btn btn-s">Compare Plans →</a>
+    </div>
+</section>
+</div>
+
+<footer><div class="c">
+<div class="footer-grid">
+    <div><div class="brand" style="margin-bottom:.5rem">Molt<span>Bot</span> Cloud</div><p style="color:var(--m);font-size:.8rem">Autonomous AI agent VMs with smart model routing. Built for developers who ship.</p></div>
+    <div><h4>Product</h4><a href="pricing.html">Pricing</a><a href="copilot.html">Copilot IDE</a><a href="teams.html">For Teams</a><a href="compare.html">Compare</a></div>
+    <div><h4>Resources</h4><a href="blog.html">Blog</a><a href="api-docs.html">API Docs</a><a href="faq.html">FAQ</a><a href="integrations.html">Integrations</a></div>
+    <div><h4>Company</h4><a href="about.html">About</a><a href="security.html">Security</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div>
+</div>
+<div class="footer-bottom">© 2026 MoltBot Cloud. All rights reserved.</div>
+</div></footer>
+</body>
+</html>
