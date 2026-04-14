@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoltBot for Agencies — Deliver More. Bill More. Hire Less.</title>
+  <meta name="description" content="Agencies use MoltBot Cloud to deploy AI agent teams that code, write, research and analyze — delivering 3x client capacity without hiring. From $149/mo.">
+  <meta name="keywords" content="AI agents for agencies, AI development agency, autonomous AI workforce, agency automation AI, replace developers AI agents">
+  <meta property="og:title" content="MoltBot for Agencies — Deliver 3× More Without Hiring">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/lp-agency.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/lp-agency.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .lp-hero{min-height:100vh;display:flex;align-items:center;padding:0 10%;position:relative;overflow:hidden;margin-top:70px}
+    .lp-hero::before{content:'';position:absolute;top:-20%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(34,211,238,0.2) 0%,transparent 70%);border-radius:50%;z-index:-1}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);border-radius:20px;padding:.3rem 1rem;font-size:.85rem;color:var(--accent);margin-bottom:1.5rem}
+    .lp-hero h1{font-size:3.8rem;line-height:1.1;margin-bottom:1.5rem}
+    .lp-hero h1 .grad{background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .lp-hero p{font-size:1.15rem;color:#94a3b8;max-width:580px;margin-bottom:2.5rem}
+    .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+    .social-proof{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+    .sp-item{display:flex;align-items:center;gap:.5rem;font-size:.9rem;color:#64748b}
+    .sp-item .check{color:#22c55e}
+    .metrics-bar{display:flex;justify-content:center;gap:4rem;padding:4rem 10%;border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);flex-wrap:wrap}
+    .metric{text-align:center}
+    .metric .num{font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .metric .lbl{color:#64748b;font-size:.9rem}
+    .use-cases{padding:5rem 10%}
+    .use-cases h2{font-size:2.5rem;text-align:center;margin-bottom:.75rem}
+    .use-cases .sub{text-align:center;color:#94a3b8;margin-bottom:3rem}
+    .uc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .uc-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:2rem;transition:all .3s}
+    .uc-card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.3)}
+    .uc-card .icon{font-size:2.5rem;margin-bottom:1rem}
+    .uc-card h3{margin-bottom:.5rem}
+    .uc-card p{color:#94a3b8;font-size:.9rem;margin-bottom:1rem}
+    .uc-card .metric-line{color:#4ade80;font-size:.85rem;font-weight:600}
+    .how-section{padding:5rem 10%;background:linear-gradient(180deg,transparent,rgba(30,41,59,.2))}
+    .how-section h2{font-size:2.5rem;text-align:center;margin-bottom:3rem}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+    .step{text-align:center;padding:1.5rem}
+    .step .num{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin:0 auto 1rem}
+    .step h3{margin-bottom:.5rem}
+    .step p{color:#94a3b8;font-size:.9rem}
+    .roi-section{padding:5rem 10%;text-align:center}
+    .roi-section h2{font-size:2.5rem;margin-bottom:.75rem}
+    .roi-section .sub{color:#94a3b8;margin-bottom:3rem}
+    .roi-card{max-width:720px;margin:0 auto;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:20px;overflow:hidden}
+    .roi-header{background:linear-gradient(135deg,rgba(79,70,229,.3),rgba(34,211,238,.15));padding:1.5rem 2rem;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem}
+    .roi-stat{text-align:center}
+    .roi-stat .val{font-size:2rem;font-weight:800;color:var(--accent)}
+    .roi-stat .lbl{font-size:.8rem;color:#64748b}
+    .roi-body{padding:2rem}
+    .roi-row{display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .roi-row:last-child{border:none}
+    .roi-row .before{color:#f87171;text-decoration:line-through}
+    .roi-row .after{color:#4ade80;font-weight:700}
+    .testimonials{padding:5rem 10%}
+    .testimonials h2{font-size:2.5rem;text-align:center;margin-bottom:3rem}
+    .t-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
+    .t-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:2rem}
+    .t-card blockquote{color:#cbd5e1;font-style:italic;line-height:1.8;margin-bottom:1.5rem;font-size:.95rem}
+    .t-author{display:flex;align-items:center;gap:.75rem}
+    .avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+    .final-cta{padding:6rem 10%;text-align:center;position:relative}
+    .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(34,211,238,.08) 0%,transparent 70%)}
+    .final-cta h2{font-size:3rem;margin-bottom:1rem;position:relative}
+    .final-cta p{color:#94a3b8;font-size:1.1rem;margin-bottom:2.5rem;position:relative}
+    .final-cta .btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+    @media(max-width:768px){.lp-hero{padding-top:7rem;text-align:center} .lp-hero h1{font-size:2.4rem} .hero-ctas,.social-proof{justify-content:center}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="teams.html">Teams</a>
+      <a href="signup.html" class="btn-primary">Get Started →</a>
+    </div>
+  </nav>
+
+  <section class="lp-hero">
+    <div>
+      <div class="badge">🏢 Purpose-built for digital agencies</div>
+      <h1>Deliver <span class="grad">3× more</span><br>without hiring anyone</h1>
+      <p>Deploy AI agent teams that handle code, content, research, and QA for your clients — 24/7, on dedicated GPU infrastructure. Keep your margins. Scale without headcount.</p>
+      <div class="hero-ctas">
+        <a href="signup.html?plan=swarm" class="btn-primary large">Start with Swarm Matrix — $149/mo</a>
+        <a href="case-studies.html" class="btn-secondary large">See Agency Case Studies</a>
+      </div>
+      <div class="social-proof">
+        <div class="sp-item"><span class="check">✓</span> 14-day free trial</div>
+        <div class="sp-item"><span class="check">✓</span> White-label ready</div>
+        <div class="sp-item"><span class="check">✓</span> Client isolation</div>
+        <div class="sp-item"><span class="check">✓</span> Team dashboard</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="metrics-bar">
+    <div class="metric"><div class="num">3.4×</div><div class="lbl">Average deliverable output</div></div>
+    <div class="metric"><div class="num">74%</div><div class="lbl">Gross margin improvement</div></div>
+    <div class="metric"><div class="num">$0</div><div class="lbl">Hiring costs to scale</div></div>
+    <div class="metric"><div class="num">24/7</div><div class="lbl">Agent availability</div></div>
+  </div>
+
+  <section class="use-cases">
+    <h2>Agent workflows for every service line</h2>
+    <p class="sub">MoltBot agents handle the repetitive, high-volume work across every discipline your agency offers.</p>
+    <div class="uc-grid">
+      <div class="uc-card">
+        <div class="icon">💻</div>
+        <h3>Dev Agency</h3>
+        <p>Code review, test generation, bug triage, PR summaries — all automated for every client project.</p>
+        <div class="metric-line">↑ 65% dev throughput per engineer</div>
+      </div>
+      <div class="uc-card">
+        <div class="icon">✍️</div>
+        <h3>Content Agency</h3>
+        <p>SEO-optimised blogs, social posts, email sequences — generated, approved, scheduled at scale.</p>
+        <div class="metric-line">↑ 10× content volume, same team</div>
+      </div>
+      <div class="uc-card">
+        <div class="icon">📊</div>
+        <h3>Strategy & Research</h3>
+        <p>Competitive analysis, market research, client briefs — nightly agent runs, morning-ready insights.</p>
+        <div class="metric-line">↓ 80% research time per deliverable</div>
+      </div>
+      <div class="uc-card">
+        <div class="icon">🎨</div>
+        <h3>Creative Agency</h3>
+        <p>Brief analysis, concept drafts, copy variants, social asset descriptions — accelerate every creative cycle.</p>
+        <div class="metric-line">↑ 4× briefs processed per week</div>
+      </div>
+      <div class="uc-card">
+        <div class="icon">📣</div>
+        <h3>Marketing Agency</h3>
+        <p>Ad copy testing, audience research, performance analysis, campaign summaries — all autonomous.</p>
+        <div class="metric-line">↓ 3.5hrs/client/week saved</div>
+      </div>
+      <div class="uc-card">
+        <div class="icon">🔍</div>
+        <h3>SEO Agency</h3>
+        <p>Keyword clustering, content briefs, meta tag generation, competitor gap analysis — nightly and at scale.</p>
+        <div class="metric-line">↑ 8× SEO deliverable velocity</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <h2>Up and running in one afternoon</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>Choose your plan</h3>
+        <p>Start with Swarm Matrix ($149/mo) for 3 concurrent agents. Scale to Enterprise for 10+ agents per client.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>Configure your agents</h3>
+        <p>Point your agents at client repos, briefs, or data sources via the Omnisphere pipeline builder.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>Set recurring tasks</h3>
+        <p>Schedule nightly research, weekly content generation, or commit-triggered code review via webhooks.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>Bill your clients</h3>
+        <p>Deliver 3× the work. Keep the same retainer. Your margin goes from 30% → 70%+ overnight.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="roi-section">
+    <h2>What a 5-client agency looks like</h2>
+    <p class="sub">Monthly numbers for a typical digital agency running Swarm Matrix for 5 clients</p>
+    <div class="roi-card">
+      <div class="roi-header">
+        <div class="roi-stat"><div class="val">$149</div><div class="lbl">Monthly cost</div></div>
+        <div class="roi-stat"><div class="val">$12,400</div><div class="lbl">Extra deliverables billed</div></div>
+        <div class="roi-stat"><div class="val">83×</div><div class="lbl">ROI</div></div>
+      </div>
+      <div class="roi-body">
+        <div class="roi-row"><span>Hours saved/month</span><span class="before">0</span><span class="after">+320 hrs</span></div>
+        <div class="roi-row"><span>Dev throughput per engineer</span><span class="before">baseline</span><span class="after">+65%</span></div>
+        <div class="roi-row"><span>Content deliverables/month</span><span class="before">12</span><span class="after">120</span></div>
+        <div class="roi-row"><span>Gross margin per client</span><span class="before">~31%</span><span class="after">~72%</span></div>
+        <div class="roi-row"><span>Headcount needed to scale</span><span class="before">+2 FTEs ($16K/mo)</span><span class="after">$0 additional</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>Agency founders love MoltBot</h2>
+    <div class="t-grid">
+      <div class="t-card">
+        <blockquote>"We onboarded 3 new clients in one month without hiring anyone. The content agent handles all first drafts — our writers just edit and approve. Margins hit 71% last quarter."</blockquote>
+        <div class="t-author">
+          <div class="avatar" style="background:rgba(79,70,229,.3)">👩</div>
+          <div><strong>Sophia R.</strong><br><small style="color:#64748b">Founder, Elevate Content Co.</small></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <blockquote>"My dev team went from reviewing 4 PRs/day to 28 PRs/day. The code review agent catches things my senior devs miss. It's embarrassingly good for $149/mo."</blockquote>
+        <div class="t-author">
+          <div class="avatar" style="background:rgba(34,211,238,.2)">🧑‍💻</div>
+          <div><strong>Daniel M.</strong><br><small style="color:#64748b">CTO, BuildStack Agency</small></div>
+        </div>
+      </div>
+      <div class="t-card">
+        <blockquote>"I pitched 'AI-powered research' as a premium tier to clients. They pay $800/mo more per account for it. MoltBot costs me $149/mo total. That's my mortgage paid in ROI."</blockquote>
+        <div class="t-author">
+          <div class="avatar" style="background:rgba(251,146,60,.2)">🧑‍💼</div>
+          <div><strong>Alex K.</strong><br><small style="color:#64748b">Owner, Meridian Strategy Group</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <h2>Scale your agency without scaling headcount</h2>
+    <p>Start a 14-day free trial. Cancel any time. No credit card required.</p>
+    <div class="btns">
+      <a href="signup.html?plan=swarm" class="btn-primary large">Start Swarm Matrix — $149/mo</a>
+      <a href="teams.html" class="btn-secondary large">See Team Features →</a>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:.75rem;font-size:.85rem">
+      <a href="index.html" style="color:#64748b;text-decoration:none">Home</a>
+      <a href="features.html" style="color:#64748b;text-decoration:none">Features</a>
+      <a href="pricing.html" style="color:#64748b;text-decoration:none">Pricing</a>
+      <a href="teams.html" style="color:#64748b;text-decoration:none">Teams</a>
+      <a href="compare.html" style="color:#64748b;text-decoration:none">Compare</a>
+      <a href="terms.html" style="color:#64748b;text-decoration:none">Terms</a>
+    </div>
+    <p style="font-size:.75rem">© 2026 MoltBot Cloud. Autonomous AI Infrastructure for Agencies.</p>
+  </footer>
+</body>
+</html>
