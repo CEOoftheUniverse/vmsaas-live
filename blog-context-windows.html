@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Context Windows Explained: Token Limits, Long-Context Models & Chunking | MoltBot Blog</title>
+  <meta name="description" content="Everything you need to know about LLM context windows — what token limits mean, which models have the largest context windows in 2026, and chunking strategies when your data doesn't fit.">
+  <meta name="keywords" content="LLM context window, token limits LLM, long context model 2026, context window vs RAG, chunking LLM, LLM token limit strategies, Claude context window, Gemini context window">
+  <meta property="og:title" content="AI Context Windows Explained: Token Limits, Long-Context Models & Chunking">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-context-windows.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-context-windows.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .model-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .model-table th{padding:.85rem 1.1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .model-table td{padding:.75rem 1.1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.87rem;color:#94a3b8}
+    .model-table td:first-child{font-weight:600;color:white}
+    .model-table .hi{color:#4ade80;font-weight:600}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Context Windows</span><span class="tag">Architecture</span><span class="tag">Tokens</span></div>
+    <h1>AI Context Windows Explained: Token Limits, Long-Context Models & Chunking</h1>
+    <p class="lead">Context window size determines how much information your model can "see" at once. Here's the 2026 state of context windows, which models to pick for long-document tasks, and chunking strategies when your data still doesn't fit.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>A context window is the model's working memory — the maximum number of tokens it can process in a single call, including your system prompt, conversation history, tools, and the user's message. Exceed it and you get a hard error. Approach it and quality degrades as the model struggles to attend to early content.</p>
+
+      <h2>2026 context window landscape</h2>
+      <table class="model-table">
+        <thead><tr><th>Model</th><th>Context window</th><th>Approx. pages</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>Claude Haiku 4</td><td>200K tokens</td><td class="hi">~550 pages</td><td>Fast tasks, classification, extraction</td></tr>
+          <tr><td>Claude Sonnet 4</td><td>200K tokens</td><td class="hi">~550 pages</td><td>Most production use cases</td></tr>
+          <tr><td>Claude Opus 4</td><td>200K tokens</td><td class="hi">~550 pages</td><td>Complex reasoning, long documents</td></tr>
+          <tr><td>Gemini 2.0 Ultra</td><td>1M tokens</td><td class="hi">~2,700 pages</td><td>Codebase analysis, full-book processing</td></tr>
+          <tr><td>GPT-5</td><td>128K tokens</td><td>~350 pages</td><td>General purpose, tool use</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When long context isn't enough: chunking strategies</h2>
+      <ul>
+        <li><strong>Fixed-size chunking:</strong> Split documents into equal-sized chunks (e.g., 512 tokens each) with 10–20% overlap to preserve context at boundaries. Simple and fast. Works well for homogeneous text.</li>
+        <li><strong>Semantic chunking:</strong> Split at natural boundaries — paragraphs, sections, sentences — rather than fixed token counts. Better preserves context and improves retrieval quality.</li>
+        <li><strong>Hierarchical chunking:</strong> Create parent chunks (e.g., full sections) and child chunks (paragraphs within sections). Retrieve child chunks but include the parent for context. Best quality, more complex to implement.</li>
+        <li><strong>Late chunking:</strong> Embed the full document first to get cross-chunk attention, then split into chunks. Only feasible for documents within context window size.</li>
+      </ul>
+
+      <h2>Chunking implementation</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot.chunking <span class="kw">import</span> SemanticChunker
+
+chunker = SemanticChunker(
+    chunk_size=512,         <span class="cm"># tokens per chunk</span>
+    chunk_overlap=50,       <span class="cm"># overlap between chunks</span>
+    split_on=[<span class="str">"paragraph"</span>, <span class="str">"sentence"</span>],  <span class="cm"># semantic boundaries</span>
+)
+
+chunks = chunker.chunk(document_text)
+<span class="cm"># Returns list of chunks with metadata</span>
+<span class="cm"># chunk.text, chunk.token_count, chunk.start_char, chunk.end_char</span>
+      </div>
+
+      <h2>Long context vs RAG: how to choose</h2>
+      <ul>
+        <li>Use <strong>long context</strong> when: the full document is under the context limit, you need cross-document reasoning, or latency is not critical.</li>
+        <li>Use <strong>RAG</strong> when: you have more data than any context window, costs need to be minimized, or you need sub-second retrieval across a large corpus.</li>
+        <li>Use <strong>both</strong>: retrieve the most relevant chunks with RAG, then stuff them into a long-context model for final synthesis. This is the production sweet spot for most enterprise use cases.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Automatic chunking + long-context routing on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Semantic chunking, hybrid RAG+long-context pipelines, and automatic model selection. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-context-window-vs-rag.html">Context Window vs RAG</a>
+        <a href="blog-prompt-caching.html">Prompt Caching</a>
+        <a href="blog-llm-routing.html">LLM Routing</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Process any document size</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
