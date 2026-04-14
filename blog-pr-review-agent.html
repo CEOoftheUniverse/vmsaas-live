@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a GitHub PR Review Agent with Claude — Step-by-Step Tutorial | MoltBot</title>
+  <meta name="description" content="Build an AI agent that automatically reviews GitHub pull requests using Claude Opus 4. Full code, webhook setup, and deployment guide. Ships to production in 45 minutes.">
+  <meta name="keywords" content="GitHub PR review agent, AI code review bot, Claude PR reviewer, automated pull request review, AI code review agent tutorial, GitHub Actions AI agent">
+  <meta property="og:title" content="Build a GitHub PR Review AI Agent — Full Tutorial">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-pr-review-agent.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-pr-review-agent.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Build a GitHub PR Review Agent with Claude","datePublished":"2026-04-14","author":{"@type":"Organization","name":"MoltBot"},"url":"https://ceooftheuniverse.github.io/vmsaas-live/blog-pr-review-agent.html"}
+  </script>
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.1rem;color:var(--accent);margin:2rem 0 .75rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    pre{background:rgba(0,0,0,.5);border:1px solid var(--glass-border);border-radius:10px;padding:1.5rem;overflow-x:auto;margin:1rem 0 1.5rem}
+    pre code{font-family:monospace;font-size:.87rem;color:#e2e8f0}
+    .step-header{display:flex;align-items:center;gap:1rem;margin:3rem 0 1rem}
+    .step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0}
+    .step-header h2{font-size:1.5rem;margin:0}
+    .callout{border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+    .callout.tip{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2)}
+    .callout h4{margin-bottom:.5rem;font-size:.95rem;color:#4ade80}
+    .callout p{color:#94a3b8;margin:0;font-size:.92rem}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .sidebar-card a:hover{color:var(--accent)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr} .blog-sidebar{display:none} .blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 11 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Tutorial</span><span class="tag">GitHub</span><span class="tag">Code Review</span></div>
+    <h1>How to Build a GitHub PR Review Agent with Claude</h1>
+    <p class="lead">A complete, production-ready tutorial. By the end you'll have an AI agent that reviews every PR on your repo — checking security, performance, test coverage, and style — in under 60 seconds per PR.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Code review is one of the highest-leverage activities in software development — and one of the most time-consuming. A well-built PR review agent doesn't replace human review; it surfaces the obvious issues automatically so humans can focus on the subtler architectural decisions.</p>
+
+      <p>This tutorial builds a production agent that: receives GitHub webhooks, fetches the PR diff, analyzes it with Claude Opus 4, and posts a structured review comment — all in under 60 seconds.</p>
+
+      <div class="step-header"><div class="step-num">1</div><h2>Set up your environment</h2></div>
+      <pre><code>pip install anthropic PyGithub fastapi uvicorn python-dotenv
+
+# .env
+ANTHROPIC_API_KEY=sk-ant-xxx
+GITHUB_TOKEN=ghp_xxx
+GITHUB_WEBHOOK_SECRET=your_webhook_secret</code></pre>
+
+      <div class="step-header"><div class="step-num">2</div><h2>Create the webhook server</h2></div>
+      <pre><code>from fastapi import FastAPI, Request, HTTPException
+import hmac, hashlib, os
+from github import Github
+
+app = FastAPI()
+gh = Github(os.getenv("GITHUB_TOKEN"))
+
+def verify_signature(payload: bytes, signature: str) -> bool:
+    """Verify GitHub webhook HMAC signature."""
+    secret = os.getenv("GITHUB_WEBHOOK_SECRET", "").encode()
+    expected = "sha256=" + hmac.new(secret, payload, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected, signature)
+
+@app.post("/webhook/github")
+async def github_webhook(request: Request):
+    payload = await request.body()
+    sig = request.headers.get("X-Hub-Signature-256", "")
+    
+    if not verify_signature(payload, sig):
+        raise HTTPException(status_code=401, detail="Invalid signature")
+    
+    event = request.headers.get("X-GitHub-Event")
+    data = await request.json()
+    
+    if event == "pull_request" and data["action"] in ["opened", "synchronize"]:
+        pr_number = data["pull_request"]["number"]
+        repo_name = data["repository"]["full_name"]
+        await review_pr(repo_name, pr_number)
+    
+    return {"status": "ok"}</code></pre>
+
+      <div class="step-header"><div class="step-num">3</div><h2>Fetch the PR diff</h2></div>
+      <pre><code>async def get_pr_diff(repo_name: str, pr_number: int) -> dict:
+    """Fetch PR metadata and diff from GitHub."""
+    repo = gh.get_repo(repo_name)
+    pr = repo.get_pull(pr_number)
+    
+    # Get diff (limit to 8000 chars to fit in context)
+    files = list(pr.get_files())
+    diff_text = ""
+    for f in files[:20]:  # Max 20 files
+        diff_text += f"\n--- {f.filename} (+{f.additions}/-{f.deletions}) ---\n"
+        if f.patch:
+            diff_text += f.patch[:2000]  # Max 2000 chars per file
+    
+    return {
+        "title": pr.title,
+        "body": pr.body or "",
+        "author": pr.user.login,
+        "files_changed": len(files),
+        "additions": pr.additions,
+        "deletions": pr.deletions,
+        "diff": diff_text[:8000]
+    }</code></pre>
+
+      <div class="step-header"><div class="step-num">4</div><h2>Build the review agent</h2></div>
+      <pre><code>import anthropic
+
+client = anthropic.Anthropic()
+
+REVIEW_PROMPT = """You are a senior software engineer performing a thorough code review.
+
+Analyze this pull request and provide a structured review covering:
+1. **Security** — SQL injection, XSS, auth issues, exposed secrets
+2. **Performance** — N+1 queries, missing indexes, inefficient algorithms
+3. **Test Coverage** — Missing tests for edge cases, untested branches
+4. **Code Quality** — Readability, naming, DRY violations
+5. **Summary** — Overall assessment: APPROVE / REQUEST_CHANGES / COMMENT
+
+Format your review as Markdown. Be specific — quote exact lines when noting issues.
+Be constructive, not harsh. Acknowledge good patterns you see."""
+
+async def run_review_agent(pr_data: dict) -> str:
+    """Run Claude on the PR diff and return review text."""
+    message = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=2048,
+        system=REVIEW_PROMPT,
+        messages=[{
+            "role": "user",
+            "content": f"""PR: {pr_data['title']}
+Description: {pr_data['body']}
+Files changed: {pr_data['files_changed']} (+{pr_data['additions']}/-{pr_data['deletions']})
+
+DIFF:
+{pr_data['diff']}"""
+        }]
+    )
+    return message.content[0].text</code></pre>
+
+      <div class="step-header"><div class="step-num">5</div><h2>Post the review comment</h2></div>
+      <pre><code">async def review_pr(repo_name: str, pr_number: int):
+    """Full pipeline: fetch PR → analyze → post review."""
+    pr_data = await get_pr_diff(repo_name, pr_number)
+    review_text = await run_review_agent(pr_data)
+    
+    # Post as GitHub PR review
+    repo = gh.get_repo(repo_name)
+    pr = repo.get_pull(pr_number)
+    
+    # Determine approval action from review text
+    if "APPROVE" in review_text:
+        event = "APPROVE"
+    elif "REQUEST_CHANGES" in review_text:
+        event = "REQUEST_CHANGES"
+    else:
+        event = "COMMENT"
+    
+    pr.create_review(body=review_text, event=event)
+    print(f"✓ Reviewed PR #{pr_number}: {event}")</code></pre>
+
+      <div class="step-header"><div class="step-num">6</div><h2>Deploy and configure the webhook</h2></div>
+      <pre><code># Start server
+uvicorn main:app --host 0.0.0.0 --port 8000
+
+# Or deploy to MoltBot (persistent, always-on):
+moltbot deploy --file main.py --port 8000 --name pr-review-agent</code></pre>
+      <p>In your GitHub repo: <strong>Settings → Webhooks → Add webhook</strong>. Set the URL to your server's address + <code>/webhook/github</code>, select <code>application/json</code>, set the secret, and choose "Pull requests" events.</p>
+
+      <div class="callout tip">
+        <h4>✓ Run this on MoltBot for free</h4>
+        <p>Deploy this agent to a MoltBot instance for always-on, persistent webhook handling. No cold starts, no server management. Start your 14-day free trial and deploy in 5 minutes.</p>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Ship your PR review agent today</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">MoltBot provides the persistent GPU infrastructure to run your agent 24/7. Deploy in 5 minutes.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-tools.html">AI Agent Tool Use</a>
+        <a href="blog-prompt-engineering.html">Prompt Engineering 2026</a>
+        <a href="blog-build-ai-swarm.html">Build an Agent Swarm</a>
+        <a href="blog-autonomous-agent-tutorial.html">Autonomous Agent Tutorial</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Deploy this agent on MoltBot</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
