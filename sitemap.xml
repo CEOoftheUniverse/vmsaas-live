@@ -318,4 +318,8 @@
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/status.html</loc>
     <lastmod>2026-04-14</lastmod><changefreq>hourly</changefreq><priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-orchestration.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
 </urlset>
