@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Window vs RAG: When to Use Each for AI Agents | MoltBot Blog</title>
+  <meta name="description" content="Context windows keep growing — 1M tokens is here. So when do you still need RAG? A clear framework for deciding what to put in context vs what to retrieve dynamically.">
+  <meta name="keywords" content="context window vs RAG, long context LLM vs RAG, when to use RAG, 1M token context window, LLM context vs retrieval, RAG vs full document context, AI agent knowledge">
+  <meta property="og:title" content="Context Window vs RAG: When to Use Each for AI Agents">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-context-window-vs-rag.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-context-window-vs-rag.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .compare-table th{padding:.85rem 1.25rem;text-align:left;font-size:.8rem;color:#64748b;text-transform:uppercase}
+    .compare-table th:nth-child(2){background:rgba(99,102,241,.08);color:#818cf8}
+    .compare-table th:nth-child(3){background:rgba(20,184,166,.08);color:#2dd4bf}
+    .compare-table td{padding:.8rem 1.25rem;border-top:1px solid rgba(255,255,255,.04);font-size:.88rem;color:#94a3b8;vertical-align:top}
+    .compare-table td:first-child{font-weight:600;color:white}
+    .win{color:#4ade80;font-weight:600}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">RAG</span><span class="tag">Context Windows</span><span class="tag">Architecture</span></div>
+    <h1>Context Window vs RAG: When to Use Each for AI Agents</h1>
+    <p class="lead">With 1M-token context windows now standard, is RAG obsolete? Not even close. Here's the nuanced reality: both have a place, and knowing which to use (and when to combine them) is one of the most important architectural decisions you'll make.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Two years ago, the context window was the bottleneck. Gemini 1.5's 1M-token window felt like fiction. Today Gemini Ultra 2, Claude Opus 4, and GPT-5 all support 1M+ tokens, and the question has shifted: if you can dump everything into context, why bother with RAG?</p>
+      <p>The answer: cost, latency, knowledge scale, and freshness. Context windows are larger than ever, but they're not free — and they're not infinite. RAG and long-context are complementary tools, not substitutes.</p>
+
+      <h2>Head-to-head comparison</h2>
+      <table class="compare-table">
+        <thead><tr><th>Dimension</th><th>Long Context</th><th>RAG</th></tr></thead>
+        <tbody>
+          <tr><td>Knowledge capacity</td><td>~750 pages max (1M tokens)</td><td class="win">Millions of documents</td></tr>
+          <tr><td>Cost per query</td><td>High (you pay for all input tokens)</td><td class="win">Lower (only relevant chunks billed)</td></tr>
+          <tr><td>Latency</td><td>Slower (more tokens = more time to first token)</td><td class="win">Faster overall</td></tr>
+          <tr><td>Recall accuracy</td><td class="win">Perfect (everything is in context)</td><td>~70–90% (depends on embedding quality)</td></tr>
+          <tr><td>Knowledge freshness</td><td class="win">Instant (load latest docs each time)</td><td>Depends on index update frequency</td></tr>
+          <tr><td>Reasoning across all docs</td><td class="win">Full cross-document reasoning</td><td>Only over retrieved chunks</td></tr>
+          <tr><td>Setup complexity</td><td class="win">None (just load the text)</td><td>Requires embedding pipeline + vector DB</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When to use long context</h2>
+      <ul>
+        <li>Your knowledge base fits in &lt;500K tokens and changes infrequently</li>
+        <li>You need full cross-document reasoning — e.g., "find contradictions between these 20 contracts"</li>
+        <li>You're doing one-off analysis (the setup cost of RAG isn't worth it)</li>
+        <li>Document order and structure matter (RAG breaks document flow)</li>
+        <li>You need 100% recall — every piece of information must be considered</li>
+      </ul>
+
+      <h2>When to use RAG</h2>
+      <ul>
+        <li>Your knowledge base is larger than 500K tokens (internal wikis, docs sites, email archives)</li>
+        <li>You're running high-volume queries and token cost is a concern</li>
+        <li>Documents are updated frequently — your index can be kept fresh without re-loading everything</li>
+        <li>You need quick, targeted answers where loading the full corpus would be wasteful</li>
+        <li>Latency is critical — retrieval + short context beats long context on speed</li>
+      </ul>
+
+      <h2>The hybrid approach</h2>
+      <p>Most mature production systems use both: RAG retrieves the top 10–20 relevant chunks into a focused context window. The model reasons over those chunks with full attention, rather than being overwhelmed by 1M tokens where most content is irrelevant. This trades perfect recall for significantly lower cost and latency — and in practice, recall is high enough for most tasks.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Native RAG + long-context support on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Vector memory, hybrid search, configurable retrieval strategies. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-tool-calling.html">Tool Calling in LLMs</a>
+        <a href="blog-fine-tuning-vs-prompting.html">Fine-Tuning vs Prompting</a>
+        <a href="blog-multiagent-systems.html">Multi-Agent Systems</a>
+        <a href="blog-agent-security.html">Agent Security</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Build knowledge-enabled agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
