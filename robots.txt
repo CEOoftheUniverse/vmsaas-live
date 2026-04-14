@@ -6,4 +6,8 @@ Sitemap: https://ceooftheuniverse.github.io/vmsaas-live/sitemap.xml
 # Disallow non-content pages
 Disallow: /vmsaas-live/admin.html
 Disallow: /vmsaas-live/dashboard.html
-Disallow: /vmsaas-live/signup.html
+Disallow: /vmsaas-live/portal.html
+Disallow: /vmsaas-live/status.html
+
+# Allow signup (conversion page)
+# Allow: /vmsaas-live/signup.html
