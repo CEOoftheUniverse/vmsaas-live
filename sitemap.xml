@@ -294,4 +294,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/case-studies.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/integrations.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/getting-started.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/copilot.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/about.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/status.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>hourly</changefreq><priority>0.6</priority>
+  </url>
 </urlset>
