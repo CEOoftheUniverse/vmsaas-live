@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Cost Optimization: Reducing AI Inference Costs by 60-80% | MoltBot Blog</title>
+  <meta name="description" content="Practical strategies to reduce LLM API costs by 60-80% — model routing, prompt caching, output length control, batching, quantization, and when to use smaller models without sacrificing quality.">
+  <meta name="keywords" content="LLM cost optimization, reduce AI costs, LLM API cost, prompt caching savings, LLM model routing cost, AI inference cost reduction, cheap LLM API, reduce OpenAI costs, reduce Claude costs">
+  <meta property="og:title" content="LLM Cost Optimization: Reducing AI Inference Costs by 60-80%">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-cost-optimization.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-cost-optimization.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .saving-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.4rem;margin:.75rem 0;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center}
+    .saving-card .ico{font-size:1.8rem}
+    .saving-card h4{margin:0 0 .2rem;font-size:.96rem}
+    .saving-card p{margin:0;color:#94a3b8;font-size:.83rem}
+    .saving-card .pct{font-size:1.3rem;font-weight:800;color:#4ade80;white-space:nowrap}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}.saving-card{grid-template-columns:auto 1fr}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Cost Optimization</span><span class="tag">LLMOps</span></div>
+    <h1>LLM Cost Optimization: Reducing AI Inference Costs by 60–80%</h1>
+    <p class="lead">LLM API costs can spiral quickly at production scale. Most teams can cut their inference spend by 60–80% with techniques that have zero impact on output quality. Here are the six strategies that move the needle most.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>At 1 million API calls per month, even a $0.001 difference in cost per call is $1,000/month. The techniques below compound: apply all six and you're looking at 70–80% cost reduction on realistic production workloads.</p>
+
+      <h2>Six strategies, ranked by impact</h2>
+
+      <div class="saving-card">
+        <div class="ico">🔀</div>
+        <div><h4>1. Intelligent Model Routing</h4><p>Route simple queries to cheaper models (GPT-4o-mini, Gemini Flash) and complex queries to premium models. 70-80% of production queries are simple enough for smaller models.</p></div>
+        <div class="pct">↓50%</div>
+      </div>
+
+      <div class="saving-card">
+        <div class="ico">💾</div>
+        <div><h4>2. Prompt Caching</h4><p>Cache the processed representation of long system prompts. For agents with 2,000-token system prompts and 100K calls/day, caching alone saves 60–90% of input token costs.</p></div>
+        <div class="pct">↓65%</div>
+      </div>
+
+      <div class="saving-card">
+        <div class="ico">✂️</div>
+        <div><h4>3. Output Length Control</h4><p>Set max_tokens aggressively. Use structured outputs (JSON) instead of prose when downstream code is parsing the output. Shorter outputs = lower cost + faster latency.</p></div>
+        <div class="pct">↓20%</div>
+      </div>
+
+      <div class="saving-card">
+        <div class="ico">📦</div>
+        <div><h4>4. Batched Processing</h4><p>Use batch APIs for non-real-time workloads — document processing, nightly analysis, bulk classification. Claude and GPT-4o batch APIs offer 50% discounts vs. standard pricing.</p></div>
+        <div class="pct">↓50%</div>
+      </div>
+
+      <div class="saving-card">
+        <div class="ico">🗜️</div>
+        <div><h4>5. Context Window Management</h4><p>Trim conversation history aggressively. Summarize old turns instead of passing them verbatim. The longest context is usually the most expensive — don't send tokens you don't need.</p></div>
+        <div class="pct">↓30%</div>
+      </div>
+
+      <div class="saving-card">
+        <div class="ico">🏠</div>
+        <div><h4>6. Self-Hosted for High Volumes</h4><p>At >10M tokens/day, self-hosted open models (Llama 3, Mistral) on GPU instances beat API pricing. Break-even vs. OpenAI at ~$15K/month API spend.</p></div>
+        <div class="pct">↓80%</div>
+      </div>
+
+      <h2>Routing config on MoltBot</h2>
+      <div class="code-block">
+<span class="cm"># Route by complexity to minimize cost</span>
+routing = {
+    <span class="str">"rules"</span>: [
+        {
+            <span class="str">"if"</span>: <span class="str">"input_tokens < 500 and task == 'classification'"</span>,
+            <span class="str">"use"</span>: <span class="str">"gemini-flash-2"</span>,      <span class="cm"># $0.00004/1K tokens</span>
+        },
+        {
+            <span class="str">"if"</span>: <span class="str">"task in ['summarization', 'formatting']"</span>,
+            <span class="str">"use"</span>: <span class="str">"gpt-4o-mini"</span>,          <span class="cm"># $0.00015/1K tokens</span>
+        },
+        {
+            <span class="str">"default"</span>: <span class="str">"claude-sonnet-4"</span>       <span class="cm"># $0.003/1K tokens</span>
+        }
+    ],
+    <span class="str">"cache_system_prompt"</span>: <span class="kw">True</span>,
+    <span class="str">"max_output_tokens"</span>: 512,
+}
+      </div>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Built-in cost optimization on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Automatic routing, caching, and cost dashboards. Most customers cut spend by 60% in week 1. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-llm-routing.html">LLM Routing</a>
+        <a href="blog-prompt-caching.html">Prompt Caching</a>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-fine-tuning.html">Fine-Tuning</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Cut AI costs by 60%+</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
