@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Routing: How to Route Requests to the Right Model | MoltBot Blog</title>
+  <meta name="description" content="Not every task needs GPT-5. Smart LLM routing sends simple tasks to fast cheap models and complex tasks to frontier models — cutting costs 60–80% with no quality loss.">
+  <meta name="keywords" content="LLM routing, model routing AI, multi-model routing, AI cost optimization routing, intelligent model selection, LLM gateway routing, cheap LLM routing">
+  <meta property="og:title" content="LLM Routing: How to Route Requests to the Right Model">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-routing.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-routing.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .route-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .route-table th{padding:.85rem 1.1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .route-table td{padding:.75rem 1.1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.87rem;color:#94a3b8;vertical-align:top}
+    .route-table td:first-child{font-weight:600;color:white}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Cost Optimization</span><span class="tag">Routing</span><span class="tag">Architecture</span></div>
+    <h1>LLM Routing: How to Route Requests to the Right Model</h1>
+    <p class="lead">Sending every request to Claude Opus 4 is like hiring a senior engineer to file your receipts. Smart routing sends simple tasks to fast, cheap models and complex tasks to frontier models — 60–80% cost reduction with no quality loss.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The single biggest lever on AI infrastructure cost isn't negotiating enterprise contracts or compressing prompts — it's routing. Most teams send 100% of requests to their best model, even when 70% of those requests could be handled just as well by a model that costs 20× less.</p>
+
+      <h2>Task complexity tiers</h2>
+      <table class="route-table">
+        <thead><tr><th>Tier</th><th>Task types</th><th>Recommended models</th><th>Relative cost</th></tr></thead>
+        <tbody>
+          <tr><td>Tier 1 — Simple</td><td>Classification, intent detection, extraction, yes/no</td><td>Gemini Flash, Claude Haiku, GPT-4o Mini</td><td>1×</td></tr>
+          <tr><td>Tier 2 — Moderate</td><td>Summarization, drafting, data analysis, SQL generation</td><td>Claude Sonnet 4, GPT-4o, Gemini Pro</td><td>10–15×</td></tr>
+          <tr><td>Tier 3 — Complex</td><td>Multi-step reasoning, code architecture, long-form research, agent orchestration</td><td>Claude Opus 4, GPT-5, Gemini Ultra 2</td><td>50–100×</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Routing strategies</h2>
+      <ul>
+        <li><strong>Rule-based routing:</strong> Explicit rules — "if task_type == classification, use Haiku." Simple, predictable, zero overhead. Best when your task types are well-defined and stable.</li>
+        <li><strong>Classifier-based routing:</strong> A lightweight model (or a simple ML classifier) predicts the complexity tier of each incoming request. Adds ~10ms overhead, handles edge cases better than rules.</li>
+        <li><strong>Cost-aware cascade:</strong> Try a cheap model first; if the output fails a quality check, retry with a more capable model. Optimizes cost in the common case at the expense of latency on failures.</li>
+        <li><strong>Semantic routing:</strong> Embed the request and compare to known task archetypes. Useful when tasks are diverse and hard to classify with simple rules.</li>
+      </ul>
+
+      <h2>MoltBot routing configuration</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot <span class="kw">import</span> Router
+
+router = Router(
+    rules=[
+        {<span class="str">"if"</span>: {<span class="str">"task_type"</span>: [<span class="str">"classify"</span>, <span class="str">"extract"</span>, <span class="str">"intent"</span>]},
+         <span class="str">"use"</span>: <span class="str">"claude-haiku-4"</span>},
+        {<span class="str">"if"</span>: {<span class="str">"task_type"</span>: [<span class="str">"summarize"</span>, <span class="str">"draft"</span>, <span class="str">"sql"</span>]},
+         <span class="str">"use"</span>: <span class="str">"claude-sonnet-4"</span>},
+        {<span class="str">"default"</span>: <span class="str">"claude-opus-4"</span>},   <span class="cm"># fallback for complex tasks</span>
+    ],
+    fallback_on_error=<span class="kw">True</span>   <span class="cm"># upgrade to next tier if model fails</span>
+)
+
+result = router.run(task_type=<span class="str">"classify"</span>, prompt=<span class="str">"Is this spam?"</span>)
+<span class="cm"># Uses claude-haiku-4 — 95% cheaper than opus-4</span>
+      </div>
+
+      <h2>Measuring routing effectiveness</h2>
+      <p>Track cost-per-task-type and quality scores per tier. A well-tuned routing strategy typically routes 50–70% of traffic to Tier 1 models, 20–35% to Tier 2, and only 5–15% to Tier 3 frontier models. If your Tier 3 usage is above 30%, your routing is under-optimized.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Built-in multi-model routing on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Rule-based and classifier routing, cost tracking per model, automatic fallback. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+        <a href="blog-agent-evaluation.html">Agent Evaluation</a>
+        <a href="blog-fine-tuning-vs-prompting.html">Fine-Tuning vs Prompting</a>
+        <a href="blog-state-of-agentic-ai-2026.html">State of AI 2026</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Route smarter, spend less</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
