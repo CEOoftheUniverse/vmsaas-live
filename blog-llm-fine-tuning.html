@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Fine-Tuning vs Prompt Engineering vs RAG: When to Use Each | MoltBot Blog</title>
+  <meta name="description" content="How to choose between prompt engineering, RAG, and fine-tuning for your AI use case in 2026 — decision framework, cost tradeoffs, when each approach wins, and how to combine them for production systems.">
+  <meta name="keywords" content="LLM fine-tuning 2026, fine-tuning vs RAG, fine-tuning vs prompt engineering, when to fine-tune LLM, RAG vs fine-tuning tradeoffs, LLM customization approaches, AI model customization, production LLM strategy">
+  <meta property="og:title" content="LLM Fine-Tuning vs Prompt Engineering vs RAG: When to Use Each">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-fine-tuning.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .compare-table th{padding:.85rem 1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .compare-table td{padding:.8rem 1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.84rem;color:#94a3b8;vertical-align:top}
+    .compare-table td:first-child{font-weight:600;color:#c4b5fd;white-space:nowrap}
+    .win-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-left:3px solid #818cf8;border-radius:14px;padding:1.25rem;margin:.75rem 0}
+    .win-card h3{margin:0 0 .35rem;font-size:.95rem;color:#c4b5fd}
+    .win-card p{margin:0;color:#94a3b8;font-size:.86rem;line-height:1.7}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Fine-Tuning</span><span class="tag">RAG</span><span class="tag">Prompt Engineering</span></div>
+    <h1>LLM Fine-Tuning vs Prompt Engineering vs RAG: When to Use Each</h1>
+    <p class="lead">Every AI customization problem has three tools: prompt engineering, RAG, and fine-tuning. Choosing the wrong one is expensive — fine-tuning when prompting works is $10,000 of unnecessary compute; prompting when fine-tuning is needed produces unreliable output at scale. Here's the decision framework.</p>
+  </div>
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The three approaches solve different problems. Prompt engineering changes what you ask. RAG changes what the model knows. Fine-tuning changes how the model behaves. The table below shows when each wins.</p>
+
+      <h2>Comparison at a glance</h2>
+      <table class="compare-table">
+        <thead><tr><th>Approach</th><th>Changes</th><th>Cost</th><th>Latency impact</th><th>Best for</th></tr></thead>
+        <tbody>
+          <tr><td>Prompt Engineering</td><td>Instructions only</td><td>None</td><td>None (extra tokens)</td><td>Format, tone, task definition</td></tr>
+          <tr><td>RAG</td><td>Knowledge available</td><td>Low (retrieval infra)</td><td>+100–500ms</td><td>Current info, private docs, facts</td></tr>
+          <tr><td>Fine-Tuning</td><td>Model weights</td><td>High ($1K–100K+)</td><td>None (baked in)</td><td>Style, specialized behavior, speed</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When prompt engineering wins</h2>
+      <div class="win-card"><h3>Start here. Always.</h3><p>80% of AI customization problems are solved by prompt engineering. It's free, instant, and iteratable. Before considering RAG or fine-tuning, exhaust prompt engineering: few-shot examples, explicit format requirements, chain-of-thought instructions, role definitions. Only move on when you've hit a genuine ceiling.</p></div>
+
+      <h2>When RAG wins</h2>
+      <div class="win-card"><h3>Private or current knowledge the model doesn't have</h3><p>RAG wins when the model needs access to your specific documents, databases, or recent information (post-training cutoff). Customer support with access to your knowledge base, internal policy Q&A, research assistants with access to your paper corpus — these are all RAG problems, not fine-tuning problems.</p></div>
+
+      <h2>When fine-tuning wins</h2>
+      <div class="win-card"><h3>Behavioral style baked in at scale</h3><p>Fine-tuning wins when you need consistent specialized behavior across thousands of calls — a proprietary writing style, domain-specific reasoning patterns, or structured output formats the model doesn't follow reliably via prompting alone. It's also the right call when you need to reduce prompt token cost at very high volumes (bake instructions into weights).</p></div>
+
+      <h2>The production answer: combine them</h2>
+      <p>Most high-performing production systems use all three: fine-tune for domain style and output format, RAG for current and private knowledge, prompt engineering for task-specific instruction per call. The combination is better than any single approach — and the order of investment should be prompt → RAG → fine-tune.</p>
+
+      <div style="margin-top:2rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">RAG and prompt orchestration on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Connect your knowledge base with retrieval-augmented agents. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-rag-architecture.html">RAG Architecture</a>
+        <a href="blog-llm-routing.html">LLM Routing</a>
+        <a href="blog-token-optimization.html">Token Optimization</a>
+        <a href="blog-llm-evaluation.html">LLM Evaluation</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">RAG-powered agents in minutes</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
