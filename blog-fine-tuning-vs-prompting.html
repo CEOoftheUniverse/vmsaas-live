@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine-Tuning vs Prompting: Which Approach Should You Use for AI Agents? | MoltBot Blog</title>
+  <meta name="description" content="Fine-tuning and prompt engineering are both ways to customize LLM behavior. Here's a clear framework for when to use each — with cost, quality, and latency tradeoffs explained.">
+  <meta name="keywords" content="fine-tuning vs prompting, LLM fine-tuning when to use, prompt engineering vs fine-tuning, when to fine-tune a model, few-shot prompting vs fine-tuning, AI agent customization">
+  <meta property="og:title" content="Fine-Tuning vs Prompting: Which to Use for AI Agents?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning-vs-prompting.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning-vs-prompting.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Fine-Tuning vs Prompting: Which to Use for AI Agents?","datePublished":"2026-04-14","author":{"@type":"Organization","name":"MoltBot"},"url":"https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning-vs-prompting.html"}
+  </script>
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .compare-table th{padding:.85rem 1.25rem;text-align:left;font-size:.8rem;color:#64748b;text-transform:uppercase}
+    .compare-table th:nth-child(2){background:rgba(251,146,60,.08);color:#fb923c}
+    .compare-table th:nth-child(3){background:rgba(99,102,241,.08);color:#818cf8}
+    .compare-table td{padding:.8rem 1.25rem;border-top:1px solid rgba(255,255,255,.04);font-size:.88rem;color:#94a3b8;vertical-align:top}
+    .compare-table td:first-child{font-weight:600;color:white}
+    .win{color:#4ade80;font-weight:600}
+    .decision-tree{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.75rem;margin:1.5rem 0}
+    .decision-tree h3{margin:0 0 1rem;color:#e2e8f0}
+    .decision-row{display:flex;align-items:flex-start;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .decision-row:last-child{border:none}
+    .decision-q{color:#94a3b8;font-size:.9rem;flex:1}
+    .decision-a{font-weight:600;font-size:.87rem;padding:.2rem .65rem;border-radius:20px;white-space:nowrap}
+    .a-prompt{background:rgba(99,102,241,.1);color:#818cf8}
+    .a-fine{background:rgba(251,146,60,.1);color:#fb923c}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr} .blog-sidebar{display:none} .blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Fine-Tuning</span><span class="tag">Prompting</span><span class="tag">Model Ops</span></div>
+    <h1>Fine-Tuning vs Prompting: Which Should You Use for AI Agents?</h1>
+    <p class="lead">Both approaches customize how an LLM behaves. But they have very different cost profiles, quality characteristics, and maintenance requirements. Here's a practical framework for choosing — and when to combine them.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The default approach for customizing LLM behavior is prompt engineering — writing detailed instructions that shape the model's output. Fine-tuning takes a different approach: you update the model's weights directly using labeled examples. Both work. The question is which is right for your situation.</p>
+
+      <h2>The core tradeoff</h2>
+      <table class="compare-table">
+        <thead><tr><th>Dimension</th><th>Prompting</th><th>Fine-Tuning</th></tr></thead>
+        <tbody>
+          <tr><td>Setup cost</td><td class="win">Hours (write the prompt)</td><td>Days–weeks (curate data, train, eval)</td></tr>
+          <tr><td>Data required</td><td class="win">Zero (zero-shot) or few examples</td><td>Hundreds to thousands of examples</td></tr>
+          <tr><td>Inference cost</td><td>Higher (longer prompts = more tokens)</td><td class="win">Lower (shorter prompts, smaller model)</td></tr>
+          <tr><td>Latency</td><td>Higher (more input tokens)</td><td class="win">Lower (model already "knows" behavior)</td></tr>
+          <tr><td>Consistency</td><td>Variable (prompt-sensitive)</td><td class="win">High (baked into weights)</td></tr>
+          <tr><td>Updateability</td><td class="win">Instant (edit the prompt)</td><td>Slow (retrain on new data)</td></tr>
+          <tr><td>Knowledge cutoff</td><td class="win">Works with any base model</td><td>Frozen to training data</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When prompting beats fine-tuning</h2>
+      <p>Prompt engineering is the right default in almost every situation because it's faster to iterate and easier to update. Specifically, choose prompting when:</p>
+      <ul>
+        <li>You don't have hundreds of high-quality labeled examples yet</li>
+        <li>The task requirements change frequently (fine-tuned models become stale)</li>
+        <li>You need few-shot examples to communicate the format or style — a modern Opus 4 model follows these reliably</li>
+        <li>Your production volume is low enough that extra prompt tokens don't add up to significant cost</li>
+        <li>You're still in the experimentation phase and need to pivot quickly</li>
+      </ul>
+
+      <h2>When fine-tuning makes sense</h2>
+      <p>Fine-tuning becomes worth the investment when you have a very specific, stable task at high volume. Specifically:</p>
+      <ul>
+        <li><strong>High volume, stable task:</strong> You're running 1M+ completions/month on a specific task — the per-token cost of the long system prompt adds up to significant savings if you can compress it into weights</li>
+        <li><strong>Consistency requirement:</strong> You need extremely consistent output format — fine-tuning produces more reliable structured outputs than prompting</li>
+        <li><strong>Domain-specific language:</strong> Medical terminology, legal phrasing, or proprietary jargon that the base model doesn't handle well even with prompting</li>
+        <li><strong>Latency-critical path:</strong> You need to minimize input tokens on a latency-sensitive user-facing feature</li>
+      </ul>
+
+      <h2>Decision framework</h2>
+      <div class="decision-tree">
+        <h3>Quick decision guide</h3>
+        <div class="decision-row"><div class="decision-q">Do you have 500+ high-quality labeled examples?</div><div class="decision-a a-fine">No examples → Prompt</div></div>
+        <div class="decision-row"><div class="decision-q">Will the task requirements change in the next 3 months?</div><div class="decision-a a-prompt">Yes → Prompt</div></div>
+        <div class="decision-row"><div class="decision-q">Are you running 100k+ completions/month?</div><div class="decision-a a-fine">No → Prompt first</div></div>
+        <div class="decision-row"><div class="decision-q">Is consistency more important than flexibility?</div><div class="decision-a a-fine">Yes → Consider Fine-tune</div></div>
+        <div class="decision-row"><div class="decision-q">Are you still building/experimenting?</div><div class="decision-a a-prompt">Yes → Always Prompt</div></div>
+      </div>
+
+      <h2>The hybrid approach (most production agents)</h2>
+      <p>Most mature agent deployments use both: <strong>prompt engineering for reasoning and task adaptation</strong>, and <strong>fine-tuning for the structured output layer</strong>. The reasoning model (Claude Opus 4, GPT-5) is used as-is with a detailed prompt; a smaller fine-tuned model handles the final output formatting step at a fraction of the cost.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Deploy optimized agents on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Model routing, prompt management, and fine-tuned model support. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-prompt-engineering.html">Prompt Engineering 2026</a>
+        <a href="blog-llm-benchmark-2026.html">LLM Benchmark 2026</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+        <a href="blog-multiagent-systems.html">Multi-Agent Systems</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Start building today</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
