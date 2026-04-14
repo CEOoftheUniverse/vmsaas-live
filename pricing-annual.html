@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annual Pricing — MoltBot Cloud Save 20%</title>
+  <meta name="description" content="Save 20% on MoltBot Cloud with annual billing. Lock in AI agent infrastructure at $39/mo (Base), $119/mo (Swarm), or $239/mo (Enterprise). Cancel anytime.">
+  <meta name="keywords" content="MoltBot annual pricing, AI agent subscription, cheap AI hosting annual, save on AI agents">
+  <meta property="og:title" content="MoltBot Annual Pricing — Save 20%">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/pricing-annual.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/pricing-annual.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pricing-hero{padding:8rem 10% 4rem;text-align:center}
+    .pricing-hero h1{font-size:3rem;margin-bottom:1rem}
+    .pricing-hero p{color:#94a3b8;font-size:1.1rem;max-width:540px;margin:0 auto 2rem}
+    .toggle-bar{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:3rem}
+    .toggle-label{font-size:.9rem;color:#94a3b8}
+    .toggle-label.active{color:white;font-weight:600}
+    .toggle{width:56px;height:28px;background:var(--primary);border-radius:14px;position:relative;cursor:pointer;transition:background .3s}
+    .toggle::after{content:'';position:absolute;left:4px;top:4px;width:20px;height:20px;border-radius:50%;background:white;transition:transform .3s}
+    .toggle.annual::after{transform:translateX(28px)}
+    .savings-badge{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,211,238,.2);border-radius:20px;padding:.25rem .75rem;font-size:.8rem;font-weight:700;margin-left:.5rem}
+    .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;padding:0 10% 6rem;max-width:1100px;margin:0 auto}
+    .plan-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem;position:relative;transition:all .3s}
+    .plan-card:hover{transform:translateY(-4px)}
+    .plan-card.featured{border-color:rgba(79,70,229,.4);background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(34,211,238,.05))}
+    .plan-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:white;padding:.2rem 1rem;border-radius:20px;font-size:.7rem;font-weight:700;letter-spacing:.05em}
+    .plan-name{font-size:1.3rem;font-weight:700;margin-bottom:.25rem}
+    .plan-desc{color:#64748b;font-size:.85rem;margin-bottom:1.5rem}
+    .plan-price{margin-bottom:.25rem}
+    .plan-price .amount{font-size:3rem;font-weight:800}
+    .plan-price .period{color:#64748b;font-size:.9rem}
+    .plan-price .was{font-size:.9rem;color:#71717a;text-decoration:line-through;margin-right:.5rem}
+    .billed-annual{font-size:.8rem;color:#4ade80;margin-bottom:1.5rem}
+    .plan-features{list-style:none;padding:0;margin-bottom:2rem}
+    .plan-features li{padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.9rem;color:#94a3b8;display:flex;align-items:center;gap:.5rem}
+    .plan-features li::before{content:'✓';color:#22c55e;font-weight:700;flex-shrink:0}
+    .plan-cta{display:block;text-align:center;padding:1rem;border-radius:10px;font-weight:600;text-decoration:none;transition:all .3s}
+    .plan-cta.primary{background:var(--primary);color:white}
+    .plan-cta.primary:hover{background:var(--primary-hover);transform:translateY(-2px);box-shadow:0 4px 15px rgba(79,70,229,.4)}
+    .plan-cta.secondary{border:1px solid var(--glass-border);color:white}
+    .plan-cta.secondary:hover{background:var(--glass-bg)}
+    .guarantee{text-align:center;padding:3rem 10%;color:#64748b;font-size:.9rem}
+    .guarantee strong{color:white}
+    .faq{padding:4rem 10%;max-width:700px;margin:0 auto}
+    .faq h2{font-size:1.8rem;margin-bottom:2rem;text-align:center}
+    .faq-item{border-bottom:1px solid var(--glass-border);padding:1.25rem 0}
+    .faq-item summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+    .faq-item summary::after{content:'+'font-size:1.2rem;color:var(--accent)}
+    .faq-item[open] summary::after{content:'−'}
+    .faq-item p{color:#94a3b8;margin-top:.75rem;font-size:.9rem;line-height:1.7}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Monthly</a>
+      <a href="pricing-annual.html" style="color:var(--accent)">Annual ✓</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="pricing-hero">
+    <h1>Save <span style="background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">20%</span> with annual billing</h1>
+    <p>Lock in today's pricing for 12 months. Cancel anytime — if you cancel in the first 30 days, you get a full refund.</p>
+    <div class="toggle-bar">
+      <span class="toggle-label">Monthly</span>
+      <div class="toggle annual" id="billing-toggle" onclick=""></div>
+      <span class="toggle-label active">Annual <span class="savings-badge">Save 20%</span></span>
+    </div>
+  </section>
+
+  <div class="plans-grid">
+    <!-- Base Plan -->
+    <div class="plan-card">
+      <div class="plan-name">Base Worker</div>
+      <div class="plan-desc">1 persistent agent on RTX 4090. Perfect for solo founders and small teams.</div>
+      <div class="plan-price">
+        <span class="was">$49</span><span class="amount">$39</span><span class="period">/mo</span>
+      </div>
+      <div class="billed-annual">Billed $468/year · Save $120</div>
+      <ul class="plan-features">
+        <li>1× Persistent Agent (OpenClaw Core)</li>
+        <li>RTX 4090 Dedicated VRAM (24GB)</li>
+        <li>Qwen 3.5 Local + Claude Sonnet 4 API</li>
+        <li>24/7 Autonomous Execution</li>
+        <li>10GB Persistent Storage</li>
+        <li>ChromaDB Vector Memory</li>
+        <li>Email Support</li>
+      </ul>
+      <a href="signup.html?plan=base&billing=annual" class="plan-cta secondary">Start Base Annual →</a>
+    </div>
+
+    <!-- Swarm Plan -->
+    <div class="plan-card featured">
+      <div class="plan-name">Swarm Matrix</div>
+      <div class="plan-desc">3 concurrent agents on A100 80GB. Our most popular plan for growing teams.</div>
+      <div class="plan-price">
+        <span class="was">$149</span><span class="amount">$119</span><span class="period">/mo</span>
+      </div>
+      <div class="billed-annual">Billed $1,428/year · Save $360</div>
+      <ul class="plan-features">
+        <li>3× Concurrent Agents</li>
+        <li>A100 80GB Dedicated</li>
+        <li>All 7 AI Models (Claude, GPT, Gemini, Kimi, Grok, Qwen, DeepSeek)</li>
+        <li>Smart Model Routing (Arbitrage Engine)</li>
+        <li>50GB Persistent Storage</li>
+        <li>Omnisphere Pipeline Builder</li>
+        <li>Team Workspace (5 seats)</li>
+        <li>Priority Support</li>
+      </ul>
+      <a href="signup.html?plan=swarm&billing=annual" class="plan-cta primary">Start Swarm Annual →</a>
+    </div>
+
+    <!-- Enterprise Plan -->
+    <div class="plan-card">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-desc">10 concurrent agents on 4× H100 cluster. For agencies and scale-ups.</div>
+      <div class="plan-price">
+        <span class="was">$299</span><span class="amount">$239</span><span class="period">/mo</span>
+      </div>
+      <div class="billed-annual">Billed $2,868/year · Save $720</div>
+      <ul class="plan-features">
+        <li>10× Concurrent Agents (Full Orchestra)</li>
+        <li>4× H100 80GB Cluster</li>
+        <li>All 7 AI Models + Custom Model Support</li>
+        <li>200GB Storage + Dedicated Vector DB</li>
+        <li>Omnisphere Visual Pipeline Builder</li>
+        <li>Unlimited Team Seats</li>
+        <li>Custom SLA + Dedicated Support</li>
+        <li>White-label Ready</li>
+      </ul>
+      <a href="signup.html?plan=enterprise&billing=annual" class="plan-cta secondary">Start Enterprise Annual →</a>
+    </div>
+  </div>
+
+  <div class="guarantee">
+    <p>🛡️ <strong>30-day money-back guarantee.</strong> If you're not satisfied in the first 30 days, we'll refund your full annual payment — no questions asked.</p>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details class="faq-item">
+      <summary>Can I cancel my annual plan early?</summary>
+      <p>Yes. You can cancel at any time from the customer portal. If you cancel within the first 30 days, you receive a full refund. After 30 days, your plan continues until the end of your annual billing period.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I upgrade mid-year?</summary>
+      <p>Yes. Upgrades are prorated. If you upgrade from Base to Swarm 6 months into your annual plan, you pay the prorated difference for the remaining 6 months.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is the price locked in?</summary>
+      <p>Yes. Once you subscribe, your price is locked for the full 12-month term even if we raise prices. On renewal, the new pricing applies.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I get all the same features as monthly?</summary>
+      <p>Yes — same features, same GPU tier, same model access. The only difference is 20% off the price and a 12-month billing cycle.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What payment methods are accepted?</summary>
+      <p>We accept all major credit cards (Visa, Mastercard, Amex) via Stripe. Annual plans can also be paid by wire transfer — contact us for an invoice.</p>
+    </details>
+  </section>
+
+  <div style="text-align:center;padding:3rem 10% 5rem">
+    <p style="color:#64748b;margin-bottom:1rem">Prefer month-to-month? <a href="pricing.html" style="color:var(--accent)">See monthly pricing →</a></p>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:.75rem;font-size:.85rem">
+      <a href="index.html" style="color:#64748b;text-decoration:none">Home</a>
+      <a href="pricing.html" style="color:#64748b;text-decoration:none">Monthly Pricing</a>
+      <a href="features.html" style="color:#64748b;text-decoration:none">Features</a>
+      <a href="faq.html" style="color:#64748b;text-decoration:none">FAQ</a>
+      <a href="terms.html" style="color:#64748b;text-decoration:none">Terms</a>
+    </div>
+    <p style="font-size:.75rem">© 2026 MoltBot Cloud. Autonomous AI Infrastructure.</p>
+  </footer>
+</body>
+</html>
