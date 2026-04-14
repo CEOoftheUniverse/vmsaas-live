@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering Guide 2026: Write Prompts That Actually Work | MoltBot Blog</title>
+  <meta name="description" content="A practical prompt engineering guide for AI agents in 2026. Chain-of-thought, few-shot examples, ReAct framework, and 10 anti-patterns to avoid.">
+  <meta name="keywords" content="prompt engineering guide 2026, how to write prompts for AI agents, chain of thought prompting, ReAct framework, few-shot prompting, LLM prompt tips">
+  <meta property="og:title" content="Prompt Engineering Guide 2026: Write Prompts That Actually Work">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-engineering.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-engineering.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Prompt Engineering Guide 2026","datePublished":"2026-04-14","author":{"@type":"Organization","name":"MoltBot"},"url":"https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-engineering.html"}
+  </script>
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.1rem;color:var(--accent);margin:2rem 0 .75rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul,.blog-content ol{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    pre{background:rgba(0,0,0,.5);border:1px solid var(--glass-border);border-radius:10px;padding:1.5rem;overflow-x:auto;margin:1rem 0 1.5rem}
+    pre code{font-family:monospace;font-size:.87rem;color:#e2e8f0}
+    .callout{border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+    .callout.tip{background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2)}
+    .callout.warning{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.2)}
+    .callout h4{margin-bottom:.5rem;font-size:.95rem}
+    .callout.tip h4{color:#4ade80}
+    .callout.warning h4{color:#fb923c}
+    .callout p{color:#94a3b8;margin:0;font-size:.92rem}
+    .numbered-list{counter-reset:item;list-style:none;padding-left:0}
+    .numbered-list li{counter-increment:item;display:flex;gap:1rem;margin-bottom:1rem;color:#94a3b8}
+    .numbered-list li::before{content:counter(item);min-width:28px;height:28px;border-radius:50%;background:rgba(79,70,229,.2);color:#818cf8;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .sidebar-card a:hover{color:var(--accent)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr} .blog-sidebar{display:none} .blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 10 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Prompts</span><span class="tag">LLM</span><span class="tag">Guide</span></div>
+    <h1>Prompt Engineering Guide 2026: Write Prompts That Actually Work</h1>
+    <p class="lead">Most prompts fail because they're vague, context-free, or assume the model knows what "good" looks like. Here's the systematic approach to writing prompts that produce reliable, production-quality outputs from AI agents.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Prompt engineering in 2026 isn't about magic words — it's about giving the model the right context, constraints, and examples. The techniques below are what MoltBot uses internally to get Claude Opus 4, GPT-5, and Qwen 2.5 to behave reliably in production agent loops.</p>
+
+      <h2>1. Chain-of-Thought (CoT) Prompting</h2>
+      <p>Adding "think step by step" or showing reasoning steps dramatically improves accuracy on complex tasks. Use CoT for any task involving multi-step logic, math, or code debugging.</p>
+      <pre><code># ❌ Bad: No reasoning required
+prompt = "Is this code correct? Return yes or no."
+
+# ✓ Good: Require explicit reasoning
+prompt = """Analyze this code for correctness.
+
+Think step by step:
+1. What does each function do?
+2. Are there any edge cases not handled?
+3. Could this throw an exception?
+4. Is the logic correct for all inputs?
+
+After reasoning, state your conclusion."""</code></pre>
+
+      <h2>2. Few-Shot Examples</h2>
+      <p>The cheapest way to enforce output format and quality is to show 2–3 perfect examples before the real task.</p>
+      <pre><code>system_prompt = """You review pull requests and output structured JSON.
+
+Examples:
+
+INPUT: "add user authentication middleware"
+OUTPUT: {"severity": "high", "type": "feature", "risk": "security", "review_required": true}
+
+INPUT: "fix typo in README"
+OUTPUT: {"severity": "low", "type": "docs", "risk": "none", "review_required": false}
+
+INPUT: "refactor database connection pooling"  
+OUTPUT: {"severity": "medium", "type": "refactor", "risk": "performance", "review_required": true}
+
+Now classify the following PR description:"""</code></pre>
+
+      <h2>3. The ReAct Framework</h2>
+      <p>ReAct (Reason + Act) is the standard pattern for tool-using agents. The model alternates between reasoning about what to do and taking an action.</p>
+      <pre><code>react_prompt = """You are an autonomous coding agent. Use this reasoning format:
+
+Thought: [What do I need to understand or do next?]
+Action: [tool_name] with input: [exact input]
+Observation: [result of the action]
+... (repeat as needed)
+Final Answer: [your complete response]
+
+Available tools: read_file, write_file, run_code, web_search, git_commit
+
+Task: {task}
+
+Begin:"""</code></pre>
+
+      <h2>4. Persona + Context Priming</h2>
+      <p>Give the model a clear identity and relevant background. Vague roles produce vague outputs.</p>
+      <pre><code># ❌ Vague
+system = "You are a helpful AI assistant."
+
+# ✓ Specific
+system = """You are a senior Python engineer at a fintech startup.
+You write production-quality code with:
+- Type hints on all function signatures
+- Docstrings in Google format
+- Error handling with specific exception types
+- Unit tests using pytest
+- No global state
+
+You prefer readability over cleverness. When in doubt, you ask for clarification."""</code></pre>
+
+      <h2>5. Constrained Output Formatting</h2>
+      <p>Specifying exact output format removes ambiguity. Always describe the schema.</p>
+      <pre><code>prompt = """Analyze this codebase and return ONLY valid JSON matching this exact schema:
+
+{
+  "summary": "2-sentence description",
+  "tech_stack": ["list", "of", "technologies"],
+  "complexity": "low|medium|high",
+  "test_coverage": "percentage as integer 0-100",
+  "security_issues": [{"severity": "low|medium|high", "description": "string"}],
+  "recommended_next_steps": ["up to 3 action items"]
+}
+
+Do not include any text outside the JSON object."""</code></pre>
+
+      <h2>10 Anti-Patterns to Avoid</h2>
+      <ol class="numbered-list">
+        <li><strong>Vague instructions:</strong> "Make it better" → always specify the metric (faster, more readable, more secure).</li>
+        <li><strong>Too many tasks at once:</strong> Break complex requests into sequential agent steps.</li>
+        <li><strong>Ignoring system prompt::</strong> The system prompt sets behavior — use it for persona, constraints, and format.</li>
+        <li><strong>No examples for format:</strong> If output format matters, always provide 2+ examples.</li>
+        <li><strong>Asking for certainty:</strong> Models hallucinate less when you allow "I'm not sure" as an option.</li>
+        <li><strong>Over-constraining:</strong> Too many rules confuse the model — pick the 3–5 that matter most.</li>
+        <li><strong>Ignoring temperature:</strong> Use low temperature (0.1–0.3) for deterministic tasks, higher for creative ones.</li>
+        <li><strong>Untrimmed context:</strong> Keep the context window focused — irrelevant text reduces output quality.</li>
+        <li><strong>No failure handling:</strong> Always instruct the model what to do when it can't complete a task.</li>
+        <li><strong>Static prompts:</strong> Prompts should be versioned, tested, and iterated on like code.</li>
+      </ol>
+
+      <div class="callout tip">
+        <h4>✓ MoltBot Prompt Library</h4>
+        <p>MoltBot ships with a battle-tested prompt library for 20+ common agent tasks (PR review, bug triage, code generation, test writing). Available to all plans.</p>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Put these prompts to work</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">MoltBot runs your agents on dedicated GPU infrastructure 24/7. Start in 5 minutes.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-tools.html">AI Agent Tool Use</a>
+        <a href="blog-agent-memory.html">Agent Memory Systems</a>
+        <a href="blog-llm-orchestration.html">LLM Orchestration</a>
+        <a href="blog-ai-agent-security.html">AI Security</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Deploy agents today</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">Dedicated GPU, 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
