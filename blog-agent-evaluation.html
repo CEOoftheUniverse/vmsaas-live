@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Evaluation: How to Test & Benchmark Your Agents Before Going Live | MoltBot Blog</title>
+  <meta name="description" content="Before deploying an AI agent to production, you need to evaluate it. Here's a practical framework for testing agents: golden datasets, LLM-as-judge, regression testing, and red-teaming.">
+  <meta name="keywords" content="AI agent evaluation, LLM agent testing, agent benchmarking, LLM as judge evaluation, AI agent regression testing, agent quality testing, how to evaluate AI agents">
+  <meta property="og:title" content="AI Agent Evaluation: How to Test & Benchmark Agents Before Going Live">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-evaluation.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-evaluation.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.15rem;margin:1.75rem 0 .5rem;color:#e2e8f0}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .eval-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin:1rem 0}
+    .eval-card h3{margin:0 0 .5rem;font-size:1.05rem;display:flex;align-items:center;gap:.6rem}
+    .eval-card p{margin:0;color:#94a3b8;font-size:.88rem;line-height:1.7}
+    .eval-card .tip{margin-top:.75rem;background:rgba(20,184,166,.06);border:1px solid rgba(20,184,166,.12);border-radius:8px;padding:.5rem .75rem;font-size:.8rem;color:#2dd4bf}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 9 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Evaluation</span><span class="tag">Testing</span><span class="tag">Production</span></div>
+    <h1>AI Agent Evaluation: How to Test & Benchmark Agents Before Going Live</h1>
+    <p class="lead">Shipping an agent without an evaluation framework is like shipping code without tests — you'll find out it's broken in production. Here's how to build an eval pipeline that actually catches regressions.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Unit testing a function is straightforward. Evaluating an agent — which may take dozens of tool calls, produce non-deterministic outputs, and interact with external systems — is fundamentally different. You need a framework that tolerates variance while still catching meaningful regressions.</p>
+
+      <h2>The four evaluation methods</h2>
+
+      <div class="eval-card">
+        <h3>📋 1. Golden Dataset Evaluation</h3>
+        <p>A curated set of input/expected-output pairs. Run your agent on every input and score its output against the expected answer using exact match, fuzzy match, or a rubric. The most interpretable eval method.</p>
+        <div class="tip">✓ Best for: classification, extraction, routing tasks where correct answers are well-defined</div>
+      </div>
+
+      <div class="eval-card">
+        <h3>🤖 2. LLM-as-Judge</h3>
+        <p>Use a strong model (Claude Opus 4, GPT-5) to grade your agent's outputs against a rubric. Scales to open-ended tasks where exact-match scoring doesn't work. The judge evaluates helpfulness, accuracy, tone, and task completion.</p>
+        <div class="tip">✓ Best for: open-ended generation, summarization, research tasks</div>
+      </div>
+
+      <div class="eval-card">
+        <h3>🔄 3. Regression Testing</h3>
+        <p>Re-run your eval suite every time you change the model, prompt, or tool configuration. Track scores over time. Alert when any scenario drops below its baseline. Prevents silent regressions when you upgrade to a new model version.</p>
+        <div class="tip">✓ Best for: CI/CD integration — run on every deployment</div>
+      </div>
+
+      <div class="eval-card">
+        <h3>🔴 4. Red-Teaming</h3>
+        <p>Adversarial testing: prompt injection attempts, edge case inputs, malformed tool outputs, and out-of-distribution requests. Systematically tries to make the agent fail, misbehave, or produce harmful outputs.</p>
+        <div class="tip">✓ Best for: pre-launch security and safety validation</div>
+      </div>
+
+      <h2>MoltBot eval configuration</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot.evals <span class="kw">import</span> EvalSuite, LLMJudge
+
+suite = EvalSuite(agent=my_agent)
+
+suite.add_golden_cases([
+    {<span class="str">"input"</span>: <span class="str">"Classify this support ticket: 'App crashed on login'"</span>,
+     <span class="str">"expected"</span>: <span class="str">"bug"</span>, <span class="str">"scorer"</span>: <span class="str">"exact"</span>},
+    {<span class="str">"input"</span>: <span class="str">"Summarize Q1 revenue trends"</span>,
+     <span class="str">"scorer"</span>: LLMJudge(rubric=<span class="str">"accuracy,completeness,conciseness"</span>)},
+])
+
+results = suite.run(n_repeats=3)  <span class="cm"># run each case 3x for variance</span>
+print(results.summary())
+<span class="cm"># accuracy: 94.2% | judge_score: 8.7/10 | 2 regressions vs baseline</span>
+      </div>
+
+      <h2>What to measure</h2>
+      <ul>
+        <li><strong>Task completion rate:</strong> Did the agent complete the assigned task? Binary yes/no, measured per scenario.</li>
+        <li><strong>Correctness:</strong> For tasks with ground truth, what % of outputs are correct? Track by category.</li>
+        <li><strong>Tool call accuracy:</strong> Did the agent call the right tools in the right order? Hallucinated or spurious tool calls are a common regression signal.</li>
+        <li><strong>Cost per task:</strong> Track token usage per eval run. Regressions in quality often come with regressions in cost.</li>
+        <li><strong>Latency:</strong> P50 and P95 completion time. New model upgrades sometimes improve quality but regress on latency.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Built-in eval suite on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Golden datasets, LLM-as-judge, regression tracking, CI/CD integration. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-observability.html">Agent Observability</a>
+        <a href="blog-agent-security.html">Agent Security</a>
+        <a href="blog-structured-outputs.html">Structured Outputs</a>
+        <a href="blog-tool-calling.html">Tool Calling</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Build testable agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
