@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Governance: Policies, Controls & Compliance Frameworks for Enterprise AI | MoltBot Blog</title>
+  <meta name="description" content="How to build an enterprise AI governance framework — model risk management, AI policies, access controls, audit logging, regulatory compliance (EU AI Act, NIST AI RMF), and bias monitoring.">
+  <meta name="keywords" content="AI governance framework, enterprise AI compliance, EU AI Act compliance, NIST AI RMF, AI model risk management, AI audit logging, AI bias monitoring, responsible AI policies 2026">
+  <meta property="og:title" content="AI Governance: Policies, Controls & Compliance Frameworks for Enterprise AI">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-governance.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-governance.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .reg-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .reg-table th{padding:.85rem 1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .reg-table td{padding:.7rem 1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.84rem;color:#94a3b8}
+    .reg-table td:first-child{font-weight:600;color:#c4b5fd}
+    .pillar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.4rem;margin:.75rem 0;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+    .pillar-card .ico{font-size:1.8rem}
+    .pillar-card h3{margin:0 0 .3rem;font-size:.96rem}
+    .pillar-card p{margin:0;color:#94a3b8;font-size:.85rem;line-height:1.6}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">AI Governance</span><span class="tag">Compliance</span><span class="tag">Enterprise</span></div>
+    <h1>AI Governance: Policies, Controls & Compliance Frameworks for Enterprise AI</h1>
+    <p class="lead">As AI becomes core infrastructure, enterprises need governance frameworks that satisfy regulators, protect customers, and give AI teams the freedom to move fast without creating unacceptable risk. Here's how leading enterprises structure theirs.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The EU AI Act is now in force. The NIST AI RMF has become the de facto US standard. Most regulated industries have issued AI-specific guidance. Enterprises that haven't started building AI governance frameworks are already behind on compliance.</p>
+
+      <h2>Key regulatory frameworks (2026)</h2>
+      <table class="reg-table">
+        <thead><tr><th>Framework</th><th>Jurisdiction</th><th>Key Requirements</th><th>Applies to</th></tr></thead>
+        <tbody>
+          <tr><td>EU AI Act</td><td>European Union</td><td>Risk classification, conformity assessment, transparency obligations</td><td>Any AI deployed in EU</td></tr>
+          <tr><td>NIST AI RMF</td><td>United States</td><td>Govern, Map, Measure, Manage lifecycle</td><td>US federal agencies; de facto enterprise standard</td></tr>
+          <tr><td>ISO 42001</td><td>Global</td><td>AI management system, impact assessments</td><td>Any certified organization</td></tr>
+          <tr><td>SR 11-7</td><td>US Banking</td><td>Model risk management, validation, documentation</td><td>US financial institutions</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Five pillars of enterprise AI governance</h2>
+
+      <div class="pillar-card">
+        <div class="ico">📋</div>
+        <div><h3>1. AI Inventory & Risk Classification</h3><p>Maintain a registry of every AI system in production. Classify each by risk level (high/medium/low) based on impact to individuals and reversibility of decisions. Determines oversight requirements for each system.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="ico">🔑</div>
+        <div><h3>2. Access Controls & Data Governance</h3><p>Define who can deploy, modify, or query AI systems. Enforce data minimization — send only necessary data to external model providers. Maintain data lineage for all training and fine-tuning data.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="ico">📝</div>
+        <div><h3>3. Audit Logging & Explainability</h3><p>Log every AI call: input, output, model version, latency, cost. High-risk decisions require explainability — the model's reasoning must be reconstructible for audit or challenge. Immutable audit trails are non-negotiable in finance and healthcare.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="ico">⚖️</div>
+        <div><h3>4. Bias & Fairness Monitoring</h3><p>Monitor output distributions by demographic group for any AI system making (or informing) consequential decisions. Automated bias detection with alerting when disparate impact exceeds defined thresholds.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="ico">🔄</div>
+        <div><h3>5. Model Change Management</h3><p>Treat every model version upgrade as a change requiring validation, not just a software deployment. Model providers change outputs without notice — automated regression testing on every model version change is essential.</p></div>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Built-in governance on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Immutable audit logs, access controls, model versioning, and bias monitoring — SOC 2 Type II certified. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-ai-testing.html">Testing LLM Apps</a>
+        <a href="blog-llm-benchmarks.html">LLM Benchmarks</a>
+        <a href="blog-cost-optimization.html">Cost Optimization</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Enterprise-grade governance</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">SOC 2 Type II. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
