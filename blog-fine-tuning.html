@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine-Tuning LLMs: When to Fine-Tune vs Prompt vs RAG | MoltBot Blog</title>
+  <meta name="description" content="When does fine-tuning actually help? A practical guide to the fine-tuning vs prompting vs RAG decision, what fine-tuning costs in 2026, and how to prepare high-quality training data.">
+  <meta name="keywords" content="fine-tuning LLM, when to fine-tune, fine-tune vs RAG, fine-tune vs prompt engineering, LLM fine-tuning cost, LoRA fine-tuning, PEFT fine-tuning, instruction tuning 2026">
+  <meta property="og:title" content="Fine-Tuning LLMs: When to Fine-Tune vs Prompt vs RAG">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .decision-table{width:100%;border-collapse:collapse;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border)}
+    .decision-table th{padding:.85rem 1rem;text-align:left;font-size:.78rem;color:#64748b;text-transform:uppercase;background:rgba(255,255,255,.03)}
+    .decision-table td{padding:.7rem 1rem;border-top:1px solid rgba(255,255,255,.04);font-size:.85rem;color:#94a3b8}
+    .decision-table td:first-child{font-weight:600;color:white}
+    .hi{color:#4ade80;font-weight:600}.lo{color:#f87171}.med{color:#fbbf24}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 9 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Fine-Tuning</span><span class="tag">LLMOps</span><span class="tag">Training</span></div>
+    <h1>Fine-Tuning LLMs: When to Fine-Tune vs Prompt vs RAG</h1>
+    <p class="lead">Fine-tuning is expensive, slow to iterate, and usually the wrong first choice. Here's the decision framework most teams should use — and the specific cases where fine-tuning genuinely wins.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>The most common mistake teams make with LLMs is reaching for fine-tuning too early. Fine-tuning is powerful, but it's a long feedback loop — data curation, training runs, evaluation, deployment. Most problems that seem to require fine-tuning can be solved faster with better prompting or RAG.</p>
+
+      <h2>The three-way decision: Prompt → RAG → Fine-tune</h2>
+      <table class="decision-table">
+        <thead><tr><th>Approach</th><th>Setup time</th><th>Iteration speed</th><th>Knowledge updates</th><th>Style/format control</th></tr></thead>
+        <tbody>
+          <tr><td>Prompt engineering</td><td class="hi">Hours</td><td class="hi">Minutes</td><td class="hi">Easy</td><td class="med">Good</td></tr>
+          <tr><td>RAG</td><td class="med">Days</td><td class="med">Hours</td><td class="hi">Easy</td><td class="med">Good</td></tr>
+          <tr><td>Fine-tuning</td><td class="lo">Weeks</td><td class="lo">Days</td><td class="lo">Requires retraining</td><td class="hi">Excellent</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When fine-tuning genuinely wins</h2>
+      <ul>
+        <li><strong>Consistent output format:</strong> You need the model to reliably produce structured JSON, a specific markdown template, or a proprietary format — and prompting alone isn't reliable enough at scale.</li>
+        <li><strong>Tone and voice:</strong> You need the model to write exactly like your brand — not just "formal" or "casual," but your specific voice, vocabulary, and style.</li>
+        <li><strong>Domain-specific reasoning:</strong> Legal, medical, or scientific reasoning that requires the model to internalize patterns not present in general training data.</li>
+        <li><strong>Latency and cost at scale:</strong> A fine-tuned smaller model (e.g., Llama 3.1 8B) can match a larger model's quality for a specific task while being 10× cheaper and faster.</li>
+        <li><strong>Private/sensitive data:</strong> You want the model to incorporate proprietary knowledge that you're not comfortable sending through RAG queries to a third-party API.</li>
+      </ul>
+
+      <h2>Fine-tuning with LoRA in 2026</h2>
+      <p>Low-Rank Adaptation (LoRA) is now the standard approach — it fine-tunes a small fraction of model parameters (typically 0.1–1%), dramatically reducing compute cost while achieving near-full fine-tuning quality.</p>
+      <div class="code-block">
+<span class="cm"># Approximate costs for LoRA fine-tuning on common models (2026)</span>
+<span class="cm"># Llama 3.1 8B: ~$15–50 per run on H100, ~1000 examples minimum</span>
+<span class="cm"># Llama 3.1 70B: ~$150–500 per run on H100, ~5000 examples recommended</span>
+<span class="cm"># Claude: instruction tuning via Anthropic fine-tune API (request access)</span>
+
+<span class="kw">from</span> moltbot.fine_tuning <span class="kw">import</span> LoRATrainer
+
+trainer = LoRATrainer(
+    base_model=<span class="str">"meta-llama/Llama-3.1-8B-Instruct"</span>,
+    lora_rank=16,
+    lora_alpha=32,
+    target_modules=[<span class="str">"q_proj"</span>, <span class="str">"v_proj"</span>],
+)
+
+trainer.train(
+    dataset=<span class="str">"./training_data.jsonl"</span>,  <span class="cm"># {"prompt": ..., "completion": ...}</span>
+    epochs=3,
+    batch_size=8,
+)
+
+model = trainer.export()  <span class="cm"># Deploy to MoltBot inference</span>
+      </div>
+
+      <h2>How to prepare training data</h2>
+      <ul>
+        <li><strong>Quantity:</strong> 100–500 examples for format/style tasks; 1,000–10,000 for domain knowledge.</li>
+        <li><strong>Quality beats quantity:</strong> 200 carefully curated examples beats 2,000 low-quality ones. Clean your data before anything else.</li>
+        <li><strong>Format:</strong> Instruction-response pairs in JSONL. Prompt should match exactly how the model will be called in production.</li>
+        <li><strong>Evaluation set:</strong> Reserve 10–20% of data as held-out eval. Fine-tuning without an eval set is flying blind.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Fine-tuning + RAG + prompting — all on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">LoRA fine-tuning, managed RAG pipelines, and prompt management. One platform. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-vector-databases.html">Vector Databases</a>
+        <a href="blog-context-window-vs-rag.html">Context Window vs RAG</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+        <a href="blog-agent-evaluation.html">Agent Evaluation</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">From prompt to fine-tuned model</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
