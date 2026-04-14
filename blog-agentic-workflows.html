@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Workflows: Designing Multi-Step AI Pipelines That Actually Work | MoltBot Blog</title>
+  <meta name="description" content="How to design reliable agentic workflows — state machines vs DAGs, human-in-the-loop checkpoints, parallel execution, error recovery, and patterns for enterprise-grade multi-step AI pipelines.">
+  <meta name="keywords" content="agentic workflows, multi-step AI pipeline, AI workflow design, LLM pipeline architecture, human in the loop AI, AI state machine, parallel AI agents, AI orchestration patterns">
+  <meta property="og:title" content="Agentic Workflows: Designing Multi-Step AI Pipelines That Actually Work">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agentic-workflows.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agentic-workflows.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .pattern-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin:.75rem 0}
+    .pattern-card h3{margin:0 0 .4rem;font-size:1rem;color:#c4b5fd}
+    .pattern-card p{margin:0 0 .5rem;color:#94a3b8;font-size:.87rem;line-height:1.7}
+    .pattern-card .use{font-size:.8rem;color:#64748b}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 9 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Agentic Workflows</span><span class="tag">Architecture</span></div>
+    <h1>Agentic Workflows: Designing Multi-Step AI Pipelines That Actually Work</h1>
+    <p class="lead">Single-prompt agents are simple. Multi-step agentic workflows that reliably execute complex tasks across many steps, with state, error recovery, and human checkpoints — that's where most teams struggle. Here's the architecture that works.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>An agentic workflow is a sequence of LLM calls, tool invocations, and decisions that together accomplish a task no single prompt could handle. The challenge isn't writing the steps — it's making the workflow reliable, observable, and safe when things go wrong.</p>
+
+      <h2>Four core workflow patterns</h2>
+
+      <div class="pattern-card">
+        <h3>1. Sequential Pipeline</h3>
+        <p>Step A → Step B → Step C. Output of each step is input to the next. Simplest pattern, easiest to debug. Use when steps have strict dependencies.</p>
+        <div class="use">Use for: Document processing, report generation, multi-stage analysis</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>2. Parallel Fan-Out + Merge</h3>
+        <p>Multiple steps run concurrently (e.g., research 5 competitors simultaneously), then results are merged. Dramatically reduces total latency for independent subtasks.</p>
+        <div class="use">Use for: Market research, multi-source data gathering, bulk classification</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>3. Plan-Then-Execute</h3>
+        <p>First LLM call produces a structured plan (a list of steps). Subsequent calls execute each step in order. Handles tasks where the exact steps aren't known upfront.</p>
+        <div class="use">Use for: Complex research tasks, adaptive workflows, code generation pipelines</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>4. Human-in-the-Loop (HITL)</h3>
+        <p>Agent pauses at designated checkpoints, presents output for human review, and only continues after approval. Critical for high-stakes workflows where errors are costly.</p>
+        <div class="use">Use for: Contract generation, financial approvals, customer-facing content</div>
+      </div>
+
+      <h2>Parallel workflow with HITL on MoltBot</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot.workflow <span class="kw">import</span> Workflow, parallel, checkpoint
+
+wf = Workflow(<span class="str">"competitor-analysis"</span>)
+
+@wf.step
+<span class="kw">async def</span> gather_data(company_list):
+    <span class="kw">return await</span> parallel([
+        research(c) <span class="kw">for</span> c <span class="kw">in</span> company_list  <span class="cm"># concurrent requests</span>
+    ])
+
+@wf.step
+<span class="kw">async def</span> synthesize(results):
+    <span class="kw">return await</span> agent.run(<span class="str">"Synthesize these findings..."</span>, context=results)
+
+@wf.step
+@checkpoint(require_approval=<span class="kw">True</span>)   <span class="cm"># human reviews before continuing</span>
+<span class="kw">async def</span> generate_report(synthesis):
+    <span class="kw">return await</span> agent.run(<span class="str">"Generate final board-ready report"</span>, context=synthesis)
+      </div>
+
+      <h2>Error recovery patterns</h2>
+      <ul>
+        <li><strong>Retry with backoff:</strong> Transient failures (timeouts, rate limits) should auto-retry with exponential backoff. Max 3 retries before escalating.</li>
+        <li><strong>Step-level checkpointing:</strong> Save state after each successful step. On failure, resume from the last checkpoint — don't restart the whole workflow.</li>
+        <li><strong>Fallback steps:</strong> If an LLM call fails, fall back to a simpler model or a cached result rather than failing the whole workflow.</li>
+        <li><strong>Dead letter queue:</strong> Failed workflows that can't recover should be routed to a review queue with full state for manual intervention.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Visual workflow builder on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Drag-and-drop pipeline builder, parallel execution, HITL checkpoints, step-level retry, and full observability. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-memory-types.html">Agent Memory Types</a>
+        <a href="blog-streaming-llm.html">LLM Streaming</a>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-tool-calling.html">Tool Calling</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Workflow builder included</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
