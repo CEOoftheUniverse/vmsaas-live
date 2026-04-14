@@ -662,4 +662,20 @@
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nonprofit.html</loc>
     <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-hr.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-devops.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-injection.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-finance.html</loc>
+    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+  </url>
 </urlset>
