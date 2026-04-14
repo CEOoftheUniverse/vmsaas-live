@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoltBot Trust Center — Security, Privacy & Compliance | SOC 2 | GDPR</title>
+  <meta name="description" content="MoltBot's security posture: SOC 2 Type II, GDPR compliance, encryption at rest and in transit, network isolation, and penetration testing. Review our full trust center.">
+  <meta name="keywords" content="MoltBot security, AI agent security compliance, SOC 2 AI platform, GDPR AI, encrypted AI agents, trust center SaaS">
+  <meta property="og:title" content="MoltBot Trust Center — Security & Compliance">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/trust.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/trust.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .trust-hero{padding:8rem 10% 4rem;text-align:center}
+    .trust-hero h1{font-size:2.8rem;margin-bottom:1rem}
+    .trust-hero p{color:#94a3b8;font-size:1.05rem;max-width:540px;margin:0 auto}
+    .cert-row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:3rem}
+    .cert-badge{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem 2rem;text-align:center;min-width:150px}
+    .cert-badge .icon{font-size:2.5rem;margin-bottom:.5rem}
+    .cert-badge .name{font-size:.9rem;font-weight:600}
+    .cert-badge .status{font-size:.75rem;color:#4ade80;margin-top:.25rem}
+    .controls-section{padding:4rem 10%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .control-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.75rem}
+    .control-card .icon{font-size:1.8rem;margin-bottom:.75rem}
+    .control-card h3{margin-bottom:.5rem;font-size:1.05rem}
+    .control-card p{color:#94a3b8;font-size:.88rem}
+    .checklist-section{padding:3rem 10% 4rem}
+    .checklist-section h2{font-size:1.8rem;margin-bottom:2rem}
+    .check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:.75rem}
+    .check-item{display:flex;gap:.75rem;align-items:flex-start;padding:.75rem;border-radius:8px;background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.1)}
+    .check-icon{color:#4ade80;font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+    .check-item p{color:#94a3b8;font-size:.88rem;margin:0}
+    .check-item strong{color:white}
+    .cta-section{padding:4rem 10%;text-align:center}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="security-blog.html">Security Blog</a>
+      <a href="enterprise.html">Enterprise</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <section class="trust-hero">
+    <h1>Trust Center</h1>
+    <p>MoltBot is built with enterprise-grade security from the ground up. Here's how we protect your agents, data, and credentials.</p>
+    <div class="cert-row">
+      <div class="cert-badge"><div class="icon">🛡️</div><div class="name">SOC 2 Type II</div><div class="status">✓ Certified</div></div>
+      <div class="cert-badge"><div class="icon">🇪🇺</div><div class="name">GDPR</div><div class="status">✓ Compliant</div></div>
+      <div class="cert-badge"><div class="icon">🔒</div><div class="name">AES-256</div><div class="status">✓ Encryption at rest</div></div>
+      <div class="cert-badge"><div class="icon">🔐</div><div class="name">TLS 1.3</div><div class="status">✓ Encryption in transit</div></div>
+      <div class="cert-badge"><div class="icon">🧪</div><div class="name">Pen Testing</div><div class="status">✓ Annual (Cure53)</div></div>
+    </div>
+  </section>
+
+  <div class="controls-section">
+    <div class="control-card"><div class="icon">🏗️</div><h3>Infrastructure Isolation</h3><p>Every agent runs in a dedicated, network-isolated VM. No shared tenancy for compute. Your data and processes never touch another customer's environment.</p></div>
+    <div class="control-card"><div class="icon">🔑</div><h3>Secrets Management</h3><p>API keys and credentials are encrypted with AES-256 at rest using per-tenant keys. Secrets are injected at runtime via environment variables — never persisted in logs.</p></div>
+    <div class="control-card"><div class="icon">🌐</div><h3>Network Security</h3><p>All traffic is TLS 1.3. Agents operate in isolated VPCs with egress filtering. SSH access to agent hosts is MFA-protected and fully audited.</p></div>
+    <div class="control-card"><div class="icon">👁️</div><h3>Audit Logging</h3><p>All agent actions, API calls, and admin access are logged with tamper-evident timestamps. Logs are retained for 90 days (Enterprise: 1 year) and exportable.</p></div>
+    <div class="control-card"><div class="icon">🔄</div><h3>Access Control</h3><p>Role-based access control (RBAC) with SSO support (SAML 2.0, OIDC). MFA enforced for all admin actions. Session tokens expire after 24 hours.</p></div>
+    <div class="control-card"><div class="icon">💾</div><h3>Data Retention</h3><p>Agent memory and task logs are retained for 30 days by default. Customers can request immediate deletion. We never use customer data to train models.</p></div>
+  </div>
+
+  <section class="checklist-section">
+    <h2>Security checklist</h2>
+    <div class="check-grid">
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>Encrypted credentials</strong> — All secrets AES-256 encrypted at rest</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>TLS 1.3</strong> — All data encrypted in transit</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>No shared compute</strong> — Dedicated VMs per customer</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>SOC 2 Type II</strong> — Certified annually</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>Penetration testing</strong> — Annual by Cure53</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>GDPR compliant</strong> — EU data residency available</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>MFA enforced</strong> — All admin and API key actions</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>Zero training use</strong> — Your data never trains models</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>Audit logs</strong> — 90-day tamper-evident log retention</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>Egress filtering</strong> — Agent network access whitelisted</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>RBAC + SSO</strong> — SAML 2.0 and OIDC supported</p></div>
+      <div class="check-item"><span class="check-icon">✓</span><p><strong>Vulnerability disclosure</strong> — Responsible disclosure program</p></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Security questions?</h2>
+    <p style="color:#94a3b8;margin-bottom:2rem">Our security team responds to all inquiries within 24 hours. Enterprise customers can request a dedicated security review.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="btn-primary large">Contact Security Team</a>
+      <a href="enterprise.html" class="btn-secondary large">Enterprise Plans →</a>
+    </div>
+  </section>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="security-blog.html" style="color:#64748b">Security Blog</a> · <a href="contact.html" style="color:#64748b">Contact</a></p>
+  </footer>
+</body>
+</html>
