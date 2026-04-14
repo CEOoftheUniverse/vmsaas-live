@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation — MoltBot Cloud AI Agent Platform</title>
+  <meta name="description" content="Complete documentation for MoltBot Cloud. Quickstart guides, API reference, swarm orchestration, billing, and integration docs.">
+  <meta name="keywords" content="MoltBot docs, AI agent documentation, OpenClaw API, swarm orchestration guide">
+  <meta property="og:title" content="MoltBot Cloud Documentation">
+  <meta property="og:description" content="Everything you need to deploy and manage autonomous AI agent fleets.">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/docs.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/docs.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .docs-layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; min-height: 100vh; margin-top: 70px; }
+    .docs-sidebar { position: sticky; top: 70px; height: calc(100vh - 70px); overflow-y: auto; padding: 2rem 1.5rem; border-right: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); }
+    .docs-sidebar h3 { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #64748b; margin: 1.5rem 0 0.5rem; }
+    .docs-sidebar h3:first-child { margin-top: 0; }
+    .docs-sidebar a { display: block; padding: 0.4rem 0.75rem; border-radius: 6px; color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: all 0.2s; }
+    .docs-sidebar a:hover, .docs-sidebar a.active { color: white; background: rgba(79,70,229,0.15); }
+    .docs-sidebar a.active { color: var(--accent); }
+    .docs-content { padding: 3rem 4rem; max-width: 860px; }
+    .docs-content h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .docs-content h2 { font-size: 1.6rem; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); }
+    .docs-content h3 { font-size: 1.1rem; margin: 2rem 0 0.75rem; color: var(--accent); }
+    .docs-content p { color: #94a3b8; margin-bottom: 1rem; line-height: 1.8; }
+    .docs-content ul { color: #94a3b8; padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2; }
+    .lead { font-size: 1.15rem; color: #cbd5e1 !important; }
+    pre { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 10px; padding: 1.5rem; overflow-x: auto; margin: 1rem 0 1.5rem; }
+    code { font-family: 'Fira Code', monospace; font-size: 0.88rem; color: #4ade80; }
+    pre code { color: #e2e8f0; }
+    .inline-code { background: rgba(79,70,229,0.15); color: var(--accent); padding: 0.1em 0.4em; border-radius: 4px; font-family: monospace; font-size: 0.88em; }
+    .doc-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
+    .doc-card h3 { margin-top: 0; }
+    .quicklinks { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .quicklink { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.5rem; text-decoration: none; transition: all 0.2s; }
+    .quicklink:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .quicklink .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .quicklink h4 { color: white; margin-bottom: 0.25rem; }
+    .quicklink p { color: #64748b; font-size: 0.85rem; margin: 0; }
+    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
+    .badge-new { background: rgba(34,211,238,0.15); color: var(--accent); }
+    .badge-beta { background: rgba(251,146,60,0.15); color: #fb923c; }
+    @media(max-width:768px){ .docs-layout{grid-template-columns:1fr} .docs-sidebar{display:none} .docs-content{padding:2rem 1.5rem} }
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="docs.html" style="color:var(--accent)">Docs</a>
+      <a href="api-docs.html">API</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="docs-layout">
+    <aside class="docs-sidebar">
+      <h3>Getting Started</h3>
+      <a href="#quickstart" class="active">Quickstart</a>
+      <a href="#concepts">Core Concepts</a>
+      <a href="#first-agent">Your First Agent</a>
+
+      <h3>Agents</h3>
+      <a href="#agent-types">Agent Types</a>
+      <a href="#swarm">Swarm Orchestration</a>
+      <a href="#memory">Persistent Memory</a>
+
+      <h3>Models</h3>
+      <a href="#models">Supported Models</a>
+      <a href="#routing">Smart Routing</a>
+      <a href="#cost">Cost Optimization</a>
+
+      <h3>Infrastructure</h3>
+      <a href="#gpu">GPU Tiers</a>
+      <a href="#networking">Networking</a>
+
+      <h3>Billing</h3>
+      <a href="#plans">Plans & Pricing</a>
+      <a href="#usage">Usage Tracking</a>
+
+      <h3>Reference</h3>
+      <a href="api-docs.html">API Reference ↗</a>
+      <a href="getting-started.html">Full Tutorial ↗</a>
+      <a href="integrations.html">Integrations ↗</a>
+    </aside>
+
+    <main class="docs-content">
+      <h1>MoltBot Docs</h1>
+      <p class="lead">Everything you need to deploy, manage, and scale autonomous AI agent fleets on dedicated GPU infrastructure.</p>
+
+      <div class="quicklinks">
+        <a href="#quickstart" class="quicklink">
+          <div class="icon">⚡</div>
+          <h4>Quickstart</h4>
+          <p>Deploy your first agent in 5 minutes</p>
+        </a>
+        <a href="#swarm" class="quicklink">
+          <div class="icon">🌐</div>
+          <h4>Swarm Guide</h4>
+          <p>Orchestrate multi-agent pipelines</p>
+        </a>
+        <a href="api-docs.html" class="quicklink">
+          <div class="icon">📡</div>
+          <h4>API Reference</h4>
+          <p>Full REST API documentation</p>
+        </a>
+        <a href="#models" class="quicklink">
+          <div class="icon">🤖</div>
+          <h4>Model Routing</h4>
+          <p>7 AI models, auto-optimized</p>
+        </a>
+      </div>
+
+      <h2 id="quickstart">Quickstart</h2>
+      <p>Get a MoltBot agent running in under 5 minutes. You'll need a MoltBot Cloud account and an API key.</p>
+
+      <h3>1. Install the MoltBot SDK</h3>
+      <pre><code>npm install @moltbot/sdk
+# or
+pip install moltbot</code></pre>
+
+      <h3>2. Initialize your client</h3>
+      <pre><code>import MoltBot from '@moltbot/sdk';
+
+const client = new MoltBot({
+  apiKey: process.env.MOLTBOT_API_KEY,
+  region: 'us-east-1',
+});</code></pre>
+
+      <h3>3. Deploy your first agent</h3>
+      <pre><code>const agent = await client.agents.deploy({
+  name: 'my-first-agent',
+  model: 'auto',        // Smart model routing
+  tier: 'base',         // RTX 4090, $49/mo
+  task: 'code-review',
+});
+
+console.log(`Agent deployed: ${agent.id}`);
+// → Agent deployed: mb-a7x9f2</code></pre>
+
+      <h3>4. Run a task</h3>
+      <pre><code>const result = await agent.run({
+  prompt: 'Review this PR and identify bugs',
+  context: { pr_url: 'https://github.com/...' },
+});
+
+console.log(result.output);</code></pre>
+
+      <h2 id="concepts">Core Concepts</h2>
+
+      <div class="doc-card">
+        <h3>🤖 Agents</h3>
+        <p>An agent is a persistent process running on a dedicated GPU VM. Each agent has its own memory, tool access, and model configuration. Agents run 24/7 and can be given recurring tasks or respond to triggers.</p>
+      </div>
+
+      <div class="doc-card">
+        <h3>🌐 Swarms</h3>
+        <p>A swarm is a coordinated group of agents working on a shared objective. MoltBot's orchestrator automatically assigns subtasks, manages dependencies, and aggregates results. Available on Swarm Matrix tier.</p>
+      </div>
+
+      <div class="doc-card">
+        <h3>🧠 Memory</h3>
+        <p>Each agent has persistent vector memory powered by ChromaDB. Memory survives reboots and can be shared across agents in the same organization. Semantic search enables agents to recall relevant context from past runs.</p>
+      </div>
+
+      <div class="doc-card">
+        <h3>⚡ Model Routing <span class="badge badge-new">Auto</span></h3>
+        <p>MoltBot's arbitrage engine automatically selects the cheapest model capable of completing your task. Set <span class="inline-code">model: 'auto'</span> to save up to 90% on inference costs without sacrificing quality.</p>
+      </div>
+
+      <h2 id="models">Supported Models</h2>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;">
+        <thead>
+          <tr style="border-bottom:1px solid var(--glass-border);text-align:left;">
+            <th style="padding:0.75rem;color:var(--accent)">Model</th>
+            <th style="padding:0.75rem;color:var(--accent)">Provider</th>
+            <th style="padding:0.75rem;color:var(--accent)">Context</th>
+            <th style="padding:0.75rem;color:var(--accent)">Best For</th>
+          </tr>
+        </thead>
+        <tbody style="color:#94a3b8">
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:0.75rem">Claude Opus 4.6</td><td style="padding:0.75rem">Anthropic</td><td style="padding:0.75rem">200K</td><td style="padding:0.75rem">Complex reasoning</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:0.75rem">GPT-5.4</td><td style="padding:0.75rem">OpenAI</td><td style="padding:0.75rem">128K</td><td style="padding:0.75rem">Code generation</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:0.75rem">Gemini 2.5 Pro</td><td style="padding:0.75rem">Google</td><td style="padding:0.75rem">1M</td><td style="padding:0.75rem">Long context analysis</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:0.75rem">Qwen 3.5 <span class="badge badge-new">Free</span></td><td style="padding:0.75rem">NVIDIA NIM</td><td style="padding:0.75rem">32K</td><td style="padding:0.75rem">Fast, cost-free routing</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:0.75rem">Kimi k2</td><td style="padding:0.75rem">Moonshot</td><td style="padding:0.75rem">128K</td><td style="padding:0.75rem">Multilingual tasks</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+            <td style="padding:0.75rem">Grok 3</td><td style="padding:0.75rem">xAI</td><td style="padding:0.75rem">131K</td><td style="padding:0.75rem">Real-time search</td>
+          </tr>
+          <tr>
+            <td style="padding:0.75rem">DeepSeek R2</td><td style="padding:0.75rem">DeepSeek</td><td style="padding:0.75rem">128K</td><td style="padding:0.75rem">Mathematics, STEM</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="gpu">GPU Tiers</h2>
+
+      <div class="doc-card">
+        <h3>Base — RTX 4090 (24GB VRAM) · $49/mo</h3>
+        <p>1 persistent agent. Ideal for code review, content generation, data analysis, and single-threaded automation.</p>
+        <ul><li>24GB VRAM, 128GB system RAM</li><li>Qwen 3.5 local + cloud model routing</li><li>10GB persistent storage</li></ul>
+      </div>
+
+      <div class="doc-card">
+        <h3>Swarm Matrix — A100 80GB · $149/mo</h3>
+        <p>3 concurrent agents with full model access. Smart routing across all 7 providers. Best for teams and complex pipelines.</p>
+        <ul><li>80GB VRAM, 256GB RAM</li><li>All 7 AI models</li><li>50GB persistent storage + ChromaDB memory</li></ul>
+      </div>
+
+      <div class="doc-card">
+        <h3>Enterprise — 4× H100 Cluster · $299/mo</h3>
+        <p>10 concurrent agents, Omnisphere pipeline builder, priority support, and custom SLA.</p>
+        <ul><li>4× H100 80GB cluster, 512GB RAM</li><li>200GB storage + dedicated vector DB</li><li>Visual pipeline builder, webhook triggers, custom models</li></ul>
+      </div>
+
+      <h2 id="plans">Plans & Billing</h2>
+      <p>MoltBot uses monthly subscription billing via Stripe. Usage is metered for API calls above your plan's included allocation. You can upgrade, downgrade, or cancel at any time from the <a href="portal.html" style="color:var(--accent)">customer portal</a>.</p>
+      <pre><code># Check your current usage via API
+GET /api/usage
+Authorization: Bearer YOUR_API_KEY
+
+{
+  "plan": "swarm",
+  "period_start": "2026-04-01",
+  "api_calls_used": 12840,
+  "api_calls_included": 50000,
+  "overage_cost": "$0.00"
+}</code></pre>
+
+      <div style="margin-top:3rem;padding:2rem;background:rgba(79,70,229,0.08);border:1px solid rgba(79,70,229,0.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 0.5rem">Need help?</h3>
+        <p style="margin-bottom:1.5rem">Join the MoltBot community or reach out to support.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <a href="community.html" class="btn-primary">Join Community</a>
+          <a href="getting-started.html" class="btn-secondary">Full Tutorial →</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2026 MoltBot Cloud · <a href="terms.html" style="color:#64748b">Terms</a> · <a href="privacy.html" style="color:#64748b">Privacy</a> · <a href="docs.html" style="color:#64748b">Docs</a></p>
+  </footer>
+</body>
+</html>
