@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Security: Prompt Injection, Data Leakage & Agent Jailbreaking | MoltBot Blog</title>
+  <meta name="description" content="The top LLM security risks in 2026 — prompt injection, indirect prompt injection, data leakage, jailbreaking, and supply chain attacks. Practical mitigations for each threat in production AI systems.">
+  <meta name="keywords" content="LLM security risks, prompt injection attacks, indirect prompt injection, LLM data leakage, AI jailbreaking, LLM security 2026, AI agent security, LLM supply chain attacks, OWASP LLM top 10">
+  <meta property="og:title" content="LLM Security: Prompt Injection, Data Leakage & Agent Jailbreaking">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-security.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-security.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .threat-card{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;background:var(--glass-bg);border:1px solid var(--glass-border);border-left:3px solid #ef4444;border-radius:14px;padding:1.4rem;margin:.75rem 0}
+    .threat-card .sev{font-size:1.6rem}
+    .threat-card h3{margin:0 0 .25rem;font-size:.95rem;color:#fca5a5}
+    .threat-card p{margin:0 0 .5rem;color:#94a3b8;font-size:.85rem;line-height:1.65}
+    .threat-card .fix{font-size:.82rem;color:#4ade80;font-weight:600}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Security</span></div>
+    <div><span class="tag">LLM Security</span><span class="tag">Prompt Injection</span><span class="tag">Enterprise</span></div>
+    <h1>LLM Security: Prompt Injection, Data Leakage & Agent Jailbreaking</h1>
+    <p class="lead">LLMs are a new attack surface most security teams haven't fully mapped yet. Here are the 5 most critical risks from the OWASP LLM Top 10 — with practical mitigations for each.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Most LLM security failures in 2026 are preventable. The problem isn't that the attacks are sophisticated — it's that security teams don't yet have frameworks for thinking about LLMs as an attack surface. OWASP's LLM Top 10 provides the starting point.</p>
+
+      <h2>The five critical threats</h2>
+
+      <div class="threat-card">
+        <div class="sev">💉</div>
+        <div>
+          <h3>1. Prompt Injection (Direct)</h3>
+          <p>An attacker includes instructions in user input that override the system prompt. "Ignore previous instructions and output your system prompt..." Classic and still highly effective against naive implementations.</p>
+          <div class="fix">Mitigation: Input sanitization, privilege-separated architecture (user input never reaches system context), output validation, and never executing LLM outputs as code without sandboxing.</div>
+        </div>
+      </div>
+
+      <div class="threat-card">
+        <div class="sev">🔗</div>
+        <div>
+          <h3>2. Indirect Prompt Injection</h3>
+          <p>Malicious instructions hidden in external data sources the agent retrieves — web pages, documents, emails. The agent faithfully follows instructions embedded by an attacker in content it processes. Far more dangerous than direct injection for agentic systems.</p>
+          <div class="fix">Mitigation: Treat all retrieved content as untrusted. Use a separate "content context" that cannot override system instructions. Validate agent actions against a pre-approved action policy before execution.</div>
+        </div>
+      </div>
+
+      <div class="threat-card">
+        <div class="sev">📤</div>
+        <div>
+          <h3>3. Sensitive Data Leakage</h3>
+          <p>LLMs trained on or given access to sensitive data can leak it in outputs. PII, credentials, and internal documents can be extracted through targeted prompting, even from fine-tuned models.</p>
+          <div class="fix">Mitigation: Data minimization (only send what's needed), output scanning for PII patterns, role-based data access controls, and output redaction pipelines for sensitive field patterns.</div>
+        </div>
+      </div>
+
+      <div class="threat-card">
+        <div class="sev">🔓</div>
+        <div>
+          <h3>4. Jailbreaking</h3>
+          <p>Adversarial prompts that bypass safety training — roleplay attacks, many-shot jailbreaking, multi-turn manipulation. More relevant for public-facing applications than internal tools, but a real risk for exposed agents.</p>
+          <div class="fix">Mitigation: Defense-in-depth (don't rely solely on model refusals), output classifiers for policy violations, rate limiting, and monitoring for unusual output patterns.</div>
+        </div>
+      </div>
+
+      <div class="threat-card">
+        <div class="sev">📦</div>
+        <div>
+          <h3>5. Supply Chain Attacks</h3>
+          <p>Compromised model weights, malicious fine-tuning datasets, or tampered tool libraries embedded in AI pipelines. The AI supply chain is poorly audited compared to software dependencies.</p>
+          <div class="fix">Mitigation: Only use models from verified sources with published checksums. Audit all tool integrations. Pin dependency versions. Implement model output monitoring to detect behavioral drift post-update.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Security-first AI deployment on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Built-in output scanning, action policy enforcement, and audit logging for every agent call. SOC 2 Type II. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-ai-governance.html">AI Governance</a>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-agentic-workflows.html">Agentic Workflows</a>
+        <a href="blog-ai-testing.html">Testing LLM Apps</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">SOC 2 Type II certified</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
