@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orangerie — AI-Powered Vertical Biodiversity | MoltBot Cloud</title>
+    <meta name="description" content="The Orangerie: Multi-level vertical greenhouse powered by AI agents, GPU waste heat, and robotic automation. Creating dense biodiversity for better human life.">
+    <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/orangerie.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#22c55e;--c:#06b6d4;--p:#6366f1;--w:#f59e0b}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.7}
+        .c{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+        nav{padding:1rem 0;border-bottom:1px solid var(--b)}
+        nav .inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
+        nav a{color:var(--m);text-decoration:none;font-size:.85rem;margin-left:1.5rem}nav a:hover{color:var(--t)}
+        .brand{font-weight:800;font-size:1.2rem}.brand span{color:var(--a)}
+        .hero{text-align:center;padding:4rem 0 2rem;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(34,197,94,.08),transparent);border-radius:50%;pointer-events:none}
+        h1{font-size:2.8rem;font-weight:800;margin-bottom:.5rem}
+        .grad{background:linear-gradient(135deg,#22c55e,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+        .hero p{color:var(--m);max-width:600px;margin:0 auto 2rem;font-size:1.05rem}
+        .badge-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+        .badge{padding:.4rem 1rem;border-radius:20px;font-size:.75rem;font-weight:600;border:1px solid}
+        .badge-g{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.2);color:var(--a)}
+        .badge-c{background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.2);color:var(--c)}
+        .badge-w{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.2);color:var(--w)}
+        .badge-p{background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.2);color:var(--p)}
+        h2{font-size:1.5rem;font-weight:800;margin:3rem 0 1.5rem;text-align:center}
+        .levels{display:grid;grid-template-columns:1fr;gap:1.5rem;margin:2rem 0}
+        .level{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:1.5rem;display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:start;transition:all .3s}
+        .level:hover{border-color:rgba(34,197,94,.3);transform:translateY(-2px)}
+        .level-num{font-size:2.5rem;font-weight:800;color:var(--a);opacity:.3;text-align:center;line-height:1}
+        .level-num span{display:block;font-size:.7rem;color:var(--m);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+        .level h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+        .level p{color:var(--m);font-size:.85rem;margin-bottom:.5rem}
+        .level .specs{display:flex;gap:.5rem;flex-wrap:wrap}
+        .level .spec{font-size:.7rem;padding:.2rem .5rem;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.12);border-radius:4px;color:var(--a)}
+        .ecosystem{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin:2rem 0}
+        .eco-card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.25rem;text-align:center;transition:all .3s}
+        .eco-card:hover{border-color:rgba(34,197,94,.3)}
+        .eco-card .icon{font-size:2rem;margin-bottom:.5rem}
+        .eco-card h4{font-size:.85rem;font-weight:700;margin-bottom:.25rem}
+        .eco-card p{color:var(--m);font-size:.72rem}
+        .tech-stack{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0}
+        .tech-card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1.5rem}
+        .tech-card h4{font-size:.9rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+        .tech-card p{color:var(--m);font-size:.8rem}
+        .flow{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:2rem;margin:2rem 0;text-align:center}
+        .flow-steps{display:flex;justify-content:center;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+        .flow-step{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:8px;padding:.5rem 1rem;font-size:.8rem;font-weight:600}
+        .flow-arrow{color:var(--m);font-size:1.2rem}
+        .cta{text-align:center;padding:3rem 0;border-top:1px solid var(--b);margin-top:2rem}
+        .btn{display:inline-block;padding:.8rem 2rem;background:var(--a);color:#000;border-radius:10px;font-weight:700;text-decoration:none;transition:all .2s}
+        .btn:hover{background:#4ade80;box-shadow:0 0 30px rgba(34,197,94,.3)}
+        footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.75rem}
+        @media(max-width:768px){.ecosystem{grid-template-columns:repeat(2,1fr)}.tech-stack{grid-template-columns:1fr}.level{grid-template-columns:60px 1fr}}
+    </style>
+</head>
+<body>
+<nav><div class="inner"><div class="brand">Molt<span>Bot</span> Cloud</div><div><a href="index.html">Home</a><a href="use-cases.html">Use Cases</a><a href="teams.html">Teams</a><a href="blog.html">Blog</a></div></div></nav>
+
+<div class="c">
+<section class="hero">
+    <h1>The <span class="grad">Orangerie</span></h1>
+    <p>A multi-level vertical biodiversity ecosystem where GPU waste heat grows flowers, herbs, and food — managed by AI agents and humanoid robots.</p>
+    <div class="badge-row">
+        <span class="badge badge-g">🌱 Vertical Farming</span>
+        <span class="badge badge-c">🤖 Unitree H2 Robotics</span>
+        <span class="badge badge-w">🔥 GPU Waste Heat</span>
+        <span class="badge badge-p">🧠 NVIDIA Nemotron</span>
+    </div>
+</section>
+
+<h2>The 5-in-1 Ecosystem</h2>
+<div class="ecosystem">
+    <div class="eco-card"><div class="icon">🖥️</div><h4>GPU Datacenter</h4><p>100MW compute cluster generates 70°C exhaust heat</p></div>
+    <div class="eco-card"><div class="icon">♨️</div><h4>Spa & Wellness</h4><p>Heat Loop 1: 45°C water for pools and spa therapy</p></div>
+    <div class="eco-card"><div class="icon">🎮</div><h4>Gaming Hotel</h4><p>Heat Loop 2: 35°C radiant floor heating</p></div>
+    <div class="eco-card"><div class="icon">🌿</div><h4>The Orangerie</h4><p>Heat Loop 3: 25°C hydroponics & greenhouse heating</p></div>
+    <div class="eco-card"><div class="icon">🏊</div><h4>Water Park</h4><p>Heat Loop 4: 28°C recreational water heating</p></div>
+</div>
+
+<div class="flow">
+    <h3 style="margin-bottom:.5rem">Thermal Cascade Flow</h3>
+    <p style="color:var(--m);font-size:.85rem">Zero-waste heat recycling from GPU cooling to biodiversity</p>
+    <div class="flow-steps">
+        <div class="flow-step">GPU Cluster 70°C</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Spa 45°C</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Hotel 35°C</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Orangerie 25°C</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step">Water Park 28°C</div>
+    </div>
+</div>
+
+<h2>Orangerie Levels</h2>
+<div class="levels">
+    <div class="level">
+        <div class="level-num">L1<span>Ground</span></div>
+        <div>
+            <h3>🌺 Tropical Flower Garden</h3>
+            <p>Dense tropical flowering plants heated by GPU exhaust. Orchids, bromeliads, and bird-of-paradise create a lush biodiversity corridor for visitors.</p>
+            <div class="specs"><span class="spec">50m × 30m</span><span class="spec">25-28°C year-round</span><span class="spec">200+ species</span></div>
+        </div>
+    </div>
+    <div class="level">
+        <div class="level-num">L2<span>Herbs</span></div>
+        <div>
+            <h3>🌿 Medicinal & Culinary Herbs</h3>
+            <p>Vertical hydroponic herb walls supplying the hotel restaurant with fresh basil, mint, rosemary, and lavender. Zero food-miles.</p>
+            <div class="specs"><span class="spec">Hydroponics</span><span class="spec">AI crop monitoring</span><span class="spec">Zero-mile produce</span></div>
+        </div>
+    </div>
+    <div class="level">
+        <div class="level-num">L3<span>Food</span></div>
+        <div>
+            <h3>🍅 Vertical Food Production</h3>
+            <p>Lettuce, tomatoes, strawberries in modular vertical units. Robotics-managed harvesting via Unitree H2 humanoid robots.</p>
+            <div class="specs"><span class="spec">Modular growing units</span><span class="spec">H2 robot harvesting</span><span class="spec">LED + natural light</span></div>
+        </div>
+    </div>
+    <div class="level">
+        <div class="level-num">L4<span>Canopy</span></div>
+        <div>
+            <h3>🦋 Biodiversity Canopy</h3>
+            <p>Glass-roofed butterfly garden and pollinator habitat. Native and exotic insect species maintaining ecosystem health. Human creativity space.</p>
+            <div class="specs"><span class="spec">Butterfly sanctuary</span><span class="spec">Pollinator habitat</span><span class="spec">Art & meditation</span></div>
+        </div>
+    </div>
+</div>
+
+<h2>AI Technology Stack</h2>
+<div class="tech-stack">
+    <div class="tech-card">
+        <h4>🧠 NVIDIA Nemotron Ultra</h4>
+        <p>Vision-Language-Action model for robot decision-making. Controls Unitree H2 humanoids for planting, watering, harvesting, and quality inspection tasks.</p>
+    </div>
+    <div class="tech-card">
+        <h4>🎮 NVIDIA Isaac Sim</h4>
+        <p>Digital twin simulation of the entire Orangerie. Test robot behaviors, thermal dynamics, and plant growth in photorealistic virtual environment before deploying.</p>
+    </div>
+    <div class="tech-card">
+        <h4>🤖 MoltBot Cloud Orchestration</h4>
+        <p>Multi-agent swarm manages sensors, robots, climate control, and harvest scheduling. Smart routing picks Nemotron for robotics, GLM for analytics.</p>
+    </div>
+</div>
+
+<div class="cta">
+    <h2>Building the Future of Biodiversity</h2>
+    <p style="color:var(--m);margin-bottom:1.5rem;max-width:500px;display:inline-block">Dense, multi-level vertical ecosystems powered by AI and waste heat. Better for humans, better for the planet.</p>
+    <br>
+    <a href="signup.html" class="btn">Join the Ecosystem →</a>
+</div>
+</div>
+
+<footer>© 2026 MoltBot Cloud · <a href="about.html" style="color:var(--m)">About</a> · <a href="use-cases.html" style="color:var(--m)">Use Cases</a> · <a href="teams.html" style="color:var(--m)">Teams</a></footer>
+</body>
+</html>
