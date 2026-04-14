@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent Planning: ReAct, Tree of Thought & Plan-and-Execute | MoltBot Blog</title>
+  <meta name="description" content="How AI agents plan multi-step tasks: ReAct, Tree of Thought, and Plan-and-Execute architectures explained with code examples and when to use each.">
+  <meta name="keywords" content="AI agent planning, ReAct agent, Tree of Thought LLM, plan and execute agent, LLM planning reasoning, agent task decomposition, multi-step AI agent">
+  <meta property="og:title" content="AI Agent Planning: ReAct, Tree of Thought & Plan-and-Execute">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-planning.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-planning.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.1rem;margin:1.5rem 0 .4rem;color:#e2e8f0}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .arch-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin:1rem 0;border-left:3px solid #6366f1}
+    .arch-card h3{margin:0 0 .5rem;font-size:1.05rem}
+    .arch-card p{margin:0 0 .75rem;color:#94a3b8;font-size:.88rem;line-height:1.7}
+    .arch-card .meta{display:flex;gap:1rem;font-size:.78rem;color:#64748b;flex-wrap:wrap}
+    .arch-card .meta span{background:rgba(255,255,255,.04);padding:.2rem .6rem;border-radius:6px}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Planning</span><span class="tag">Architecture</span><span class="tag">ReAct</span></div>
+    <h1>AI Agent Planning: ReAct, Tree of Thought & Plan-and-Execute</h1>
+    <p class="lead">How an agent decides what to do next determines how well it handles complex, multi-step tasks. Here are the three dominant planning architectures — when each works, when each fails, and how to implement them.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>A single-prompt LLM call has no planning — it generates an answer in one shot. An agent, by contrast, needs to decompose tasks, decide on a sequence of actions, adapt when things go wrong, and know when it's done. These planning architectures are the core of what separates a useful agent from an expensive LLM wrapper.</p>
+
+      <h2>The three planning architectures</h2>
+
+      <div class="arch-card">
+        <h3>⚡ ReAct (Reason + Act)</h3>
+        <p>The agent alternates between reasoning ("what should I do next?") and acting (calling a tool or producing output). After each action, it receives an observation and reason-acts again. Simple, effective, and the default for most agent frameworks.</p>
+        <div class="meta"><span>Best for: tool-using tasks with clear intermediate steps</span><span>Failure mode: can get stuck in reasoning loops on hard problems</span></div>
+      </div>
+
+      <div class="arch-card">
+        <h3>🌳 Tree of Thought (ToT)</h3>
+        <p>Instead of committing to one reasoning path, the agent explores multiple branches simultaneously, evaluates them, and selects the most promising. Much better on tasks requiring search or creativity. More expensive — typically 3–10× the tokens of ReAct.</p>
+        <div class="meta"><span>Best for: puzzles, planning under uncertainty, creative tasks</span><span>Failure mode: high cost, overkill for most production tasks</span></div>
+      </div>
+
+      <div class="arch-card">
+        <h3>📋 Plan-and-Execute</h3>
+        <p>A planner LLM call first decomposes the task into an ordered list of steps. An executor agent then works through the steps sequentially, with optional re-planning if steps fail. Better structure than ReAct for long-horizon tasks; easier to debug.</p>
+        <div class="meta"><span>Best for: long multi-step workflows, business process automation</span><span>Failure mode: upfront plan may be wrong, requiring costly re-planning</span></div>
+      </div>
+
+      <h2>Plan-and-Execute implementation</h2>
+      <div class="code-block">
+<span class="kw">from</span> moltbot <span class="kw">import</span> Agent, PlanExecuteOrchestrator
+
+orchestrator = PlanExecuteOrchestrator(
+    planner_model=<span class="str">"claude-opus-4"</span>,     <span class="cm"># strong model for planning</span>
+    executor_model=<span class="str">"claude-sonnet-4"</span>,   <span class="cm"># cheaper model for execution</span>
+    max_replan_attempts=2
+)
+
+result = orchestrator.run(
+    goal=<span class="str">"Research our top 3 competitors and produce a comparison report"</span>
+)
+<span class="cm"># Planner produces: [search_web, extract_info, compare, write_report]</span>
+<span class="cm"># Executor works through each step, re-plans if any step fails</span>
+      </div>
+
+      <h2>Choosing the right architecture</h2>
+      <ul>
+        <li><strong>Start with ReAct</strong> — it's the simplest and works well for the majority of tool-using tasks. Only upgrade when you hit its limitations.</li>
+        <li><strong>Use Plan-and-Execute</strong> when tasks have 5+ steps, involve multiple tools, or need to be auditable (the plan is inspectable before execution).</li>
+        <li><strong>Use Tree of Thought</strong> sparingly — reserve for tasks where exploring multiple options genuinely improves quality and cost is not the primary constraint.</li>
+        <li><strong>Hybrid approaches work well:</strong> Use ReAct within each step of a Plan-and-Execute architecture for the best of both worlds.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">All three planning architectures on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">ReAct, Plan-and-Execute, and Tree of Thought — configurable per agent. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-multiagent-systems.html">Multi-Agent Systems</a>
+        <a href="blog-agent-memory.html">Agent Memory</a>
+        <a href="blog-tool-calling.html">Tool Calling</a>
+        <a href="blog-agent-evaluation.html">Agent Evaluation</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Build planning agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
