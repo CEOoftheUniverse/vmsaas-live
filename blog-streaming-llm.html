@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming LLM Responses: Server-Sent Events, WebSockets & UX Patterns | MoltBot Blog</title>
+  <meta name="description" content="How LLM streaming works under the hood — SSE vs WebSockets, time-to-first-token, partial rendering patterns, and how to handle streaming in React and Python backends.">
+  <meta name="keywords" content="LLM streaming, server-sent events LLM, streaming AI responses, TTFT streaming, WebSocket LLM, React streaming AI, streaming Python LLM, partial token rendering">
+  <meta property="og:title" content="Streaming LLM Responses: SSE, WebSockets & UX Patterns">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-streaming-llm.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-streaming-llm.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .compare-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.25rem}
+    .compare-card h4{margin:0 0 .5rem;font-size:.95rem}
+    .compare-card ul{margin:0;padding-left:1.2rem;font-size:.83rem;color:#94a3b8;line-height:1.9}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}.compare-row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Streaming</span><span class="tag">Architecture</span><span class="tag">UX</span></div>
+    <h1>Streaming LLM Responses: SSE, WebSockets & UX Patterns</h1>
+    <p class="lead">LLM streaming dramatically improves perceived latency — users see content appear token-by-token instead of waiting seconds for a complete response. Here's how streaming works, when to use SSE vs WebSockets, and how to handle partial responses gracefully.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Without streaming, a user submits a query and waits 5–15 seconds staring at a blank space. With streaming, text starts appearing within 200–500ms (TTFT) and flows continuously as the model generates. The total latency is identical — but the perceived experience is completely different.</p>
+
+      <h2>SSE vs WebSockets</h2>
+      <div class="compare-row">
+        <div class="compare-card">
+          <h4>📡 Server-Sent Events (SSE)</h4>
+          <ul>
+            <li>One-way: server → client</li>
+            <li>Built on HTTP — works through proxies</li>
+            <li>Automatic reconnection</li>
+            <li>Simpler to implement</li>
+            <li>Best for: chatbots, document generation</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <h4>🔌 WebSockets</h4>
+          <ul>
+            <li>Bidirectional: full duplex</li>
+            <li>Lower overhead per message</li>
+            <li>Better for interactive, back-and-forth</li>
+            <li>More complex (connection management)</li>
+            <li>Best for: voice interfaces, live collaboration</li>
+          </ul>
+        </div>
+      </div>
+      <p><strong>For most LLM streaming use cases, SSE is the right choice.</strong> It's simpler, works through corporate proxies, and the one-directional constraint fits the request→stream pattern perfectly.</p>
+
+      <h2>Python streaming backend (FastAPI)</h2>
+      <div class="code-block">
+<span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI
+<span class="kw">from</span> fastapi.responses <span class="kw">import</span> StreamingResponse
+<span class="kw">from</span> moltbot <span class="kw">import</span> Client
+
+app = FastAPI()
+client = Client()
+
+<span class="kw">async def</span> token_stream(prompt: str):
+    <span class="kw">async for</span> chunk <span class="kw">in</span> client.stream(prompt):
+        yield <span class="str">f"data: {chunk.text}\n\n"</span>   <span class="cm"># SSE format</span>
+    yield <span class="str">"data: [DONE]\n\n"</span>
+
+@app.get(<span class="str">"/stream"</span>)
+<span class="kw">async def</span> stream(prompt: str):
+    <span class="kw">return</span> StreamingResponse(
+        token_stream(prompt),
+        media_type=<span class="str">"text/event-stream"</span>
+    )
+      </div>
+
+      <h2>React client for streaming</h2>
+      <div class="code-block">
+<span class="kw">const</span> streamResponse = <span class="kw">async</span> (prompt) => {
+  <span class="kw">const</span> response = <span class="kw">await</span> fetch(<span class="str">`/stream?prompt=${prompt}`</span>);
+  <span class="kw">const</span> reader = response.body.getReader();
+  <span class="kw">const</span> decoder = <span class="kw">new</span> TextDecoder();
+
+  <span class="kw">while</span> (<span class="kw">true</span>) {
+    <span class="kw">const</span> { done, value } = <span class="kw">await</span> reader.read();
+    <span class="kw">if</span> (done) <span class="kw">break</span>;
+    <span class="kw">const</span> text = decoder.decode(value).replace(<span class="str">"data: "</span>, <span class="str">""</span>).trim();
+    <span class="kw">if</span> (text === <span class="str">"[DONE]"</span>) <span class="kw">break</span>;
+    setOutput(prev => prev + text);  <span class="cm">// append each token</span>
+  }
+};
+      </div>
+
+      <h2>UX patterns for streaming</h2>
+      <ul>
+        <li><strong>Show a blinking cursor immediately</strong> — users need feedback that the system is working, even before the first token.</li>
+        <li><strong>Render markdown progressively</strong> — avoid layout jumps by rendering completed sentences/paragraphs rather than per-token.</li>
+        <li><strong>Buffer code blocks</strong> — don't render a code block until its closing backtick arrives. Partial syntax highlighting looks broken.</li>
+        <li><strong>Allow interruption</strong> — users should be able to stop generation mid-stream. Implement a cancel button that closes the SSE connection.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Built-in streaming on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">SSE streaming, progressive markdown rendering, and cancel support — zero config. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-ai-observability.html">AI Observability</a>
+        <a href="blog-context-windows.html">Context Windows</a>
+        <a href="blog-llm-routing.html">LLM Routing</a>
+        <a href="blog-prompt-caching.html">Prompt Caching</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Streaming built in</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
