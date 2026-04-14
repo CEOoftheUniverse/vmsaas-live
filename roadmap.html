@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Roadmap — MoltBot Cloud</title>
+  <meta name="description" content="See what's coming next for MoltBot Cloud. Our public product roadmap shows completed features, current work, and upcoming releases.">
+  <meta property="og:title" content="MoltBot Cloud Product Roadmap">
+  <meta property="og:description" content="Public product roadmap — see completed features, current work, and what's next.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/roadmap.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/roadmap.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--y:#eab308;--o:#f97316}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6}
+    a{color:var(--c);text-decoration:none}a:hover{text-decoration:underline}
+
+    nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+    nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+    nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800}
+    nav .brand span{color:var(--a)}
+    nav .links a{color:var(--m);font-size:.875rem;font-weight:500;margin-left:2rem}
+
+    .c{max-width:900px;margin:0 auto;padding:0 2rem}
+    .hero{padding:6rem 0 2rem;text-align:center}
+    h1{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;margin-bottom:.5rem}
+    h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
+    .sub{color:var(--m);font-size:1rem;max-width:520px;margin:0 auto}
+
+    .legend{display:flex;gap:1.5rem;justify-content:center;margin:2rem 0;flex-wrap:wrap}
+    .legend-item{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--m)}
+    .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .dot-done{background:var(--g)}.dot-wip{background:var(--y)}.dot-planned{background:var(--a)}.dot-exploring{background:var(--o)}
+
+    .section{margin-bottom:3rem}
+    .section-header{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+    .section-badge{font-size:.7rem;padding:.2rem .6rem;border-radius:12px;font-weight:600;text-transform:uppercase}
+    .badge-done{background:rgba(34,197,94,.15);color:var(--g)}
+    .badge-wip{background:rgba(234,179,8,.15);color:var(--y)}
+    .badge-planned{background:rgba(99,102,241,.15);color:var(--a)}
+    .badge-exploring{background:rgba(249,115,22,.15);color:var(--o)}
+
+    .items{display:grid;gap:.75rem}
+    .item{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:.8rem;transition:all .2s}
+    .item:hover{border-color:rgba(99,102,241,.2);transform:translateY(-1px)}
+    .item-status{margin-top:.15rem;flex-shrink:0}
+    .item-content{flex:1}
+    .item-title{font-weight:600;font-size:.95rem;margin-bottom:.2rem}
+    .item-desc{color:var(--m);font-size:.82rem}
+    .item-tags{display:flex;gap:.4rem;margin-top:.4rem;flex-wrap:wrap}
+    .item-tag{font-size:.65rem;padding:.1rem .4rem;border-radius:4px;background:rgba(99,102,241,.1);color:var(--a);font-weight:600}
+
+    .vote-cta{background:var(--s);border:1px solid var(--b);border-radius:14px;padding:2rem;text-align:center;margin:2rem 0}
+    .vote-cta h3{font-family:'Outfit',sans-serif;font-size:1.2rem;margin-bottom:.5rem}
+    .vote-cta p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+    .vote-cta a{display:inline-block;background:linear-gradient(135deg,var(--a),var(--c));color:white;padding:.6rem 1.5rem;border-radius:8px;font-weight:700;font-size:.9rem;transition:transform .2s}
+    .vote-cta a:hover{transform:scale(1.05);text-decoration:none}
+
+    footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem;margin-top:2rem}
+    @media(max-width:600px){.legend{gap:1rem}.item{flex-direction:column;gap:.4rem}}
+  </style>
+</head>
+<body>
+<nav><div class="inner"><a href="index.html" class="brand">Molt<span>Bot</span> Cloud</a><div class="links"><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a><a href="changelog.html">Changelog</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
+
+<div class="c">
+<div class="hero">
+  <h1>Product <span class="grad">Roadmap</span></h1>
+  <p class="sub">Transparency is a feature. Here's what we've shipped, what we're building, and where we're heading.</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot dot-done"></div> Shipped</div>
+  <div class="legend-item"><div class="dot dot-wip"></div> In Progress</div>
+  <div class="legend-item"><div class="dot dot-planned"></div> Planned</div>
+  <div class="legend-item"><div class="dot dot-exploring"></div> Exploring</div>
+</div>
+
+<!-- SHIPPED -->
+<div class="section">
+  <div class="section-header">✅ Recently Shipped <span class="section-badge badge-done">Live</span></div>
+  <div class="items">
+    <div class="item">
+      <div class="item-status"><div class="dot dot-done"></div></div>
+      <div class="item-content">
+        <div class="item-title">Multi-Model Arbitrage Router</div>
+        <div class="item-desc">Automatic cost optimization across 10+ LLM providers. Routes to cheapest viable model per request.</div>
+        <div class="item-tags"><span class="item-tag">Core</span><span class="item-tag">Cost Savings</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-done"></div></div>
+      <div class="item-content">
+        <div class="item-title">Persistent Vector Memory (ChromaDB)</div>
+        <div class="item-desc">Agents retain knowledge across sessions using embedded vector storage. Survives reboots.</div>
+        <div class="item-tags"><span class="item-tag">Memory</span><span class="item-tag">Agent Intelligence</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-done"></div></div>
+      <div class="item-content">
+        <div class="item-title">MCP Tool Integration</div>
+        <div class="item-desc">Agents can use external tools (GitHub, file system, search) via Model Context Protocol.</div>
+        <div class="item-tags"><span class="item-tag">Tools</span><span class="item-tag">MCP</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-done"></div></div>
+      <div class="item-content">
+        <div class="item-title">Stripe Billing & Checkout</div>
+        <div class="item-desc">Live payment processing with metered usage tracking and 3-tier pricing (Base/Growth/Scale).</div>
+        <div class="item-tags"><span class="item-tag">Revenue</span><span class="item-tag">Billing</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-done"></div></div>
+      <div class="item-content">
+        <div class="item-title">Copilot Add-on ($50/mo)</div>
+        <div class="item-desc">Premium AI pair programming assistant with priority model routing and extended context.</div>
+        <div class="item-tags"><span class="item-tag">Product</span><span class="item-tag">Revenue</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-done"></div></div>
+      <div class="item-content">
+        <div class="item-title">Affiliate Program (20% Recurring)</div>
+        <div class="item-desc">Referral tracking with tiered commissions, dashboard analytics, and monthly payouts.</div>
+        <div class="item-tags"><span class="item-tag">Growth</span><span class="item-tag">Marketing</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IN PROGRESS -->
+<div class="section">
+  <div class="section-header">🔧 In Progress <span class="section-badge badge-wip">Building</span></div>
+  <div class="items">
+    <div class="item">
+      <div class="item-status"><div class="dot dot-wip"></div></div>
+      <div class="item-content">
+        <div class="item-title">Team Workspaces</div>
+        <div class="item-desc">Shared agent pools, role-based access, and unified billing for teams of 5-50 developers.</div>
+        <div class="item-tags"><span class="item-tag">Enterprise</span><span class="item-tag">Collaboration</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-wip"></div></div>
+      <div class="item-content">
+        <div class="item-title">Agent Observability Dashboard</div>
+        <div class="item-desc">Real-time metrics: token usage, model costs, task completion rates, error traces per agent.</div>
+        <div class="item-tags"><span class="item-tag">Monitoring</span><span class="item-tag">Analytics</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-wip"></div></div>
+      <div class="item-content">
+        <div class="item-title">Webhook Notifications v2</div>
+        <div class="item-desc">Real-time alerts to Slack, Discord, and custom endpoints for agent status changes and failures.</div>
+        <div class="item-tags"><span class="item-tag">Integrations</span><span class="item-tag">Alerts</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PLANNED -->
+<div class="section">
+  <div class="section-header">📋 Planned <span class="section-badge badge-planned">Q2 2026</span></div>
+  <div class="items">
+    <div class="item">
+      <div class="item-status"><div class="dot dot-planned"></div></div>
+      <div class="item-content">
+        <div class="item-title">Custom Agent Templates</div>
+        <div class="item-desc">Pre-built agent configurations for common tasks: code review, testing, documentation, DevOps.</div>
+        <div class="item-tags"><span class="item-tag">Product</span><span class="item-tag">Templates</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-planned"></div></div>
+      <div class="item-content">
+        <div class="item-title">Self-Hosted Option (Docker)</div>
+        <div class="item-desc">Run the entire MoltBot stack on your own infrastructure with a single docker-compose command.</div>
+        <div class="item-tags"><span class="item-tag">Enterprise</span><span class="item-tag">Self-Hosted</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-planned"></div></div>
+      <div class="item-content">
+        <div class="item-title">GitHub App Integration</div>
+        <div class="item-desc">Install MoltBot directly into your GitHub org. Auto-assign agents to PRs based on labels.</div>
+        <div class="item-tags"><span class="item-tag">Integration</span><span class="item-tag">GitHub</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-planned"></div></div>
+      <div class="item-content">
+        <div class="item-title">SOC 2 Type II Certification</div>
+        <div class="item-desc">Enterprise-grade security compliance for regulated industries and large organizations.</div>
+        <div class="item-tags"><span class="item-tag">Security</span><span class="item-tag">Compliance</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPLORING -->
+<div class="section">
+  <div class="section-header">🔬 Exploring <span class="section-badge badge-exploring">Research</span></div>
+  <div class="items">
+    <div class="item">
+      <div class="item-status"><div class="dot dot-exploring"></div></div>
+      <div class="item-content">
+        <div class="item-title">Orangerie Biodiversity Compute</div>
+        <div class="item-desc">GPU waste heat cascade powering vertical farms. AI-optimized growing with Nemotron Ultra + Isaac Sim.</div>
+        <div class="item-tags"><span class="item-tag">Vision</span><span class="item-tag">Sustainability</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-exploring"></div></div>
+      <div class="item-content">
+        <div class="item-title">Multi-Agent Marketplace</div>
+        <div class="item-desc">Community-built agents that anyone can publish and monetize. Revenue sharing for creators.</div>
+        <div class="item-tags"><span class="item-tag">Platform</span><span class="item-tag">Community</span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-status"><div class="dot dot-exploring"></div></div>
+      <div class="item-content">
+        <div class="item-title">Voice-Controlled Agent Orchestration</div>
+        <div class="item-desc">Natural language voice commands to deploy, monitor, and manage agent swarms hands-free.</div>
+        <div class="item-tags"><span class="item-tag">Voice</span><span class="item-tag">UX</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vote-cta">
+  <h3>Want to influence what we build next?</h3>
+  <p>Join our community and vote on features. Paying customers get priority input.</p>
+  <a href="signup.html">Get Started Free →</a>
+</div>
+</div>
+
+<footer><div class="c">
+  © 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="changelog.html" style="color:var(--a)">Changelog</a> · <a href="terms.html" style="color:var(--a)">Terms</a> · <a href="privacy.html" style="color:var(--a)">Privacy</a>
+</div></footer>
+
+<script>
+fetch('https://moltbot-cloud-saas.vercel.app/api/analytics/event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'page_view',page:'/roadmap.html',ts:Date.now()})}).catch(()=>{});
+</script>
+</body>
+</html>
