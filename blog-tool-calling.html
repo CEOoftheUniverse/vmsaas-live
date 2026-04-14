@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool Calling in LLMs: How AI Agents Use Tools (and When They Shouldn't) | MoltBot Blog</title>
+  <meta name="description" content="Tool calling lets AI agents take actions: search the web, query databases, execute code, send messages. Here's how it works technically, best practices for tool design, and the most common mistakes.">
+  <meta name="keywords" content="LLM tool calling, function calling AI, AI agent tools, LLM function calling best practices, AI agent tool use, tool use Claude GPT">
+  <meta property="og:title" content="Tool Calling in LLMs: How AI Agents Use Tools">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-tool-calling.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-tool-calling.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.15rem;margin:1.75rem 0 .5rem;color:#e2e8f0}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .tip-box{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.25rem 0}
+    .tip-box strong{color:#4ade80}
+    .tip-box p{margin:0;color:#94a3b8;font-size:.9rem}
+    .warn-box{background:rgba(251,146,60,.05);border:1px solid rgba(251,146,60,.15);border-radius:12px;padding:1.25rem;margin:1.25rem 0}
+    .warn-box strong{color:#fb923c}
+    .warn-box p{margin:0;color:#94a3b8;font-size:.9rem}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Tool Use</span><span class="tag">Architecture</span><span class="tag">Fundamentals</span></div>
+    <h1>Tool Calling in LLMs: How AI Agents Use Tools (and When They Shouldn't)</h1>
+    <p class="lead">Without tool calling, LLMs are read-only oracles — they answer from training data. With tool calling, they become agents that take actions in the world. Here's exactly how it works, and how to design tools your agents will use correctly.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+
+      <h2>How tool calling works</h2>
+      <p>When a model supports tool calling (also called function calling), you can provide a list of tool definitions alongside the user's message. The model reads the tool schemas and decides whether to respond directly or invoke one or more tools. If it decides to call a tool, it outputs a structured tool call object instead of (or before) its text response.</p>
+      <p>Your application receives the tool call, executes the actual function, and returns the result to the model. The model then uses that result to continue reasoning and produce its final response. This loop — user message → tool call → tool result → final response — is the foundation of every AI agent.</p>
+
+      <h2>Tool definition example</h2>
+      <div class="code-block">
+<span class="cm"># Define a tool the agent can use</span>
+tools = [
+  {
+    <span class="str">"name"</span>: <span class="str">"search_database"</span>,
+    <span class="str">"description"</span>: <span class="str">"Search the customer database by company name or email. Returns contact info and account status."</span>,
+    <span class="str">"input_schema"</span>: {
+      <span class="str">"type"</span>: <span class="str">"object"</span>,
+      <span class="str">"properties"</span>: {
+        <span class="str">"query"</span>: {
+          <span class="str">"type"</span>: <span class="str">"string"</span>,
+          <span class="str">"description"</span>: <span class="str">"Company name, domain, or email address to search for"</span>
+        },
+        <span class="str">"limit"</span>: {<span class="str">"type"</span>: <span class="str">"integer"</span>, <span class="str">"default"</span>: 5}
+      },
+      <span class="str">"required"</span>: [<span class="str">"query"</span>]
+    }
+  }
+]
+<span class="cm"># The description is the most important field — models</span>
+<span class="cm"># use it to decide when and how to call the tool</span>
+      </div>
+
+      <h2>The most important field: description</h2>
+      <p>Models don't read code — they read descriptions. A tool with a vague or misleading description will be called incorrectly, called too often, or ignored entirely. Write descriptions as if explaining to a smart intern: what does this tool do, when should you use it, and what does it return?</p>
+
+      <div class="tip-box"><strong>✓ Good description:</strong><p>"Search the customer database by company name or email. Use this when you need to look up an existing customer's account status, contact info, or subscription tier. Returns up to 5 matching records ordered by relevance."</p></div>
+      <div class="warn-box"><strong>✗ Bad description:</strong><p>"Searches database." — Too vague. The model doesn't know when to use it or what it returns.</p></div>
+
+      <h2>Common tool design mistakes</h2>
+      <ul>
+        <li><strong>Too many tools:</strong> Providing 30+ tools forces the model to reason about which one to use — it will make mistakes. Keep your tool set focused; 5–15 tools is usually optimal.</li>
+        <li><strong>Overlapping tool purposes:</strong> Two tools that can both accomplish the same thing will cause the model to pick unpredictably. Differentiate clearly in descriptions.</li>
+        <li><strong>Required parameters that could be optional:</strong> If the model has to call a tool but can't provide a required parameter, it will either fail or hallucinate a value. Make parameters optional when possible.</li>
+        <li><strong>Tools with side effects and no confirmation:</strong> Write operations (send email, delete record, post to API) should either require a confirmation parameter or be gated behind human-in-the-loop approval for high-stakes actions.</li>
+        <li><strong>Returning too much data:</strong> A tool that returns 100KB of JSON will consume your entire context window. Filter, summarize, or paginate tool outputs before returning them to the model.</li>
+      </ul>
+
+      <h2>Parallel vs sequential tool calls</h2>
+      <p>Modern frontier models (Claude Opus 4, GPT-5) support parallel tool calling: they can invoke multiple tools simultaneously in a single response. This dramatically reduces latency for tasks that require multiple independent lookups. However, tools with sequential dependencies must be called in order — the model handles this correctly when tool descriptions make dependencies explicit.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Build tool-enabled agents on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Native tool registry, parallel execution, human-in-the-loop controls. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-security.html">Agent Security</a>
+        <a href="blog-multiagent-systems.html">Multi-Agent Systems</a>
+        <a href="blog-agent-observability.html">Agent Observability</a>
+        <a href="blog-prompt-engineering.html">Prompt Engineering 2026</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Build tool-enabled agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
