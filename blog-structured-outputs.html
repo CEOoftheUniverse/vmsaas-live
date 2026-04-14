@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structured Outputs: How to Get Reliable JSON from LLMs | MoltBot Blog</title>
+  <meta name="description" content="Getting LLMs to output valid, schema-compliant JSON is harder than it looks. Here are the techniques that actually work in production: constrained generation, JSON mode, validation loops, and schema design tips.">
+  <meta name="keywords" content="LLM structured output, JSON mode LLM, constrained generation LLM, Pydantic LLM output, reliable JSON from GPT, LLM function calling JSON, structured data extraction LLM">
+  <meta property="og:title" content="Structured Outputs: How to Get Reliable JSON from LLMs">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-structured-outputs.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-structured-outputs.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.15rem;margin:1.75rem 0 .5rem;color:#e2e8f0}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .method-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.5rem;margin:1rem 0}
+    .method-card h3{margin:0 0 .5rem;font-size:1rem}
+    .method-card p{margin:0;color:#94a3b8;font-size:.88rem;line-height:1.7}
+    .method-card .when{margin-top:.75rem;font-size:.78rem;color:#818cf8;background:rgba(99,102,241,.08);padding:.3rem .65rem;border-radius:6px;display:inline-block}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 7 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Structured Outputs</span><span class="tag">JSON</span><span class="tag">Fundamentals</span></div>
+    <h1>Structured Outputs: How to Get Reliable JSON from LLMs</h1>
+    <p class="lead">Unstructured text is fine for a chatbot. For agents that need to feed data into downstream systems, you need reliable, schema-compliant JSON — every time, not 95% of the time. Here are the techniques that actually deliver.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Every agent developer eventually runs into the "almost valid JSON" problem: the model outputs JSON that's 99% correct but missing a closing bracket, or uses a different field name than you specified, or wraps the JSON in a markdown code block. Here's how to make structured output reliable enough for production.</p>
+
+      <h2>The 4 approaches, from weakest to strongest</h2>
+
+      <div class="method-card">
+        <h3>1. Prompt-only ("please output JSON")</h3>
+        <p>Ask the model to output JSON in the prompt. Works most of the time with frontier models, fails unpredictably in edge cases. Acceptable for low-stakes prototyping, not for production.</p>
+        <div class="when">Use when: rapid prototyping, non-critical outputs</div>
+      </div>
+
+      <div class="method-card">
+        <h3>2. JSON mode</h3>
+        <p>Most frontier models support a JSON mode flag that guarantees the output is parseable JSON. It does NOT guarantee adherence to your specific schema — just valid JSON syntax. A significant improvement over prompt-only.</p>
+        <div class="when">Use when: you need valid JSON but can tolerate schema variation</div>
+      </div>
+
+      <div class="method-card">
+        <h3>3. Structured outputs with schema (recommended)</h3>
+        <p>OpenAI, Anthropic, and Google all support passing a JSON Schema alongside your prompt. The model is constrained to output JSON matching that schema exactly. Field names, types, and required fields are enforced at the model level.</p>
+        <div class="when">Use when: production agents that feed structured data downstream</div>
+      </div>
+
+      <div class="method-card">
+        <h3>4. Constrained decoding (logit masking)</h3>
+        <p>At the token generation level, only tokens consistent with the schema are allowed. Guarantees schema compliance even for models that don't natively support structured outputs. Used in Outlines, llama.cpp grammar mode, and similar tools.</p>
+        <div class="when">Use when: open-weight models or zero-tolerance schema compliance</div>
+      </div>
+
+      <h2>Structured output with Pydantic + MoltBot</h2>
+      <div class="code-block">
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+<span class="kw">from</span> moltbot <span class="kw">import</span> Agent
+<span class="kw">from</span> typing <span class="kw">import</span> List, Optional
+
+<span class="kw">class</span> ExtractedContact(BaseModel):
+    name: str
+    email: Optional[str]
+    company: str
+    role: Optional[str]
+    confidence: float  <span class="cm"># 0.0–1.0</span>
+
+agent = Agent(model=<span class="str">"claude-opus-4"</span>)
+
+result = agent.run(
+    prompt=<span class="str">"Extract contact info from this email thread..."</span>,
+    output_schema=ExtractedContact  <span class="cm"># MoltBot enforces schema</span>
+)
+
+<span class="cm"># result is a validated ExtractedContact instance — guaranteed</span>
+print(result.name)   <span class="cm"># str, always present</span>
+print(result.email)  <span class="cm"># Optional[str], None if not found</span>
+      </div>
+
+      <h2>Schema design tips for reliable outputs</h2>
+      <ul>
+        <li><strong>Prefer Optional fields over required when uncertain:</strong> A required field the model can't find will either be hallucinated or cause a failure. Use Optional and handle None in downstream code.</li>
+        <li><strong>Use enums for categorical fields:</strong> Instead of <code>status: str</code>, use <code>status: Literal["active", "inactive", "pending"]</code>. Dramatically reduces hallucinated values.</li>
+        <li><strong>Add descriptions to fields:</strong> Pydantic's Field(description="...") gives the model context for ambiguous fields. A field named "confidence" without a description will be interpreted differently by different models.</li>
+        <li><strong>Keep schemas flat when possible:</strong> Deeply nested schemas (3+ levels) increase error rates. If you need complex structure, consider multiple chained extractions.</li>
+        <li><strong>Always validate and handle errors:</strong> Even with constrained generation, implement a try/catch + retry loop. Budget for 1–2% failure rate in high-volume pipelines.</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Native structured outputs on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Pydantic schema enforcement, automatic retry on validation failure. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-tool-calling.html">Tool Calling in LLMs</a>
+        <a href="blog-fine-tuning-vs-prompting.html">Fine-Tuning vs Prompting</a>
+        <a href="blog-prompt-engineering.html">Prompt Engineering 2026</a>
+        <a href="blog-agent-security.html">Agent Security</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Build reliable agents</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
