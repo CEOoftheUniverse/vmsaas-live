@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Agent Systems: How to Orchestrate Teams of AI Agents | MoltBot Blog</title>
+  <meta name="description" content="Multi-agent systems let you decompose complex tasks across specialized AI agents working in parallel or sequence. Learn the patterns: orchestrator-worker, pipeline, debate, and hierarchical agent teams.">
+  <meta name="keywords" content="multi-agent systems, AI agent orchestration, agent teams, orchestrator agent, LLM multi-agent, AI agent collaboration, agent swarms 2026">
+  <meta property="og:title" content="Multi-Agent Systems: How to Orchestrate Teams of AI Agents">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-multiagent-systems.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-multiagent-systems.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content h3{font-size:1.2rem;margin:2rem 0 .6rem;color:#e2e8f0}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .pattern-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;padding:1.75rem;margin:1.5rem 0}
+    .pattern-card h3{margin:0 0 .5rem;font-size:1.1rem}
+    .pattern-card p{margin:0;color:#94a3b8;font-size:.9rem}
+    .pattern-card .use-case{margin-top:1rem;font-size:.82rem;color:#818cf8;background:rgba(79,70,229,.08);padding:.4rem .75rem;border-radius:6px;display:inline-block}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}
+    .code-block .str{color:#86efac}
+    .code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr} .blog-sidebar{display:none} .blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 11 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Multi-Agent</span><span class="tag">Architecture</span><span class="tag">Advanced</span></div>
+    <h1>Multi-Agent Systems: How to Orchestrate Teams of AI Agents</h1>
+    <p class="lead">A single agent can solve a lot. But the hardest problems — the ones with multiple sub-tasks, competing constraints, and validation requirements — are better handled by organized teams of specialized agents. Here's how to design them.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Multi-agent systems decompose complex tasks across multiple specialized agents, each optimized for a sub-problem. This mirrors how human organizations work: different specialists, coordinated by a manager, each doing what they're best at. The result is higher quality, greater speed through parallelism, and lower cost through model specialization.</p>
+
+      <h2>Core multi-agent patterns</h2>
+
+      <div class="pattern-card">
+        <h3>1. Orchestrator–Worker</h3>
+        <p>A central orchestrator agent breaks down the task, delegates sub-tasks to specialized worker agents, and synthesizes their outputs into a final result. Workers don't know about each other — only the orchestrator does coordination.</p>
+        <div class="use-case">Best for: research pipelines, report generation, software feature implementation</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>2. Sequential Pipeline</h3>
+        <p>Agents are arranged in a chain: each agent consumes the output of the previous one and passes its result forward. Optimized for workflows with clear stage dependencies: extract → transform → validate → format.</p>
+        <div class="use-case">Best for: document processing, ETL workflows, content generation with editing passes</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>3. Parallel Fan-Out/Fan-In</h3>
+        <p>An orchestrator fans tasks out to multiple agents running in parallel, then fan-in collects and merges their results. Dramatically reduces wall-clock time for tasks that can be parallelized.</p>
+        <div class="use-case">Best for: competitive analysis, multi-source research, batch processing</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>4. Debate / Critic-Actor</h3>
+        <p>One agent generates a response (actor); another critiques it (critic). The actor refines based on critique, iterating until the critic approves or a max round limit is hit. Improves output quality significantly on high-stakes tasks.</p>
+        <div class="use-case">Best for: contract review, code security audit, medical documentation</div>
+      </div>
+
+      <div class="pattern-card">
+        <h3>5. Hierarchical Agent Tree</h3>
+        <p>Nested orchestration with multiple levels. A top-level orchestrator manages sub-orchestrators, each managing their own worker teams. Scales to very large, complex tasks with many concurrent sub-problems.</p>
+        <div class="use-case">Best for: full product development, large-scale data analysis, complex research projects</div>
+      </div>
+
+      <h2>Implementation example: Orchestrator–Worker in MoltBot</h2>
+      <div class="code-block">
+<span class="cm"># Define specialized agents</span>
+research_agent = Agent(
+    name=<span class="str">"researcher"</span>,
+    model=<span class="str">"claude-opus-4"</span>,
+    tools=[<span class="str">"web_search"</span>, <span class="str">"read_url"</span>]
+)
+
+writer_agent = Agent(
+    name=<span class="str">"writer"</span>,
+    model=<span class="str">"claude-sonnet-4"</span>,  <span class="cm"># cheaper for generation</span>
+    tools=[<span class="str">"code_exec"</span>]
+)
+
+reviewer_agent = Agent(
+    name=<span class="str">"reviewer"</span>,
+    model=<span class="str">"gpt-5"</span>,
+    tools=[]  <span class="cm"># review only, no tools needed</span>
+)
+
+<span class="cm"># Orchestrator coordinates the team</span>
+orchestrator = Orchestrator(
+    agents=[research_agent, writer_agent, reviewer_agent],
+    strategy=<span class="str">"sequential"</span>
+)
+
+result = orchestrator.run(task=<span class="str">"Write a technical blog post about feature flags"</span>)
+      </div>
+
+      <h2>Key design decisions</h2>
+
+      <h3>Model selection per agent role</h3>
+      <p>Not every agent needs the most expensive model. Orchestrators benefit from Claude Opus 4 or GPT-5 for their reasoning quality. Workers doing retrieval, formatting, or simple extraction can use Gemini Flash or Claude Haiku at a fraction of the cost. This model-tier matching is one of the most impactful cost optimizations in multi-agent systems.</p>
+
+      <h3>Context passing between agents</h3>
+      <p>How you pass context between agents significantly affects quality. Three approaches:</p>
+      <ul>
+        <li><strong>Full transcript pass:</strong> Each agent sees the complete output of previous agents. High quality, high token cost.</li>
+        <li><strong>Summary pass:</strong> A compression agent summarizes previous outputs before passing forward. Good balance of cost and quality.</li>
+        <li><strong>Structured output pass:</strong> Agents produce JSON/typed outputs that downstream agents consume structurally. Best for pipelines with clear schemas.</li>
+      </ul>
+
+      <h3>When to stop iterating</h3>
+      <p>Critic-actor loops need stopping conditions to avoid infinite refinement. Common strategies: max rounds (typically 3–5), quality score threshold from a judge agent, or consensus between multiple critic agents. Build in hard limits — unbounded loops are expensive.</p>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Build multi-agent systems on MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Native orchestration, parallel agent execution, configurable model routing. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-ai-agent-vs-rpa.html">AI Agents vs RPA</a>
+        <a href="blog-prompt-engineering.html">Prompt Engineering 2026</a>
+        <a href="blog-llm-benchmark-2026.html">LLM Benchmark 2026</a>
+        <a href="blog-pr-review-agent.html">Build a PR Review Agent</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Deploy multi-agent teams</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
