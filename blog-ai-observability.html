@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Observability: How to Monitor LLM Apps in Production | MoltBot Blog</title>
+  <meta name="description" content="Monitoring LLM apps in production goes beyond uptime checks. Learn the 5 key metrics, tracing strategies, drift detection, and how to build an AI observability stack for reliable agents.">
+  <meta name="keywords" content="AI observability, LLM monitoring production, LLM tracing, AI agent monitoring, LLM drift detection, LLM latency cost monitoring, AI reliability production, LLMOps observability">
+  <meta property="og:title" content="AI Observability: How to Monitor LLM Apps in Production">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-observability.html">
+  <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-observability.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-hero{padding:8rem 10% 4rem;max-width:860px}
+    .blog-meta{color:#64748b;font-size:.9rem;margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap}
+    .blog-hero h1{font-size:2.5rem;line-height:1.15;margin-bottom:1.5rem}
+    .blog-hero .lead{font-size:1.1rem;color:#94a3b8;line-height:1.9}
+    .tag{background:rgba(79,70,229,.15);color:#818cf8;padding:.2rem .6rem;border-radius:20px;font-size:.75rem;margin-right:.5rem}
+    .blog-body{display:grid;grid-template-columns:1fr 280px;gap:4rem;padding:3rem 10% 6rem}
+    .blog-content h2{font-size:1.7rem;margin:3rem 0 1rem}
+    .blog-content p{color:#94a3b8;line-height:1.9;margin-bottom:1.25rem}
+    .blog-content ul{color:#94a3b8;padding-left:1.5rem;margin-bottom:1.25rem;line-height:2}
+    .metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+    .metric-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.25rem;border-left:3px solid #6366f1}
+    .metric-card h4{margin:0 0 .35rem;font-size:.95rem}
+    .metric-card p{margin:0;font-size:.82rem;color:#64748b;line-height:1.5}
+    .code-block{background:#0d1117;border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.25rem;font-size:.82rem;font-family:'Courier New',monospace;color:#94a3b8;overflow-x:auto;margin:1rem 0;line-height:1.7}
+    .code-block .kw{color:#f472b6}.code-block .str{color:#86efac}.code-block .cm{color:#475569}
+    .blog-sidebar{position:sticky;top:90px;height:fit-content}
+    .sidebar-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .sidebar-card h3{font-size:1rem;margin-bottom:1rem}
+    .sidebar-card a{display:block;color:#94a3b8;text-decoration:none;font-size:.9rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    @media(max-width:768px){.blog-body{grid-template-columns:1fr}.blog-sidebar{display:none}.blog-hero h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <nav class="glass-nav">
+    <div class="logo">Molt<span>Bot</span></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="docs.html">Docs</a>
+      <a href="signup.html" class="btn-primary">Get Started</a>
+    </div>
+  </nav>
+
+  <div class="blog-hero">
+    <div class="blog-meta"><span>📅 April 14, 2026</span><span>⏱ 8 min read</span><span>✍️ MoltBot Engineering</span></div>
+    <div><span class="tag">Observability</span><span class="tag">LLMOps</span><span class="tag">Production</span></div>
+    <h1>AI Observability: How to Monitor LLM Apps in Production</h1>
+    <p class="lead">You can't debug what you can't see. LLM apps in production require a different observability approach than traditional software — here are the 5 key metrics, tracing strategies, and drift detection techniques every AI team needs.</p>
+  </div>
+
+  <div class="blog-body">
+    <article class="blog-content">
+      <p>Traditional application monitoring — CPU, memory, request latency, error rate — is necessary but not sufficient for LLM apps. A model can return a 200 OK in 800ms while producing completely wrong output. AI observability means monitoring what the model actually does, not just whether it responded.</p>
+
+      <h2>The 5 key metrics for LLM production monitoring</h2>
+      <div class="metric-grid">
+        <div class="metric-card"><h4>📊 Output quality score</h4><p>Automated evaluation of response quality using LLM-as-judge or golden dataset comparison. The most important metric, and the hardest to get right.</p></div>
+        <div class="metric-card"><h4>⏱ Time-to-first-token (TTFT)</h4><p>User-perceived latency for streaming responses. Track p50, p95, p99 — tail latency on LLMs is much worse than traditional APIs.</p></div>
+        <div class="metric-card"><h4>💰 Cost per request</h4><p>Input tokens + cached tokens + output tokens × price. Broken down by model, endpoint, and user segment. Catches cost regressions before they hit your bill.</p></div>
+        <div class="metric-card"><h4>🎯 Task completion rate</h4><p>For agentic workflows: % of tasks completed without human intervention or fallback. Drops indicate model degradation or prompt drift.</p></div>
+        <div class="metric-card"><h4>🔄 Retry and fallback rate</h4><p>% of requests that hit an error, exceeded context, or triggered a fallback to a backup model. Rising rate = something is wrong upstream.</p></div>
+      </div>
+
+      <h2>Distributed tracing for agents</h2>
+      <p>A single user request to an AI agent may involve dozens of LLM calls, tool invocations, and database queries. Without distributed tracing, debugging failures is nearly impossible. Every span should capture: model, prompt hash, token counts, latency, cost, and output quality score.</p>
+      <div class="code-block">
+<span class="kw">from</span> moltbot.observability <span class="kw">import</span> trace
+
+<span class="kw">with</span> trace(<span class="str">"research_agent"</span>, user_id=user_id, session_id=session_id) <span class="kw">as</span> t:
+    <span class="cm"># Every LLM call inside this context is automatically traced</span>
+    plan = planner.run(goal)         <span class="cm"># span: planner, tokens, cost</span>
+    results = executor.run(plan)     <span class="cm"># span: executor steps + tools</span>
+    report = writer.run(results)     <span class="cm"># span: writer, quality score</span>
+
+<span class="cm"># t.spans → full trace with cost breakdown and quality scores</span>
+<span class="cm"># Automatically sent to MoltBot observability dashboard</span>
+      </div>
+
+      <h2>Detecting prompt drift</h2>
+      <p>Prompt drift happens when model behavior changes without any code change — due to model updates, input distribution shifts, or gradual prompt degradation. Detect it by:</p>
+      <ul>
+        <li><strong>Golden dataset regression tests:</strong> Run a fixed set of test cases on every deployment. Alert if quality score drops more than 5%.</li>
+        <li><strong>Output distribution monitoring:</strong> Track distributions of output length, format compliance, and sentiment. Sudden shifts indicate drift.</li>
+        <li><strong>User feedback signals:</strong> Thumbs up/down, edit rates, and re-ask rates are the ground truth signal for quality degradation.</li>
+        <li><strong>A/B evaluation:</strong> When rolling out a new prompt version, shadow-test against the old version and compare quality scores before full rollout.</li>
+      </ul>
+
+      <h2>Observability stack recommendations</h2>
+      <ul>
+        <li><strong>Tracing:</strong> OpenTelemetry + MoltBot SDK (automatic LLM span instrumentation)</li>
+        <li><strong>Metrics:</strong> Prometheus + Grafana or MoltBot built-in dashboards</li>
+        <li><strong>Quality evaluation:</strong> MoltBot eval suite (LLM-as-judge + golden dataset)</li>
+        <li><strong>Alerts:</strong> PagerDuty or OpsGenie on quality score drops, cost spikes, and error rate thresholds</li>
+      </ul>
+
+      <div style="margin-top:2.5rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
+        <h3 style="margin:0 0 .5rem">Full AI observability built into MoltBot</h3>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">Automatic tracing, cost per request, quality scoring, drift alerts. Zero config. 14-day free trial.</p>
+        <a href="signup.html" class="btn-primary">Start Free Trial →</a>
+      </div>
+    </article>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-card">
+        <h3>Related Posts</h3>
+        <a href="blog-agent-evaluation.html">Agent Evaluation</a>
+        <a href="blog-llm-routing.html">LLM Routing</a>
+        <a href="blog-prompt-caching.html">Prompt Caching</a>
+        <a href="blog-reduce-ai-costs.html">Reduce AI Costs 90%</a>
+      </div>
+      <div class="sidebar-card" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.2);text-align:center">
+        <h3 style="font-size:.95rem">Monitor your AI in production</h3>
+        <p style="color:#94a3b8;font-size:.85rem;margin:.5rem 0 1rem">14-day free trial. No credit card.</p>
+        <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Get Started →</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
+    <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a></p>
+  </footer>
+</body>
+</html>
