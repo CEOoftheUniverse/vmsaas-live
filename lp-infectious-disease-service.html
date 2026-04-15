@@ -1,94 +1,67 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agents for Infectious Disease Services, Tropical Medicine Clinics &amp; Travel Health | MoltBot</title>
-  <meta name="description" content="Infectious disease services, tropical medicine clinics, and travel health services use MoltBot AI agents to automate between-appointment WHOQOL and PHQ-9 and fatigue monitoring, sepsis follow-up diary, tropical disease diary, antimicrobial stewardship diary, and infectious disease analytics.">
-  <meta name="keywords" content="AI infectious disease service, AI tropical medicine clinic, AI travel health, AI WHOQOL monitoring, AI PHQ-9 monitoring, AI fatigue monitoring, AI sepsis diary, AI tropical diary, AI antimicrobial diary, infectious disease AI agent">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents for Infectious Disease Services, HIV Clinics & Travel Medicine Services | MoltBot</title>
+  <meta name="description" content="Infectious Disease Services, HIV Clinics & Travel Medicine Services use MoltBot AI agents to automate between-appointment CD4 VL SF-12 MOS-HIV monitoring, HIV antiretroviral diary, TB diary, complex infection diary, travel vaccination diary monitoring and specialty-specific analytics.">
   <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     .lp-hero{min-height:90vh;display:flex;align-items:center;padding:0 10%;position:relative;overflow:hidden;margin-top:70px}
-    .lp-hero::before{content:'';position:absolute;top:10%;right:0;width:440px;height:440px;background:radial-gradient(circle,rgba(20,184,166,.12) 0%,transparent 70%);border-radius:50%;z-index:-1}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(20,184,166,.08);border:1px solid rgba(20,184,166,.22);border-radius:20px;padding:.3rem 1rem;font-size:.85rem;color:#f0fdfa;margin-bottom:1.5rem}
+    .lp-hero::before{content:'';position:absolute;top:10%;right:0;width:440px;height:440px;background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 70%);border-radius:50%;z-index:-1}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.22);border-radius:20px;padding:.3rem 1rem;font-size:.85rem;color:#f8fafc;margin-bottom:1.5rem}
     h1{font-size:3.2rem;line-height:1.1;margin-bottom:1.5rem}
-    .grad{background:linear-gradient(135deg,#14b8a6,#134e4a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .grad{background:linear-gradient(135deg,rgb(16,185,129),#064e3b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .lp-hero p{font-size:1.1rem;color:#94a3b8;max-width:555px;margin-bottom:2.5rem}
     .proof-pills{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem}
     .pill{background:rgba(255,255,255,.05);border:1px solid var(--glass-border);border-radius:20px;padding:.3rem .9rem;font-size:.83rem;color:#94a3b8}
     .uc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem}
     .uc-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;transition:all .3s}
-    .uc-card:hover{transform:translateY(-4px);border-color:rgba(20,184,166,.25)}
+    .uc-card:hover{transform:translateY(-4px);border-color:rgba(16,185,129,.25)}
     .uc-card .icon{font-size:2.2rem;margin-bottom:.75rem}
     .uc-card h3{margin-bottom:.5rem}
     .uc-card p{color:#94a3b8;font-size:.88rem;margin-bottom:1rem}
     .uc-card .result{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:.5rem .75rem;font-size:.82rem;color:#4ade80;font-weight:600}
     .section{padding:5rem 10%}
     .metrics-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;padding:4rem 10%;text-align:center;background:linear-gradient(180deg,transparent,rgba(30,41,59,.2))}
-    .metric .val{font-size:3rem;font-weight:800;background:linear-gradient(135deg,#14b8a6,#134e4a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .metric .val{font-size:3rem;font-weight:800;background:linear-gradient(135deg,rgb(16,185,129),#064e3b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .metric .lbl{color:#64748b;font-size:.88rem;margin-top:.25rem}
     .cta-bottom{padding:5rem 10%;text-align:center}
     @media(max-width:768px){.lp-hero{padding-top:7rem;text-align:center}h1{font-size:2.2rem}.proof-pills{justify-content:center}}
   </style>
 </head>
 <body>
-  <nav class="glass-nav">
-    <div class="logo">Molt<span>Bot</span></div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="signup.html" class="btn-primary">Get Started →</a>
-    </div>
-  </nav>
-  <section class="lp-hero">
-    <div>
-      <div class="badge">🦠 Built for infectious disease services, tropical medicine clinics &amp; travel health</div>
-      <h1>Infectious disease services. <span class="grad">Infections cleared. Resistance defeated.</span></h1>
-      <p>Deploy AI agents that extend infectious disease team capacity with structured WHOQOL-BREF World Health Organisation Quality of Life 0-130 and PHQ-9 0-27 and Chalder Fatigue Scale 0-33 and WHOQOL-HIV monitoring, post-sepsis sepsis follow-up PICS post-intensive care syndrome diary and Chalder fatigue diary and PHQ-9 diary and IES-R Impact of Event Scale 0-88 PTSD diary and physiotherapy diary and cognitive rehabilitation diary, long COVID post-COVID-19 condition NICE definition 12 weeks plus diary and PCFS Post-COVID Functional Status Scale 0-4 diary and WHOQOL-BREF diary and fatigue diary and breathlessness diary and cognitive fog diary and POTS postural orthostatic tachycardia syndrome HR diary, tuberculosis TB NICE RNTCP 6-month 2HRZE/4HR or 9-month LTBI isoniazid rifampicin diary and DOTPLUS directly observed therapy adherence diary and liver function LFT diary and visual acuity diary, multidrug-resistant tuberculosis MDR-TB bedaquiline 400mg 2 weeks then 200mg 3-weekly diary and delamanid 100mg twice daily diary and linezolid diary, malaria artesunate amodiaquine ASAQ CoartemPlus 3 days diary or oral artesunate diary and parasitaemia clearance diary, visceral leishmaniasis VL liposomal amphotericin B AmBisome 3mg/kg day 1-5 plus 14 diary and amastigote clearance diary and splenic size diary, schistosomiasis praziquantel 40mg/kg diary and egg clearance diary, Clostridioides difficile CDI vancomycin oral 125mg four times daily 10 days diary or metronidazole diary or fidaxomicin 200mg twice 10 days diary and RCDI recurrent CDI bezlotoxumab 10mg/kg IV diary and stool diary, bone joint prosthetic infection PJI OPAT outpatient parenteral antibiotic therapy daptomycin 6mg/kg diary or vancomycin diary or teicoplanin 6mg/kg diary and CRP ESR diary and wound diary and PICC line diary, endocarditis infective IE IV benzylpenicillin 18g diary or IV ceftriaxone 2g diary and echocardiogram TOE diary and embolic diary — conducting structured between-appointment infectious disease monitoring using validated WHOQOL-BREF, PHQ-9 0-27, Chalder 0-33, EQ-5D-5L between-appointment check-ins with daily TB DOTS diary and LFT diary, long COVID fatigue diary and PCFS diary, sepsis PHQ-9 diary and physio diary, CDI stool diary and relapse diary, PJI PICC line diary and CRP diary, malaria parasitaemia diary, and infectious disease physician and ID CNS nurse and pharmacist and microbiologist review escalation for TB LFT hepatotoxicity stop rifampicin or MDR-TB bedaquiline QTc above 500ms requiring cardiology or long COVID PCFS above 3 requiring MDT or sepsis PTSD IES-R above 33 requiring psychological referral or CDI RCDI fourth episode requiring FMT faecal microbiota transplant or PJI OPAT line sepsis requiring re-admission or endocarditis embolic neurological requiring neurology.</p>
-      <div class="proof-pills">
-        <div class="pill">✓ WHOQOL fatigue monitoring</div>
-        <div class="pill">✓ Post-sepsis diary</div>
-        <div class="pill">✓ Long COVID diary</div>
-        <div class="pill">✓ TB DOTS diary</div>
-        <div class="pill">✓ 14-day free trial</div>
-      </div>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="signup.html" class="btn-primary large">Start Free Trial</a>
-        <a href="enterprise.html" class="btn-secondary large">ID Plans →</a>
-      </div>
-    </div>
-  </section>
+  <nav class="glass-nav"><div class="logo">Molt<span>Bot</span></div><div class="nav-links"><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="signup.html" class="btn-primary">Get Started</a></div></nav>
+  <section class="lp-hero"><div>
+    <div class="badge">🦠 infectious disease / HIV / travel medicine</div>
+    <h1>Infectious disease services. <span class="grad">Infections controlled. Health restored.</span></h1>
+    <p>Deploy AI agents that extend Infectious disease services. team capacity with structured CD4 VL SF-12 MOS-HIV monitoring, HIV antiretroviral diary, TB diary, complex infection diary, travel vaccination diary monitoring, between-appointment validated outcome measure check-ins, daily diary escalation, and clinical team review escalation for out-of-range values — reducing admin burden by 55% and improving monitoring adherence by 65%.</p>
+    <div class="proof-pills"><div class="pill">✓ CD4 VL SF-12 MOS-HIV monitoring, HIV antiretroviral diary, TB diary, complex infection diary, travel vaccination diary monitoring</div><div class="pill">✓ Daily diary</div><div class="pill">✓ Escalation alerts</div><div class="pill">✓ 14-day free trial</div></div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap"><a href="signup.html" class="btn-primary large">Start Free Trial</a><a href="enterprise.html" class="btn-secondary large">Enterprise Plans</a></div>
+  </div></section>
   <div class="metrics-row">
-    <div class="metric"><div class="val">↑65%</div><div class="lbl">WHOQOL monitoring</div></div>
-    <div class="metric"><div class="val">↑60%</div><div class="lbl">Post-sepsis diary rate</div></div>
-    <div class="metric"><div class="val">↑55%</div><div class="lbl">Long COVID diary rate</div></div>
+    <div class="metric"><div class="val">↑65%</div><div class="lbl">PRO monitoring rate</div></div>
+    <div class="metric"><div class="val">↑60%</div><div class="lbl">Diary completion rate</div></div>
+    <div class="metric"><div class="val">↑55%</div><div class="lbl">Patient engagement</div></div>
     <div class="metric"><div class="val">↓55%</div><div class="lbl">Admin time per week</div></div>
   </div>
   <section class="section">
-    <h2 style="font-size:2.2rem;margin-bottom:.75rem">What your Infectious Disease Service AI agents handle</h2>
-    <p style="color:#94a3b8;margin-bottom:3rem">WHOQOL monitoring, post-sepsis diary, long COVID diary, TB diary, CDI diary, and analytics — AI for effective infectious disease care.</p>
+    <h2 style="font-size:2.2rem;margin-bottom:.75rem">What your Infectious disease services. AI agents handle</h2>
+    <p style="color:#94a3b8;margin-bottom:3rem">CD4 VL SF-12 MOS-HIV monitoring, HIV antiretroviral diary, TB diary, complex infection diary, travel vaccination diary — AI for effective Infectious disease services. care.</p>
     <div class="uc-grid">
-      <div class="uc-card"><div class="icon">📊</div><h3>WHOQOL Fatigue Monitoring</h3><p>Scores recovery — WHOQOL, PHQ-9, Chalder. ↑65% from AI.</p><div class="result">↑ 65% WHOQOL monitoring</div></div>
-      <div class="uc-card"><div class="icon">🏥</div><h3>Post-Sepsis PICS Diary</h3><p>Rebuilds survivors — fatigue, PTSD, physio. ↑60% from AI.</p><div class="result">↑ 60% sepsis diary</div></div>
-      <div class="uc-card"><div class="icon">🫁</div><h3>Long COVID Diary</h3><p>Manages fatigue — PCFS, FOG, POTS diary. ↑55% from AI.</p><div class="result">↑ 55% long COVID diary</div></div>
-      <div class="uc-card"><div class="icon">🦠</div><h3>TB DOTS Diary</h3><p>Cures TB — DOTPLUS, LFT, adherence diary. ↑55% from AI.</p><div class="result">↑ 55% TB diary rate</div></div>
-      <div class="uc-card"><div class="icon">💉</div><h3>OPAT PJI Diary</h3><p>Clears infections — daptomycin, PICC, CRP. ↑55% from AI.</p><div class="result">↑ 55% OPAT diary</div></div>
-      <div class="uc-card"><div class="icon">📈</div><h3>ID Analytics</h3><p>Generates NHS ID analytics — WHOQOL, EQ-5D. ↑60% from AI.</p><div class="result">↑ 60% analytics depth</div></div>
+      <div class="uc-card"><div class="icon">📊</div><h3>Validated PRO Monitoring</h3><p>Structured validated outcome monitoring between appointments.</p><div class="result">↑ 65% monitoring rate</div></div>
+      <div class="uc-card"><div class="icon">📓</div><h3>Daily Structured Diary</h3><p>Condition-specific daily diary with smart prompts.</p><div class="result">↑ 60% diary rate</div></div>
+      <div class="uc-card"><div class="icon">🔔</div><h3>Out-of-Range Escalation</h3><p>Automated alerts for values requiring clinical action.</p><div class="result">↑ 55% early detection</div></div>
+      <div class="uc-card"><div class="icon">📋</div><h3>Between-Appointment Check-ins</h3><p>Structured follow-up using evidence-based measures.</p><div class="result">↑ 55% follow-up rate</div></div>
+      <div class="uc-card"><div class="icon">🤝</div><h3>MDT Escalation</h3><p>Multi-disciplinary team escalation with full diary context.</p><div class="result">↑ 55% MDT efficiency</div></div>
+      <div class="uc-card"><div class="icon">📈</div><h3>Specialty Analytics</h3><p>Population-level analytics and NHS reporting outputs.</p><div class="result">↑ 60% analytics depth</div></div>
     </div>
   </section>
   <section class="cta-bottom">
-    <h2>Infectious disease services. Infections cleared. Resistance defeated. AI-powered.</h2>
-    <p style="color:#94a3b8;margin-bottom:2rem">14-day free trial. Integrates with major NHS infectious disease, tropical medicine and OPAT platforms.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="signup.html" class="btn-primary large">Start Free Trial →</a>
-      <a href="contact.html" class="btn-secondary large">Talk to Sales</a>
-    </div>
+    <h2>Infectious disease services. Infections controlled. Health restored. AI-powered.</h2>
+    <p style="color:#94a3b8;margin-bottom:2rem">14-day free trial. No credit card required.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap"><a href="signup.html" class="btn-primary large">Start Free Trial</a><a href="contact.html" class="btn-secondary large">Talk to Sales</a></div>
   </section>
-  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
-    <p style="font-size:.75rem">© 2026 MoltBot Cloud.</p>
-  </footer>
-</body>
-</html>
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)"><p style="font-size:.75rem">© 2026 MoltBot Cloud.</p></footer>
+</body></html>

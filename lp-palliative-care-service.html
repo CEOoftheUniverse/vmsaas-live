@@ -1,94 +1,67 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Agents for Palliative Care Services, Hospice Services &amp; End of Life Care | MoltBot</title>
-  <meta name="description" content="Palliative care services, hospice services, and end of life care use MoltBot AI agents to automate between-appointment IPOS and ESAS and POS-S monitoring, symptom diary, advance care planning diary, syringe driver diary, and palliative care analytics.">
-  <meta name="keywords" content="AI palliative care service, AI hospice service, AI end of life care, AI IPOS monitoring, AI ESAS monitoring, AI POS-S monitoring, AI symptom diary, AI advance care planning diary, AI syringe driver diary, palliative care AI agent">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agents for Palliative Care Services, Hospice Clinics & End of Life Care Services | MoltBot</title>
+  <meta name="description" content="Palliative Care Services, Hospice Clinics & End of Life Care Services use MoltBot AI agents to automate between-appointment ESAS-r PPi PPS IPOS monitoring, pain diary, breathlessness diary, nausea diary, spiritual care diary monitoring and specialty-specific analytics.">
   <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     .lp-hero{min-height:90vh;display:flex;align-items:center;padding:0 10%;position:relative;overflow:hidden;margin-top:70px}
-    .lp-hero::before{content:'';position:absolute;top:10%;right:0;width:440px;height:440px;background:radial-gradient(circle,rgba(100,116,139,.12) 0%,transparent 70%);border-radius:50%;z-index:-1}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(100,116,139,.08);border:1px solid rgba(100,116,139,.22);border-radius:20px;padding:.3rem 1rem;font-size:.85rem;color:#f8fafc;margin-bottom:1.5rem}
+    .lp-hero::before{content:'';position:absolute;top:10%;right:0;width:440px;height:440px;background:radial-gradient(circle,rgba(168,85,247,.12) 0%,transparent 70%);border-radius:50%;z-index:-1}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.22);border-radius:20px;padding:.3rem 1rem;font-size:.85rem;color:#f8fafc;margin-bottom:1.5rem}
     h1{font-size:3.2rem;line-height:1.1;margin-bottom:1.5rem}
-    .grad{background:linear-gradient(135deg,#64748b,#0f172a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .grad{background:linear-gradient(135deg,rgb(168,85,247),#581c87);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .lp-hero p{font-size:1.1rem;color:#94a3b8;max-width:555px;margin-bottom:2.5rem}
     .proof-pills{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:3rem}
     .pill{background:rgba(255,255,255,.05);border:1px solid var(--glass-border);border-radius:20px;padding:.3rem .9rem;font-size:.83rem;color:#94a3b8}
     .uc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem}
     .uc-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:16px;padding:1.75rem;transition:all .3s}
-    .uc-card:hover{transform:translateY(-4px);border-color:rgba(100,116,139,.3)}
+    .uc-card:hover{transform:translateY(-4px);border-color:rgba(168,85,247,.25)}
     .uc-card .icon{font-size:2.2rem;margin-bottom:.75rem}
     .uc-card h3{margin-bottom:.5rem}
     .uc-card p{color:#94a3b8;font-size:.88rem;margin-bottom:1rem}
     .uc-card .result{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:.5rem .75rem;font-size:.82rem;color:#4ade80;font-weight:600}
     .section{padding:5rem 10%}
     .metrics-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;padding:4rem 10%;text-align:center;background:linear-gradient(180deg,transparent,rgba(30,41,59,.2))}
-    .metric .val{font-size:3rem;font-weight:800;background:linear-gradient(135deg,#64748b,#0f172a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .metric .val{font-size:3rem;font-weight:800;background:linear-gradient(135deg,rgb(168,85,247),#581c87);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .metric .lbl{color:#64748b;font-size:.88rem;margin-top:.25rem}
     .cta-bottom{padding:5rem 10%;text-align:center}
     @media(max-width:768px){.lp-hero{padding-top:7rem;text-align:center}h1{font-size:2.2rem}.proof-pills{justify-content:center}}
   </style>
 </head>
 <body>
-  <nav class="glass-nav">
-    <div class="logo">Molt<span>Bot</span></div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="features.html">Features</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="signup.html" class="btn-primary">Get Started →</a>
-    </div>
-  </nav>
-  <section class="lp-hero">
-    <div>
-      <div class="badge">🕊️ Built for palliative care services, hospice services &amp; end of life care</div>
-      <h1>Palliative care services. <span class="grad">Symptoms relieved. Dignity preserved.</span></h1>
-      <p>Deploy AI agents that extend palliative care team capacity with structured IPOS Integrated Palliative Care Outcome Scale 0-40 and ESAS Edmonton Symptom Assessment System 0-90 and POS-S Palliative Care Outcome Scale Symptom List 0-40 and Karnofsky Performance Status KPS 0-100 and AKPS Australia-modified KPS monitoring, cancer symptom control diary morphine sulphate MR 10mg 30mg 60mg twice daily oral diary or oxycodone OxyContin 10mg 20mg 40mg twice daily or fentanyl transdermal patch 12mcg 25mcg 50mcg 72h diary and breakthrough dose as required morphine 2.5mg-10mg SC diary and ESAS pain diary and nausea diary and constipation diary, syringe driver CSCI continuous subcutaneous infusion CSCi morphine 10mg-60mg per 24h or oxycodone plus midazolam 10mg plus haloperidol 5mg or levomepromazine 12.5mg per 24h diary plus PRN breakthrough diary, malignant bowel obstruction MBO dexamethasone 8mg diary and octreotide 600mcg per 24h diary and hyoscine butylbromide 60mg per 24h diary, terminal secretions death rattle hyoscine butylbromide 60mg-120mg per 24h or glycopyrronium 0.6mg-1.2mg diary, refractory breathlessness morphine 10mg per 24h diary and benzodiazepine midazolam 10mg diary and fan therapy diary, refractory nausea haloperidol 5mg per 24h or ondansetron 8mg diary, malignant hypercalcaemia zoledronic acid 4mg IV diary, advance care planning ACP diary ReSPECT document record and preferred place of death diary and DNACPR or ADRT Advance Decision to Refuse Treatment diary and lasting power of attorney LPA diary, specialist palliative care SPC fast-track discharge FTD diary and hospice at home diary and community palliative care team CPCT diary, bereavement family carer QOL diary and grief diary — conducting structured between-appointment palliative care monitoring using validated IPOS 0-40, ESAS 0-90, POS-S 0-40, KPS 0-100, EQ-5D-5L between-appointment check-ins with daily ESAS pain diary and fatigue diary and nausea diary and breathlessness diary and anxiety diary, morphine dose diary and breakthrough diary, syringe driver diary and site diary, constipation Bristol diary, ACP diary and preferences diary, and palliative care physician and specialist palliative care nurse and community palliative care nurse and hospice pharmacist review escalation for ESAS pain above 7 requiring syringe driver or ESAS breathlessness above 7 requiring morphine or ESAS nausea above 7 requiring haloperidol or terminal restlessness requiring midazolam or MBO not responding to medical management or unexpected death family bereavement support.</p>
-      <div class="proof-pills">
-        <div class="pill">✓ IPOS ESAS monitoring</div>
-        <div class="pill">✓ Symptom control diary</div>
-        <div class="pill">✓ Syringe driver diary</div>
-        <div class="pill">✓ Advance care plan diary</div>
-        <div class="pill">✓ 14-day free trial</div>
-      </div>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="signup.html" class="btn-primary large">Start Free Trial</a>
-        <a href="enterprise.html" class="btn-secondary large">Palliative Plans →</a>
-      </div>
-    </div>
-  </section>
+  <nav class="glass-nav"><div class="logo">Molt<span>Bot</span></div><div class="nav-links"><a href="index.html">Home</a><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="signup.html" class="btn-primary">Get Started</a></div></nav>
+  <section class="lp-hero"><div>
+    <div class="badge">🕊️ palliative care / hospice / end of life</div>
+    <h1>Palliative care services. <span class="grad">Comfort maximised. Dignity preserved.</span></h1>
+    <p>Deploy AI agents that extend Palliative care services. team capacity with structured ESAS-r PPi PPS IPOS monitoring, pain diary, breathlessness diary, nausea diary, spiritual care diary monitoring, between-appointment validated outcome measure check-ins, daily diary escalation, and clinical team review escalation for out-of-range values — reducing admin burden by 55% and improving monitoring adherence by 65%.</p>
+    <div class="proof-pills"><div class="pill">✓ ESAS-r PPi PPS IPOS monitoring, pain diary, breathlessness diary, nausea diary, spiritual care diary monitoring</div><div class="pill">✓ Daily diary</div><div class="pill">✓ Escalation alerts</div><div class="pill">✓ 14-day free trial</div></div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap"><a href="signup.html" class="btn-primary large">Start Free Trial</a><a href="enterprise.html" class="btn-secondary large">Enterprise Plans</a></div>
+  </div></section>
   <div class="metrics-row">
-    <div class="metric"><div class="val">↑65%</div><div class="lbl">IPOS ESAS monitoring</div></div>
-    <div class="metric"><div class="val">↑60%</div><div class="lbl">Symptom diary rate</div></div>
-    <div class="metric"><div class="val">↑55%</div><div class="lbl">ACP diary rate</div></div>
+    <div class="metric"><div class="val">↑65%</div><div class="lbl">PRO monitoring rate</div></div>
+    <div class="metric"><div class="val">↑60%</div><div class="lbl">Diary completion rate</div></div>
+    <div class="metric"><div class="val">↑55%</div><div class="lbl">Patient engagement</div></div>
     <div class="metric"><div class="val">↓55%</div><div class="lbl">Admin time per week</div></div>
   </div>
   <section class="section">
-    <h2 style="font-size:2.2rem;margin-bottom:.75rem">What your Palliative Care Service AI agents handle</h2>
-    <p style="color:#94a3b8;margin-bottom:3rem">IPOS ESAS monitoring, symptom control diary, syringe driver diary, ACP diary, breathlessness diary, and analytics — AI for compassionate end-of-life care.</p>
+    <h2 style="font-size:2.2rem;margin-bottom:.75rem">What your Palliative care services. AI agents handle</h2>
+    <p style="color:#94a3b8;margin-bottom:3rem">ESAS-r PPi PPS IPOS monitoring, pain diary, breathlessness diary, nausea diary, spiritual care diary — AI for effective Palliative care services. care.</p>
     <div class="uc-grid">
-      <div class="uc-card"><div class="icon">📊</div><h3>IPOS ESAS Monitoring</h3><p>Scores symptoms — IPOS, ESAS, POS-S, KPS. ↑65% from AI.</p><div class="result">↑ 65% IPOS monitoring</div></div>
-      <div class="uc-card"><div class="icon">💊</div><h3>Symptom Control Diary</h3><p>Relieves distress — morphine, oxycodone, fentanyl. ↑60% from AI.</p><div class="result">↑ 60% symptom diary</div></div>
-      <div class="uc-card"><div class="icon">💉</div><h3>Syringe Driver Diary</h3><p>Maintains comfort — midazolam, haloperidol, CSCi. ↑55% from AI.</p><div class="result">↑ 55% syringe diary</div></div>
-      <div class="uc-card"><div class="icon">🕊️</div><h3>Advance Care Planning</h3><p>Preserves dignity — ReSPECT, DNACPR, ACP diary. ↑55% from AI.</p><div class="result">↑ 55% ACP diary rate</div></div>
-      <div class="uc-card"><div class="icon">🏡</div><h3>Hospice at Home Diary</h3><p>Enables home death — CPCT, fast-track diary. ↑55% from AI.</p><div class="result">↑ 55% home care diary</div></div>
-      <div class="uc-card"><div class="icon">📈</div><h3>Palliative Analytics</h3><p>Generates NHS palliative analytics — IPOS, EQ-5D. ↑60% from AI.</p><div class="result">↑ 60% analytics depth</div></div>
+      <div class="uc-card"><div class="icon">📊</div><h3>Validated PRO Monitoring</h3><p>Structured validated outcome monitoring between appointments.</p><div class="result">↑ 65% monitoring rate</div></div>
+      <div class="uc-card"><div class="icon">📓</div><h3>Daily Structured Diary</h3><p>Condition-specific daily diary with smart prompts.</p><div class="result">↑ 60% diary rate</div></div>
+      <div class="uc-card"><div class="icon">🔔</div><h3>Out-of-Range Escalation</h3><p>Automated alerts for values requiring clinical action.</p><div class="result">↑ 55% early detection</div></div>
+      <div class="uc-card"><div class="icon">📋</div><h3>Between-Appointment Check-ins</h3><p>Structured follow-up using evidence-based measures.</p><div class="result">↑ 55% follow-up rate</div></div>
+      <div class="uc-card"><div class="icon">🤝</div><h3>MDT Escalation</h3><p>Multi-disciplinary team escalation with full diary context.</p><div class="result">↑ 55% MDT efficiency</div></div>
+      <div class="uc-card"><div class="icon">📈</div><h3>Specialty Analytics</h3><p>Population-level analytics and NHS reporting outputs.</p><div class="result">↑ 60% analytics depth</div></div>
     </div>
   </section>
   <section class="cta-bottom">
-    <h2>Palliative care services. Symptoms relieved. Dignity preserved. AI-powered.</h2>
-    <p style="color:#94a3b8;margin-bottom:2rem">14-day free trial. Integrates with major NHS palliative care, hospice and community palliative platforms.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="signup.html" class="btn-primary large">Start Free Trial →</a>
-      <a href="contact.html" class="btn-secondary large">Talk to Sales</a>
-    </div>
+    <h2>Palliative care services. Comfort maximised. Dignity preserved. AI-powered.</h2>
+    <p style="color:#94a3b8;margin-bottom:2rem">14-day free trial. No credit card required.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap"><a href="signup.html" class="btn-primary large">Start Free Trial</a><a href="contact.html" class="btn-secondary large">Talk to Sales</a></div>
   </section>
-  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
-    <p style="font-size:.75rem">© 2026 MoltBot Cloud.</p>
-  </footer>
-</body>
-</html>
+  <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)"><p style="font-size:.75rem">© 2026 MoltBot Cloud.</p></footer>
+</body></html>
