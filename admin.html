@@ -46,7 +46,7 @@ th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;f
 <header>
     <div><div class="brand">Molt<span>Bot</span> Admin</div><span id="last-update"></span></div>
     <div style="display:flex;gap:.75rem;align-items:center">
-        <span class="badge">PHASE 76</span>
+        <span class="badge" style="background:linear-gradient(135deg,#6366f1,#22c55e)">PHASE 1000+</span>
         <button class="refresh-btn" onclick="refreshAll()">↻ Refresh</button>
         <a href="index.html" style="color:var(--m);text-decoration:none;font-size:.85rem">← Back</a>
     </div>
@@ -60,13 +60,13 @@ th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;f
     <div class="stat-card"><div class="stat-value" id="s-signups">—</div><div class="stat-label">Signup Clicks (24h)</div></div>
     <div class="stat-card"><div class="stat-value" id="s-gateway">—</div><div class="stat-label">Gateway Models</div></div>
     <div class="stat-card"><div class="stat-value" id="s-agents">—</div><div class="stat-label">Active Agents</div></div>
-    <div class="stat-card"><div class="stat-value" style="color:var(--c)">35</div><div class="stat-label">Sitemap URLs</div></div>
+    <div class="stat-card"><div class="stat-value" style="color:var(--g)">1,001+</div><div class="stat-label">Sitemap URLs</div></div>
     <div class="stat-card"><div class="stat-value" id="s-referrals">—</div><div class="stat-label">Referral Clicks</div></div>
 </div>
 
 <!-- Site Inventory -->
 <div class="section" style="margin-top:1.5rem">
-    <h2>🗂 Site Pages (35 URLs)</h2>
+    <h2>🗂 Site Pages (1,001+ URLs)</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem;font-size:.78rem">
         <a href="index.html" style="color:var(--m);text-decoration:none;padding:.4rem .6rem;background:var(--s);border:1px solid var(--b);border-radius:6px">🏠 Landing</a>
         <a href="pricing.html" style="color:var(--m);text-decoration:none;padding:.4rem .6rem;background:var(--s);border:1px solid var(--b);border-radius:6px">💰 Pricing</a>
@@ -134,9 +134,9 @@ th{color:var(--m);font-weight:600;text-transform:uppercase;letter-spacing:.5px;f
 <script>
 const BACKENDS = {
     saas: 'https://moltbot-cloud-saas.vercel.app',
-    saasLocal: 'http://127.0.0.1:3000',
-    gateway: 'http://127.0.0.1:3005',
-    fastapi: 'http://127.0.0.1:8080',
+    saasLocal: 'http://localhost:3000',
+    gateway: 'http://localhost:3005',
+    fastapi: 'http://localhost:8080',
 };
 
 async function tryFetch(urls, opts = {}) {
