@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://ceooftheuniverse.github.io/vmsaas-live/"/>
@@ -11,13 +11,13 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/pricing.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/zh.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://ceooftheuniverse.github.io/vmsaas-live/"/>
@@ -25,1438 +25,1361 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agent-swarm-guide.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-autonomous-saas.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/multi-llm-routing-guide.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/ai-agent-hosting-guide.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/cheap-openclaw-guide.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/signup.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/referral.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/portal.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/api-docs.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- admin.html excluded: disallowed in robots.txt -->
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/compare.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/changelog.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/terms.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/status.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/features.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/case-studies.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/getting-started.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/faq.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agent-pricing.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/integrations.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/security.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-build-ai-swarm.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/copilot.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/teams.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/use-cases.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agent-roi-calculator.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/about.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/privacy.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/orangerie.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/dashboard.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-autonomous-agent-tutorial.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/roadmap.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/demo.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/docs.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/community.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-reduce-ai-costs.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-startup.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-agency.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/pricing-annual.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/enterprise.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/contact.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agent-security.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/partners.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/help.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-solodev.html</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/case-studies.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/integrations.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/getting-started.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/copilot.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/about.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/status.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>hourly</changefreq><priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-orchestration.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/newsletter.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/compare-alternatives.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-tools.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/calculator.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-devops.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-research.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-engineering.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ecommerce.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/api-reference.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/trust.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-pr-review-agent.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-benchmark-2026.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-legal.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-cost-of-manual-review.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-finance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hr.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agent-vs-rpa.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-multiagent-systems.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning-vs-prompting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-customer-success.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-marketing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-observability.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sales.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-security.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-tool-calling.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-operations.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-context-window-vs-rag.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-product.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-state-of-agentic-ai-2026.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-structured-outputs.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-data-science.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-finance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-evaluation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-routing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-legal.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hr.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-caching.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-marketing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-planning.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-customer-success.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-context-windows.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-devops.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-observability.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-security.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-operations.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-vector-databases.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-fine-tuning.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-product-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-finance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-streaming-llm.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-memory-types.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-insurance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-multimodal-agents.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-testing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-real-estate.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-structured-outputs.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-education.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-cost-optimization.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agentic-workflows.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hr.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-benchmarks.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-supply-chain.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agents-vs-automation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-rag-architecture.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-manufacturing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-engineering-advanced.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-governance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-logistics.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-vector-databases.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-energy.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-retail.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-security.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agent-debugging.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-multimodal-ai.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-product-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-sales-automation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-data-pipelines.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-construction.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-legal.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-evaluation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pharma.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-customer-success.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nonprofit.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-hr.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-devops.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-prompt-injection.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-finance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-marketing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-token-optimization.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-media.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-research.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-writing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-function-calling.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-agentic-ux.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-compliance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-llm-fine-tuning.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hospitality.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-onboarding.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-professional-services.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-pricing-strategy.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-workflow-automation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-sales-intelligence.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-aerospace.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-data-analysis.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pharmaceutical.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-procurement.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-knowledge-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-biotech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-crm.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-document-processing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-chatbots.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-government.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-accounting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-email.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-scheduling.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-telecommunications.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-entertainment.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-customer-support.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-consulting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-automotive.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-contracts.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-architecture.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sports.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-market-research.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-agriculture.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cybersecurity.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-supply-chain.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-forecasting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-inventory.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-content-moderation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gaming.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cleantech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-risk-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-analytics.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-transportation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-mining.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-change-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-proptech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-events.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-wellness.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-talent-acquisition.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-customer-experience.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-edtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-fashion.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-financial-reporting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-quality-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-travel.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-foodtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-project-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-competitive-intelligence.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hr-tech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-legaltech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-operations.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-sustainability.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-medtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nonprofits.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-product-led-growth.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-customer-journey.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-3pl.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-beauty.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-demand-forecasting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-social-media.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-fleet.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pet-care.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-real-estate.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-insurance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-aviation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-shipping.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-private-equity.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-retail-banking.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-construction-tech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-clean-energy.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-pharmaceutical.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-logistics.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-accounting-firms.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-event-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-media-entertainment.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-telecommunications.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-government-agencies.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cyber-defense.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-architecture.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agriculture.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-life-sciences.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-wealth-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-nonprofit.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-education-technology.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-people-ops.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-consulting-firms.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-retail.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-saas.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-fintech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-saas-companies.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-gaming.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-proptech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-b2b-saas.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-marketplace.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-climate.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-sports.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-creator-economy.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-healthtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-biotech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-crypto.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-deeptech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-agritech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-edtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-media.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-govtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nonprofit.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-automotive.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-energy.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-staffing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-traveltech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-hr-tech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-insurtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-martech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-cybersecurity.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-manufacturing.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-devtools.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-web3.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dataops.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-hospitality.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-construction.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-adtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-retailtech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-aerospace.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-utilities.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-maritime.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-spacetech.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-mining.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-beauty.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-fleet.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-quantum.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-food.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-fashion.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-government.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-blockchain.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-wellness.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-events.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-transportation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-no-code.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-pet-care.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-wealth-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-creator-economy.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-leadership.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-healthcare.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-personalisation.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-influencer.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-recruitment.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-revenue-operations.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-machine-learning.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-private-equity.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-venture-capital.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-customer-retention.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-growth-hacking.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-media-agency.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-corporate-finance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-data-governance.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-seo.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-renewables.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-seo.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-partner-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-financial-services.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-accounting-practice.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-growth.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-community-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-field-service.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-strategy-consulting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-field-service.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-sales-enablement.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-employee-engagement.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-digital-agency.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-asset-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-esg-reporting.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-brand-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-esg.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-franchising.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-accounts-payable.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-accounts-receivable.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-coworking.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-training-development.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-supply-chain-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-property-management.html</loc>
-    <lastmod>2026-04-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-workforce-planning.html</loc>
@@ -1816,10 +1739,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allied-health.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-telehealth.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2359,14 +2278,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-autism-assessment.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-personality-disorder.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dissociative-disorder.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -2463,10 +2374,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-chronic-pain-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-obesity-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -2475,19 +2382,11 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-perinatal-mental-health.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-long-covid-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-autism-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-adhd-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2503,23 +2402,11 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-epilepsy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-multiple-sclerosis-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-parkinsons-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-care-home-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2603,10 +2490,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-eating-disorder-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-perinatal-mental-health-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -2643,22 +2526,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-stroke-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-epilepsy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-parkinsons-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-multiple-sclerosis-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-motor-neurone-disease-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -2667,27 +2534,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dementia-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-chronic-pain-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-breast-cancer-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2695,27 +2542,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-rheumatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-respiratory-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2731,27 +2558,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-physiotherapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-occupational-therapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-speech-language-therapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dietetics-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2768,10 +2575,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-rehabilitation-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hepatology-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2811,47 +2614,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-obstetrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sexual-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2879,34 +2642,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nephrology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-respiratory-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hepatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-stroke-medicine-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -2915,23 +2650,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-paediatrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-obstetrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neonatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-vascular-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-general-surgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2939,15 +2658,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-plastic-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurosurgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -2975,10 +2686,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-diseases-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -2991,23 +2698,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sexual-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-occupational-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-rehabilitation-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sports-medicine-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3019,19 +2710,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-community-mental-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-crisis-resolution-home-treatment-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-eating-disorders-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-substance-misuse-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3055,10 +2734,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-perinatal-mental-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-intellectual-disability-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -3075,159 +2750,11 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nephrology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-vascular-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-colorectal-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-orthopaedic-surgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-respiratory-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-stroke-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-psychiatry-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-general-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-plastic-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hepatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-paediatric-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-geriatrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-physiotherapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-occupational-therapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-speech-language-therapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dietetics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-podiatry-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3235,143 +2762,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-orthopaedic-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-general-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-renal-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-stroke-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-epilepsy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-respiratory-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hepatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-psychiatry-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-geriatrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-paediatrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-obstetrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pain-management-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-orthopaedics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3379,67 +2770,11 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-stroke-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-paediatric-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-mental-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hepatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiology-heart-failure-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-respiratory-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pain-management-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-geriatric-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-general-surgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3451,71 +2786,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-vascular-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-occupational-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-orthopaedic-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-liaison-psychiatry-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-renal-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-endocrinology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-oncology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-stroke-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3527,99 +2798,7 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-general-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-paediatric-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-obstetrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-camhs-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-physiotherapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-occupational-therapy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-slt-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dietetics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-orthopaedic-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-urology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gynaecology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ent-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ophthalmology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dermatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-haematology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-gastroenterology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sexual-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-acute-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-geriatrics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-respiratory-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-cardiac-surgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3627,55 +2806,11 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-plastic-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neurosurgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hepatobiliary-surgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-colorectal-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-vascular-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-thoracic-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-trauma-surgery-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-neonatology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-clinical-genetics-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sports-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-occupational-medicine-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3696,18 +2831,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-nuclear-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-rehabilitation-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-addiction-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-liaison-psychiatry-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3751,10 +2874,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-perinatal-mental-health-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-lactation-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -3788,10 +2907,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-knee-arthroplasty-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-spinal-surgery-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3860,26 +2975,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-paediatric-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-geriatric-medicine-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-palliative-care-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pain-management-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-infectious-disease-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sexual-health-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -3971,14 +3066,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-forensic-psychiatry-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-eating-disorder-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-anxiety-disorders-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -3992,10 +3079,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-bipolar-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dementia-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -4035,10 +3118,6 @@
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-allergy-immunology-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-mast-cell-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
@@ -4064,10 +3143,6 @@
   </url>
   <url>
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pancreatic-cancer-service.html</loc>
-    <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-breast-cancer-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
   <url>
@@ -4106,7 +3181,6 @@
     <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-thyroid-cancer-service.html</loc>
     <lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
   </url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-plumbing.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-electricians.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-hvac.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4155,7 +3229,6 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-appliance-repair.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-computer-repair.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-phone-repair.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-bakeries.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-catering.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-food-trucks.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4186,7 +3259,6 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-woodworking.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-sign-shops.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-screen-printing.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-real-estate-agents.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-mortgage-brokers.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-home-inspectors.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4217,7 +3289,6 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-laundromats.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-tailors.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-shoe-repair.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-pawn-shops.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-thrift-stores.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-antique-dealers.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4248,14 +3319,12 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-vending-machines.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-atm-operators.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-coin-laundry.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-inventory-management.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-appointment-scheduling.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-customer-reviews.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-lead-qualification.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-employee-scheduling.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-invoice-processing.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-accountants.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dentists.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-chiropractors.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4286,7 +3355,6 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-irrigation.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-snow-removal.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-junk-hauling.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dj-services.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-wedding-planners.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-event-planners.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4317,7 +3385,6 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-crane-services.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-dumpster-rental.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-porta-potty.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-auto-glass.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-auto-locksmith.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-upholstery.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
@@ -4346,7 +3413,6 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-atv-rental.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-bicycle-rental.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-ski-rental.html</loc><lastmod>2026-05-06</lastmod><priority>0.7</priority></url>
-
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/compare-zapier.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/compare-make.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/compare-n8n.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
@@ -4367,33 +3433,16 @@
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-no-code-ai-agents.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-ai-agent-safety.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
   <url><loc>https://ceooftheuniverse.github.io/vmsaas-live/blog-multi-agent-orchestration.html</loc><lastmod>2026-05-06</lastmod><priority>0.8</priority></url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-addiction-service.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ceooftheuniverse.github.io/vmsaas-live/lp-diabetes-service.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

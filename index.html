@@ -80,10 +80,26 @@
     <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1>Ship Code <span>You Never Read</span></h1>
-            <p>Deploy a swarm of 10+ AI specialist agents on a dedicated Windows VM. They code, test, review, and ship — autonomously. Zero infrastructure management. Pure output.</p>
+            <h1 id="hero-h1">Ship Code <span>You Never Read</span></h1>
+            <p id="hero-sub">Deploy a swarm of 10+ AI specialist agents on a dedicated Windows VM. They code, test, review, and ship — autonomously. Zero infrastructure management. Pure output.</p>
+            <script>
+            /* A/B hero swap — runs inline right after the H1 to avoid flash-of-control */
+            (function(){
+                try {
+                    var KEY='moltbot_ab_hero_v1', v=localStorage.getItem(KEY);
+                    if(v!=='A'&&v!=='B'){v=Math.random()<0.5?'A':'B';localStorage.setItem(KEY,v);}
+                    window.moltAbHero=v;
+                    if(v==='B'){
+                        var h1=document.getElementById('hero-h1');
+                        var sub=document.getElementById('hero-sub');
+                        if(h1) h1.innerHTML='From Signup to Running Agent: <span>4 Minutes</span>';
+                        if(sub) sub.textContent='No terminal. No Docker. No 60-minute setup. Spin up a dedicated Windows VM running a swarm of 10+ AI specialist agents — coding, testing, and shipping — in about 4 minutes.';
+                    }
+                } catch(e){}
+            })();
+            </script>
             <div class="hero-actions">
-                <a href="signup.html" class="btn-primary large">Start Free Trial</a>
+                <a href="signup.html" id="hero-cta" class="btn-primary large">Start Free Trial</a>
                 <a href="getting-started.html" class="btn-secondary large">Quick Start Guide →</a>
             </div>
             <div style="display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap;justify-content:center;font-size:.78rem;color:#64748b">
@@ -91,6 +107,7 @@
                 <span>✅ No credit card</span>
                 <span>✅ <a href="case-studies.html" style="color:#818cf8;text-decoration:none">10x faster shipping</a></span>
                 <span>✅ <a href="faq.html" style="color:#818cf8;text-decoration:none">99.5% uptime SLA</a></span>
+                <span>✅ Your machine stays safe</span>
             </div>
         </div>
         <div class="hero-graphic">
@@ -156,6 +173,26 @@
                 <div class="icon">📊</div>
                 <h3>Full Observability</h3>
                 <p>SQLite metrics store, per-request cost tracking, latency monitoring, and provider health scoring. Know exactly where every cent goes.</p>
+            </div>
+            <div class="glass-card feature-card" style="border-color:rgba(34,197,94,.25);box-shadow:0 0 20px rgba(34,197,94,.06)">
+                <div class="icon">🔒</div>
+                <h3>VM Isolation — Your Machine Stays Safe</h3>
+                <p>Every agent swarm runs inside a dedicated Windows VM, fully isolated from your local machine. Agents can't touch your files, your OS, or your credentials. AI goes rogue? It's contained.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Trust Banner -->
+    <section style="padding:3rem 10%;background:linear-gradient(135deg,rgba(15,30,20,.6),rgba(10,20,30,.4));border-top:1px solid rgba(34,197,94,.12);border-bottom:1px solid rgba(34,197,94,.12);">
+        <div style="max-width:800px;margin:0 auto;text-align:center;">
+            <div style="font-size:2rem;margin-bottom:.75rem;">🔒</div>
+            <h2 style="font-family:'Outfit',sans-serif;font-size:1.75rem;font-weight:700;margin-bottom:.75rem;color:#f1f5f9;">Your AI Agent. Our VM. Your Machine Stays Safe.</h2>
+            <p style="color:#94a3b8;font-size:1rem;line-height:1.7;max-width:600px;margin:0 auto 1.5rem;">Reddit devs are right to worry — AI agents running wild on a local machine <em>can</em> go crazy. That's exactly why MoltBot Cloud uses dedicated, isolated VMs. Your laptop, your VPS, your servers — untouched. The agent runs in our container. If it breaks anything, it breaks our sandbox, not yours.</p>
+            <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:.85rem;color:#86efac;">
+                <span>✅ Full OS isolation</span>
+                <span>✅ No local file access</span>
+                <span>✅ No credential exposure</span>
+                <span>✅ Sandbox-contained failures</span>
             </div>
         </div>
     </section>
@@ -291,6 +328,17 @@
 
         // Expose globally for other pages
         window.moltTrack = trackEvent;
+
+        // --- Hero Headline A/B Test tracking (Wanda, 2026-07-02) ---
+        // Variant already assigned + applied by the inline swap right under the H1
+        // (window.moltAbHero). Here we only attribute exposure + conversion.
+        (function abTestHeroTracking() {
+            const variant = window.moltAbHero || 'A';
+            document.querySelectorAll('a[href*="signup"]').forEach(link => {
+                link.addEventListener('click', () => trackEvent('ab_hero_conversion', { variant, from: link.textContent.trim() }));
+            });
+            trackEvent('ab_hero_exposure', { variant });
+        })();
     })();
 
     // --- Newsletter Subscribe ---
