@@ -43,6 +43,20 @@ const server = http.createServer((req, res) => {
     if (req.url === '/api/deploy' && req.method === 'POST') {
         return proxyToFlask(req, res, '/v1/swarms/deploy');
     }
+    // Terminate swarm: DELETE /api/swarms/:id
+    const terminateMatch = req.url.match(/^\/api\/swarms\/([^/]+)$/);
+    if (terminateMatch && req.method === 'DELETE') {
+        return proxyToFlask(req, res, `/v1/swarms/${terminateMatch[1]}`);
+    }
+    // Status: GET /api/swarms/:id/status
+    const statusMatch = req.url.match(/^\/api\/swarms\/([^/]+)\/status$/);
+    if (statusMatch && req.method === 'GET') {
+        return proxyToFlask(req, res, `/v1/swarms/${statusMatch[1]}/status`);
+    }
+    // Agent trigger: POST /api/trigger
+    if (req.url === '/api/trigger' && req.method === 'POST') {
+        return proxyToFlask(req, res, '/v1/agents/trigger');
+    }
 
     // ── Static file handler ───────────────────────────────────
     let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
