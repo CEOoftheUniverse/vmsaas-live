@@ -1,0 +1,4 @@
+# Windows scripts must keep CRLF endings; a bare-LF .bat misbehaves under cmd.exe.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
