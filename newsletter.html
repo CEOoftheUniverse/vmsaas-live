@@ -66,13 +66,12 @@
       <p style="color:#64748b;font-size:.9rem;margin-bottom:2rem">Join <strong style="color:white">8,413 AI builders</strong> already subscribed</p>
       <h1>The weekly digest for <span style="background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">AI agent engineers</span></h1>
       <p>Every Tuesday: production patterns, model benchmarks, cost optimization case studies, and what's shipping in MoltBot. No fluff — straight to your inbox.</p>
-      <form class="signup-box" onsubmit="handleSignup(event)">
-        <input type="email" id="nl-email" placeholder="you@company.com" required>
+      <form class="signup-box" id="nl-form" data-leads-kind="newsletter" data-leads-success="You are on the list. Thanks for subscribing!">
+        <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+        <input type="email" id="nl-email" name="email" autocomplete="email" aria-label="Email address" placeholder="you@company.com" required>
         <button type="submit" class="btn-primary" id="nl-btn" style="border:none;cursor:pointer;font-family:inherit;padding:.85rem 1.75rem">Subscribe Free →</button>
       </form>
-      <div id="nl-success" style="display:none;margin:0 auto 1rem;padding:.75rem 1.5rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;color:#4ade80;font-weight:600;max-width:400px">
-        ✓ You're in! Check your inbox to confirm.
-      </div>
+      <p class="lead-status" data-leads-status="nl-form" aria-live="polite" style="margin:0 auto 1rem;max-width:500px;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.04);color:#e2e8f0;text-align:center;font-size:.9rem;line-height:1.5"></p>
       <div class="trust-row">
         <span>✓ Free forever</span>
         <span>✓ No spam, ever</span>
@@ -129,16 +128,6 @@
   <footer style="text-align:center;padding:2rem;color:#64748b;border-top:1px solid var(--glass-border)">
     <p>© 2026 MoltBot Cloud · <a href="blog.html" style="color:#64748b">Blog</a> · <a href="community.html" style="color:#64748b">Community</a> · <a href="contact.html" style="color:#64748b">Unsubscribe</a></p>
   </footer>
-  <script>
-  function handleSignup(e){
-    e.preventDefault();
-    const btn=document.getElementById('nl-btn');
-    btn.disabled=true; btn.textContent='Sending…';
-    setTimeout(()=>{
-      document.querySelector('.signup-box').style.display='none';
-      document.getElementById('nl-success').style.display='block';
-    },800);
-  }
-  </script>
+  <script src="leads.js" defer></script>
 </body>
 </html>

@@ -30,6 +30,14 @@
     .form-group input,.form-group select,.form-group textarea{background:rgba(0,0,0,.3);border:1px solid var(--glass-border);border-radius:8px;padding:.75rem 1rem;color:white;font-family:inherit;font-size:.9rem;outline:none;transition:border-color .2s}
     .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary)}
     .form-group textarea{height:130px;resize:vertical}
+    .form-group input[aria-invalid="true"]{border-color:#ef4444}
+    .form-card button[type="submit"]:disabled{opacity:.7}
+    .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .lead-status{margin-top:1rem;padding:1rem;border:1px solid var(--glass-border);border-radius:8px;background:rgba(255,255,255,.04);color:#e2e8f0;text-align:center;font-size:.9rem;line-height:1.5}
+    .lead-status:empty{margin:0;padding:0;border:0;background:none}
+    .lead-status[data-leads-state="success"]{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:#4ade80}
+    .lead-status[data-leads-state="fallback"]{border-color:rgba(245,158,11,.45)}
+    .lead-status[data-leads-state="invalid"]{border-color:rgba(239,68,68,.5)}
     @media(max-width:768px){.contact-grid{grid-template-columns:1fr;padding:2rem 1.5rem} .page-hero{padding-top:7rem} .page-hero h1{font-size:2.2rem}}
   </style>
 </head>
@@ -81,24 +89,25 @@
     <div class="form-card">
       <h2>Send us a message</h2>
       <p class="sub">Our contact inbox is being set up. The form tells you whether your message was saved.</p>
-      <form onsubmit="handleContact(event)">
+      <form id="contact-form" data-leads-kind="contact" data-leads-success="Thanks! Your message is saved. We will reply by email.">
+        <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
           <div class="form-group">
-            <label>First Name</label>
-            <input type="text" id="c-fname" placeholder="Alex" required>
+            <label for="c-fname">First Name</label>
+            <input type="text" id="c-fname" name="first_name" placeholder="Alex" autocomplete="given-name" required>
           </div>
           <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" id="c-lname" placeholder="Smith" required>
+            <label for="c-lname">Last Name</label>
+            <input type="text" id="c-lname" name="last_name" placeholder="Smith" autocomplete="family-name" required>
           </div>
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="c-email" placeholder="you@company.com" required>
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" name="email" placeholder="you@company.com" autocomplete="email" required>
         </div>
         <div class="form-group">
-          <label>Subject</label>
-          <select id="c-subject">
+          <label for="c-subject">Subject</label>
+          <select id="c-subject" name="subject">
             <option>Sales / Pricing Question</option>
             <option>Technical Support</option>
             <option>Partnership Inquiry</option>
@@ -107,13 +116,11 @@
           </select>
         </div>
         <div class="form-group">
-          <label>Message</label>
-          <textarea id="c-message" placeholder="Tell us how we can help..." required></textarea>
+          <label for="c-message">Message</label>
+          <textarea id="c-message" name="message" placeholder="Tell us how we can help..." required></textarea>
         </div>
         <button type="submit" class="btn-primary large" id="c-submit" style="width:100%;border:none;cursor:pointer;font-family:inherit">Send Message →</button>
-        <div id="c-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;text-align:center;color:#4ade80">
-          ✓ Message sent! We'll reply within 24 hours.
-        </div>
+        <p class="lead-status" data-leads-status aria-live="polite" style="margin-top:1rem;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.04);color:#e2e8f0;text-align:center;font-size:.9rem;line-height:1.5"></p>
       </form>
     </div>
   </div>
@@ -128,16 +135,6 @@
     <p style="font-size:.75rem">© 2026 MoltBot Cloud. Autonomous AI Infrastructure.</p>
   </footer>
 
-  <script>
-  function handleContact(e){
-    e.preventDefault();
-    const btn=document.getElementById('c-submit');
-    btn.disabled=true; btn.textContent='Sending...';
-    setTimeout(()=>{
-      document.getElementById('c-success').style.display='block';
-      e.target.style.display='none';
-    },700);
-  }
-  </script>
+  <script src="leads.js" defer></script>
 </body>
 </html>

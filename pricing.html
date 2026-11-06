@@ -232,7 +232,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 <form id="wl-form" data-leads-kind="waitlist" style="max-width:400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.5rem">
 <label for="wl-email" style="position:absolute;left:-9999px">Email address</label>
 <input id="wl-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required style="flex:1 1 200px;min-height:44px;padding:.7rem 1rem;border-radius:8px;border:1px solid var(--b);background:rgba(255,255,255,.05);color:var(--t);font-size:.9rem">
-<input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<input name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
 <button type="submit" style="min-height:44px;background:var(--a);color:#fff;border:none;padding:.7rem 1.5rem;border-radius:8px;font-weight:700;cursor:pointer;white-space:nowrap">Join →</button>
 <div id="wl-result" data-leads-status aria-live="polite" style="flex-basis:100%;margin-top:1rem;font-size:.85rem"></div>
 </form>

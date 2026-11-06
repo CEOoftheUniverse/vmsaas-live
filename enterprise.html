@@ -163,31 +163,31 @@
   <section class="contact-section" id="contact">
     <h2>Talk to our enterprise team</h2>
     <p>Tell us about your use case and the GPUs you need. We'll prepare a custom proposal, with dedicated GPUs quoted at market rate + 10%.</p>
-    <form class="contact-form" onsubmit="handleContact(event)">
-      <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <form class="contact-form" id="enterprise-form" data-leads-kind="enterprise" data-leads-success="Thanks! Your request is saved. We will reply by email to plan the next step.">
+      <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
       <div class="form-row">
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" id="ent-fname" placeholder="Alex" required>
+          <input type="text" id="ent-fname" name="first_name" autocomplete="given-name" placeholder="Alex" required>
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" id="ent-lname" placeholder="Johnson" required>
+          <input type="text" id="ent-lname" name="last_name" autocomplete="family-name" placeholder="Johnson" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Work Email</label>
-          <input type="email" id="ent-email" placeholder="alex@company.com" required>
+          <input type="email" id="ent-email" name="email" autocomplete="email" placeholder="alex@company.com" required>
         </div>
         <div class="form-group">
           <label>Company</label>
-          <input type="text" id="ent-company" placeholder="Acme Corp" required>
+          <input type="text" id="ent-company" name="company" autocomplete="organization" placeholder="Acme Corp" required>
         </div>
       </div>
       <div class="form-group" style="margin-bottom:1rem">
         <label>Team Size</label>
-        <select id="ent-size">
+        <select id="ent-size" name="team_size">
           <option>10–50 employees</option>
           <option>50–200 employees</option>
           <option>200–1000 employees</option>
@@ -196,12 +196,10 @@
       </div>
       <div class="form-group" style="margin-bottom:1.5rem">
         <label>What are you trying to automate?</label>
-        <textarea id="ent-message" placeholder="Describe your use case — code review, content generation, research, etc."></textarea>
+        <textarea id="ent-message" name="message" placeholder="Describe your use case — code review, content generation, research, etc."></textarea>
       </div>
       <button type="submit" class="btn-primary large" style="width:100%;border:none;cursor:pointer;font-family:inherit" id="ent-submit">Request a Proposal →</button>
-      <div id="ent-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;text-align:center;color:#4ade80">
-        ✓ Thanks! Our enterprise team will reach out within 24 hours.
-      </div>
+      <p class="lead-status" data-leads-status aria-live="polite" style="margin-top:1rem;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:rgba(255,255,255,.04);color:#e2e8f0;text-align:center;font-size:.9rem;line-height:1.5"></p>
     </form>
   </section>
 
@@ -215,16 +213,6 @@
     </div>
     <p style="font-size:.75rem">© 2026 MoltBot Cloud. Enterprise AI Infrastructure.</p>
   </footer>
-  <script>
-  function handleContact(e){
-    e.preventDefault();
-    const btn = document.getElementById('ent-submit');
-    btn.disabled = true; btn.textContent = 'Sending...';
-    setTimeout(()=>{
-      document.getElementById('ent-success').style.display='block';
-      e.target.style.display='none';
-    }, 800);
-  }
-  </script>
+  <script src="leads.js" defer></script>
 </body>
 </html>

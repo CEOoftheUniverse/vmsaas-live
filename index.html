@@ -253,11 +253,12 @@
     <section style="padding: 4rem 10%; text-align: center;">
         <h2 style="font-size: 2rem; font-family: 'Outfit',sans-serif; margin-bottom: 0.75rem;">Get AI Agent Tips Every Week</h2>
         <p style="color: #94a3b8; font-size: 1rem; margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto;">Practical tips on shipping faster with autonomous agent swarms.</p>
-        <form id="newsletter-form" style="max-width: 420px; margin: 0 auto; display: flex; gap: 0.5rem;">
-            <input type="email" id="nl-email" placeholder="dev@company.com" required style="flex:1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); color: var(--text-color); font-family: inherit;">
+        <form id="newsletter-form" data-leads-kind="newsletter" data-leads-success="You are on the list. Thanks for subscribing!" style="max-width: 420px; margin: 0 auto; display: flex; gap: 0.5rem;">
+            <input name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+            <input type="email" id="nl-email" name="email" autocomplete="email" aria-label="Email address" placeholder="dev@company.com" required style="flex:1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); color: var(--text-color); font-family: inherit;">
             <button type="submit" class="btn-primary" style="white-space: nowrap; padding: 0.75rem 1.5rem;">Subscribe →</button>
         </form>
-        <div id="nl-result" style="margin-top: 0.75rem; font-size: 0.85rem; min-height: 1.5rem;"></div>
+        <div id="nl-result" data-leads-status="newsletter-form" aria-live="polite" style="margin-top: 0.75rem; font-size: 0.85rem; min-height: 1.5rem;"></div>
         <p style="color: #475569; font-size: 0.75rem; margin-top: 0.5rem;">No spam. Unsubscribe anytime.</p>
     </section>
 
@@ -288,10 +289,13 @@
     // --- MoltBot Analytics Pixel ---
     (function() {
         const SESSION_ID = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
-        const BACKEND = 'https://moltbot-cloud-saas.vercel.app';
+        // The analytics backend (moltbot-cloud-saas.vercel.app) no longer exists. Paste a live
+        // /api/analytics/event URL here to turn page analytics back on; while empty, nothing is sent.
+        const ANALYTICS_ENDPOINT = '';
 
         function trackEvent(event, meta = {}) {
-            fetch(`${BACKEND}/api/analytics/event`, {
+            if (!ANALYTICS_ENDPOINT) return;
+            fetch(ANALYTICS_ENDPOINT, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -327,31 +331,7 @@
         })();
     })();
 
-    // --- Newsletter Subscribe ---
-    document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('nl-email').value;
-        const result = document.getElementById('nl-result');
-        const backends = ['https://moltbot-cloud-saas.vercel.app', 'http://127.0.0.1:3000'];
-
-        for (const base of backends) {
-            try {
-                const r = await fetch(`${base}/api/email/subscribe`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, source: 'newsletter', referral: localStorage.getItem('moltbot_referral') || '' }),
-                });
-                if (r.ok) {
-                    result.innerHTML = '<span style="color:#22d3ee">✅ Subscribed! Check your inbox for your first tip.</span>';
-                    document.getElementById('nl-email').value = '';
-                    if (window.moltTrack) window.moltTrack('newsletter_subscribe', { email });
-                    return;
-                }
-            } catch { continue; }
-        }
-        result.innerHTML = '<span style="color:#22d3ee">✅ Noted! We\'ll be in touch.</span>';
-        document.getElementById('nl-email').value = '';
-    });
+    // Newsletter: the form is wired by leads.js (data-leads-kind="newsletter").
 
     </script>
 
@@ -394,5 +374,6 @@
 </div>
 </footer>
 
+<script src="leads.js" defer></script>
 </body>
 </html>

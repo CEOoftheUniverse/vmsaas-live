@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <form id="signup-form">
+        <form id="signup-form" data-leads-kind="waitlist" data-leads-success="You are on the pre-order waitlist. We will email you when checkout opens.">
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" required placeholder="you@company.com" autocomplete="email">
@@ -95,13 +95,13 @@
                 <input type="text" id="company" name="company" placeholder="Acme Corp">
             </div>
 
-            <input type="hidden" id="selected-plan" value="base">
-            <input type="hidden" id="billing" value="monthly">
-            <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-            <input type="hidden" id="referral" value="">
+            <input type="hidden" id="selected-plan" name="tier" value="base">
+            <input type="hidden" id="billing" name="billing" value="monthly">
+            <input name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+            <input type="hidden" id="referral" name="referral" value="">
 
             <label style="display:flex;align-items:center;gap:.6rem;padding:.75rem 1rem;background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;cursor:pointer;margin-bottom:1rem;font-size:.85rem">
-                <input type="checkbox" id="copilot-addon" style="width:auto;accent-color:#f59e0b">
+                <input type="checkbox" id="copilot-addon" name="copilot_addon" value="yes" style="width:auto;accent-color:#f59e0b">
                 <span>Add <strong style="color:#f59e0b">Copilot IDE</strong> — autonomous agents in VS Code <span style="color:var(--m)">(+$50/mo)</span></span>
             </label>
 
@@ -114,8 +114,9 @@
 
         <div class="divider">or</div>
 
-        <form id="waitlist-form" style="display:flex;gap:0.5rem">
-            <input type="email" id="wl-email" aria-label="Email for the waitlist" placeholder="Join waitlist instead" style="flex:1;padding:0.6rem 0.8rem;font-size:0.85rem">
+        <form id="waitlist-form" data-leads-kind="waitlist" data-leads-success="You are on the waitlist. We will email you when checkout opens." style="display:flex;gap:0.5rem">
+            <input name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+            <input type="email" id="wl-email" name="email" autocomplete="email" required aria-label="Email for the waitlist" placeholder="Join waitlist instead" style="flex:1;padding:0.6rem 0.8rem;font-size:0.85rem">
             <button type="submit" style="background:transparent;border:1px solid var(--b);color:var(--t);padding:0.6rem 1rem;border-radius:10px;font-size:0.8rem;font-weight:600;cursor:pointer;white-space:nowrap">Waitlist</button>
         </form>
         <div data-leads-status="waitlist-form" aria-live="polite" style="text-align:center;font-size:.85rem;margin-top:.5rem"></div>
@@ -162,90 +163,9 @@
         document.querySelector(`[data-plan="${plan}"]`).classList.add('active');
     }
 
-    // Stripe Checkout flow
-    document.getElementById('signup-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('checkout-btn');
-        const status = document.getElementById('checkout-status');
-        const email = document.getElementById('email').value;
-        const company = document.getElementById('company').value;
-        const referral = document.getElementById('referral').value;
-        const copilotAddon = document.getElementById('copilot-addon') ? document.getElementById('copilot-addon').checked : false;
-
-        btn.disabled = true;
-        btn.textContent = 'Creating checkout session...';
-        status.innerHTML = '';
-
-        // Try moltbot-saas backend first, then agent-saas backend
-        const backends = [
-            'https://moltbot-cloud-saas.vercel.app/api/billing/checkout',
-            'http://127.0.0.1:3000/api/billing/checkout',
-            'http://127.0.0.1:8080/checkout',
-        ];
-
-        let success = false;
-        for (const url of backends) {
-            try {
-                const r = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, tier: selectedPlan, company, referral, copilotAddon }),
-                });
-                if (r.ok) {
-                    const data = await r.json();
-                    if (data.url) {
-                        status.innerHTML = '<span style="color:#22c55e">✅ Redirecting to Stripe...</span>';
-                        window.location.href = data.url;
-                        success = true;
-                        break;
-                    }
-                }
-                const errData = await r.json().catch(() => ({}));
-                if (errData.hint === 'stripe_not_configured') {
-                    // Stripe not configured — fall back to waitlist
-                    status.innerHTML = '<span style="color:#f59e0b">⚠️ Payments launching soon. Added to priority waitlist!</span>';
-                    await addToWaitlist(email, selectedPlan, referral);
-                    success = true;
-                    break;
-                }
-            } catch { continue; }
-        }
-
-        if (!success) {
-            status.innerHTML = '<span style="color:#f59e0b">⚠️ Added to priority waitlist — payments launching soon!</span>';
-            await addToWaitlist(email, selectedPlan, referral);
-        }
-
-        btn.disabled = false;
-        btn.textContent = 'Continue to Payment →';
-    });
-
-    async function addToWaitlist(email, tier, referral) {
-        const backends = [
-            'https://moltbot-cloud-saas.vercel.app/api/waitlist',
-            'http://127.0.0.1:3000/api/waitlist',
-        ];
-        for (const url of backends) {
-            try {
-                await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, tier, referral }),
-                });
-                break;
-            } catch { continue; }
-        }
-    }
-
-    // Waitlist-only form
-    document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('wl-email').value;
-        if (!email) return;
-        await addToWaitlist(email, 'base', document.getElementById('referral').value);
-        document.getElementById('wl-email').value = '';
-        document.getElementById('checkout-status').innerHTML = '<span style="color:#22c55e">✅ Added to waitlist!</span>';
-    });
+    // Both forms are wired by leads.js (data-leads-kind="waitlist"); the plan travels in the
+    // "tier" field. Stripe checkout is not live (pre-order), so no payment request is made.
     </script>
+<script src="leads.js" defer></script>
 </body>
 </html>
