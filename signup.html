@@ -1,15 +1,26 @@
-continue
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up — MoltBot Cloud | Start Your AI Agent VM</title>
-    <meta name="description" content="Create your MoltBot Cloud account. Choose a plan, enter your email, and deploy autonomous AI agents in 60 seconds. Plans from $49/mo.">
+    <meta name="description" content="Join the MoltBot Cloud pre-order waitlist. Pick Base $49, Swarm $149 or Enterprise $299 a month, billed monthly or yearly, and hear when checkout opens.">
     <meta property="og:title" content="Sign Up — MoltBot Cloud">
-    <meta property="og:description" content="Deploy autonomous AI agent swarms. Plans from $49/mo.">
+    <meta property="og:description" content="Join the MoltBot Cloud pre-order waitlist. Plans from $49 a month; checkout is not open yet.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/signup.html">
+    <meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Join the MoltBot Cloud Waitlist">
+    <meta name="twitter:description" content="Join the MoltBot Cloud pre-order waitlist. Plans from $49 a month; checkout is not open yet.">
+    <meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
     <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/signup.html">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[
+      {"@type":"WebPage","name":"Join the MoltBot Cloud waitlist","url":"https://ceooftheuniverse.github.io/vmsaas-live/signup.html","description":"Join the MoltBot Cloud pre-order waitlist. Plans from $49 a month; checkout is not open yet.","isPartOf":{"@type":"WebSite","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"}},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Join the Waitlist","item":"https://ceooftheuniverse.github.io/vmsaas-live/signup.html"}]}
+    ]}
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4}
@@ -51,23 +62,26 @@ continue
     <div class="signup-container">
         <div class="logo">Molt<span>Bot</span> Cloud</div>
         <h1>Start Your AI Workforce</h1>
-        <p class="subtitle">Deploy autonomous agents in 60 seconds. No setup required.</p>
+        <p class="subtitle">MoltBot Cloud is in pre-order: checkout is not open yet. Pick a plan and join the waitlist.</p>
 
         <div class="plan-cards">
             <div class="plan-card active" data-plan="base" onclick="selectPlan('base')">
                 <div class="plan-name">Base</div>
                 <div class="plan-price">$49</div>
-                <div style="color:var(--m);font-size:0.7rem">/month</div>
+                <div style="color:var(--m);font-size:0.7rem">/month · $39 yearly</div>
+                <div style="color:var(--m);font-size:0.65rem">1 agent · shared GPU</div>
             </div>
             <div class="plan-card" data-plan="swarm" onclick="selectPlan('swarm')">
                 <div class="plan-name">Swarm</div>
                 <div class="plan-price">$149</div>
-                <div style="color:var(--m);font-size:0.7rem">/month</div>
+                <div style="color:var(--m);font-size:0.7rem">/month · $119 yearly</div>
+                <div style="color:var(--m);font-size:0.65rem">3 agents · shared GPU</div>
             </div>
             <div class="plan-card" data-plan="enterprise" onclick="selectPlan('enterprise')">
                 <div class="plan-name">Enterprise</div>
                 <div class="plan-price">$299</div>
-                <div style="color:var(--m);font-size:0.7rem">/month</div>
+                <div style="color:var(--m);font-size:0.7rem">/month · $239 yearly</div>
+                <div style="color:var(--m);font-size:0.65rem">10 agents · shared GPU</div>
             </div>
         </div>
 
@@ -82,6 +96,8 @@ continue
             </div>
 
             <input type="hidden" id="selected-plan" value="base">
+            <input type="hidden" id="billing" value="monthly">
+            <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
             <input type="hidden" id="referral" value="">
 
             <label style="display:flex;align-items:center;gap:.6rem;padding:.75rem 1rem;background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.2);border-radius:10px;cursor:pointer;margin-bottom:1rem;font-size:.85rem">
@@ -90,27 +106,28 @@ continue
             </label>
 
             <button type="submit" class="btn-checkout" id="checkout-btn">
-                Continue to Payment →
+                Join the Pre-order Waitlist →
             </button>
         </form>
 
-        <div id="checkout-status"></div>
+        <div id="checkout-status" data-leads-status="signup-form" aria-live="polite"></div>
 
         <div class="divider">or</div>
 
         <form id="waitlist-form" style="display:flex;gap:0.5rem">
-            <input type="email" id="wl-email" placeholder="Join waitlist instead" style="flex:1;padding:0.6rem 0.8rem;font-size:0.85rem">
+            <input type="email" id="wl-email" aria-label="Email for the waitlist" placeholder="Join waitlist instead" style="flex:1;padding:0.6rem 0.8rem;font-size:0.85rem">
             <button type="submit" style="background:transparent;border:1px solid var(--b);color:var(--t);padding:0.6rem 1rem;border-radius:10px;font-size:0.8rem;font-weight:600;cursor:pointer;white-space:nowrap">Waitlist</button>
         </form>
+        <div data-leads-status="waitlist-form" aria-live="polite" style="text-align:center;font-size:.85rem;margin-top:.5rem"></div>
 
         <div class="features-mini">
             <span>Cancel anytime</span>
-            <span>7-day free trial</span>
+            <span>7-day free trial at launch</span>
             <span>No setup fees</span>
         </div>
 
         <div class="social-proof">
-            <strong>12+ developers</strong> already on the waitlist
+            Joining the waitlist is <strong>free</strong> and needs no card
         </div>
 
         <a href="index.html" class="back-link">← Back to MoltBot Cloud</a>

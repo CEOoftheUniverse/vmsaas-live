@@ -50,10 +50,10 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What is MoltBot Cloud?","acceptedAnswer":{"@type":"Answer","text":"MoltBot Cloud provides pre-configured AI agent VMs for software development. Each VM runs 5-10 AI agents in parallel with 12 LLM models and persistent memory."}},
-{"@type":"Question","name":"How is MoltBot different from Cursor or Copilot?","acceptedAnswer":{"@type":"Answer","text":"MoltBot runs multiple agents in parallel on a dedicated VM with persistent memory. Cursor and Copilot are single-agent IDE tools without dedicated infrastructure."}},
-{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Plans start at $49/mo for 3-5 agents. Swarm plan is $149/mo for 5-10 agents. Enterprise is $299/mo with priority GPU and 24/7 support."}},
-{"@type":"Question","name":"Is there a free trial?","acceptedAnswer":{"@type":"Answer","text":"Yes, all plans include a 7-day free trial with no credit card required."}}
+{"@type":"Question","name":"What is MoltBot Cloud?","acceptedAnswer":{"@type":"Answer","text":"MoltBot Cloud provides pre-configured AI agent VMs for software development, now in pre-order. Plans run 1, 3 or 10 AI agents in parallel with 7 AI model families, persistent memory and shared GPU time."}},
+{"@type":"Question","name":"How is MoltBot different from Cursor or Copilot?","acceptedAnswer":{"@type":"Answer","text":"MoltBot runs multiple agents in parallel on a private VM with persistent memory and shared GPU time. Cursor and Copilot are single-agent IDE tools that run in your editor."}},
+{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"Base is $49/mo for 1 agent and 60 shared GPU-hours a month. Swarm is $149/mo for 3 agents with 120 GPU-hours plus 5 H100-hours. Enterprise is $299/mo for 10 agents with 240 GPU-hours plus 10 H100-hours and top priority. Annual billing saves 20%. Dedicated GPUs cost market rate plus 10%. MoltBot Cloud is in pre-order."}},
+{"@type":"Question","name":"Is there a free trial?","acceptedAnswer":{"@type":"Answer","text":"Yes. When we launch, every plan starts with a 7-day free trial. No credit card is needed to join the waitlist today."}}
 ]}
 </script>
 </head>
@@ -69,12 +69,12 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 
 <details class="faq">
 <summary>What is MoltBot Cloud?</summary>
-<div class="faq-body">MoltBot Cloud provides pre-configured AI agent VMs for software development. Each VM runs 5-10 AI agents in parallel, powered by 12 LLM models with smart routing, persistent ChromaDB memory, and self-healing infrastructure. Think of it as having a full AI development team on a dedicated server.</div>
+<div class="faq-body">MoltBot Cloud provides pre-configured AI agent VMs for software development. Plans run 1, 3 or 10 AI agents in parallel, powered by 7 AI model families with smart routing, persistent ChromaDB memory and shared GPU time. Think of it as a full AI development team on your own private VM. We are in pre-order, so these are planned features.</div>
 </details>
 
 <details class="faq">
 <summary>How is MoltBot different from Cursor, Devin, or Copilot?</summary>
-<div class="faq-body">MoltBot runs <strong>multiple agents in parallel</strong> on a dedicated VM with persistent memory across sessions. Cursor and Copilot are single-agent IDE plugins. Devin is a single agent in a sandboxed environment at $500/mo. MoltBot gives you 5-10 agents with 12 models for $49-$299/mo. <a href="compare.html">See the full comparison →</a></div>
+<div class="faq-body">MoltBot runs <strong>multiple agents in parallel</strong> on a private VM with persistent memory across sessions. Cursor and Copilot are single-agent IDE plugins. Devin runs a single agent in a sandboxed environment. MoltBot plans run 1, 3 or 10 agents with 7 AI model families for $49-$299/mo. <a href="compare.html">See the full comparison →</a></div>
 </details>
 
 <details class="faq">
@@ -88,12 +88,12 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 
 <details class="faq">
 <summary>How much does MoltBot Cloud cost?</summary>
-<div class="faq-body"><strong>Base:</strong> $49/mo (3-5 agents) · <strong>Swarm:</strong> $149/mo (5-10 agents) · <strong>Enterprise:</strong> $299/mo (10+ agents, priority GPU, 24/7 support). All plans include a 7-day free trial. <a href="pricing.html">View full pricing →</a></div>
+<div class="faq-body"><strong>Base:</strong> $49/mo (1 agent, 60 shared GPU-hours) · <strong>Swarm:</strong> $149/mo (3 agents, 120 GPU-hours + 5 H100-hours) · <strong>Enterprise:</strong> $299/mo (10 agents, 240 GPU-hours + 10 H100-hours, top priority). Annual billing saves 20%. Dedicated GPUs cost market rate + 10%. A 7-day free trial starts at launch. <a href="pricing.html">View full pricing →</a></div>
 </details>
 
 <details class="faq">
 <summary>Is there a free trial?</summary>
-<div class="faq-body">Yes! All plans include a <strong>7-day free trial</strong> with no credit card required. You get full access to all features during the trial period.</div>
+<div class="faq-body">Yes. When we launch, all plans will include a <strong>7-day free trial</strong> with full access to your plan's features. You can join the waitlist today with no credit card.</div>
 </details>
 
 <details class="faq">
@@ -112,7 +112,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 
 <details class="faq">
 <summary>Who can access my VM and code?</summary>
-<div class="faq-body">Only you. Each customer gets a <strong>dedicated, isolated VM</strong>. MoltBot staff cannot access your VM without your explicit permission. Your code never leaves your VM unless you deploy it.</div>
+<div class="faq-body">Only you. Each customer will get a <strong>private, isolated VM</strong>; GPU jobs run on a shared pool unless you add a dedicated GPU. MoltBot staff cannot access your VM without your explicit permission. Your code never leaves your VM unless you deploy it.</div>
 </details>
 
 <details class="faq">
@@ -141,7 +141,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 
 <details class="faq">
 <summary>What happens if a service crashes?</summary>
-<div class="faq-body">MoltBot includes <strong>self-healing infrastructure</strong>. Services auto-restart on failure, health checks run every 60 seconds, and you're notified via the status page. 99.5% uptime SLA. <a href="status.html">Check system status →</a></div>
+<div class="faq-body">MoltBot is designed with <strong>self-healing infrastructure</strong> (planned): services auto-restart on failure, health checks run every 60 seconds, and you're notified via the status page. We target 99.5% uptime once the service is live; this is a target, not yet an SLA. <a href="status.html">Check system status →</a></div>
 </details>
 
 <details class="faq">
@@ -160,7 +160,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2rem;font-size:.78rem">
 <div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Product</div><a href="features.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Features</a><a href="pricing.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Pricing</a><a href="integrations.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Integrations</a><a href="security.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Security</a></div>
 <div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Resources</div><a href="blog.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Blog</a><a href="api-docs.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">API Docs</a><a href="getting-started.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Quick Start</a><a href="changelog.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Changelog</a></div>
-<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Company</div><a href="case-studies.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Case Studies</a><a href="compare.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Compare</a><a href="referral.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Refer & Earn</a><a href="status.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Status</a></div>
+<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Company</div><a href="case-studies.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Example Scenarios</a><a href="compare.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Compare</a><a href="referral.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Refer & Earn</a><a href="status.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Status</a></div>
 <div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Legal</div><a href="terms.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Terms</a><a href="terms.html#privacy" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Privacy</a><a href="faq.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">FAQ</a></div>
 </div>
 <div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>

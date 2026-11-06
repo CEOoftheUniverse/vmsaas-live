@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Agent Cost Calculator — Real-Time ROI for Your Team | MoltBot</title>
-  <meta name="description" content="Calculate exactly how much MoltBot saves your team. Enter your headcount, hourly rate, and task mix to see your ROI in real time.">
+  <meta name="description" content="Estimate what MoltBot Cloud could save your team. Enter headcount, hourly rate and task mix to see an ROI estimate based on your own inputs.">
   <meta name="keywords" content="AI agent ROI calculator, AI cost savings calculator, developer productivity calculator, MoltBot pricing calculator, AI vs human cost">
   <meta property="og:title" content="AI Agent Cost Calculator — See Your ROI in 30 Seconds">
   <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/calculator.html">
@@ -53,7 +53,7 @@
 
   <section class="calc-hero">
     <h1>See your ROI in <span style="background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">30 seconds</span></h1>
-    <p>Adjust the sliders to match your team and see exactly how much MoltBot saves you each month.</p>
+    <p>Adjust the sliders to match your team and see an estimate of what MoltBot could save you each month. The result models your inputs; it is not a promise.</p>
   </section>
 
   <div class="calc-layout">
@@ -77,7 +77,7 @@
       </div>
 
       <div class="input-group">
-        <label>MoltBot plan agents <strong id="lbl-agents">3 agents</strong></label>
+        <label>MoltBot plan agents <strong id="lbl-agents">3 agents · Swarm plan</strong></label>
         <input type="range" class="slider" id="sl-agents" min="1" max="10" value="3" oninput="calc()">
       </div>
 
@@ -91,27 +91,27 @@
     <div class="calc-results">
       <div class="result-card">
         <h2>Monthly Savings</h2>
-        <div class="big-num" id="res-savings">$9,450</div><br>
+        <div class="big-num" id="res-savings">$13,491</div><br>
         <span class="big-unit">per month</span>
         <div class="breakdown">
-          <div class="breakdown-row"><span>Current manual cost</span><span id="res-manual">$13,000</span></div>
-          <div class="breakdown-row"><span>MoltBot plan cost</span><span id="res-moltbot">-$147</span></div>
-          <div class="breakdown-row total"><span>Net monthly saving</span><span id="res-net">$12,853</span></div>
+          <div class="breakdown-row"><span>Current manual cost</span><span id="res-manual">$19,485</span></div>
+          <div class="breakdown-row"><span>MoltBot plan cost</span><span id="res-moltbot">-$149</span></div>
+          <div class="breakdown-row total"><span>Net monthly saving</span><span id="res-net">$13,491</span></div>
         </div>
       </div>
       <div class="result-card">
         <h2>Annual ROI</h2>
-        <div class="big-num" id="res-roi">8,752</div>
+        <div class="big-num" id="res-roi">11,362</div>
         <span class="big-unit">% return on investment</span>
         <div class="breakdown">
-          <div class="breakdown-row"><span>Annual savings</span><span id="res-annual">$113,400</span></div>
-          <div class="breakdown-row"><span>Annual MoltBot spend</span><span id="res-annual-cost">$1,764</span></div>
+          <div class="breakdown-row"><span>Annual savings</span><span id="res-annual">$162,246</span></div>
+          <div class="breakdown-row"><span>Annual MoltBot spend (billed yearly)</span><span id="res-annual-cost">$1,428</span></div>
           <div class="breakdown-row total"><span>Time to payback</span><span id="res-payback">&lt; 1 week</span></div>
         </div>
       </div>
       <div class="cta-card">
         <h3>Ready to capture this ROI?</h3>
-        <p>14-day free trial. No credit card required. Your first agent is live in 5 minutes.</p>
+        <p>7-day free trial at launch. No card needed to join the waitlist.</p>
         <a href="signup.html" class="btn-primary" style="display:block;text-align:center">Start Free Trial →</a>
         <a href="contact.html" style="display:block;text-align:center;color:#64748b;font-size:.85rem;margin-top:.75rem;text-decoration:none">Talk to sales for custom pricing →</a>
       </div>
@@ -123,7 +123,12 @@
   </footer>
 
   <script>
-  const PLAN_COSTS = {1:49, 2:98, 3:147, 4:196, 5:245, 6:294, 7:343, 8:392, 9:441, 10:490};
+  // Planned plan prices (pre-order). Agents needed -> plan: 1 = Base, 2-3 = Swarm, 4-10 = Enterprise.
+  function planFor(n){
+    if (n <= 1) return {name:'Base', monthly:49, annual:468};
+    if (n <= 3) return {name:'Swarm', monthly:149, annual:1428};
+    return {name:'Enterprise', monthly:299, annual:2868};
+  }
   
   function fmt(n){return '$'+Math.round(n).toLocaleString();}
   
@@ -142,7 +147,7 @@
     document.getElementById('lbl-devs').textContent = devs+' developer'+(devs>1?'s':'');
     document.getElementById('lbl-rate').textContent = '$'+rate+'/hr';
     document.getElementById('lbl-hours').textContent = hours+' hrs/wk';
-    document.getElementById('lbl-agents').textContent = agents+' agent'+(agents>1?'s':'');
+    document.getElementById('lbl-agents').textContent = agents+' agent'+(agents>1?'s':'')+' · '+planFor(agents).name+' plan';
     document.getElementById('lbl-auto').textContent = Math.round(auto*100)+'%';
 
     // Update slider gradients
@@ -152,10 +157,11 @@
 
     const manualMonthly = devs * rate * hours * 4.33;
     const savedMonthly = manualMonthly * auto;
-    const moltbotCost = (PLAN_COSTS[agents] || agents*49);
+    const plan = planFor(agents);
+    const moltbotCost = plan.monthly;
     const netSaving = savedMonthly - moltbotCost;
-    const annualSaving = netSaving * 12;
-    const annualCost = moltbotCost * 12;
+    const annualCost = plan.annual;
+    const annualSaving = savedMonthly * 12 - annualCost;
     const roi = annualCost > 0 ? (annualSaving / annualCost * 100) : 0;
     const paybackDays = moltbotCost / (netSaving/30);
 
