@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPU Rental Prices (Nov 2026): H100, A100, RTX 4090, RTX 3090</title>
+<meta name="description" content="GPU rental prices checked on 5 Nov 2026: H100 from about USD 1.87 to 12.29 per GPU-hour, plus A100 80GB, RTX 4090 and RTX 3090, each linked to its source.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/gpu-price-index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="GPU Rental Prices, November 2026">
+<meta property="og:description" content="Dated, sourced rental prices for H100, A100 80GB, RTX 4090 and RTX 3090 GPUs from 12 providers and markets, checked on 5 Nov 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/gpu-price-index.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta property="og:site_name" content="MoltBot Cloud">
+<meta property="article:published_time" content="2026-11-05">
+<meta property="article:modified_time" content="2026-11-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPU Rental Prices, November 2026">
+<meta name="twitter:description" content="Dated, sourced rental prices for H100, A100 80GB, RTX 4090 and RTX 3090 GPUs from 12 providers and markets, checked on 5 Nov 2026.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"GPU rental prices, November 2026","description":"GPU rental prices checked on 5 Nov 2026: H100 from about USD 1.87 to 12.29 per GPU-hour, plus A100 80GB, RTX 4090 and RTX 3090, each linked to its source.","keywords":"GPU rental prices, H100 price per hour, A100 80GB rental price, RTX 4090 cloud price, RTX 3090 cloud price, GPU cloud pricing November 2026","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/gpu-price-index.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"GPU rental prices","item":"https://ceooftheuniverse.github.io/vmsaas-live/gpu-price-index.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does it cost to rent an H100 in November 2026?","acceptedAnswer":{"@type":"Answer","text":"On 5 Nov 2026, on-demand H100 prices ran from USD 1.99 per GPU-hour on RunPod Community Cloud to USD 12.29 on Azure (ND96isr H100 v5, East US). Vast.ai marketplace listings started at USD 1.8675 (all hosts, 15:30 UTC), and the Silicon Data H100 rental index stood at USD 2.97."}},
+{"@type":"Question","name":"Why do GPU rental prices differ so much?","acceptedAnswer":{"@type":"Answer","text":"The type of price matters most: marketplace, interruptible and spot prices are lower, but the GPU can stop or disappear at short notice. Instance size (1 or 8 GPUs), region, host verification and support also change the price."}},
+{"@type":"Question","name":"Is this a GPU price index?","acceptedAnswer":{"@type":"Answer","text":"No. It is a dated list of public prices, each linked to its source. We do not combine sources into a composite index."}},
+{"@type":"Question","name":"Does MoltBot Cloud rent GPUs at these prices?","acceptedAnswer":{"@type":"Answer","text":"These are other companies' prices. MoltBot Cloud is in pre-order. Its plans include shared GPU-hours, and a dedicated GPU is a planned add-on at the market rate plus 10%, from USD 0.18 an hour (24 GB) or USD 2.19 (H100)."}}
+]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444;--in:#0f0f12;--line:rgba(255,255,255,.14);--link:#818cf8;color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:1rem;top:.75rem;z-index:200;background:var(--a);color:#fff;padding:.55rem 1rem;border-radius:8px;text-decoration:none;font-weight:600}
+nav.site{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav.site .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav.site .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;white-space:nowrap}
+nav.site .brand span{color:var(--a)}
+nav.site .links{display:flex;align-items:center}
+nav.site .links a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem;display:inline-block;line-height:44px}
+nav.site .links a.trial{color:var(--link);font-weight:700}
+a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:4px}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+[id]{scroll-margin-top:80px}
+.crumbs{font-size:.78rem;color:var(--m);margin-bottom:.75rem}
+.crumbs a{color:var(--m)}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,5.2vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:2rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,3.6vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:1.75rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong,b{color:var(--t)}
+a{color:var(--link)}
+.c ul{margin:0 0 1rem 1.2rem}
+.c li{color:var(--m);font-size:.9rem;margin:.45rem 0}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr strong{color:var(--g)}
+.tldr p{margin-bottom:.4rem}
+.c .tldr ul{margin:0 0 0 1.1rem}
+.c .tldr li{font-size:.88rem;margin:.4rem 0}
+.toc{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.75rem 0 1rem}
+.toc a{display:inline-flex;align-items:center;min-height:44px;padding:.3rem .9rem;border:1px solid var(--line);border-radius:999px;background:var(--s);color:var(--t);text-decoration:none;font-size:.8rem;line-height:1.3}
+.toc a:hover{border-color:var(--link)}
+.hint{font-size:.8rem;margin-bottom:1.5rem}
+.tmeta{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .75rem;margin:0 0 .6rem;font-size:.75rem;color:var(--m);line-height:1.5}
+.stamp{display:inline-flex;align-items:center;gap:.45rem;padding:.2rem .7rem;border:1px solid rgba(34,197,94,.35);border-radius:999px;background:rgba(34,197,94,.08);color:var(--t);font-size:.72rem;font-weight:600}
+.stamp::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--g);flex:none}
+.swipe{display:none}
+.tw{position:relative;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 1.75rem;background:var(--s);border:1px solid var(--b);border-radius:12px}
+.tw:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--s);font-size:.8rem;line-height:1.55}
+table.prices{min-width:780px}
+th,td{padding:.6rem .7rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--b)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+thead th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.68rem;letter-spacing:.5px;vertical-align:bottom;line-height:1.35;border-bottom:1px solid var(--line)}
+tbody th{font-weight:600;color:var(--t);min-width:9.5rem}
+td{color:#d4d4d8}
+td.p{color:var(--t);font-variant-numeric:tabular-nums;min-width:11rem}
+.prices td:nth-child(2){min-width:5.75rem}
+.cn{display:block;margin-top:.3rem;font-size:.72rem;color:var(--m);line-height:1.5}
+thead th.sortable{padding:0}
+.sort{display:flex;align-items:flex-end;gap:.4rem;width:100%;min-height:44px;padding:.6rem .7rem;background:none;border:0;border-radius:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;text-align:left;line-height:1.35;cursor:pointer}
+.sort:hover{color:var(--t)}
+.sort:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:4px}
+.arr{flex:none;font-size:.8rem;line-height:1.1;color:#71717a}
+.arr::after{content:"\2195"}
+th[aria-sort] .sort{color:var(--t)}
+th[aria-sort] .arr{color:var(--link)}
+th[aria-sort="ascending"] .arr::after{content:"\2191"}
+th[aria-sort="descending"] .arr::after{content:"\2193"}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.2);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout p:last-child{margin-bottom:0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--t)}
+.c .defs li{margin:.65rem 0}
+.cta{text-align:center;padding:2.5rem 1.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2.5rem 0}
+.cta h2{margin:0 0 .5rem}
+.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:1.25rem}
+.cta .sub{font-size:.8rem;margin:1.1rem 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.35em;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.5rem;border-radius:10px;border:1px solid var(--a);text-decoration:none;font-family:inherit;font-weight:700;font-size:.9rem;line-height:1.3;text-align:center;cursor:pointer}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.2);color:var(--t)}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.ea{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:1.5rem;margin:2rem 0}
+.ea h2{margin-top:0}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem}
+.field label{display:block;font-weight:600;font-size:.85rem;color:var(--t);margin-bottom:.35rem;line-height:1.4}
+.field .opt{color:var(--m);font-weight:400}
+.field input,.field select{width:100%;min-height:44px;padding:.55rem .75rem;background:var(--in);border:1px solid var(--line);border-radius:10px;color:var(--t);font:inherit;font-size:1rem;line-height:1.4}
+.field ::placeholder{color:#7c7c86;opacity:1}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--m) 50%),linear-gradient(135deg,var(--m) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:2.25rem}
+.field input:focus-visible,.field select:focus-visible{outline:2px solid var(--link);outline-offset:1px;border-color:var(--a)}
+.field input[aria-invalid="true"],.field input[data-leads-invalid]{border-color:var(--r)}
+.field.wide-f{grid-column:1/-1}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit-row{margin-top:1.1rem}
+.form-note{font-size:.76rem;margin:.9rem 0 0}
+.status{margin-top:1rem;font-size:.88rem;line-height:1.6;color:var(--t);border:1px solid var(--line);border-radius:10px;background:var(--in);padding:.8rem 1rem}
+.status:empty{display:none}
+.status[data-leads-state="success"]{border-color:rgba(34,197,94,.45)}
+.status[data-leads-state="fallback"]{border-color:rgba(245,158,11,.45)}
+.status[data-leads-state="invalid"]{border-color:rgba(239,68,68,.5)}
+.note{font-size:.78rem;margin-top:.75rem}
+.related{margin:2.5rem 0 1rem}
+.related h2{font-size:1.05rem;margin:0 0 .5rem}
+.related a{display:flex;align-items:center;gap:.4rem;min-height:44px;color:var(--link);text-decoration:none;padding:.3rem 0;font-size:.88rem;line-height:1.5}
+.related a:hover{text-decoration:underline}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
+@media (min-width:1000px){.tblock{margin-left:-5rem;margin-right:-5rem}}
+@media (max-width:999px){
+.swipe{display:inline}
+.prices tbody th,.prices thead th:first-child{position:sticky;left:0;z-index:1;background:var(--s);box-shadow:inset -1px 0 0 rgba(255,255,255,.12)}
+.prices thead th:first-child{z-index:2}
+}
+@media (max-width:640px){
+nav.site .inner{padding:0 1rem}
+nav.site .links a{display:none}
+nav.site .links a.keep{display:inline-block}
+.c{padding:5.25rem 1rem 3rem}
+th,td{padding:.55rem .6rem}
+.sort{padding:.55rem .6rem}
+.prices tbody th{min-width:8.5rem}
+td.p{min-width:10rem}
+.cta{padding:2rem 1rem}
+.cta-btns .btn{flex:1 1 100%}
+.ea{padding:1.25rem 1rem}
+.submit-row .btn{width:100%}
+}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="site" aria-label="Main"><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
+
+<main id="main">
+<article class="c">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">MoltBot Cloud</a> <span aria-hidden="true">/</span> <a href="blog.html">Blog</a> <span aria-hidden="true">/</span> <span aria-current="page">GPU rental prices</span></nav>
+<h1>GPU rental prices, November 2026</h1>
+<p class="meta">Prices checked on <time datetime="2026-11-05">5 Nov 2026</time>, 15:30-16:25 UTC · MoltBot Cloud</p>
+
+<div class="tldr">
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>On-demand H100s cost from <b>USD 1.99 per GPU-hour</b> (<a href="https://www.runpod.io/pricing">RunPod Community Cloud</a>) to <b>USD 12.29</b> (<a href="https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_ND96isr_H100_v5%27%20and%20armRegionName%20eq%20%27eastus%27">Azure ND96isr H100 v5</a>, East US). The lowest <a href="https://vast.ai/pricing">Vast.ai</a> marketplace listing was USD 1.8675 (all hosts, 15:30 UTC).</li>
+<li>For market reference, the <a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 rental index</a> stood at USD 2.97 on 5 Nov 2026, and <a href="https://kalshi.com/markets/kxh100ms">Kalshi's H100 monthly contract</a> settled October at USD 2.94.</li>
+<li>A100 80GB on-demand prices ran from USD 0.845 (<a href="https://cloud.vast.ai/create/">Vast.ai</a>, all hosts) to USD 4.10 (<a href="https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_ND96amsr_A100_v4%27%20and%20armRegionName%20eq%20%27eastus%27">Azure</a>). RTX 4090 ran from USD 0.1343 (Vast.ai) to USD 0.89 (RunPod Secure Cloud). RTX 3090 ran from USD 0.090 (<a href="https://salad.com/pricing">Salad</a>, lowest priority) to USD 0.50 (RunPod Secure Cloud).</li>
+<li>A month is about 730 hours. One H100 rented around the clock costs <b>USD 1,452.70</b> at RunPod's community rate and <b>USD 5,022.40</b> at <a href="https://instances.vantage.sh/aws/ec2/p5.48xlarge">AWS's p5</a> per-GPU rate.</li>
+</ul>
+</div>
+
+<p>These are public GPU rental prices we checked on 5 November 2026. We read each provider's price page and, where one exists, its public price API. Every row names the GPU, the type of price and the time we saw it, and links to the source.</p>
+<p>Prices change daily, and marketplace listings can change within minutes. Treat each figure as a dated snapshot, not a quote. All prices are in USD per GPU-hour.</p>
+
+<nav class="toc" aria-label="On this page"><a href="#h100">H100</a><a href="#a100">A100 80GB</a><a href="#rtx">RTX 4090 and 3090</a><a href="#cheapest">Cheapest GPUs</a><a href="#read">How to read prices</a><a href="#method">How we checked</a><a href="#moltbot">MoltBot Cloud plans</a><a href="#faq">FAQ</a></nav>
+<p class="hint" id="sort-hint" hidden>Select a column heading to sort its table, and select it again to reverse the order. Price sorting uses the first price in each cell, shown in bold.</p>
+<p class="sr" id="sort-status" role="status" aria-live="polite"></p>
+
+<h2 id="h100">NVIDIA H100 rental prices</h2>
+<p>Fifteen offers, from community clouds to the largest clouds.</p>
+<div class="tblock">
+<p class="tmeta"><span class="stamp">Last checked <time datetime="2026-11-05">5 Nov 2026</time></span><span class="swipe">Scroll sideways to see all 6 columns.</span></p>
+<div class="tw" role="region" aria-labelledby="h100" tabindex="0">
+<table class="prices sortable" aria-labelledby="h100">
+<thead><tr><th scope="col" data-sort-type="text">Offer</th><th scope="col" data-sort-type="text">GPU</th><th scope="col" data-sort-type="num">USD per GPU-hour</th><th scope="col" data-sort-type="text">Type</th><th scope="col" data-sort-type="date">Checked</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">RunPod Community Cloud</th><td>H100 PCIe</td><td class="p" data-value="1.99"><b>1.99</b></td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026 (page dated 4 Nov 2026)</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">RunPod Community Cloud</th><td>H100 NVL</td><td class="p" data-value="2.59"><b>2.59</b></td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">RunPod Community Cloud</th><td>H100 SXM</td><td class="p" data-value="2.69"><b>2.69</b></td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">RunPod Secure Cloud</th><td>H100 PCIe / NVL / SXM</td><td class="p" data-value="2.89"><b>2.89</b> / 3.19 / 3.99</td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">Vast.ai marketplace, all hosts</th><td>H100 SXM</td><td class="p" data-value="1.8675"><b>1.8675</b> lowest; 2.387 median<span class="cn">Verified hosts only: lowest 2.28-3.81, median 3.15-3.87 (16:08-16:21 UTC). Only 6-8 machines were listed.</span></td><td>On-demand</td><td data-value="2026-11-05T15:30">5 Nov 2026, 15:30 UTC</td><td><a href="https://vast.ai/pricing">Vast.ai pricing</a></td></tr>
+<tr><th scope="row">Vast.ai marketplace, all hosts</th><td>H100 PCIe</td><td class="p" data-value="2.536"><b>2.536</b> lowest; 2.596 median<span class="cn">3 machines.</span></td><td>On-demand</td><td data-value="2026-11-05T16:08">5 Nov 2026, 16:08-16:21 UTC</td><td><a href="https://cloud.vast.ai/create/">Vast.ai console</a></td></tr>
+<tr><th scope="row">Vast.ai marketplace, all hosts</th><td>H100 NVL</td><td class="p" data-value="2.7047"><b>2.7047</b> lowest; 2.8005 median</td><td>On-demand</td><td data-value="2026-11-05T15:30">5 Nov 2026, 15:30 UTC</td><td><a href="https://vast.ai/pricing">Vast.ai pricing</a></td></tr>
+<tr><th scope="row">Vast.ai, lowest interruptible bid</th><td>H100 SXM</td><td class="p" data-value="0.667"><b>0.667-1.000</b></td><td>Interruptible (can stop at any time)</td><td data-value="2026-11-05T16:08">5 Nov 2026, 16:08-16:21 UTC</td><td><a href="https://cloud.vast.ai/create/">Vast.ai console</a></td></tr>
+<tr><th scope="row">Together AI GPU clusters</th><td>H100 (HGX)</td><td class="p" data-value="3.99"><b>3.99</b> on-demand; 1.99 preemptible; reserved 3.69 (3-30 days), 3.45 (31-90 days), 3.19 (91-180 days)</td><td>On-demand, preemptible, reserved</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.together.ai/pricing">Together AI pricing</a></td></tr>
+<tr><th scope="row">Lambda on-demand list</th><td>H100 SXM</td><td class="p" data-value="3.99"><b>3.99</b> (8x), 4.09 (4x), 4.19 (2x), 4.29 (1x)</td><td>On-demand list price, takes effect 16 Nov 2026</td><td data-value="2026-11-05">seen 5 Nov 2026</td><td><a href="https://lambda.com/pricing">Lambda pricing</a></td></tr>
+<tr><th scope="row">Lambda on-demand list</th><td>H100 PCIe (1x)</td><td class="p" data-value="3.29"><b>3.29</b></td><td>On-demand list price, takes effect 16 Nov 2026</td><td data-value="2026-11-05">seen 5 Nov 2026</td><td><a href="https://lambda.com/pricing">Lambda pricing</a></td></tr>
+<tr><th scope="row">Jarvislabs</th><td>H100 SXM (1x)</td><td class="p" data-value="3.49"><b>3.49</b> (spot 1.54)</td><td>On-demand, billed per minute</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://jarvislabs.ai/pricing">Jarvislabs pricing</a></td></tr>
+<tr><th scope="row">CoreWeave, North America</th><td>H100 HGX (8x)</td><td class="p" data-value="6.16"><b>6.16</b> on-demand; 2.46 spot<span class="cn">USD 49.24/h and USD 19.71/h per 8-GPU instance.</span></td><td>On-demand, spot</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.coreweave.com/pricing">CoreWeave pricing</a></td></tr>
+<tr><th scope="row">AWS p5.48xlarge, US East (N. Virginia), Linux</th><td>H100 (8x)</td><td class="p" data-value="6.88"><b>6.88</b> on-demand; 4.11 spot<span class="cn">USD 55.040/h and USD 32.875/h per instance.</span></td><td>On-demand, spot</td><td data-value="2026-11-05">5 Nov 2026 (Vantage page updated 8:34 AM)</td><td><a href="https://instances.vantage.sh/aws/ec2/p5.48xlarge">Vantage: AWS p5.48xlarge</a></td></tr>
+<tr><th scope="row">Azure ND96isr H100 v5, East US, Linux</th><td>H100 (8x)</td><td class="p" data-value="12.29"><b>12.29</b> pay-as-you-go; 2.27 spot; 2.46 low priority<span class="cn">USD 98.32/h per VM.</span></td><td>On-demand, spot</td><td data-value="2026-11-05T16:14">5 Nov 2026, 16:14 UTC</td><td><a href="https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_ND96isr_H100_v5%27%20and%20armRegionName%20eq%20%27eastus%27">Azure retail price API</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h3 id="h100-refs">H100 market references</h3>
+<p>These figures summarise a market rather than offer a GPU to rent. They are useful reference points.</p>
+<div class="tblock">
+<p class="tmeta swipe">Scroll sideways to see all 6 columns.</p>
+<div class="tw" role="region" aria-labelledby="h100-refs" tabindex="0">
+<table class="prices sortable" aria-labelledby="h100-refs">
+<thead><tr><th scope="col" data-sort-type="text">Offer</th><th scope="col" data-sort-type="text">GPU</th><th scope="col" data-sort-type="num">USD per GPU-hour</th><th scope="col" data-sort-type="text">Type</th><th scope="col" data-sort-type="date">Checked</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Silicon Data H100 rental index (SDH100RT), neo-cloud segment</th><td>H100</td><td class="p" data-value="2.97"><b>2.97</b> (up 5.7% in 7 days)</td><td>Index</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 index</a></td></tr>
+<tr><th scope="row">Silicon Data H100 index, hyperscaler segment</th><td>H100</td><td class="p" data-value="7.12"><b>7.12</b> (down 0.4% in 7 days)</td><td>Index</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 index</a></td></tr>
+<tr><th scope="row">Kalshi H100 monthly average (KXH100MS), settled</th><td>H100</td><td class="p" data-value="2.94"><b>2.94</b> (Oct 2026); 2.83 (Sep); 2.77 (Aug)</td><td>Settled market; settles on hourly H100 values reported by Ornn</td><td data-value="2026-11-05">checked 5 Nov 2026</td><td><a href="https://kalshi.com/markets/kxh100ms">Kalshi KXH100MS</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2 id="a100">NVIDIA A100 80GB rental prices</h2>
+<p>Eight offers for the 80 GB card.</p>
+<div class="tblock">
+<p class="tmeta"><span class="stamp">Last checked <time datetime="2026-11-05">5 Nov 2026</time></span><span class="swipe">Scroll sideways to see all 6 columns.</span></p>
+<div class="tw" role="region" aria-labelledby="a100" tabindex="0">
+<table class="prices sortable" aria-labelledby="a100">
+<thead><tr><th scope="col" data-sort-type="text">Offer</th><th scope="col" data-sort-type="text">GPU</th><th scope="col" data-sort-type="num">USD per GPU-hour</th><th scope="col" data-sort-type="text">Type</th><th scope="col" data-sort-type="date">Checked</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Vast.ai marketplace, all hosts, 80 GB cards only</th><td>A100 SXM4 80GB</td><td class="p" data-value="0.845"><b>0.845</b> lowest; 1.111-1.134 median<span class="cn">Verified hosts only: lowest 1.070-1.108, median 1.162-1.337.</span></td><td>On-demand</td><td data-value="2026-11-05T16:08">5 Nov 2026, 16:08-16:21 UTC</td><td><a href="https://cloud.vast.ai/create/">Vast.ai console</a></td></tr>
+<tr><th scope="row">Vast.ai marketplace, all hosts, 80 GB cards only</th><td>A100 PCIe 80GB</td><td class="p" data-value="0.867"><b>0.867</b> lowest; 0.867 median</td><td>On-demand</td><td data-value="2026-11-05T16:08">5 Nov 2026, 16:08-16:21 UTC</td><td><a href="https://cloud.vast.ai/create/">Vast.ai console</a></td></tr>
+<tr><th scope="row">RunPod Community Cloud</th><td>A100 80GB</td><td class="p" data-value="1.19"><b>1.19</b> (PCIe); 1.39 (SXM)</td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">RunPod Secure Cloud</th><td>A100 80GB</td><td class="p" data-value="1.79"><b>1.79</b> (PCIe and SXM)</td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">Jarvislabs</th><td>A100 80GB (1x)</td><td class="p" data-value="1.49"><b>1.49</b> (spot 0.89)</td><td>On-demand, billed per minute</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://jarvislabs.ai/pricing">Jarvislabs pricing</a></td></tr>
+<tr><th scope="row">CoreWeave, North America</th><td>A100 80GB (8x)</td><td class="p" data-value="2.70"><b>2.70</b> on-demand; 1.21 spot<span class="cn">USD 21.60/h and USD 9.65/h per instance.</span></td><td>On-demand, spot</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.coreweave.com/pricing">CoreWeave pricing</a></td></tr>
+<tr><th scope="row">Lambda on-demand list</th><td>A100 80GB (8x HGX only)</td><td class="p" data-value="2.79"><b>2.79</b><span class="cn">The A100 40GB costs 1.99.</span></td><td>On-demand list price, takes effect 16 Nov 2026</td><td data-value="2026-11-05">seen 5 Nov 2026</td><td><a href="https://lambda.com/pricing">Lambda pricing</a></td></tr>
+<tr><th scope="row">Azure, East US, Linux</th><td>A100 80GB</td><td class="p" data-value="3.67"><b>3.67</b> (NC24ads A100 v4, 1x; spot 0.679); 4.10 (ND96amsr A100 v4, 8x; spot 1.06)</td><td>On-demand, spot</td><td data-value="2026-11-05T16:14">5 Nov 2026, 16:14 UTC</td><td><a href="https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_ND96amsr_A100_v4%27%20and%20armRegionName%20eq%20%27eastus%27">Azure API: ND96amsr A100 v4</a><span class="cn"><a href="https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_NC24ads_A100_v4%27%20and%20armRegionName%20eq%20%27eastus%27">Azure API: NC24ads A100 v4</a></span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h3 id="a100-refs">A100 market references</h3>
+<div class="tblock">
+<p class="tmeta swipe">Scroll sideways to see all 6 columns.</p>
+<div class="tw" role="region" aria-labelledby="a100-refs" tabindex="0">
+<table class="prices sortable" aria-labelledby="a100-refs">
+<thead><tr><th scope="col" data-sort-type="text">Offer</th><th scope="col" data-sort-type="text">GPU</th><th scope="col" data-sort-type="num">USD per GPU-hour</th><th scope="col" data-sort-type="text">Type</th><th scope="col" data-sort-type="date">Checked</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Silicon Data A100 rental index (SDA100RT), neo-cloud segment</th><td>A100 (40 or 80 GB not stated)</td><td class="p" data-value="1.58"><b>1.58</b> (up 3.9% in 7 days); hyperscaler reading 3.93</td><td>Index</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.silicondata.com/products/silicon-index/a100">Silicon Data A100 index</a></td></tr>
+<tr><th scope="row">Kalshi A100 monthly average (KXA100MS), settled</th><td>A100</td><td class="p" data-value="0.99"><b>0.99</b> (Oct 2026); 1.00 (Sep); 1.054 (Aug)</td><td>Settled market (Ornn data)</td><td data-value="2026-11-05">checked 5 Nov 2026</td><td><a href="https://kalshi.com/markets/kxa100ms">Kalshi KXA100MS</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2 id="rtx">RTX 4090 and RTX 3090 rental prices</h2>
+<p>Both cards have 24 GB of memory. Lambda and Jarvislabs do not offer them.</p>
+<div class="tblock">
+<p class="tmeta"><span class="stamp">Last checked <time datetime="2026-11-05">5 Nov 2026</time></span><span class="swipe">Scroll sideways to see all 6 columns.</span></p>
+<div class="tw" role="region" aria-labelledby="rtx" tabindex="0">
+<table class="prices sortable" aria-labelledby="rtx">
+<thead><tr><th scope="col" data-sort-type="text">Offer</th><th scope="col" data-sort-type="text">GPU</th><th scope="col" data-sort-type="num">USD per GPU-hour</th><th scope="col" data-sort-type="text">Type</th><th scope="col" data-sort-type="date">Checked</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Vast.ai marketplace, all hosts</th><td>RTX 4090</td><td class="p" data-value="0.1343"><b>0.1343</b> lowest; 0.4685 median<span class="cn">Verified hosts only: lowest 0.336-0.379, median 0.598.</span></td><td>On-demand</td><td data-value="2026-11-05T15:30">5 Nov 2026, 15:30 UTC</td><td><a href="https://vast.ai/pricing">Vast.ai pricing</a></td></tr>
+<tr><th scope="row">Salad</th><td>RTX 4090</td><td class="p" data-value="0.440"><b>0.440</b> High; 0.347 Medium; 0.253 Low; 0.160 Lowest priority</td><td>Priority tiers: lower tiers can be preempted, and even High can lose its node</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://salad.com/pricing">Salad pricing</a></td></tr>
+<tr><th scope="row">RunPod</th><td>RTX 4090</td><td class="p" data-value="0.34"><b>0.34</b> Community Cloud; 0.89 Secure Cloud</td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">Vast.ai marketplace, all hosts</th><td>RTX 3090</td><td class="p" data-value="0.0943"><b>0.0943</b> lowest; 0.1892 median<span class="cn">Verified hosts only: lowest 0.126-0.150, median 0.227-0.241.</span></td><td>On-demand</td><td data-value="2026-11-05T15:30">5 Nov 2026, 15:30 UTC</td><td><a href="https://vast.ai/pricing">Vast.ai pricing</a></td></tr>
+<tr><th scope="row">Salad</th><td>RTX 3090</td><td class="p" data-value="0.200"><b>0.200</b> High; 0.163 Medium; 0.127 Low; 0.090 Lowest priority</td><td>Priority tiers</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://salad.com/pricing">Salad pricing</a></td></tr>
+<tr><th scope="row">RunPod</th><td>RTX 3090</td><td class="p" data-value="0.22"><b>0.22</b> Community Cloud; 0.50 Secure Cloud</td><td>On-demand list price</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">Lambda</th><td>RTX 3090, RTX 4090</td><td class="p" data-value="">Not offered (cheapest Lambda GPU: Quadro RTX 6000, 0.69 from 16 Nov 2026)</td><td data-value=""><span aria-hidden="true">—</span><span class="sr">Not applicable</span></td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://lambda.com/pricing">Lambda pricing</a></td></tr>
+<tr><th scope="row">Jarvislabs</th><td>RTX 3090, RTX 4090</td><td class="p" data-value="">Not offered</td><td data-value=""><span aria-hidden="true">—</span><span class="sr">Not applicable</span></td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://jarvislabs.ai/pricing">Jarvislabs pricing</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2 id="cheapest">Cheapest GPU at five providers</h2>
+<p>The cheapest GPU-hour we found at each of five providers, whatever the GPU model.</p>
+<div class="tblock">
+<p class="tmeta"><span class="stamp">Last checked <time datetime="2026-11-05">5 Nov 2026</time></span><span class="swipe">Scroll sideways to see all 6 columns.</span></p>
+<div class="tw" role="region" aria-labelledby="cheapest" tabindex="0">
+<table class="prices sortable" aria-labelledby="cheapest">
+<thead><tr><th scope="col" data-sort-type="text">Offer</th><th scope="col" data-sort-type="text">GPU</th><th scope="col" data-sort-type="num">USD per GPU-hour</th><th scope="col" data-sort-type="text">Type</th><th scope="col" data-sort-type="date">Checked</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Vast.ai</th><td>RTX 3060 Ti</td><td class="p" data-value="0.0273"><b>0.0273</b></td><td>On-demand marketplace listing, lowest per GPU</td><td data-value="2026-11-05T15:30">5 Nov 2026, 15:30 UTC</td><td><a href="https://vast.ai/pricing">Vast.ai pricing</a></td></tr>
+<tr><th scope="row">Salad</th><td>RTX 3060-class (RTX 3060, RTX 3070, RTX 3070 Ti and others)</td><td class="p" data-value="0.015"><b>0.015</b></td><td>Lowest (batch) priority; can be preempted</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://salad.com/pricing">Salad pricing</a></td></tr>
+<tr><th scope="row">RunPod</th><td>RTX A5000 (24 GB)</td><td class="p" data-value="0.16"><b>0.16</b> (Secure Cloud 0.27)</td><td>On-demand, Community Cloud</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td></tr>
+<tr><th scope="row">Vagon</th><td>NVIDIA T4 16 GB cloud computer ("Planet": 4 cores, 16 GB RAM)</td><td class="p" data-value="0.99"><b>0.99</b>, plus a storage plan from USD 7.99 a month</td><td>Cloud desktop, billed per minute</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://vagon.io/cloud-computer/pricing">Vagon pricing</a></td></tr>
+<tr><th scope="row">CoreWeave</th><td>NVIDIA L40 (48 GB)</td><td class="p" data-value="1.25"><b>1.25</b> (spot 0.78)</td><td>On-demand, sold as an 8-GPU instance at USD 10.00/h</td><td data-value="2026-11-05">5 Nov 2026</td><td><a href="https://www.coreweave.com/pricing">CoreWeave pricing</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<h2 id="read">How to read GPU prices</h2>
+<p>The Type column says what kind of price each row is. Here is what the terms mean.</p>
+<ul class="defs">
+<li><strong>On-demand.</strong> A fixed hourly price with no commitment. The GPU is yours until you stop it. Most rows above are on-demand prices.</li>
+<li><strong>Spot, interruptible and preemptible.</strong> Spare capacity at a lower price, but the provider can stop your job at short notice. The lowest Vast.ai interruptible H100 SXM bid was USD 0.667-1.000 an hour (16:08-16:21 UTC), against USD 1.8675 for the lowest on-demand listing (15:30 UTC). If you use these prices, save checkpoints often.</li>
+<li><strong>Priority tiers.</strong> Salad sells the same GPU at four priority levels. An RTX 4090 costs USD 0.440 an hour at High priority and USD 0.160 at Lowest. Lower tiers can be preempted.</li>
+<li><strong>Reserved.</strong> You commit to a term for a lower hourly rate. Together AI's H100 costs USD 3.99 on demand, USD 3.69 reserved for 3-30 days and USD 3.19 for 91-180 days.</li>
+<li><strong>Per GPU or per node.</strong> AWS, Azure and CoreWeave sell several of these GPUs as 8-GPU instances, also called nodes. We divide the instance price by 8, so every row compares one GPU. You still rent the whole node: AWS's p5.48xlarge costs USD 55.040 an hour for 8 H100s, which is USD 6.88 per GPU-hour.</li>
+<li><strong>Lowest and median.</strong> A marketplace lists many hosts at different prices. The lowest price is one listing, and the median shows a typical price (see <a href="#method">how we checked</a>). "All hosts" includes unverified hosts; in our snapshot, verified hosts cost more.</li>
+<li><strong>Indexes and settled markets.</strong> Silicon Data's index and Kalshi's settled monthly averages summarise a market. They are good reference points, but you cannot rent a GPU at them.</li>
+</ul>
+
+<h2 id="method">How we checked</h2>
+<ul>
+<li>We checked every price on 5 Nov 2026 between 15:30 and 16:25 UTC. We read each provider's price page, plus the public price APIs of Vast.ai, RunPod, Azure and Kalshi.</li>
+<li>Prices are in USD per GPU-hour. For instances with several GPUs (AWS, Azure, CoreWeave), we divided the instance price by the number of GPUs.</li>
+<li>Vast.ai "all hosts" includes unverified hosts. Medians count each machine once, at its cheapest per-GPU offer, weighted by its GPU count; this matches Vast.ai's own price feed.</li>
+<li>Vast.ai prices include a 10 GB disk. H100 supply was thin (6-8 machines), so these figures can move within minutes. The notes give verified-host figures.</li>
+<li>Vast.ai's feed groups 40 GB cards into its "A100 80 GB" rows. Our A100 80GB rows therefore come from our own API snapshot, filtered to 80 GB cards.</li>
+<li>RunPod prices are fixed list prices, so the lowest and typical prices are the same. At 16:11 UTC, RunPod's API showed no single-GPU stock for RTX 3090, H100 PCIe or A100 PCIe.</li>
+<li>Lambda's public prices take effect on 16 Nov 2026. Until then, its current prices are shown only after login.</li>
+<li>For Silicon Data we quote the "As of Nov 5, 2026" headline values; the FAQ text on its pages is older.</li>
+<li>Kalshi contracts settle on the average of hourly values reported by Ornn. kalshi.com blocks automated link checkers, so we read the settled values from Kalshi's public API (<a href="https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXH100MS">H100 series</a>, <a href="https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXA100MS">A100 series</a>).</li>
+<li>We left out TensorDock: its own pages show conflicting prices, and live prices need a login.</li>
+<li>This is a list of sources, not an index. We show each source's figures with attribution and do not combine them. Vast.ai's data is free for display and citation with attribution (see the licence in its <a href="https://storage.googleapis.com/vast-public-gpu-pricing/gpu-pricing-public.json">public price feed</a>). Silicon Data and Kalshi values are quoted with attribution.</li>
+</ul>
+
+<h2 id="moltbot">How MoltBot Cloud plans relate</h2>
+<div class="callout">
+<p class="callout-title">MoltBot Cloud is in pre-order</p>
+<p>The prices on this page are other companies' public prices, not MoltBot offers.</p>
+<p>Our plans do not reserve a GPU for each customer. They include shared GPU-hours under fair use:</p>
+<ul>
+<li><strong>Base</strong> ($49 a month): up to 60 hours on 24 GB-class GPUs.</li>
+<li><strong>Swarm</strong> ($149): 120 hours plus 5 H100-hours.</li>
+<li><strong>Enterprise</strong> ($299): 240 hours plus 10 H100-hours.</li>
+</ul>
+<p>24 GB-class means RTX A5000, RTX 3090 or RTX 4090 cards. A GPU-hour counts only while your job holds a GPU, and hours reset each month. The shared pool is planned and goes live with checkout.</p>
+<p>A GPU reserved just for you is a planned add-on at the market rate plus 10%: from USD 0.18 an hour for a 24 GB card and USD 2.19 for an H100. These are based on <a href="https://www.runpod.io/pricing">RunPod Community Cloud</a>'s USD 0.16 and USD 1.99.</p>
+<p>Why share? One H100 rented around the clock for a 730-hour month costs USD 1,452.70 at RunPod's community rate. Sharing is how plans start at $49. See <a href="pricing.html#gpu">how GPU time works</a>.</p>
+</div>
+
+<h2 id="orbit">From rented GPUs to GPUs in orbit</h2>
+<p>Cost is not the same as price. <a href="space-data-center-cost-calculator.html">The panel's cost model</a> (5-year chips, 8% cost of capital, no margin, 1.2 kW per GPU slot) puts a GPU slot at an Earth hyperscale site at USD 1.62 per GPU-hour of cost. The same slot in low Earth orbit costs USD 8.53 at today's launch price of USD 3,600/kg. It still costs USD 2.85 at USD 30/kg (the panel's model). Chips are about 65% of the cost on Earth and electricity only 5-10%, so free sunlight cannot pay for launch.</p>
+<p><a href="https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters">SemiAnalysis</a> models USD 8.64 per GPU-hour in orbit against USD 2.37 on the ground (a 16-GPU B300 cluster; projection, 3 Jun 2026).</p>
+<p><a href="https://www.starcloud.com">Starcloud</a> has run an NVIDIA H100 in orbit since November 2025. Crusoe plans to run Crusoe Cloud on a Starcloud satellite, with limited GPU capacity, from early 2027 (<a href="https://www.crusoe.ai/resources/newsroom/crusoe-to-become-first-cloud-operator-in-space-through-partnership-with-starcloud">Crusoe announcement</a>).</p>
+
+<div class="cta">
+<h2>Compare Earth, orbit, Moon and Mars</h2>
+<p>Change the launch price, chip life and power price, and see the cost per GPU-hour in each place.</p>
+<div class="cta-btns"><a href="space-data-center-cost-calculator.html" class="btn">Open the space data center cost calculator <span aria-hidden="true">→</span></a><a href="space-compute-feasibility-memo.html" class="btn ghost">Order a space-compute feasibility memo <span aria-hidden="true">→</span></a></div>
+<p class="sub">Weighing an orbital compute deal or mission? Get a sourced memo with a human physics check.</p>
+</div>
+
+<section class="ea" id="orbital-interest" aria-labelledby="oi-h">
+<h2 id="oi-h">Want GPU-hours in orbit? Join the interest list</h2>
+<p>No company sells orbital GPU-hours at scale today. If you would buy them, tell us what you need. It is free, with no payment and no commitment, and we will share what we learn.</p>
+<form id="oi-form" novalidate>
+<div class="fields">
+<div class="field wide-f">
+<label for="oi-email">Work email</label>
+<input id="oi-email" name="email" type="email" autocomplete="email" required aria-required="true" placeholder="name@company.com">
+</div>
+<div class="field">
+<label for="oi-company">Company <span class="opt">(optional)</span></label>
+<input id="oi-company" name="company" type="text" autocomplete="organization">
+</div>
+<div class="field">
+<label for="oi-workload">What would you run? <span class="opt">(optional)</span></label>
+<select id="oi-workload" name="workload">
+<option value="">Choose one</option>
+<option value="inference">Inference</option>
+<option value="training-or-batch">Training or batch jobs</option>
+<option value="data-processing">Data processing</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="field">
+<label for="oi-hours">GPU-hours a month <span class="opt">(optional)</span></label>
+<input id="oi-hours" name="gpu_hours_month" type="number" inputmode="numeric" min="0" step="1" placeholder="For example, 5000">
+</div>
+<div class="field">
+<label for="oi-earliest">Earliest you would need it <span class="opt">(optional)</span></label>
+<select id="oi-earliest" name="earliest">
+<option value="">Choose one</option>
+<option value="2027">2027</option>
+<option value="2028">2028</option>
+<option value="2029-or-later">2029 or later</option>
+</select>
+</div>
+</div>
+<div class="hp" aria-hidden="true"><label for="oi-website">Website (leave this empty)</label><input id="oi-website" name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other"></div>
+<div class="submit-row"><button type="submit" class="btn" id="oi-submit" disabled>Join the interest list</button></div>
+<p class="form-note">We use your answers only for this interest list and to share what we learn. See our <a href="privacy.html">privacy policy</a>.</p>
+<p class="status" id="oi-status" data-leads-status aria-live="polite" role="status"></p>
+</form>
+<noscript><p class="note">This form needs JavaScript. Please turn it on to send your answers.</p></noscript>
+</section>
+
+<h2 id="faq">FAQ</h2>
+<h3>How much does it cost to rent an H100 in November 2026?</h3>
+<p>On 5 Nov 2026, on-demand H100 prices ran from USD 1.99 per GPU-hour on <a href="https://www.runpod.io/pricing">RunPod Community Cloud</a> to USD 12.29 on <a href="https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_ND96isr_H100_v5%27%20and%20armRegionName%20eq%20%27eastus%27">Azure</a> (ND96isr H100 v5, East US). <a href="https://vast.ai/pricing">Vast.ai</a> marketplace listings started at USD 1.8675 (all hosts, 15:30 UTC), and the <a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 rental index</a> stood at USD 2.97.</p>
+<h3>Why do GPU rental prices differ so much?</h3>
+<p>The type of price matters most: marketplace, interruptible and spot prices are lower, but the GPU can stop or disappear at short notice. Instance size (1 or 8 GPUs), region, host verification and support also change the price.</p>
+<h3>Is this a GPU price index?</h3>
+<p>No. It is a dated list of public prices, each linked to its source. We do not combine sources into a composite index.</p>
+<h3>Does MoltBot Cloud rent GPUs at these prices?</h3>
+<p>These are other companies' prices. MoltBot Cloud is in pre-order. Its plans include shared GPU-hours, and a dedicated GPU is a <a href="pricing.html#gpu">planned add-on</a> at the market rate plus 10%, from USD 0.18 an hour (24 GB) or USD 2.19 (H100).</p>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="blog-space-data-center-cost-2026.html"><span aria-hidden="true">→</span> Are data centers in space cheaper? The 2026 cost math</a>
+<a href="blog-space-solar-5x-energy.html"><span aria-hidden="true">→</span> Is energy 5x better in space? Solar yes, batteries no</a>
+<a href="radiation-tolerant-ai-runtime.html"><span aria-hidden="true">→</span> Radiation-tolerant AI runtime: early access</a>
+<a href="ai-agents-24-7-hosting.html"><span aria-hidden="true">→</span> GPU cloud prices for 24/7 AI agents</a>
+</div>
+</article>
+</main>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:var(--m);font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+
+<script>
+/* Sortable price tables. Headers become buttons only when this script runs, so without JavaScript the tables
+   stay plain and readable. Rows with no value in the sorted column always go last. */
+(function () {
+  'use strict';
+  var tables = document.querySelectorAll('table.sortable');
+  var live = document.getElementById('sort-status');
+  var hint = document.getElementById('sort-hint');
+  if (!tables.length || typeof document.createDocumentFragment !== 'function') return;
+  var WORDS = {
+    num: ['lowest first', 'highest first'],
+    date: ['earliest first', 'latest first'],
+    text: ['A to Z', 'Z to A']
+  };
+
+  function clean(s) {
+    return String(s === null || s === undefined ? '' : s).replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
+  }
+
+  function valueOf(row, col, type) {
+    var cell = row.cells[col];
+    if (!cell) return null;
+    var raw = clean(cell.hasAttribute('data-value') ? cell.getAttribute('data-value') : cell.textContent);
+    if (raw === '') return null;
+    if (type === 'num') {
+      var n = parseFloat(raw);
+      return isFinite(n) ? n : null;
+    }
+    return raw;
+  }
+
+  function order(row) {
+    return parseInt(row.getAttribute('data-order'), 10) || 0;
+  }
+
+  function sortBody(body, col, type, ascending) {
+    var rows = Array.prototype.slice.call(body.rows);
+    rows.sort(function (a, b) {
+      var va = valueOf(a, col, type);
+      var vb = valueOf(b, col, type);
+      if (va === null || vb === null) {
+        if (va === vb) return order(a) - order(b);
+        return va === null ? 1 : -1;
+      }
+      var c = type === 'num' ? va - vb : va.localeCompare(vb, 'en', { numeric: true, sensitivity: 'base' });
+      if (c === 0) return order(a) - order(b);
+      return ascending ? c : -c;
+    });
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < rows.length; i++) frag.appendChild(rows[i]);
+    body.appendChild(frag);
+  }
+
+  Array.prototype.forEach.call(tables, function (table) {
+    var head = table.tHead && table.tHead.rows[0];
+    var body = table.tBodies[0];
+    if (!head || !body) return;
+    for (var i = 0; i < body.rows.length; i++) body.rows[i].setAttribute('data-order', String(i));
+    var labelEl = document.getElementById(table.getAttribute('aria-labelledby') || '');
+    var label = labelEl ? clean(labelEl.textContent) : 'Table';
+    var cells = head.cells;
+    Array.prototype.forEach.call(cells, function (th, col) {
+      var type = th.getAttribute('data-sort-type');
+      if (!WORDS.hasOwnProperty(type)) return;
+      var name = clean(th.textContent);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'sort';
+      while (th.firstChild) btn.appendChild(th.firstChild);
+      var arr = document.createElement('span');
+      arr.className = 'arr';
+      arr.setAttribute('aria-hidden', 'true');
+      btn.appendChild(arr);
+      th.appendChild(btn);
+      th.className = th.className ? th.className + ' sortable' : 'sortable';
+      btn.addEventListener('click', function () {
+        var ascending = th.getAttribute('aria-sort') !== 'ascending';
+        sortBody(body, col, type, ascending);
+        for (var j = 0; j < cells.length; j++) {
+          if (cells[j] !== th) cells[j].removeAttribute('aria-sort');
+        }
+        th.setAttribute('aria-sort', ascending ? 'ascending' : 'descending');
+        if (live) live.textContent = label + ' sorted by ' + name + ', ' + WORDS[type][ascending ? 0 : 1] + '.';
+      });
+    });
+    table.setAttribute('aria-describedby', 'sort-hint');
+  });
+  if (hint) hint.hidden = false;
+
+  /* A table wrapper needs a keyboard stop only while it scrolls sideways (phones, tablets). */
+  var wraps = document.querySelectorAll('.tw');
+  var queued = false;
+  function syncFocusStops() {
+    queued = false;
+    for (var k = 0; k < wraps.length; k++) {
+      var w = wraps[k];
+      if (w.scrollWidth > w.clientWidth + 1) w.setAttribute('tabindex', '0');
+      else if (w !== document.activeElement) w.removeAttribute('tabindex');
+    }
+  }
+  syncFocusStops();
+  window.addEventListener('resize', function () {
+    if (queued) return;
+    queued = true;
+    (window.requestAnimationFrame || setTimeout)(syncFocusStops);
+  });
+})();
+
+/* Orbital GPU-hours interest list (kind v7-orbital-intent). leads.js is deferred, so wire the form once the DOM
+   is ready. Success shows only when leads.js reports ok === true; otherwise it shows its honest fallback text. */
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('oi-form');
+  var btn = document.getElementById('oi-submit');
+  if (!form) return;
+  if (window.MoltbotLeads && typeof window.MoltbotLeads.wire === 'function') {
+    window.MoltbotLeads.wire(form, {
+      kind: 'v7-orbital-intent',
+      success: "Thanks! You're on the orbital GPU-hours interest list."
+    });
+  } else {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var st = document.getElementById('oi-status');
+      if (st) {
+        st.textContent = 'Sorry, the form did not load, so your answers were not sent. Please reload the page and try again.';
+        st.setAttribute('data-leads-state', 'fallback');
+      }
+    });
+  }
+  if (btn) btn.disabled = false;
+});
+</script>
+<script src="leads.js" defer></script>
+</body>
+</html>

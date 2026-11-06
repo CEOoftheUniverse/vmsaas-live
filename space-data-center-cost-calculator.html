@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Data Center Cost Calculator: Earth vs Orbit, Moon, Mars</title>
+<meta name="description" content="Compare the cost of AI compute on Earth, in Earth orbit, with Moon-made parts and in Mars orbit. Change launch price, mass and chip losses. Sourced, free.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/space-data-center-cost-calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Space Data Center Cost Calculator: Earth vs Orbit, Moon, Mars">
+<meta property="og:description" content="What AI compute would cost on Earth, in Earth orbit, with Moon-made parts and in Mars orbit in our model. Change the inputs and see the break-even launch price.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/space-data-center-cost-calculator.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Space Data Center Cost Calculator">
+<meta name="twitter:description" content="AI compute on Earth vs Earth orbit vs Moon-made parts vs Mars orbit: change launch price, mass and chip losses.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Space Data Center Cost Calculator","url":"https://ceooftheuniverse.github.io/vmsaas-live/space-data-center-cost-calculator.html","description":"Interactive calculator that compares the cost of AI compute on Earth, in low Earth orbit, with Moon-made parts and in Mars orbit, using the closed-form cost model from MoltBot Cloud's AI research panel (November 2026).","applicationCategory":"BusinessApplication","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Five starting points","Cost per kW-year, per MWh and per GPU-hour","Cost split chart","Break-even launch price","Share link that restores your inputs"],"datePublished":"2026-11-05","dateModified":"2026-11-05","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"Space Data Center Cost Calculator","item":"https://ceooftheuniverse.github.io/vmsaas-live/space-data-center-cost-calculator.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Are data centers in space cheaper than on Earth?","acceptedAnswer":{"@type":"Answer","text":"Not under the panel's central inputs. A data center in low Earth orbit costs about 5.3x a ground site at today's USD 3,600/kg launch price (USD 62,344 vs USD 11,839 per kW-year) and still about 1.8x at USD 100/kg. Chips are about 65% of the Earth cost and electricity only 5-10%, so free sunlight cannot pay for the launch, the satellite and chips that fail with no repair. Even a free launch plus a free satellite only brings orbit to 0.98x a ground site."}},
+{"@type":"Question","name":"What launch price would make orbital AI compute break even?","acceptedAnswer":{"@type":"Answer","text":"With the panel's central inputs, none. With optimistic hardware, break-even is USD 671/kg at 10 kg per kW and USD 184/kg at 20 kg per kW, with none at 33 kg per kW or heavier. Optimistic here means four changes: USD 400/kg to build, 3% of chips lost a year, no space-chip premium and 1.5% a year for operations, as in the calculator's Optimistic hardware starting point. Published break-even prices span about 10x, USD 50-500/kg: Bain USD 50-100, Forethought about USD 100, McCalip USD 77-260, Google USD 200 or less on energy cost only, and Starcloud about USD 500 on power cost (a company claim). Falcon 9 costs about USD 3,250-4,230/kg in 2026, and the only public Starship price, a 2024-era USD 90M commitment, is about USD 600-900/kg at 100-150 t."}},
+{"@type":"Question","name":"Isn't solar power 5x better in space?","acceptedAnswer":{"@type":"Answer","text":"For solar panels, roughly yes. A panel in a dawn-dusk Earth orbit collects about 4-8x the energy of a ground panel (Google says up to 8x), so the satellite needs about 40x less battery storage than 24/7 ground solar. Batteries store the same or less in space, though, and the hardware is costly to launch: in the panel's model orbital solar delivers power at USD 318-370/MWh with 5-year arrays (USD 163-190 with 15-year arrays) even at USD 30-200/kg launch, against USD 80 from the grid. Electricity is only 5-10% of an Earth data center's cost, so cheaper energy cannot close the gap."}},
+{"@type":"Question","name":"Would factories on the Moon or Mars make it cheaper?","acceptedAnswer":{"@type":"Answer","text":"Only in the low-cost cases, and never cheaper than Earth in the panel's model. By the time a lunar factory exists, the panel expects launch near USD 100/kg. At that price, launching everything from Earth gives 1.82x Earth, while central-case Moon-made bulk gives 2.17x: Moon-made bulk only wins while Earth launch costs more than about USD 700/kg. A low-cost lunar base gives 1.38x, and free Moon-made hardware 1.20x. The panel's median date for a lunar factory making 1,000 t a year is 2045-48, and 2038 at the earliest. For Mars orbit, shipping everything from Earth (4.51x) beats central-case Mars-made bulk (5.56x), and even free Mars-made hardware leaves 2.02x, because chips must come from Earth, arrive about 1.75 years late and fail with no repair. Mars orbit sits 3.0-22.3 light-minutes from Earth, so it suits Mars-local users and batch jobs, not interactive use from Earth."}},
+{"@type":"Question","name":"Will radiation ruin AI chips in orbit?","acceptedAnswer":{"@type":"Answer","text":"It looks like a solvable task. In Google's proton-beam test, a Trillium TPU (v6e) showed no hard failures up to 15 krad(Si), 20x the dose it would collect behind 10 mm of aluminium over a 5-year low-Earth-orbit mission, though its HBM memory showed irregularities from 2 krad. Heavy-ion effects are still untested and no in-orbit error data has been published yet. The open task is silent data corruption at about 7.5-10 events per chip-year (the panel's estimate from Google's test): inference tolerates it, while training needs error-correcting memory, frequent checkpoints and redundant runs. The calculator's 9% a year chip loss is a hardware failure rate with no repair, not a radiation figure."}},
+{"@type":"Question","name":"Can I buy orbital GPU-hours from MoltBot Cloud?","acceptedAnswer":{"@type":"Answer","text":"No. MoltBot Cloud does not run or resell orbital hardware, and the form on this page only measures demand. Paid orbital compute so far is small and edge-class, such as Kepler's optical relay satellites with Axiom Space's data-center nodes. Crusoe plans limited GPU capacity on a Starcloud satellite from early 2027, and ODC.space lists orbital racks for delivery from 2029. If you would use orbital compute, register your interest on this page: no payment and no commitment."}}
+]}
+</script>
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444;--b2:rgba(255,255,255,.12);--al:#a5b4fc;--lk:#818cf8;--k1:#3987e5;--k2:#d95926;--k3:#199e70;--k4:#c98500;--k5:#d55181;--ink:#0b0b0b;color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:#4f46e5;color:#fff;padding:.6rem 1rem;border-radius:0 0 10px 0;font-weight:700}
+.skip:focus{left:0}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;margin-left:0}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem;display:inline-block;line-height:44px}
+nav a[aria-current="page"]{color:var(--t)}
+nav a.trial{color:var(--lk);font-weight:700}
+.c{max-width:720px;margin:0 auto;padding:0 2rem}
+.top{padding-top:5.5rem}
+.wide{max-width:1160px;margin:0 auto;padding:0 2rem}
+.crumbs{font-size:.78rem;margin-bottom:.75rem;color:var(--m)}
+.crumbs a{color:var(--m);display:inline-block;padding:.7rem 0;margin:-.7rem 0}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,2.6vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:1.5rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong,b{color:var(--t)}
+a{color:var(--lk)}
+a:hover{color:var(--al)}
+:focus-visible{outline:2px solid var(--al);outline-offset:2px}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr p{margin:0;color:var(--t);font-size:.92rem}
+.tldr strong{color:var(--g)}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--al)}
+.callout p:last-child{margin-bottom:0}
+.lead{max-width:46rem}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;font-size:.8rem}
+th,td{padding:.6rem .7rem;text-align:right;border-bottom:1px solid var(--b);vertical-align:top}
+thead th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.68rem;letter-spacing:.4px;vertical-align:bottom}
+th:first-child,td:first-child{text-align:left}
+tbody th{font-weight:500;color:var(--t)}
+tbody tr:last-child>*{border-bottom:0}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+/* calculator */
+.plabel{font-size:.72rem;font-weight:600;color:var(--m);text-transform:uppercase;letter-spacing:.5px;margin:1.25rem 0 .5rem}
+.presets{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:.6rem}
+.preset{min-height:44px;text-align:left;background:var(--s);border:1px solid var(--b2);border-radius:10px;padding:.6rem .8rem;color:var(--t);font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:.1rem;line-height:1.35}
+.preset:hover{border-color:rgba(165,180,252,.45)}
+.preset .pt{font-weight:700;font-size:.88rem}
+.preset .ps{font-size:.74rem;color:var(--m)}
+.preset[aria-pressed="true"]{border-color:var(--a);background:rgba(99,102,241,.14);box-shadow:inset 0 0 0 1px var(--a)}
+.preset[aria-pressed="true"] .pt::before{content:"\2713\00a0";content:"\2713\00a0" / "";color:var(--al)}
+.pbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.75rem 1.5rem;margin-top:.7rem}
+.pnote{flex:1 1 24rem;font-size:.82rem;color:var(--m);margin:0;max-width:52rem}
+.calc{display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem;margin-top:1.25rem}
+.results:focus{outline:none}
+.sub{font-family:'Outfit',sans-serif;font-size:1rem;margin:1rem 0 .45rem;color:var(--t)}
+.results>.sub:first-child,.inputs>.sub:first-child{margin-top:0}
+.loaded{font-size:.8rem;color:var(--t);background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.28);border-radius:10px;padding:.55rem .75rem;margin:0 0 .7rem;line-height:1.55}
+.loaded[hidden]{display:none}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.tile{background:var(--s);border:1px solid var(--b2);border-radius:12px;padding:.7rem .85rem;display:flex;flex-direction:column;gap:.1rem;min-width:0}
+.tl{font-size:.74rem;color:var(--m);font-weight:600;line-height:1.4}
+.tv{font-weight:700;font-size:clamp(1.4rem,3.8vw,1.75rem);line-height:1.15;color:var(--t)}
+.tv .tu{font-size:.6em;font-weight:600;color:var(--m)}
+.ts{font-size:.74rem;color:var(--m);line-height:1.45}
+.be{font-size:.8rem;color:var(--m);margin:.6rem 0 0;line-height:1.6}
+.rt{font-variant-numeric:tabular-nums;font-size:.78rem}
+.rt th,.rt td{padding:.4rem .55rem}
+.defs{margin:.1rem 0 .2rem}
+.rt thead th{text-transform:none;letter-spacing:0;font-size:.72rem;line-height:1.35;white-space:nowrap}
+.rt td{white-space:nowrap;color:var(--t)}
+.rt tbody th{min-width:7.5rem;line-height:1.4}
+.rt .era{display:block;font-size:.68rem;font-weight:400;color:var(--m);line-height:1.35;margin-top:.1rem}
+#c-split th,#c-split td{padding-left:.4rem;padding-right:.4rem}
+.results .tw{margin:.6rem 0 .4rem}
+.fine{font-size:.74rem;color:var(--m);margin:0;line-height:1.55}
+.lgh{font-size:.75rem;color:var(--m);margin:0 0 .2rem;line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.2rem 1rem;font-size:.75rem;color:var(--m);margin:0 0 .7rem;list-style:none;line-height:1.5}
+.legend li{display:flex;align-items:center;gap:.4rem}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none}
+.rl{display:inline-block;width:2px;height:13px;background:#f4f4f5;box-shadow:0 0 0 1px rgba(0,0,0,.7);flex:none}
+.chart{position:relative}
+.crow{margin:0 0 .75rem}
+.chead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 .75rem;font-size:.8rem;line-height:1.45;margin-bottom:.25rem}
+.cname{color:var(--t);font-weight:500}
+.cval{color:var(--m);font-variant-numeric:tabular-nums}
+.track{position:relative;height:20px}
+.bar{display:flex;gap:2px;height:20px;max-width:100%;cursor:default}
+.bar:focus-visible{outline:2px solid var(--al);outline-offset:3px;border-radius:4px}
+.seg{flex:1 1 0px;min-width:0;display:flex;align-items:center}
+.seg.end{border-radius:0 4px 4px 0}
+.seg.hot{filter:brightness(1.22)}
+.sl{font-size:.68rem;font-weight:700;color:var(--ink);padding:0 6px;white-space:nowrap;line-height:1}
+.ref{position:absolute;top:-3px;bottom:-3px;width:2px;margin-left:-1px;background:#f4f4f5;box-shadow:0 0 0 1px rgba(0,0,0,.7);pointer-events:none}
+.k1{background:var(--k1)}.k2{background:var(--k2)}.k3{background:var(--k3)}.k4{background:var(--k4)}.k5{background:var(--k5)}
+.k5{background:repeating-linear-gradient(45deg,var(--k5) 0 4px,#e47fa3 4px 7px)}
+.tip{position:absolute;z-index:6;pointer-events:none;background:#0f0f12;border:1px solid var(--b2);border-radius:10px;padding:.6rem .75rem;font-size:.76rem;line-height:1.5;box-shadow:0 10px 28px rgba(0,0,0,.5);width:16.5rem;max-width:100%}
+.tip-h{color:var(--m);font-size:.72rem}
+.tip-t{color:var(--t);font-weight:700;margin-bottom:.25rem}
+.tip ul{list-style:none}
+.tip li{display:flex;align-items:center;gap:.45rem;color:var(--m)}
+.tip li b{color:var(--t);font-variant-numeric:tabular-nums;min-width:5.4rem;font-weight:600}
+.tip li.on{color:var(--t)}
+.tip li.on b{font-weight:700}
+.tip i{display:inline-block;width:12px;height:3px;border-radius:2px;flex:none}
+details{margin:.6rem 0 0}
+summary{cursor:pointer;color:var(--lk);font-size:.85rem;font-weight:600;padding:.65rem 0}
+summary:hover{color:var(--al)}
+.share{flex:0 1 auto;display:flex;flex-direction:column;align-items:flex-start;gap:.35rem;max-width:100%}
+.btn2{min-height:44px;padding:.6rem 1.1rem;border-radius:10px;border:1px solid var(--a);background:rgba(99,102,241,.14);color:var(--t);font:inherit;font-weight:700;font-size:.88rem;cursor:pointer}
+.btn2:hover{background:rgba(99,102,241,.26)}
+.sstat{font-size:.78rem;color:var(--m);line-height:1.5;max-width:22rem}
+#c-share-url{display:block;width:100%;min-width:0;min-height:44px;margin-top:.6rem;background:var(--bg);color:var(--t);border:1px solid var(--b2);border-radius:10px;padding:.5rem .7rem;font:.78rem 'JetBrains Mono',monospace}
+#c-share-url[hidden]{display:none}
+.fs{border:1px solid var(--b);border-radius:12px;background:var(--s);padding:.85rem 1rem .3rem;margin:0 0 1rem;min-width:0}
+.fs legend{font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;color:var(--t);padding:0 .35rem;margin-left:-.35rem}
+.fsd{font-size:.78rem;color:var(--m);margin:0 0 .25rem;line-height:1.55}
+.row{padding:.45rem 0 .2rem;border-top:1px solid var(--b)}
+.lab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .75rem}
+.lab label{font-size:.86rem;font-weight:500;color:var(--t);line-height:1.4}
+.lab .out{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--al);white-space:nowrap}
+.row input[type=range]{-webkit-appearance:none;appearance:none;display:block;width:100%;height:44px;margin:0;background:transparent;cursor:pointer;--f:.5}
+.row input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(to right,var(--a) 0,var(--a) calc(11px + (100% - 22px) * var(--f)),#71717a calc(11px + (100% - 22px) * var(--f)),#71717a 100%)}
+.row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:#f4f4f5;border:4px solid var(--a);box-shadow:0 0 0 1px rgba(0,0,0,.45)}
+.row input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:#71717a}
+.row input[type=range]::-moz-range-progress{height:6px;border-radius:3px;background:var(--a)}
+.row input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#f4f4f5;border:4px solid var(--a)}
+.row input[type=range]:focus-visible{outline:2px solid var(--al);outline-offset:2px;border-radius:6px}
+@media (forced-colors:active){.row input[type=range]{-webkit-appearance:auto;appearance:auto}.seg,.sw,.rl,.ref,.tip i{forced-color-adjust:none}}
+.hint{font-size:.75rem;color:var(--m);line-height:1.5;margin:0 0 .2rem}
+.mini{position:sticky;top:72px;z-index:5;margin:0 0 .75rem;background:rgba(24,24,27,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--b2);border-radius:12px;padding:.5rem .8rem;font-size:.78rem;line-height:1.5;color:var(--m);box-shadow:0 8px 20px rgba(0,0,0,.45)}
+.mini::before{content:"";position:absolute;left:-1px;right:-1px;top:-9px;height:9px;background:var(--bg)}
+.inputs input,.inputs a{scroll-margin-top:150px;scroll-margin-bottom:24px}
+.mini b{color:var(--t);font-variant-numeric:tabular-nums}
+@media (pointer:coarse){.track,.bar{height:32px}}
+@media (min-width:980px){
+.calc{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:start}
+.results{position:sticky;top:80px;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin;scrollbar-gutter:stable;padding:4px;margin:-4px}
+.mini{display:none}
+}
+@supports (height:100dvh){@media (min-width:980px){.results{max-height:calc(100dvh - 96px)}}}
+/* article sections */
+.steps{margin:0 0 1rem 1.3rem}
+.steps li,.levers li{color:var(--m);font-size:.9rem;margin:.6rem 0}
+.levers{margin:0 0 1rem 1.2rem}
+.formula{font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.75;color:var(--t);background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1rem;white-space:pre-wrap;overflow-wrap:anywhere;margin:.4rem 0 1rem}
+.at{min-width:40rem}
+.at th,.at td{text-align:left}
+.at td{color:var(--m)}
+.at td.v{color:var(--t);white-space:nowrap}
+.st{min-width:64rem;border-collapse:separate;border-spacing:0;overflow:clip}
+.st td{white-space:nowrap}
+.st tbody th{min-width:15rem;font-weight:400}
+.st tbody th,.st thead th:first-child{position:sticky;left:0;z-index:1;background:var(--s);box-shadow:inset -1px 0 0 var(--b2)}
+.st tr.calcrow th,.st tr.calcrow td{font-weight:700;color:var(--t)}
+.st a[data-load]{display:inline-block;padding:.75rem .3rem;margin:-.75rem -.3rem}
+.tw[tabindex]:focus-visible{outline:2px solid var(--al);outline-offset:2px;border-radius:12px}
+.note{font-size:.78rem;color:var(--m);margin:-.75rem 0 1.5rem}
+.pill{display:inline-block;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;border:1px solid var(--b2);border-radius:999px;padding:0 .5rem;margin-right:.4rem;color:var(--t);vertical-align:1px;line-height:1.7}
+.mk{list-style:none}
+.mk li{color:var(--m);font-size:.88rem;margin:.6rem 0}
+.formbox{background:var(--s);border:1px solid var(--b2);border-radius:14px;padding:1.25rem;margin:1.25rem 0 1.5rem}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:.9rem 1rem}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--t);margin-bottom:.3rem;line-height:1.4}
+.field input,.field select{width:100%;min-height:44px;background:var(--bg);color:var(--t);border:1px solid var(--b2);border-radius:10px;padding:.55rem .75rem;font:inherit;font-size:.9rem}
+.field input[aria-invalid="true"]{border-color:#fca5a5}
+.fh{font-size:.74rem;color:var(--m);margin:.3rem 0 0;line-height:1.5}
+.err{color:#fca5a5;font-size:.8rem;margin:.3rem 0 0;line-height:1.5}
+.err:empty{display:none}
+.hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.factions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:#4f46e5;color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;border:0;font-family:inherit;cursor:pointer}
+.btn:hover{color:#fff;background:#5458e6}
+.btn[disabled]{opacity:.65;cursor:wait}
+html:not(.js) .btn[disabled]{cursor:not-allowed}
+.small{font-size:.76rem;color:var(--m);margin:0;line-height:1.55}
+.msg{margin:1rem 0 0;padding:.75rem .9rem;border-radius:10px;font-size:.88rem;line-height:1.55;color:var(--t)}
+.msg.ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3)}
+.msg.warn{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3)}
+.faq h3{font-size:.98rem;margin:1.5rem 0 .4rem;color:var(--t)}
+.cta{text-align:center;padding:2.5rem 1.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2.5rem 0 2rem}
+.cta h2{margin:0 0 .5rem}
+.cta p{max-width:34rem;margin:0 auto 1.25rem}
+.related{margin:2rem 0 3rem}
+.related h2{font-size:1.05rem;margin:0 0 .5rem}
+.related a{display:block;color:var(--lk);text-decoration:none;padding:.5rem 0;font-size:.85rem}
+.related a:hover{color:var(--al)}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
+footer a{display:inline-block;padding:.7rem .3rem;margin:-.7rem -.3rem}
+html:not(.js) .needs-js{display:none!important}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-block}
+.c,.wide{padding-left:1rem;padding-right:1rem}
+.top{padding-top:5.25rem}
+.fs{padding:.8rem .8rem .3rem}
+.tile{padding:.7rem .75rem}
+.rt th,.rt td{padding:.45rem .4rem}
+.rt thead th{font-size:.66rem}
+.rt tbody th{min-width:6.5rem}
+.st tbody th,.st thead th:first-child{min-width:9.5rem;max-width:11rem}
+.cta{padding:2rem 1rem}
+.formbox{padding:1rem}
+}
+@media (max-width:380px){
+.rt th,.rt td{padding:.4rem .25rem}
+.rt thead th{font-size:.62rem}
+.rt tbody th{min-width:5rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#calculator">Skip to the calculator</a>
+<nav><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" aria-current="page">Calculator</a><a href="signup.html" class="trial keep">Start Free Trial</a></div></div></nav>
+
+<main id="main">
+<header class="c top">
+<p class="crumbs"><a href="index.html">MoltBot Cloud</a> / <a href="blog.html">Blog</a> / Space data center cost calculator</p>
+<h1>Space data center cost calculator: Earth vs orbit vs Moon vs Mars</h1>
+<div class="meta"><span>Updated 5 Nov 2026</span><span>Free, runs in your browser</span><span>Model results, not price quotes</span></div>
+<div class="tldr"><p><strong>Short answer:</strong> in the cost model built by our AI research panel for our November 2026 study, AI compute in low Earth orbit costs about 5.3x as much as on Earth at today's launch price (USD 62,344 vs USD 11,839 per kW of hardware per year) and still about 1.8x at USD 100/kg. Chips are about 65% of the Earth cost and electricity only 5-10%, so free sunlight cannot pay for the launch, the satellite and chips that fail with no repair. Moon-made parts give about 2.2x Earth in the central case. That is more than launching everything from Earth at the USD 100/kg the panel expects by then (1.8x); only a low-cost lunar base (1.4x) does better. Mars orbit costs about 5.6x and suits Mars-local users and batch jobs. Change the inputs below to test your own case.</p></div>
+</header>
+
+<section class="wide" id="calculator" aria-labelledby="calc-title">
+<h2 id="calc-title">Try your own numbers</h2>
+<p class="lead">Pick a starting point, then move any slider. Results update as you go. Every figure comes from the panel's model: USD per kW of working AI hardware per year, at cost, with no profit margin.</p>
+<noscript><p class="callout">This calculator needs JavaScript to change the inputs. The results below show the panel's central case, and the scenario table further down shows every scenario.</p></noscript>
+
+<div class="needs-js">
+<p class="plabel" id="presets-label">Starting points</p>
+<div class="presets" role="group" aria-labelledby="presets-label">
+<button type="button" class="preset" data-preset="today" aria-pressed="true"><span class="pt">Today</span><span class="ps">Central inputs, launch USD 3,600/kg</span></button>
+<button type="button" class="preset" data-preset="starship" aria-pressed="false"><span class="pt">Cheap Starship</span><span class="ps">USD 100/kg, 2040 projection</span></button>
+<button type="button" class="preset" data-preset="opthw" aria-pressed="false"><span class="pt">Optimistic hardware</span><span class="ps">USD 400/kg build, 3%/yr loss, 10 kg/kW, no chip premium, 1.5%/yr ops</span></button>
+<button type="button" class="preset" data-preset="moon" aria-pressed="false"><span class="pt">Moon factory</span><span class="ps">Low-cost case: Moon-made parts at USD 159/kg</span></button>
+<button type="button" class="preset" data-preset="mars" aria-pressed="false"><span class="pt">Mars factory</span><span class="ps">Low-cost case: Mars-made parts at USD 381/kg</span></button>
+</div>
+<div class="pbar">
+<p class="pnote" id="c-pnote">Today: the panel's central inputs. Launch costs USD 3,600/kg, a satellite weighs 33 kg per kW and costs USD 1,000/kg to build, and 9% of its chips fail each year with no repair.</p>
+<div class="share">
+<button type="button" class="btn2" id="c-share">Copy share link</button>
+<span class="sstat" id="c-share-status" role="status"></span>
+</div>
+</div>
+<label for="c-share-url" class="vh">Share link</label>
+<input type="text" id="c-share-url" readonly hidden>
+</div>
+
+<div class="calc">
+<div class="results" id="results" role="region" aria-labelledby="results-h">
+<h3 class="sub" id="results-h" tabindex="-1">Results</h3>
+<p class="loaded" id="c-loaded" hidden></p>
+<div class="headline" id="c-live">
+<div class="tiles">
+<div class="tile"><span class="tl">Earth orbit costs</span><span class="tv"><span id="t-leo">5.27x</span> <span class="tu">Earth</span></span><span class="ts" id="t-leo-s">USD 62,344 vs USD 11,839 per kW-year</span></div>
+<div class="tile"><span class="tl">Break-even launch price</span><span class="tv" id="t-be">None</span><span class="ts" id="t-be-s">No launch price matches Earth</span></div>
+<div class="tile"><span class="tl">Earth orbit, Moon-made parts</span><span class="tv"><span id="t-moon">2.17x</span> <span class="tu">Earth</span></span><span class="ts" id="t-moon-s">USD 25,729 per kW-year at USD 100/kg launch</span></div>
+<div class="tile"><span class="tl">Mars orbit, Mars-made parts</span><span class="tv"><span id="t-mars">5.56x</span> <span class="tu">Earth</span></span><span class="ts" id="t-mars-s">USD 65,832 per kW-year at USD 100/kg launch</span></div>
+</div>
+<p class="be" id="c-be">Even a free launch leaves Earth orbit at USD 20,435 per kW-year (1.73x Earth). A free launch and a free satellite together only just beat Earth, at USD 11,641 (0.98x). What is left is the cost of the chips, and in orbit failed chips are never repaired.</p>
+<p class="be" id="c-era">Same-era check: the Moon and Mars cases use the factory-era launch price of USD 100/kg. At that price, launching everything from Earth costs USD 21,599 per kW-year (1.82x Earth), less than with Moon-made parts (2.17x).</p>
+</div>
+<p class="vh" id="c-sr" aria-live="polite"></p>
+
+<div class="tw"><table class="rt" id="c-table">
+<caption class="vh">Cost by site at the current inputs, cost basis with no margin</caption>
+<thead><tr><th scope="col">Site</th><th scope="col">x Earth</th><th scope="col">USD per<br>kW-year</th><th scope="col">USD per<br>MWh</th><th scope="col">USD per<br>GPU-hour</th></tr></thead>
+<tbody>
+<tr id="r0"><th scope="row">Earth data center</th><td class="x">1.00x</td><td class="kw" data-v="11839.306">11,839</td><td class="mwh">1,351</td><td class="gpu">1.62</td></tr>
+<tr id="r1"><th scope="row">Earth orbit, launched from Earth</th><td class="x">5.27x</td><td class="kw" data-v="62344.073">62,344</td><td class="mwh">7,112</td><td class="gpu">8.53</td></tr>
+<tr id="r2"><th scope="row">Earth orbit, Moon-made parts <span class="era">(late 2030s or later, launch USD 100/kg)</span></th><td class="x">2.17x</td><td class="kw" data-v="25729.22">25,729</td><td class="mwh">2,935</td><td class="gpu">3.52</td></tr>
+<tr id="r3"><th scope="row">Mars orbit, Mars-made parts <span class="era">(2050s or later, launch USD 100/kg)</span></th><td class="x">5.56x</td><td class="kw" data-v="65832.274">65,832</td><td class="mwh">7,510</td><td class="gpu">9.01</td></tr>
+</tbody></table></div>
+<p class="fine">Per MWh counts all costs, not only electricity. Per GPU-hour assumes a <span id="c-slot">1.2</span> kW slot running all year.</p>
+
+<h3 class="sub">Where the money goes</h3>
+<div class="needs-js">
+<p class="lgh" id="c-legend-h">Each bar splits its cost left to right in this order:</p>
+<ul class="legend" id="c-legend" aria-labelledby="c-legend-h">
+<li><span class="sw k1"></span>Chips</li>
+<li><span class="sw k2"></span>Transport</li>
+<li><span class="sw k3"></span>Energy</li>
+<li><span class="sw k4"></span>Build</li>
+<li><span class="sw k5"></span>Ops</li>
+<li><span class="rl"></span>Line: Earth cost</li>
+</ul>
+<div class="chart" id="c-chart"><div class="tip" id="c-tip" hidden></div></div>
+</div>
+<details class="split"><summary>Show the cost split as a table</summary>
+<p class="fine defs">Chips: AI servers, GPUs and network. Transport: launch and shipping. Energy: electricity on Earth; solar arrays, power electronics and batteries in space. Build: the building, or the rest of the satellite. Ops: operations, repairs, insurance and the Mars relay.</p>
+<div class="tw" tabindex="0" role="region" aria-label="Cost split table, scrolls sideways"><table class="rt" id="c-split">
+<caption class="vh">Cost split by site, USD per kW-year and share of the site's total</caption>
+<thead><tr><th scope="col">Site</th><th scope="col">Chips</th><th scope="col">Transport</th><th scope="col">Energy</th><th scope="col">Build</th><th scope="col">Ops</th></tr></thead>
+<tbody>
+<tr id="s0"><th scope="row">Earth data center</th><td data-k="chips">7,667 · 65%</td><td data-k="transport">0 · 0%</td><td data-k="energy">842 · 7%</td><td data-k="build">1,901 · 16%</td><td data-k="ops">1,429 · 12%</td></tr>
+<tr id="s1"><th scope="row">Earth orbit, launched from Earth</th><td data-k="chips">10,621 · 17%</td><td data-k="transport">38,237 · 61%</td><td data-k="energy">3,475 · 6%</td><td data-k="build">4,547 · 7%</td><td data-k="ops">5,463 · 9%</td></tr>
+<tr id="s2"><th scope="row">Earth orbit, Moon-made parts</th><td data-k="chips">10,828 · 42%</td><td data-k="transport">2,345 · 9%</td><td data-k="energy">4,502 · 17%</td><td data-k="build">5,821 · 23%</td><td data-k="ops">2,233 · 9%</td></tr>
+<tr id="s3"><th scope="row">Mars orbit, Mars-made parts</th><td data-k="chips">11,935 · 18%</td><td data-k="transport">11,108 · 17%</td><td data-k="energy">22,411 · 34%</td><td data-k="build">13,760 · 21%</td><td data-k="ops">6,619 · 10%</td></tr>
+</tbody></table></div>
+</details>
+</div>
+
+<div class="inputs needs-js" id="inputs">
+<h3 class="sub">Inputs</h3>
+<div class="mini" id="c-mini" aria-hidden="true">vs Earth: orbit <b>5.27x</b> · break-even <b>none</b> · with launch at USD 100/kg: Moon-made <b>2.17x</b> · Mars <b>5.56x</b></div>
+<fieldset class="fs"><legend>Earth</legend>
+<p class="fsd">A grid-powered hyperscale data center. The first four inputs apply to every site.</p>
+<div class="row"><div class="lab"><label for="c-chip">Servers, GPUs and network</label><span class="out" id="o-chip" aria-hidden="true">USD 30,000/kW</span></div><input id="c-chip" type="range" min="10000" max="60000" step="1000" value="30000" aria-describedby="h-chip"><p class="hint" id="h-chip">Per kW of AI hardware.</p></div>
+<div class="row"><div class="lab"><label for="c-gpukw">Power per GPU slot</label><span class="out" id="o-gpukw" aria-hidden="true">1.2 kW</span></div><input id="c-gpukw" type="range" min="0.7" max="2.5" step="0.1" value="1.2" aria-describedby="h-gpukw"><p class="hint" id="h-gpukw">The GPU plus its share of CPU and network. Sets the GPU-hour figures.</p></div>
+<div class="row"><div class="lab"><label for="c-life">Hardware life</label><span class="out" id="o-life" aria-hidden="true">5 yr</span></div><input id="c-life" type="range" min="3" max="10" step="1" value="5" aria-describedby="h-life"><p class="hint" id="h-life">Chips are replaced after this; in space, the satellite too.</p></div>
+<div class="row"><div class="lab"><label for="c-wacc">Cost of capital</label><span class="out" id="o-wacc" aria-hidden="true">8%/yr</span></div><input id="c-wacc" type="range" min="4" max="15" step="0.5" value="8" aria-describedby="h-wacc"><p class="hint" id="h-wacc">The yearly return the money needs, the same at every site.</p></div>
+<div class="row"><div class="lab"><label for="c-fac">Building, power and cooling</label><span class="out" id="o-fac" aria-hidden="true">USD 17,600/kW</span></div><input id="c-fac" type="range" min="5000" max="25000" step="100" value="17600" aria-describedby="h-fac"><p class="hint" id="h-fac">Excluding chips. US and Canada greenfield builds in 2026: USD 8,900-23,300 per kW (<a href="https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide">Cushman &amp; Wakefield</a>).</p></div>
+<div class="row"><div class="lab"><label for="c-pwr">Electricity price</label><span class="out" id="o-pwr" aria-hidden="true">USD 80/MWh</span></div><input id="c-pwr" type="range" min="10" max="200" step="1" value="80" aria-describedby="h-pwr"><p class="hint" id="h-pwr">Industrial prices in August 2026: Texas USD 72.1, US average USD 96.4 per MWh (<a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a">EIA Electric Power Monthly, Table 5.6.A</a>, August 2026 data).</p></div>
+<div class="row"><div class="lab"><label for="c-pue">PUE (cooling overhead)</label><span class="out" id="o-pue" aria-hidden="true">1.20</span></div><input id="c-pue" type="range" min="1.05" max="1.6" step="0.01" value="1.2" aria-describedby="h-pue"><p class="hint" id="h-pue">1.20 means 20% extra power for cooling. <a href="https://www.datacenters.google/efficiency">Google's fleet</a> averages 1.09.</p></div>
+</fieldset>
+
+<fieldset class="fs"><legend>Earth orbit</legend>
+<p class="fsd">A solar-powered data center in a dawn-dusk orbit, launched from Earth. Every input here except the launch price also shapes the Moon and Mars cases.</p>
+<div class="row"><div class="lab"><label for="c-launch">Launch price to low Earth orbit</label><span class="out" id="o-launch" aria-hidden="true">USD 3,600/kg</span></div><input id="c-launch" type="range" min="0" max="3000" step="1" value="2556" aria-describedby="h-launch"><p class="hint" id="h-launch">Log scale, USD 10-10,000. Falcon 9's 2026 list price of USD 74M works out to about USD 3,250-4,230 per kg (<a href="https://keeptrack.space/deep-dive/how-much-does-a-falcon-9-launch-cost">KeepTrack</a>).</p></div>
+<div class="row"><div class="lab"><label for="c-kgkw">Spacecraft mass per kW</label><span class="out" id="o-kgkw" aria-hidden="true">33 kg/kW</span></div><input id="c-kgkw" type="range" min="4" max="100" step="1" value="33" aria-describedby="h-kgkw"><p class="hint" id="h-kgkw">Whole satellite per kW of AI hardware. Panel central 33, optimistic case 10-20.</p></div>
+<div class="row"><div class="lab"><label for="c-mfg">Spacecraft build cost</label><span class="out" id="o-mfg" aria-hidden="true">USD 1,000/kg</span></div><input id="c-mfg" type="range" min="100" max="5000" step="50" value="1000" aria-describedby="h-mfg"><p class="hint" id="h-mfg">Per kg of everything except the servers. The panel's biggest lever once launch is cheap.</p></div>
+<div class="row"><div class="lab"><label for="c-attr">Chips lost per year (no repair)</label><span class="out" id="o-attr" aria-hidden="true">9%/yr</span></div><input id="c-attr" type="range" min="0" max="20" step="0.5" value="9" aria-describedby="h-attr"><p class="hint" id="h-attr">Meta's Llama 3 training cluster logged GPU and memory faults at about 9% of GPUs a year and fixed them on the ground (<a href="https://arxiv.org/abs/2407.21783">Meta</a>). No repairs in orbit.</p></div>
+<div class="row"><div class="lab"><label for="c-prem">Extra cost of space-ready chips</label><span class="out" id="o-prem" aria-hidden="true">10%</span></div><input id="c-prem" type="range" min="0" max="50" step="1" value="10" aria-describedby="h-prem"><p class="hint" id="h-prem">Packaging, coatings and extra error correction.</p></div>
+<div class="row"><div class="lab"><label for="c-ops">Space operations and insurance</label><span class="out" id="o-ops" aria-hidden="true">2.5%/yr</span></div><input id="c-ops" type="range" min="0.5" max="10" step="0.5" value="2.5" aria-describedby="h-ops"><p class="hint" id="h-ops">Per year, as a share of everything bought and launched.</p></div>
+</fieldset>
+
+<fieldset class="fs"><legend>Moon and Mars</legend>
+<p class="fsd">Satellites built partly from Moon-made or Mars-made parts, from the late 2030s at the earliest. No such factory exists yet.</p>
+<div class="row"><div class="lab"><label for="c-ipr">Launch price to low Earth orbit in that era</label><span class="out" id="o-ipr" aria-hidden="true">USD 100/kg</span></div><input id="c-ipr" type="range" min="0" max="3000" step="1" value="1000" aria-describedby="h-ipr"><p class="hint" id="h-ipr">Log scale. The panel assumes USD 100/kg once Starship is mature.</p></div>
+<div class="row"><div class="lab"><label for="c-ef">Mass that must still come from Earth</label><span class="out" id="o-ef" aria-hidden="true">40%</span></div><input id="c-ef" type="range" min="25" max="80" step="1" value="40" aria-describedby="h-ef"><p class="hint" id="h-ef">Servers, batteries, power electronics, avionics: 40% in the panel's model.</p></div>
+<div class="row"><div class="lab"><label for="c-moon">Moon-made parts, delivered to low Earth orbit</label><span class="out" id="o-moon" aria-hidden="true">USD 828/kg</span></div><input id="c-moon" type="range" min="50" max="5000" step="1" value="828" aria-describedby="h-moon"><p class="hint" id="h-moon">Panel range USD 159 / 828 / 3,648 per kg.</p></div>
+<div class="row"><div class="lab"><label for="c-mars">Mars-made parts, delivered to Mars orbit</label><span class="out" id="o-mars" aria-hidden="true">USD 1,939/kg</span></div><input id="c-mars" type="range" min="100" max="15000" step="1" value="1939" aria-describedby="h-mars"><p class="hint" id="h-mars">Panel range USD 381 / 1,939 / 12,507 per kg.</p></div>
+<div class="row"><div class="lab"><label for="c-ship">Earth-to-Mars-orbit shipping vs the LEO price</label><span class="out" id="o-ship" aria-hidden="true">15x</span></div><input id="c-ship" type="range" min="2" max="40" step="1" value="15" aria-describedby="h-ship"><p class="hint" id="h-ship">One ship plus about 12 tanker refills per load: 15x in the panel's model.</p></div>
+</fieldset>
+</div>
+</div>
+</section>
+
+<div class="c">
+<h2 id="how">How the model works</h2>
+<p>The panel is MoltBot Cloud's AI research panel: AI agents that gathered the sources, built this model and fact-checked its claims. The model is fully open below, so you can check every step.</p>
+<p>The calculator runs the closed-form version of the panel's cost model. It reproduces every Earth and Earth-orbit row of the model's scenario table to the dollar, for example USD 11,839 per kW-year on Earth and USD 62,344 in low Earth orbit at today's launch price. Each site's cost is built in seven steps.</p>
+<ol class="steps">
+<li><strong>Spread upfront costs over the hardware's life.</strong> Chips, buildings, satellites and launches are paid up front. Each becomes an equal yearly payment at the cost of capital (8% a year) over the chip life (5 years). An Earth building is spread over 20 years.</li>
+<li><strong>Charge interest while you wait.</strong> Money spent before the hardware runs costs interest: 3 months for chips on Earth, 9 months on average for the building (an 18-month build, paid as it goes), 6 months to launch a satellite, 9 months to assemble with Moon-made parts and 1.75 years for Earth parts to reach Mars orbit.</li>
+<li><strong>Add running costs.</strong> On Earth: electricity (price per MWh x PUE x 8.766 MWh per kW-year, about USD 842 at central inputs) plus 3% of the building cost and 3% of the chip cost each year for operations and repairs. In space: operations and insurance at 2.5% a year of everything bought and launched, plus a shared Earth-Mars laser relay in the Mars case.</li>
+<li><strong>Divide by the hardware that works.</strong> Earth repairs failed chips and is 99.9% available. In orbit nothing is repaired: with 9% of chips lost a year, about 82% are working on average over 5 years (weighted by present value), and the satellite is 99% available. Mars orbit is 97% available.</li>
+<li><strong>Make part of the satellite locally.</strong> In the Moon and Mars cases, 40% of the satellite's mass (servers, batteries, power electronics, avionics) still comes from Earth. The rest is made locally, weighs twice as much as flight hardware for the same job, and costs the Moon-made or Mars-made price per kg delivered to orbit. Mars orbit gets 586 W/m² of sunlight, 43% of Earth orbit (<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">NASA Mars fact sheet</a>), so its solar arrays are 2.32x larger.</li>
+<li><strong>Convert the units.</strong> USD per MWh = USD per kW-year ÷ 8.766. USD per GPU-hour = USD per kW-year x 1.2 kW ÷ 8,766 hours.</li>
+<li><strong>Solve for break-even.</strong> The break-even launch price is the price at which Earth orbit costs the same as the Earth site. If it comes out below zero, no launch price works. The floor is the orbit cost with a free launch and a free satellite.</li>
+</ol>
+<p>The cost split follows the panel's model. In space, energy means the solar arrays, power electronics and batteries; build is the rest of the satellite, or the building on Earth; transport is launch and shipping, including the Moon's mass driver and the climb from the Mars surface to orbit. The transport share of a Moon-made or Mars-made price follows the panel's three factory cases. The calculator uses whole dollars per kg for the Moon-made (USD 828) and Mars-made (USD 1,939) prices, so it shows USD 25,729 and 65,832 per kW-year where the model's table shows 25,726 and 65,835. For the same reason the Moon and Mars starting points and the Load links for S8-low, S8-high, S9-low and S9-high land within USD 7 per kW-year (USD 0.01 per GPU-hour) of their table rows.</p>
+<details class="fx"><summary>Show the exact formulas</summary>
+<div class="formula">r = cost of capital, L = hardware life, g = 1 + r
+CRF(r, n) = r ÷ (1 − (1 + r)^−n)
+S = average share of chips still working = [ρ ÷ (ρ + f)] × [1 − e^−(ρ+f)L] ÷ [1 − e^−ρL], with ρ = ln(1 + r) and f = chips lost per year
+
+Earth = [chips × g^0.25 × CRF(r, L) + building × g^0.75 × CRF(r, 20) + 0.03 × (building + chips)] ÷ 0.999 + electricity × PUE × 8.766
+
+Earth orbit: chips' = chips × (1 + premium); bus = (1 − 0.2446) × mass × build cost; launch = mass × launch price
+Earth orbit = [(chips' + bus + launch) × (g^0.5 × CRF(r, L) + ops)] ÷ (0.99 × S)
+
+Moon: Earth mass = 40% × mass, of which 0.2446 × mass is servers; local mass = 60% × mass × 2
+Moon-made = [(chips' + Earth non-server mass × build cost + Earth mass × era launch price) × g^0.75 × CRF(r, L) + local mass × Moon price × g^0.5 × CRF(r, L) + ops × all of it] ÷ (0.99 × S)
+
+Mars: flight mass = mass × (1 + 0.235 × 1.32); local mass = (flight mass − Earth mass) × 2; Earth parts ship at 15 × era launch price, with g^1.75 for the wait
+Mars-made = [Earth parts × g^1.75 × CRF(r, L) + local mass × Mars price × g^0.5 × CRF(r, L) + ops × all of it + relay] ÷ (0.97 × S)
+Relay = (USD 5B × CRF(r, 15) + USD 0.3B a year) ÷ 1,000,000 kW
+
+Break-even launch price = (Earth × 0.99 × S ÷ K − chips' − bus) ÷ mass, with K = g^0.5 × CRF(r, L) + ops
+Floor = chips' × K ÷ (0.99 × S)</div>
+</details>
+
+<h3 id="assumptions">Assumptions and sources</h3>
+<div class="tw" tabindex="0" role="region" aria-label="Assumptions table, scrolls sideways"><table class="at">
+<caption class="vh">Central inputs of the panel's model and where they come from</caption>
+<thead><tr><th scope="col">Input</th><th scope="col">Central value</th><th scope="col">Basis and source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Servers, GPUs and network</th><td class="v">USD 30,000 per kW</td><td>Panel assumption: accelerators and servers plus about 15% for network and storage, or USD 36,000 per 1.2 kW GPU slot.</td></tr>
+<tr><th scope="row">Power per GPU slot</th><td class="v">1.2 kW</td><td>Panel convention: the GPU plus its share of CPU and network.</td></tr>
+<tr><th scope="row">Hardware life</th><td class="v">5 years</td><td>Panel assumption for the chips' economic life. Orbital hardware is replaced with the chips.</td></tr>
+<tr><th scope="row">Cost of capital</th><td class="v">8% a year</td><td>Panel assumption, the same at every site, with no extra risk premium for space.</td></tr>
+<tr><th scope="row">Building, power and cooling</th><td class="v">USD 17,600 per kW</td><td><a href="https://www.cushmanwakefield.com/en/united-states/insights/data-center-development-cost-guide">Cushman &amp; Wakefield's 2026 cost guide</a>: US and Canada greenfield builds, all-in but excluding chips, within a range of USD 8,900-23,300 per kW.</td></tr>
+<tr><th scope="row">Electricity</th><td class="v">USD 80 per MWh</td><td>Panel assumption for a large-load tariff or power purchase agreement. Industrial prices in August 2026 were USD 72.1 per MWh in Texas and USD 96.4 on average in the US (<a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a">EIA Electric Power Monthly, Table 5.6.A</a>, August 2026 data; the table always shows the latest month).</td></tr>
+<tr><th scope="row">PUE</th><td class="v">1.2</td><td>Panel assumption. <a href="https://www.datacenters.google/efficiency">Google's data center fleet</a> averages 1.09.</td></tr>
+<tr><th scope="row">Launch to low Earth orbit today</th><td class="v">USD 3,600 per kg</td><td>Falcon 9's 2026 list price of USD 74M, up from USD 70M in 2025 (<a href="https://keeptrack.space/deep-dive/how-much-does-a-falcon-9-launch-cost">KeepTrack</a>), works out to about USD 3,250-4,230 per kg across its 17.5-22.8 t capacity to low Earth orbit.</td></tr>
+<tr><th scope="row">Spacecraft mass</th><td class="v">33 kg per kW</td><td>The panel's bottom-up mass budget (a projection): solar arrays 7.7, power electronics and harness 2, batteries 1, radiators 5, servers 8, shielding 1, structure, avionics and propulsion 8 kg per kW.</td></tr>
+<tr><th scope="row">Spacecraft build cost</th><td class="v">USD 1,000 per kg</td><td>Panel assumption for mass-produced, Starlink-class satellites, applied to everything except the servers.</td></tr>
+<tr><th scope="row">Chips lost per year in orbit</th><td class="v">9%</td><td><a href="https://arxiv.org/abs/2407.21783">Meta's Llama 3 training cluster</a> of about 16,000 H100 GPUs logged GPU and memory faults at about 9% of GPUs a year, annualized from a 54-day run, and fixed them on the ground. In orbit nothing is repaired, so the panel's model treats the same 9% a year as chips lost for good.</td></tr>
+<tr><th scope="row">Space-ready chip premium</th><td class="v">10%</td><td>Panel assumption for packaging, coatings and extra error correction.</td></tr>
+<tr><th scope="row">Space operations and insurance</th><td class="v">2.5% a year</td><td>Panel assumption for insurance, tracking, ground stations and licensing, as a share of everything bought and launched.</td></tr>
+<tr><th scope="row">Launch price in the factory era</th><td class="v">USD 100 per kg</td><td>Panel assumption for the 2040s, once Starship is mature.</td></tr>
+<tr><th scope="row">Mass still made on Earth</th><td class="v">40%</td><td>Servers 8, batteries 1, power electronics 1, avionics 3 and pumps 0.2 kg per kW: 13.2 of 32.7 kg per kW in the panel's mass budget.</td></tr>
+<tr><th scope="row">Moon-made parts in low Earth orbit</th><td class="v">USD 828 per kg</td><td>The panel's lunar-factory model, range USD 159-3,648, including about USD 150 per kg for the mass driver and the transfer to orbit. No lunar factory exists yet.</td></tr>
+<tr><th scope="row">Mars-made parts in Mars orbit</th><td class="v">USD 1,939 per kg</td><td>The panel's Mars-factory model, range USD 381-12,507, including about USD 200 per kg to launch from the surface. No Mars factory exists yet.</td></tr>
+<tr><th scope="row">Earth-to-Mars-orbit shipping</th><td class="v">15x the LEO price</td><td>The panel's launch model: one ship plus about 12 tanker refills per Mars-bound load.</td></tr>
+<tr><th scope="row">Locally made parts</th><td class="v">2x the mass</td><td>Panel assumption: crude local solar panels and radiators weigh more than flight hardware for the same job.</td></tr>
+<tr><th scope="row">Sunlight in Mars orbit</th><td class="v">586 W/m²</td><td>43% of Earth orbit (<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">NASA</a>). Solar arrays, 23.5% of the satellite's mass, are scaled up 2.32x.</td></tr>
+<tr><th scope="row">Earth-Mars relay</th><td class="v">USD 5B</td><td>Panel assumption: a laser relay network with a 15-year life and USD 0.3B a year to run, shared by 1 GW of compute. NASA's <a href="https://www.jpl.nasa.gov/missions/deep-space-optical-communications-dsoc/">DSOC laser demo</a> has shown <a href="https://www.jpl.nasa.gov/news/nasas-optical-comms-demo-transmits-data-over-140-million-miles/">about 25 Mbps at 1.5 AU</a>.</td></tr>
+<tr><th scope="row">Availability</th><td class="v">99.9% / 99% / 97%</td><td>Panel assumptions for Earth, Earth orbit and Mars orbit (Mars has dust-storm and solar-storm safe modes).</td></tr>
+</tbody></table></div>
+</div>
+
+<section class="wide" id="scenarios" aria-labelledby="scen-title">
+<h2 id="scen-title">Every scenario in the panel's model</h2>
+<p class="lead">USD per delivered kW of IT per year, 5-year chips, 8% cost of capital, no margin; the GPU-hour assumes a 1.2 kW slot. Shares are percent of each row's cost. Use a Load link to set the calculator to that row's inputs.</p>
+<div class="tw" tabindex="0" role="region" aria-label="Scenario table, scrolls sideways"><table class="st">
+<caption class="vh">The panel's scenario table, November 2026</caption>
+<thead><tr><th scope="col">Scenario</th><th scope="col">Try in calculator</th><th scope="col">USD per kW-yr</th><th scope="col">USD per MWh</th><th scope="col">USD per GPU-h</th><th scope="col">x Earth</th><th scope="col">Energy %</th><th scope="col">Chips %</th><th scope="col">Transport %</th><th scope="col">Build %</th><th scope="col">Ops %</th><th scope="col">Earliest</th></tr></thead>
+<tbody>
+<tr class="calcrow"><th scope="row">S1 Earth hyperscale, grid</th><td><a href="#pwr=80" data-load="0">Load S1</a></td><td>11,839</td><td>1,351</td><td>1.62</td><td>1.00</td><td>7</td><td>65</td><td>0</td><td>16</td><td>12</td><td>2026</td></tr>
+<tr><th scope="row">S2 Earth off-grid desert solar + batteries</th><td><a href="#pwr=105&amp;pue=1.3" data-load="0">Load S2</a></td><td>12,194</td><td>1,391</td><td>1.67</td><td>1.03</td><td>10</td><td>63</td><td>0</td><td>16</td><td>12</td><td>2027</td></tr>
+<tr><th scope="row">E1 Earth Nordic hydro</th><td><a href="#pwr=55&amp;pue=1.1" data-load="0">Load E1</a></td><td>11,528</td><td>1,315</td><td>1.58</td><td>0.97</td><td>5</td><td>67</td><td>0</td><td>16</td><td>12</td><td>2028</td></tr>
+<tr><th scope="row">E2 Earth enhanced geothermal PPA</th><td><a href="#pwr=100" data-load="0">Load E2</a></td><td>12,050</td><td>1,375</td><td>1.65</td><td>1.02</td><td>9</td><td>64</td><td>0</td><td>16</td><td>12</td><td>2028</td></tr>
+<tr><th scope="row">E3 Earth nuclear restart PPA</th><td><a href="#pwr=112" data-load="0">Load E3</a></td><td>12,176</td><td>1,389</td><td>1.67</td><td>1.03</td><td>10</td><td>63</td><td>0</td><td>16</td><td>12</td><td>2027</td></tr>
+<tr><th scope="row">E4 Earth on-site gas turbines</th><td><a href="#pwr=86" data-load="0">Load E4</a></td><td>11,902</td><td>1,358</td><td>1.63</td><td>1.01</td><td>8</td><td>64</td><td>0</td><td>16</td><td>12</td><td>2026</td></tr>
+<tr class="calcrow"><th scope="row">S3 LEO dawn-dusk at today's USD 3,600/kg</th><td><a href="#launch=3600" data-load="1">Load S3</a></td><td>62,344</td><td>7,112</td><td>8.53</td><td>5.27</td><td>6</td><td>17</td><td>61</td><td>7</td><td>9</td><td>2028</td></tr>
+<tr><th scope="row">S4 LEO at USD 500/kg</th><td><a href="#launch=500" data-load="1">Load S4</a></td><td>26,256</td><td>2,995</td><td>3.59</td><td>2.22</td><td>13</td><td>40</td><td>20</td><td>17</td><td>9</td><td>2030</td></tr>
+<tr><th scope="row">S5 LEO at USD 200/kg</th><td><a href="#launch=200" data-load="1">Load S5</a></td><td>22,763</td><td>2,597</td><td>3.12</td><td>1.92</td><td>15</td><td>47</td><td>9</td><td>20</td><td>9</td><td>2035</td></tr>
+<tr><th scope="row">S6 LEO at USD 100/kg</th><td><a href="#launch=100" data-load="1">Load S6</a></td><td>21,599</td><td>2,464</td><td>2.96</td><td>1.82</td><td>16</td><td>49</td><td>5</td><td>21</td><td>9</td><td>2040</td></tr>
+<tr><th scope="row">S7 LEO at USD 30/kg</th><td><a href="#launch=30" data-load="1">Load S7</a></td><td>20,784</td><td>2,371</td><td>2.85</td><td>1.76</td><td>17</td><td>51</td><td>2</td><td>22</td><td>9</td><td>2045</td></tr>
+<tr><th scope="row">S8-low Moon-made bulk to LEO, low-cost</th><td><a href="#moon=159" data-load="2">Load S8-low</a></td><td>16,381</td><td>1,869</td><td>2.24</td><td>1.38</td><td>8</td><td>66</td><td>7</td><td>11</td><td>9</td><td>2038</td></tr>
+<tr class="calcrow"><th scope="row">S8 Moon-made bulk to LEO, central</th><td><a href="#moon=828" data-load="2">Load S8</a></td><td>25,726</td><td>2,935</td><td>3.52</td><td>2.17</td><td>17</td><td>42</td><td>9</td><td>23</td><td>9</td><td>2045</td></tr>
+<tr><th scope="row">S8-high Moon-made bulk to LEO, high-cost</th><td><a href="#moon=3648" data-load="2">Load S8-high</a></td><td>65,130</td><td>7,430</td><td>8.92</td><td>5.50</td><td>29</td><td>17</td><td>8</td><td>37</td><td>9</td><td>2055</td></tr>
+<tr><th scope="row">S9-low Mars-made bulk in Mars orbit, low-cost</th><td><a href="#mars=381" data-load="3">Load S9-low</a></td><td>32,141</td><td>3,667</td><td>4.40</td><td>2.71</td><td>14</td><td>37</td><td>27</td><td>10</td><td>11</td><td>2050</td></tr>
+<tr class="calcrow"><th scope="row">S9 Mars-made bulk in Mars orbit, central</th><td><a href="#mars=1939" data-load="3">Load S9</a></td><td>65,835</td><td>7,510</td><td>9.01</td><td>5.56</td><td>34</td><td>18</td><td>17</td><td>21</td><td>10</td><td>2060</td></tr>
+<tr><th scope="row">S9-high Mars-made bulk in Mars orbit, high-cost</th><td><a href="#mars=12507" data-load="3">Load S9-high</a></td><td>294,415</td><td>33,586</td><td>40.30</td><td>24.87</td><td>51</td><td>4</td><td>6</td><td>30</td><td>9</td><td>2070</td></tr>
+<tr><th scope="row">S9x Mars orbit, all hardware shipped from Earth</th><td>Not in calculator</td><td>53,421</td><td>6,094</td><td>7.31</td><td>4.51</td><td>14</td><td>22</td><td>44</td><td>10</td><td>10</td><td>2045</td></tr>
+<tr><th scope="row">S10 Mars surface, fission-powered</th><td>Not in calculator</td><td>153,226</td><td>17,480</td><td>20.98</td><td>12.94</td><td>8</td><td>8</td><td>68</td><td>2</td><td>14</td><td>2040</td></tr>
+</tbody></table></div>
+<p class="note">Bold rows are the calculator's four sites at central inputs. Earliest is the panel's earliest plausible year. Load links use whole dollars per kg for Moon-made and Mars-made prices, so the S8 and S9 rows can differ from the table by up to USD 7 per kW-year (USD 0.01 per GPU-hour). An Earth Load link also changes the Earth site that every "x Earth" figure compares with. S9x and S10 are built differently, so the calculator cannot load them. All figures are the panel's model results and projections, not market prices.</p>
+</section>
+
+<div class="c">
+<h2 id="change">What would change the answer</h2>
+<ul class="levers">
+<li><strong>Once launch is cheap, cheaper satellites matter most.</strong> At today's USD 3,600/kg, launch is 61% of the orbit cost. At USD 200/kg, spacecraft build cost is the biggest lever in the panel's model: moving it from USD 400 to USD 5,000 per kg moves orbit from USD 17,487 to USD 57,937 per kW-year.</li>
+<li><strong>Lighter satellites.</strong> Mass is the second lever: from 13 to 73 kg per kW, the same case moves from USD 16,023 to USD 36,244.</li>
+<li><strong>Cheap satellites with chips that last.</strong> With USD 400/kg build cost, 3% of chips lost a year, no space-chip premium and 1.5% a year for operations (the Optimistic hardware starting point), orbit breaks even at a launch price of USD 671/kg at 10 kg per kW and USD 184/kg at 20 kg per kW. At 33 kg per kW or heavier there is no break-even.</li>
+<li><strong>Launch price alone cannot do it.</strong> At central inputs no launch price works, because chips are about 65% of the Earth cost and orbit loses them with no repair. Even a free launch plus a free satellite leaves orbit at 0.98x a ground site.</li>
+<li><strong>What a study counts.</strong> Published break-even launch prices span about 10x, USD 50-500/kg: <a href="https://www.bain.com/insights/orbital-data-centers-beyond-the-grid/">Bain</a> USD 50-100, <a href="https://www.forethought.org/research/will-we-really-put-data-centers-in-space">Forethought</a> about USD 100, <a href="https://andrewmccalip.com/space-datacenters">McCalip</a> USD 77-260, <a href="https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/">Google</a> USD 200 or less on energy cost only, and <a href="https://techcrunch.com/2026/03/30/starcloud-raises-170-million-series-ato-build-data-centers-in-space/">Starcloud</a> about USD 500 for power at about USD 0.05 per kWh (a company claim). The spread comes from what each one counts: the whole data center, the infrastructure, or energy alone.</li>
+<li><strong>Moon factories.</strong> Moon-made bulk beats launching everything from Earth only while Earth launch costs more than about USD 700/kg in the panel's model. A lunar factory needs cheap launch to be built, and at the USD 100/kg the panel expects by then, launching everything from Earth (1.82x Earth) beats central-case Moon-made bulk (2.17x). Only a low-cost lunar base (1.38x) does better, and even free Moon-made hardware leaves orbit at 1.20x Earth.</li>
+<li><strong>Mars factories.</strong> Shipping everything from Earth to Mars orbit (4.51x Earth) stays cheaper than Mars-made bulk (5.56x) until Earth-to-Mars-orbit freight tops about USD 2,550/kg. At SpaceX's <a href="https://teslanorth.com/2025/10/12/spacex-starship-to-begin-moon-cargo-missions-in-2028-mars-flights-by-2030/">advertised USD 100,000/kg Mars cargo price</a>, Mars compute would cost 146x Earth. Even free Mars-made hardware leaves 2.02x, because chips still come from Earth, arrive about 1.75 years late and fail with no repair.</li>
+</ul>
+
+<aside class="callout" aria-labelledby="market-title">
+<p class="callout-title" id="market-title">Market check: model cost vs market prices</p>
+<ul class="mk">
+<li><span class="pill">Index</span>The panel's Earth cost basis is USD 1.62 per GPU-hour with no margin. Renting costs more: the <a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 rental index</a> stood at USD 2.97 per GPU-hour on 5 Nov 2026. More offers are in our <a href="gpu-price-index.html">GPU rental price index</a>.</li>
+<li><span class="pill">Projection</span><a href="https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters">SemiAnalysis</a> models USD 8.64 per GPU-hour in orbit vs USD 2.37 on the ground for a 16-GPU B300 cluster (3 Jun 2026), with parity around 2040 in its base case. The panel's model gives USD 8.53 per GPU-hour in low Earth orbit at today's launch price.</li>
+<li><span class="pill">Single source</span><a href="https://odc.space/">ODC.space</a> lists a 42U orbital rack at USD 58-79 per GPU-hour-equivalent before chips, with delivery from 2029.</li>
+</ul>
+</aside>
+
+<section id="reserve" aria-labelledby="reserve-title">
+<h2 id="reserve-title">Register interest in orbital GPU-hours (survey, no payment)</h2>
+<p>Would you use orbital compute if the price were right? Tell us what you would need. This is a demand survey, not an order: MoltBot Cloud does not run orbital GPUs today, nothing is charged and you are not committing to anything. We will only email you about orbital compute.</p>
+<form class="formbox" id="v7-form" novalidate>
+<div class="fgrid">
+<div class="field"><label for="v7-email">Work email</label><input id="v7-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="v7-email-err"><p class="err" id="v7-email-err"></p></div>
+<div class="field"><label for="v7-hours">GPU-hours per month</label><input id="v7-hours" name="gpu_hours" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 2000" aria-describedby="v7-hours-hint v7-hours-err"><p class="fh" id="v7-hours-hint">A rough guess is fine. One GPU running all month is about 730 GPU-hours.</p><p class="err" id="v7-hours-err"></p></div>
+<div class="field"><label for="v7-when">Earliest start</label><select id="v7-when" name="earliest_start"><option value="" selected>Choose one</option><option value="as soon as possible">As soon as possible</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030 or later">2030 or later</option><option value="not sure">Not sure yet</option></select></div>
+<div class="field"><label for="v7-use">Use case</label><select id="v7-use" name="use_case"><option value="" selected>Choose one</option><option value="inference for Earth users">Inference for Earth users</option><option value="training or fine-tuning">Training or fine-tuning</option><option value="batch jobs (RL, synthetic data)">Batch jobs (RL, synthetic data)</option><option value="processing data already in orbit">Processing data already in orbit</option><option value="research or testing">Research or testing</option><option value="other">Other</option></select></div>
+</div>
+<div class="hp" aria-hidden="true"><label for="v7-website">Leave this field empty</label><input id="v7-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<div class="factions"><button type="submit" class="btn" id="v7-submit" disabled>Register my intent</button><p class="small">No payment details are asked for. We keep your email and answers only to measure demand for orbital compute and to email you about it. See our <a href="privacy.html">privacy policy</a>.</p></div>
+<noscript><p class="msg warn">This form needs JavaScript. Nothing was sent.</p></noscript>
+<div id="v7-live" role="status"><p class="msg" id="v7-msg" hidden></p></div>
+</form>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-title">
+<h2 id="faq-title">Questions people ask</h2>
+<h3>Are data centers in space cheaper than on Earth?</h3>
+<p>Not under the panel's central inputs. A data center in low Earth orbit costs about 5.3x a ground site at today's USD 3,600/kg launch price (USD 62,344 vs USD 11,839 per kW-year) and still about 1.8x at USD 100/kg. Chips are about 65% of the Earth cost and electricity only 5-10%, so free sunlight cannot pay for the launch, the satellite and chips that fail with no repair. Even a free launch plus a free satellite only brings orbit to 0.98x a ground site.</p>
+<h3>What launch price would make orbital AI compute break even?</h3>
+<p>With the panel's central inputs, none. With optimistic hardware, break-even is USD 671/kg at 10 kg per kW and USD 184/kg at 20 kg per kW, with none at 33 kg per kW or heavier. Optimistic here means four changes: USD 400/kg to build, 3% of chips lost a year, no space-chip premium and 1.5% a year for operations, as in the calculator's Optimistic hardware starting point. Published break-even prices span about 10x, USD 50-500/kg: <a href="https://www.bain.com/insights/orbital-data-centers-beyond-the-grid/">Bain</a> USD 50-100, <a href="https://www.forethought.org/research/will-we-really-put-data-centers-in-space">Forethought</a> about USD 100, <a href="https://andrewmccalip.com/space-datacenters">McCalip</a> USD 77-260, <a href="https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/">Google</a> USD 200 or less on energy cost only, and <a href="https://techcrunch.com/2026/03/30/starcloud-raises-170-million-series-ato-build-data-centers-in-space/">Starcloud</a> about USD 500 on power cost (a company claim). <a href="https://keeptrack.space/deep-dive/how-much-does-a-falcon-9-launch-cost">Falcon 9 costs about USD 3,250-4,230/kg</a> in 2026, and <a href="https://www.fool.com/investing/2026/03/21/how-much-will-a-spacex-starship-launch-cost/">the only public Starship price</a>, a 2024-era USD 90M commitment, is about USD 600-900/kg at 100-150 t.</p>
+<h3>Isn't solar power 5x better in space?</h3>
+<p>For solar panels, roughly yes. A panel in a dawn-dusk Earth orbit collects about 4-8x the energy of a ground panel (<a href="https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/">Google</a> says up to 8x), so the satellite needs about 40x less battery storage than 24/7 ground solar. Batteries store the same or less in space, though, and the hardware is costly to launch: in the panel's model orbital solar delivers power at USD 318-370/MWh with 5-year arrays (USD 163-190 with 15-year arrays) even at USD 30-200/kg launch, against USD 80 from the grid. Electricity is only 5-10% of an Earth data center's cost, so cheaper energy cannot close the gap.</p>
+<h3>Would factories on the Moon or Mars make it cheaper?</h3>
+<p>Only in the low-cost cases, and never cheaper than Earth in the panel's model. By the time a lunar factory exists, the panel expects launch near USD 100/kg. At that price, launching everything from Earth gives 1.82x Earth, while central-case Moon-made bulk gives 2.17x: Moon-made bulk only wins while Earth launch costs more than about USD 700/kg. A low-cost lunar base gives 1.38x, and free Moon-made hardware 1.20x. The panel's median date for a lunar factory making 1,000 t a year is 2045-48, and 2038 at the earliest. For Mars orbit, shipping everything from Earth (4.51x) beats central-case Mars-made bulk (5.56x), and even free Mars-made hardware leaves 2.02x, because chips must come from Earth, arrive about 1.75 years late and fail with no repair. Mars orbit sits <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">3.0-22.3 light-minutes from Earth</a>, so it suits Mars-local users and batch jobs, not interactive use from Earth.</p>
+<h3>Will radiation ruin AI chips in orbit?</h3>
+<p>It looks like a solvable task. In <a href="https://arxiv.org/abs/2511.19468">Google's proton-beam test</a>, a Trillium TPU (v6e) showed no hard failures up to 15 krad(Si), 20x the dose it would collect behind 10 mm of aluminium over a 5-year low-Earth-orbit mission, though its HBM memory showed irregularities from 2 krad. Heavy-ion effects are still untested and no in-orbit error data has been published yet. The open task is silent data corruption at about 7.5-10 events per chip-year (the panel's estimate from Google's test): inference tolerates it, while training needs error-correcting memory, frequent checkpoints and redundant runs. The calculator's 9% a year chip loss is a hardware failure rate with no repair, not a radiation figure.</p>
+<h3>Can I buy orbital GPU-hours from MoltBot Cloud?</h3>
+<p>No. MoltBot Cloud does not run or resell orbital hardware, and the form on this page only measures demand. Paid orbital compute so far is small and edge-class, such as <a href="https://kepler.space">Kepler's</a> optical relay satellites with <a href="https://www.axiomspace.com/orbital-data-center">Axiom Space's</a> data-center nodes. <a href="https://www.crusoe.ai/resources/newsroom/crusoe-to-become-first-cloud-operator-in-space-through-partnership-with-starcloud">Crusoe</a> plans limited GPU capacity on a Starcloud satellite from early 2027, and <a href="https://odc.space/">ODC.space</a> lists orbital racks for delivery from 2029. If you would use orbital compute, <a href="#reserve">register your interest</a> on this page: no payment and no commitment.</p>
+</section>
+
+<div class="cta">
+<h2>Need an answer for your own design?</h2>
+<p>Our planned space-compute feasibility memo runs your numbers through this model, adds a human physics check and lists what would have to change for your project to work. The memo page has the scope, price and pre-order details.</p>
+<a href="space-compute-feasibility-memo.html" class="btn">See the feasibility memo</a>
+</div>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="blog-space-data-center-cost-2026.html">→ Are data centers in space cheaper? The 2026 cost math</a>
+<a href="blog-space-solar-5x-energy.html">→ Is energy 5x better in space? Solar panels yes, batteries no</a>
+<a href="blog-mars-ai-data-centers.html">→ AI data centers on Mars: resources, radiation and a 2060 timeline</a>
+<a href="blog-maglev-rocket-launch-assist.html">→ Maglev launch assist: what an underground track really buys</a>
+<a href="gpu-price-index.html">→ GPU rental price index, November 2026</a>
+<a href="radiation-tolerant-ai-runtime.html">→ Radiation-tolerant AI runtime: early access and bit-flip budget calculator</a>
+</div>
+</div>
+</main>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:var(--m);font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+
+<script src="leads.js" defer></script>
+<script>
+(function(){
+  'use strict';
+  /* ===== Closed-form math, copied unchanged from the panel's verified calculator (report/calculator.html) ===== */
+  var D={chip:30000,gpukw:1.2,life:5,wacc:8,fac:17600,pwr:80,pue:1.2,launch:3600,kgkw:33,mfg:1000,attr:9,prem:10,ops:2.5,ipr:100,ef:40,moon:828,mars:1939,ship:15};
+  var FIX={compute_share:0.2446483,penalty:2.0,array_share:0.235,array_scale:2.32,relay_capex:5e9,relay_life:15,relay_opex:3e8,relay_fleet_kw:1e6};
+  var LOGS={launch:1,ipr:1};
+  var ids=Object.keys(D);
+  var $=function(id){return document.getElementById(id)};
+  function sig2(v){var p=Math.pow(10,Math.floor(Math.log10(v))-1);return Math.round(v/p)*p}
+  function logToVal(x){return sig2(Math.pow(10,1+3*x/3000))}
+  function valToLog(v){return Math.round((Math.log10(v)-1)/3*3000)}
+  function setDefaults(){ids.forEach(function(k){$('c-'+k).value=LOGS[k]?valToLog(D[k]):D[k]})}
+  function read(){var v={};ids.forEach(function(k){var x=parseFloat($('c-'+k).value);v[k]=LOGS[k]?logToVal(x):x});return v}
+  function usd(x){return 'USD '+Math.round(x).toLocaleString('en-US')}
+  function crf(r,n){return r>0?r/(1-Math.pow(1+r,-n)):1/n}
+  function surv(r,f,L){if(f<=0)return 1;var rho=Math.log(1+r);return (rho/(rho+f))*(1-Math.exp(-(rho+f)*L))/(1-Math.exp(-rho*L))}
+  function compute(v){
+    var r=v.wacc/100,g=1+r,L=v.life,cL=crf(r,L),o=v.ops/100,S=surv(r,v.attr/100,L),m=v.kgkw,b=v.mfg;
+    var chip=v.chip,chipS=chip*(1+v.prem/100),fac=v.fac,cs=FIX.compute_share;
+    var e={chips:chip*Math.pow(g,0.25)*cL/0.999,fac:fac*Math.pow(g,0.75)*crf(r,20)/0.999,ops:(0.03*fac+0.03*chip)/0.999,energy:v.pwr*v.pue*8.766};
+    var A=0.99*S,k1=Math.pow(g,0.5)*cL,busB=(1-cs)*m*b,lau=m*v.launch,capL=chipS+busB+lau;
+    var l={chips:chipS*k1/A,fac:busB*k1/A,launch:lau*k1/A,ops:o*capL/A};
+    var fE=v.ef/100,mE=fE*m,mNC=Math.max(mE-cs*m,0),pI=v.ipr,k75=Math.pow(g,0.75)*cL,k5=Math.pow(g,0.5)*cL;
+    var capE8=chipS+mNC*b+mE*pI,capL8=(1-fE)*m*FIX.penalty*v.moon;
+    var mo={chips:chipS*k75/A,fac:mNC*b*k75/A,launch:mE*pI*k75/A,isru:capL8*k5/A,ops:o*(capE8+capL8)/A};
+    var A9=0.97*S,mM=m*(1+FIX.array_share*(FIX.array_scale-1)),k175=Math.pow(g,1.75)*cL;
+    var capE9=chipS+mNC*b+mE*pI*v.ship,capL9=Math.max(mM-mE,0)*FIX.penalty*v.mars;
+    var relay=(FIX.relay_capex*crf(r,FIX.relay_life)+FIX.relay_opex)/FIX.relay_fleet_kw;
+    var ma={chips:chipS*k175/A9,fac:mNC*b*k175/A9,launch:mE*pI*v.ship*k175/A9,isru:capL9*k5/A9,ops:(o*(capE9+capL9)+relay)/A9};
+    var rows=[{n:'Earth data center',p:e},{n:'Earth orbit, launched from Earth',p:l},{n:'Earth orbit, Moon-made bulk',p:mo},{n:'Mars orbit, Mars-made bulk',p:ma}];
+    rows.forEach(function(x){x.t=0;for(var k in x.p)x.t+=x.p[k]});
+    var K=k1+o,be=(rows[0].t*A/K-chipS-busB)/m;
+    return {rows:rows,be:be,floor:(chipS*K)/A};
+  }
+  /* ===== End of the unchanged math ===== */
+
+  /* Cost split into the panel's five categories. It only re-labels the parts that compute() returns, so totals never change.
+     Fixed shares from the panel's mass budget: power subsystem 10.7 of the 24.7 kg/kW of non-server spacecraft mass;
+     batteries + power electronics 2.0 of the 5.2 kg/kW of Earth-made non-server mass; Moon-made arrays + harness 8.7 of 19.5 kg/kW;
+     Mars-made arrays (scaled 2.32x) + 1 kg/kW of harness out of the Mars-made mass. */
+  var SPLIT={leoEnergy:10.7/24.7,earthEnergy:2/5.2,moonEnergy:8.7/19.5,harness:1};
+  /* Transport part of a Moon-made / Mars-made price, USD per kg, in the panel's low, central and high factory cases. */
+  var MOONC=[[158.84,50],[827.75,150],[3648.44,400]],MARSC=[[381.29,80],[1939.13,200],[12507.32,500]];
+  function trShare(c,p){
+    if(p<=c[0][0])return c[0][1]/c[0][0];
+    if(p>=c[2][0])return c[2][1]/c[2][0];
+    var i=p<c[1][0]?0:1,a=c[i],z=c[i+1],f=(Math.log(p)-Math.log(a[0]))/(Math.log(z[0])-Math.log(a[0]));
+    return Math.exp(Math.log(a[1])+f*(Math.log(z[1])-Math.log(a[1])))/p;
+  }
+  function split(v,R){
+    var e=R.rows[0].p,l=R.rows[1].p,mo=R.rows[2].p,ma=R.rows[3].p;
+    var m=v.kgkw,mE=v.ef/100*m,mM=m*(1+FIX.array_share*(FIX.array_scale-1)),mLoc=Math.max(mM-mE,0);
+    var fM=mLoc>0?Math.min((FIX.array_share*m*FIX.array_scale+SPLIT.harness)/mLoc,1):0;
+    var tMo=trShare(MOONC,v.moon),tMa=trShare(MARSC,v.mars),moP=mo.isru*(1-tMo),maP=ma.isru*(1-tMa);
+    return [
+      {chips:e.chips,transport:0,energy:e.energy,build:e.fac,ops:e.ops},
+      {chips:l.chips,transport:l.launch,energy:l.fac*SPLIT.leoEnergy,build:l.fac*(1-SPLIT.leoEnergy),ops:l.ops},
+      {chips:mo.chips,transport:mo.launch+mo.isru*tMo,energy:mo.fac*SPLIT.earthEnergy+moP*SPLIT.moonEnergy,build:mo.fac*(1-SPLIT.earthEnergy)+moP*(1-SPLIT.moonEnergy),ops:mo.ops},
+      {chips:ma.chips,transport:ma.launch+ma.isru*tMa,energy:ma.fac*SPLIT.earthEnergy+maP*fM,build:ma.fac*(1-SPLIT.earthEnergy)+maP*(1-fM),ops:ma.ops}
+    ];
+  }
+
+  var CATS=[{k:'chips',name:'Chips',cls:'k1'},{k:'transport',name:'Transport',cls:'k2'},{k:'energy',name:'Energy',cls:'k3'},{k:'build',name:'Build',cls:'k4'},{k:'ops',name:'Ops',cls:'k5'}];
+  var SITES=['Earth data center','Earth orbit, launched from Earth','Earth orbit, Moon-made parts','Mars orbit, Mars-made parts'];
+  /* The Moon and Mars rows are priced in the factory era, so their names always carry that era and its launch price. */
+  var ERAS=['','','late 2030s or later','2050s or later'];
+  function eraNote(i,v){return '('+ERAS[i]+', launch '+usd(v.ipr)+'/kg)'}
+  function siteName(i,v){return i<2?SITES[i]:SITES[i]+' '+eraNote(i,v)}
+  function n0(x){return Math.round(x).toLocaleString('en-US')}
+  function nn(x){return x.toLocaleString('en-US',{maximumFractionDigits:2})}
+  function pct(a,t){return Math.round(100*a/t)+'%'}
+  var FMT={
+    chip:[function(x){return usd(x)+'/kW'},function(x){return usd(x)+' per kW'}],
+    gpukw:[function(x){return x.toFixed(1)+' kW'},function(x){return x.toFixed(1)+' kilowatts'}],
+    life:[function(x){return x+' yr'},function(x){return x+' years'}],
+    wacc:[function(x){return nn(x)+'%/yr'},function(x){return nn(x)+' percent a year'}],
+    fac:[function(x){return usd(x)+'/kW'},function(x){return usd(x)+' per kW'}],
+    pwr:[function(x){return usd(x)+'/MWh'},function(x){return usd(x)+' per megawatt-hour'}],
+    pue:[function(x){return x.toFixed(2)},function(x){return x.toFixed(2)}],
+    launch:[function(x){return usd(x)+'/kg'},function(x){return usd(x)+' per kilogram'}],
+    kgkw:[function(x){return x+' kg/kW'},function(x){return x+' kilograms per kW'}],
+    mfg:[function(x){return usd(x)+'/kg'},function(x){return usd(x)+' per kilogram'}],
+    attr:[function(x){return nn(x)+'%/yr'},function(x){return nn(x)+' percent a year'}],
+    prem:[function(x){return x+'%'},function(x){return x+' percent'}],
+    ops:[function(x){return nn(x)+'%/yr'},function(x){return nn(x)+' percent a year'}],
+    ipr:[function(x){return usd(x)+'/kg'},function(x){return usd(x)+' per kilogram'}],
+    ef:[function(x){return x+'%'},function(x){return x+' percent'}],
+    moon:[function(x){return usd(x)+'/kg'},function(x){return usd(x)+' per kilogram'}],
+    mars:[function(x){return usd(x)+'/kg'},function(x){return usd(x)+' per kilogram'}],
+    ship:[function(x){return x+'x'},function(x){return x+' times the low Earth orbit price'}]
+  };
+  var PRESETS={today:{},starship:{launch:100},opthw:{mfg:400,attr:3,kgkw:10,prem:0,ops:1.5},moon:{moon:159},mars:{mars:381}};
+  var PORDER=['today','starship','opthw','moon','mars'];
+  var NOTES={
+    today:"Today: the panel's central inputs. Launch costs USD 3,600/kg, a satellite weighs 33 kg per kW and costs USD 1,000/kg to build, and 9% of its chips fail each year with no repair.",
+    starship:'Cheap Starship: launch to low Earth orbit at USD 100/kg, the panel\'s 2040 scenario (S6). Everything else stays at the central inputs.',
+    opthw:"Optimistic hardware: satellites built for USD 400/kg at 10 kg per kW, 3% of chips lost a year, no space-chip premium and 1.5% a year for operations, as in the panel's optimistic case. Launch stays at today's price, so watch the break-even price.",
+    moon:"Moon factory: Moon-made parts reach low Earth orbit at USD 159/kg, the low-cost end of the panel's range (S8-low, 2038 at the earliest). No lunar factory exists yet.",
+    mars:"Mars factory: Mars-made parts reach Mars orbit at USD 381/kg, the low-cost end of the panel's range (S9-low, 2050 at the earliest). No Mars factory exists yet."
+  };
+  function presetVals(name){var p=PRESETS[name],o={};ids.forEach(function(k){o[k]=(k in p)?p[k]:D[k]});return o}
+  function applyValues(vals){ids.forEach(function(k){$('c-'+k).value=LOGS[k]?valToLog(vals[k]):vals[k]})}
+  function loadPartial(obj){
+    var vals={};ids.forEach(function(k){vals[k]=(k in obj)?obj[k]:D[k]});
+    Object.keys(LOGS).forEach(function(k){vals[k]=Math.min(Math.max(vals[k],10),10000)});
+    applyValues(vals);
+  }
+  function same(a,b){return ids.every(function(k){return Math.abs(a[k]-b[k])<1e-9})}
+
+  /* Share links: every input goes into the URL hash, e.g. #chip=30000&gpukw=1.2&... ; missing keys fall back to the central values. */
+  function toHash(v){return ids.map(function(k){return k+'='+encodeURIComponent(String(v[k]))}).join('&')}
+  function fromHash(h){
+    var out={},n=0;
+    String(h||'').replace(/^#/,'').split('&').forEach(function(pair){
+      var i=pair.indexOf('=');if(i<1)return;
+      try{
+        var k=decodeURIComponent(pair.slice(0,i)),x=parseFloat(decodeURIComponent(pair.slice(i+1)));
+        if(Object.prototype.hasOwnProperty.call(D,k)&&isFinite(x)){out[k]=x;n++}
+      }catch(err){}
+    });
+    return n?out:null;
+  }
+  function applyHash(){var h=fromHash(location.hash);if(!h)return false;loadPartial(h);return true}
+
+  /* Chart: one stacked bar per site on a shared scale, with a thin line at the Earth cost. */
+  var chart=$('c-chart'),tip=$('c-tip'),resBox=$('results'),bars=[],segs=[],cvals=[],refs=[],cnames=[],tracks=[];
+  function el(tag,cls,text){var x=document.createElement(tag);if(cls)x.className=cls;if(text!=null)x.textContent=text;return x}
+  SITES.forEach(function(name,i){
+    var row=el('div','crow'),head=el('div','chead'),cn=el('span','cname',name),cv=el('span','cval'),track=el('div','track'),bar=el('div','bar'),ref=el('span','ref'),s={};
+    head.appendChild(cn);head.appendChild(cv);
+    bar.tabIndex=0;bar.setAttribute('role','img');bar.setAttribute('data-i',String(i));
+    CATS.forEach(function(c){var sg=el('span','seg '+c.cls);sg.setAttribute('data-k',c.k);sg.appendChild(el('span','sl'));bar.appendChild(sg);s[c.k]=sg});
+    ref.setAttribute('aria-hidden','true');
+    track.appendChild(bar);track.appendChild(ref);row.appendChild(head);row.appendChild(track);
+    chart.insertBefore(row,tip);
+    bars.push(bar);segs.push(s);cvals.push(cv);refs.push(ref);cnames.push(cn);tracks.push(track);
+  });
+  /* Segment labels are measured on a canvas, so labelling every segment costs no extra page layout. */
+  var mctx=null,mfont='';
+  function textW(s,probe){
+    if(mctx===null){try{mctx=document.createElement('canvas').getContext('2d')||false}catch(err){mctx=false}}
+    if(!mfont){var cs=getComputedStyle(probe);mfont=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily}
+    if(mctx){mctx.font=mfont;return mctx.measureText(s).width}
+    var old=probe.textContent,pl=probe.style.paddingLeft;probe.style.paddingLeft='0px';probe.textContent=s;
+    var w=probe.offsetWidth-6;probe.textContent=old;probe.style.paddingLeft=pl;return w;
+  }
+
+  var last=null,loaded=null,srLast='',srTimer=null;
+  var E0=compute(D).rows[0].t;
+  function setCell(td,text,val){td.textContent=text;td.setAttribute('data-v',String(+val.toFixed(4)))}
+  function fx2(r){return r.toFixed(2)+'x'}
+  function joinOr(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' or '+a[a.length-1]}
+  /* What a scenario-table Load link changed, in words (shown until the next change). */
+  var DESC={pwr:function(x){return 'electricity '+usd(x)+'/MWh'},pue:function(x){return 'PUE '+x.toFixed(2)},launch:function(x){return 'launch '+usd(x)+'/kg'},moon:function(x){return 'Moon-made parts at '+usd(x)+'/kg'},mars:function(x){return 'Mars-made parts at '+usd(x)+'/kg'}};
+  function loadedText(v,R){
+    var ch=Object.keys(loaded.h).filter(function(k){return Math.abs(v[k]-D[k])>1e-9});
+    if(!ch.length)return 'Loaded '+loaded.name+': the panel\'s central inputs.';
+    var what=ch.map(function(k){return DESC[k]?DESC[k](v[k]):k+' '+FMT[k][0](v[k])}).join(', ');
+    if(loaded.row===0){var e=R.rows[0].t;return 'Loaded '+loaded.name+': '+what+'. This site costs '+usd(e)+' per kW-year, '+fx2(e/E0)+' the S1 grid site, and every "x Earth" figure now compares with it.'}
+    return 'Loaded '+loaded.name+': '+what+'. Every other input is at its central value.';
+  }
+  function srText(v,R){
+    var e=R.rows[0].t,x=function(i){return (R.rows[i].t/e).toFixed(2)};
+    return (loaded?'Loaded '+loaded.name+'. ':'')+'Earth orbit costs '+x(1)+' times Earth. With Moon-made parts, '+x(2)+' times. Mars orbit, '+x(3)+' times. Break-even launch price: '+(R.be>0?usd(R.be)+' per kilogram':'none')+'. Per GPU-hour: USD '+(e*v.gpukw/8766).toFixed(2)+' on Earth, USD '+(R.rows[1].t*v.gpukw/8766).toFixed(2)+' in Earth orbit.';
+  }
+  /* One polite announcement, half a second after the last change, and only when the summary changed. */
+  function announce(text,quiet){
+    clearTimeout(srTimer);
+    if(quiet){srLast=text;return}
+    srTimer=setTimeout(function(){if(text!==srLast){srLast=text;$('c-sr').textContent=text}},500);
+  }
+  function render(quiet){
+    var v=read();
+    ids.forEach(function(k){
+      var f=FMT[k],inp=$('c-'+k),lo=parseFloat(inp.min),hi=parseFloat(inp.max);
+      $('o-'+k).textContent=f[0](v[k]);inp.setAttribute('aria-valuetext',f[1](v[k]));
+      inp.style.setProperty('--f',String(Math.min(Math.max((parseFloat(inp.value)-lo)/(hi-lo),0),1)));
+    });
+    var R=compute(v),S=split(v,R),earth=R.rows[0].t,leo=R.rows[1].t,moon=R.rows[2].t,mars=R.rows[3].t;
+    last={v:v,R:R,S:S};
+    R.rows.forEach(function(x,i){
+      var tr=$('r'+i),t=x.t;
+      setCell(tr.querySelector('.kw'),n0(t),t);
+      setCell(tr.querySelector('.mwh'),n0(t/8.766),t/8.766);
+      setCell(tr.querySelector('.gpu'),(t*v.gpukw/8766).toFixed(2),t*v.gpukw/8766);
+      setCell(tr.querySelector('.x'),(t/earth).toFixed(2)+'x',t/earth);
+      if(i>1)tr.querySelector('.era').textContent=eraNote(i,v);
+      var sr=$('s'+i);
+      CATS.forEach(function(c){var td=sr.querySelector('[data-k="'+c.k+'"]'),a=S[i][c.k];td.textContent=n0(a)+' · '+pct(a,t);td.setAttribute('data-v',String(+a.toFixed(4)));td.setAttribute('data-pct',String(+(100*a/t).toFixed(4)))});
+    });
+    $('c-slot').textContent=v.gpukw.toFixed(1);
+    var free=compute(Object.assign({},v,{launch:0})).rows[1].t,be=R.be,msg;
+    $('t-leo').textContent=fx2(leo/earth);
+    $('t-leo-s').textContent=usd(leo)+' vs '+usd(earth)+' per kW-year';
+    $('t-moon').textContent=fx2(moon/earth);
+    $('t-moon-s').textContent=usd(moon)+' per kW-year at '+usd(v.ipr)+'/kg launch';
+    $('t-mars').textContent=fx2(mars/earth);
+    $('t-mars-s').textContent=usd(mars)+' per kW-year at '+usd(v.ipr)+'/kg launch';
+    if(be>0){
+      $('t-be').textContent=usd(be)+'/kg';
+      if(v.launch>be){
+        $('t-be-s').textContent='Launch must fall to this to match Earth';
+        msg='Earth orbit matches Earth at about '+usd(be)+' per kg with these inputs. At your launch price of '+usd(v.launch)+' per kg it costs '+(leo/earth).toFixed(2)+'x Earth.';
+      }else{
+        $('t-be-s').textContent='Your launch price is lower, so orbit wins';
+        msg='Earth orbit is cheaper than Earth with these inputs: it breaks even at about '+usd(be)+' per kg and your launch price is '+usd(v.launch)+' per kg ('+(leo/earth).toFixed(2)+'x Earth).';
+      }
+    }else{
+      $('t-be').textContent='None';
+      $('t-be-s').textContent='No launch price matches Earth';
+      /* The floor is the chips alone (with their premium, operations and losses), so the reason and the advice follow the inputs. */
+      var fr=R.floor/earth,lv=[];
+      msg='Even a free launch leaves Earth orbit at '+usd(free)+' per kW-year ('+fx2(free/earth)+' Earth). ';
+      if(fr<1)msg+='A free launch and a free satellite together '+(fr>=0.95?'only just beat':'beat')+' Earth, at '+usd(R.floor)+' ('+fx2(fr)+'). ';
+      else msg+='Even a free launch and a free satellite leave it '+(fr<1.05?'just above':'above')+' Earth, at '+usd(R.floor)+' ('+fx2(fr)+'). ';
+      msg+='What is left is the cost of the chips'+(v.attr>0?', and in orbit failed chips are never repaired.':'.');
+      if(v.attr>0)lv.push('chip loss rate');if(v.prem>0)lv.push('chip premium');if(v.ops>0.5)lv.push('operations cost');
+      if(fr>=1&&lv.length)msg+=' Try a lower '+joinOr(lv)+'.';
+    }
+    $('c-be').textContent=msg;
+    /* Same-era check: the factory rows use the era launch price, so compare them with launching everything from Earth at that price. */
+    var allE=compute(Object.assign({},v,{launch:v.ipr})).rows[1].t;
+    $('c-era').textContent='Same-era check: the Moon and Mars cases use the factory-era launch price of '+usd(v.ipr)+'/kg. At that price, launching everything from Earth costs '+usd(allE)+' per kW-year ('+fx2(allE/earth)+' Earth), '+(allE<=moon?'less than with Moon-made parts ('+fx2(moon/earth)+').':'more than with Moon-made parts ('+fx2(moon/earth)+'), so the Moon-made parts pay off here.');
+    $('c-mini').innerHTML='vs Earth: orbit <b>'+fx2(leo/earth)+'</b> · break-even <b>'+(be>0?usd(be)+'/kg':'none')+'</b> · with launch at '+usd(v.ipr)+'/kg: Moon-made <b>'+fx2(moon/earth)+'</b> · Mars <b>'+fx2(mars/earth)+'</b>';
+    drawChart(R,S,earth,v);
+    var hit=null;PORDER.forEach(function(nm){if(!hit&&same(v,presetVals(nm)))hit=nm});
+    Array.prototype.forEach.call(document.querySelectorAll('.preset'),function(btn){btn.setAttribute('aria-pressed',btn.getAttribute('data-preset')===hit?'true':'false')});
+    $('c-pnote').textContent=hit?NOTES[hit]:'Custom inputs. Pick a starting point to reset them.';
+    if(loaded&&!same(v,loaded.vals))loaded=null;
+    var ln=$('c-loaded');
+    if(loaded){ln.textContent=loadedText(v,R);ln.hidden=false}else{ln.textContent='';ln.hidden=true}
+    if(!tip.hidden&&tip.getAttribute('data-i'))showTip(+tip.getAttribute('data-i'),null,null,null);
+    announce(srText(v,R),quiet);
+  }
+  function drawChart(R,S,earth,v){
+    var mx=Math.max.apply(null,R.rows.map(function(x){return x.t})),geo=[];
+    R.rows.forEach(function(x,i){
+      var t=x.t,bar=bars[i],s=segs[i],vis=[];
+      bar.style.width=(100*t/mx).toFixed(3)+'%';
+      CATS.forEach(function(c){
+        var a=S[i][c.k],sg=s[c.k];sg.classList.remove('end');sg.firstChild.textContent='';sg.firstChild.style.paddingLeft='';
+        if(a/t>0.001){sg.style.display='';sg.style.flexGrow=String(a);vis.push(c)}else{sg.style.display='none'}
+      });
+      if(vis.length)s[vis[vis.length-1].k].classList.add('end');
+      refs[i].style.left=(100*earth/mx).toFixed(3)+'%';
+      cnames[i].textContent=siteName(i,v);
+      cvals[i].textContent=usd(t)+' · '+(t/earth).toFixed(2)+'x Earth';
+      bar.setAttribute('aria-label',siteName(i,v)+': '+usd(t)+' per kW-year, '+(t/earth).toFixed(2)+' times Earth. '+vis.map(function(c){return c.name+' '+pct(S[i][c.k],t)}).join(', ')+'.');
+      geo.push(vis);
+    });
+    /* Label every segment: "Name nn%", else "nn%", else its first letter; keep the text clear of the Earth-cost line. */
+    var boxes=geo.map(function(vis,i){return {rx:tracks[i].clientWidth*earth/mx,segs:vis.map(function(c){var sg=segs[i][c.k];return {c:c,sl:sg.firstChild,l:sg.offsetLeft,w:sg.clientWidth}})}});
+    boxes.forEach(function(b,i){
+      var t=R.rows[i].t;
+      b.segs.forEach(function(o){
+        var p=pct(S[i][o.c.k],t),cands=[o.c.name+' '+p,p,o.c.name.charAt(0)],pick='',pl=6;
+        for(var j=0;j<cands.length;j++){
+          var w=textW(cands[j],o.sl),lp=6;
+          if(b.rx>o.l&&b.rx<o.l+o.w&&b.rx+3>=o.l+lp&&b.rx-3<=o.l+lp+w)lp=b.rx-o.l+5;
+          if(lp+w+7<=o.w){pick=cands[j];pl=lp;break}
+        }
+        o.sl.textContent=pick;
+        o.sl.style.paddingLeft=pick&&pl!==6?pl.toFixed(1)+'px':'';
+      });
+    });
+  }
+  function showTip(i,key,cx,cy){
+    if(!last)return;
+    var t=last.R.rows[i].t,S=last.S[i],ul=el('ul');
+    tip.textContent='';
+    tip.appendChild(el('div','tip-h',siteName(i,last.v)));
+    tip.appendChild(el('div','tip-t',usd(t)+' per kW-year'));
+    CATS.forEach(function(c){
+      if(S[c.k]/t<=0.001)return;
+      var li=el('li',c.k===key?'on':'');li.appendChild(el('i',c.cls));li.appendChild(el('b',null,usd(S[c.k])));li.appendChild(document.createTextNode(c.name+' '+pct(S[c.k],t)));ul.appendChild(li);
+    });
+    tip.appendChild(ul);tip.hidden=false;tip.setAttribute('data-i',String(i));
+    var cr=chart.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight,x,y,up=null;
+    if(cx==null){
+      var prev=tip.getAttribute('data-x');
+      if(prev!=null&&tip.getAttribute('data-from')==='pointer'){x=+prev;y=+tip.getAttribute('data-y')}
+      else{var br=bars[i].getBoundingClientRect();x=br.left-cr.left;y=br.bottom-cr.top+10;up=br.top-cr.top-h-10;tip.setAttribute('data-from','focus')}
+    }else{x=cx-cr.left+14;y=cy-cr.top+16;up=cy-cr.top-h-12;tip.setAttribute('data-from','pointer')}
+    /* Open upwards when the tooltip would run past the bottom of the window or of the pinned results panel. */
+    if(up!=null){
+      var pr=resBox.getBoundingClientRect(),clips=getComputedStyle(resBox).overflowY!=='visible';
+      var lo=Math.min(window.innerHeight,clips?pr.bottom:Infinity),hi=Math.max(0,clips?pr.top:0);
+      if(cr.top+y+h>lo&&cr.top+up>=hi)y=up;
+    }
+    x=Math.max(0,Math.min(x,cr.width-w));
+    tip.setAttribute('data-x',String(x));tip.setAttribute('data-y',String(y));
+    tip.style.left=x+'px';tip.style.top=y+'px';
+    segs.forEach(function(s,j){CATS.forEach(function(c){s[c.k].classList.toggle('hot',j===i&&c.k===key)})});
+  }
+  function hideTip(){
+    tip.hidden=true;tip.removeAttribute('data-i');tip.removeAttribute('data-x');
+    segs.forEach(function(s){CATS.forEach(function(c){s[c.k].classList.remove('hot')})});
+  }
+  chart.addEventListener('pointermove',function(ev){
+    var bar=ev.target.closest?ev.target.closest('.bar'):null;
+    if(!bar){if(ev.pointerType==='mouse')hideTip();return}
+    var seg=ev.target.closest('.seg');
+    showTip(+bar.getAttribute('data-i'),seg?seg.getAttribute('data-k'):null,ev.clientX,ev.clientY);
+  });
+  chart.addEventListener('pointerleave',function(ev){if(ev.pointerType==='mouse')hideTip()});
+  bars.forEach(function(bar,i){
+    bar.addEventListener('focus',function(){tip.removeAttribute('data-from');showTip(i,null,null,null)});
+    bar.addEventListener('blur',hideTip);
+  });
+  document.addEventListener('pointerdown',function(ev){if(!chart.contains(ev.target))hideTip()});
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')hideTip()});
+
+  /* Inputs, presets, scenario links, share link */
+  var shareBtn=$('c-share'),shareBox=$('c-share-url'),shareStat=$('c-share-status'),hashTimer=null;
+  function clearShare(){shareStat.textContent='';shareBox.hidden=true;clearTimeout(hashTimer)}
+  /* After any change, drop the stale "Link copied" note, and keep a share link that is already in the address bar current. */
+  function changed(){
+    clearShare();
+    hashTimer=setTimeout(function(){if(fromHash(location.hash)){try{history.replaceState(null,'','#'+toHash(read()))}catch(err){}}},250);
+  }
+  ids.forEach(function(k){$('c-'+k).addEventListener('input',function(){changed();render()})});
+  /* On the log-scale sliders one position often rounds to the same price, so arrow keys jump to the next distinct value. */
+  Object.keys(LOGS).forEach(function(k){
+    var inp=$('c-'+k);
+    inp.addEventListener('keydown',function(ev){
+      var dir=(ev.key==='ArrowRight'||ev.key==='ArrowUp')?1:(ev.key==='ArrowLeft'||ev.key==='ArrowDown')?-1:0;
+      if(!dir)return;
+      var x=parseFloat(inp.value),v0=logToVal(x),lo=parseFloat(inp.min),hi=parseFloat(inp.max);
+      while(x+dir>=lo&&x+dir<=hi){x+=dir;if(logToVal(x)!==v0)break}
+      ev.preventDefault();inp.value=x;changed();render();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.preset'),function(btn){
+    btn.addEventListener('click',function(){applyValues(presetVals(btn.getAttribute('data-preset')));loaded=null;changed();render()});
+  });
+  function reduceMotion(){return !!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)}
+  /* A Load link sets that row's inputs, says what it loaded (until the next change) and moves focus to the results. */
+  document.addEventListener('click',function(ev){
+    var a=ev.target.closest?ev.target.closest('a[data-load]'):null;if(!a)return;
+    var h=fromHash(a.getAttribute('href'));if(!h)return;
+    ev.preventDefault();loadPartial(h);
+    var tr=a.closest('tr'),th=tr?tr.querySelector('th'):null;
+    loaded={name:th?th.textContent.replace(/\s+/g,' ').trim():a.textContent.replace(/^Load\s+/,''),h:h,row:+a.getAttribute('data-load'),vals:read()};
+    clearShare();render();
+    try{history.replaceState(null,'',a.getAttribute('href'))}catch(err){}
+    var box=document.querySelector('.calc'),hd=$('results-h');
+    resBox.scrollTop=0;
+    box.scrollIntoView({behavior:reduceMotion()?'auto':'smooth',block:'start'});
+    try{hd.focus({preventScroll:true})}catch(err){hd.focus()}
+  });
+  window.addEventListener('hashchange',function(){if(applyHash()){loaded=null;clearShare();render()}});
+  function legacyCopy(){
+    shareBox.hidden=false;shareBox.focus();shareBox.select();
+    var ok=false;try{ok=document.execCommand('copy')}catch(err){ok=false}
+    return ok;
+  }
+  shareBtn.addEventListener('click',function(){
+    clearTimeout(hashTimer);
+    var hash=toHash(read()),url=location.href.split('#')[0]+'#'+hash;
+    try{history.replaceState(null,'','#'+hash)}catch(err){location.hash=hash}
+    shareBox.value=url;
+    function done(ok){
+      if(ok){shareBox.hidden=true;shareStat.textContent='Link copied. It opens this calculator with your inputs.'}
+      else{shareBox.hidden=false;shareBox.focus();shareBox.select();shareStat.textContent='Copy the link below. It opens this calculator with your inputs.'}
+    }
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(function(){done(true)},function(){done(legacyCopy())})}
+    else{done(legacyCopy())}
+  });
+
+  /* On wide screens the results panel stays pinned and scrolls by itself (CSS), so an opened split table is brought into view. */
+  var splitBox=document.querySelector('details.split');
+  if(splitBox)splitBox.addEventListener('toggle',function(){if(splitBox.open){try{$('c-split').scrollIntoView({block:'nearest',behavior:reduceMotion()?'auto':'smooth'})}catch(err){}}});
+  /* Segment labels depend on the bar widths, so redraw them when the window resizes or the web font arrives. */
+  var rz=0;
+  function redraw(){if(last)drawChart(last.R,last.S,last.R.rows[0].t,last.v)}
+  window.addEventListener('resize',function(){if(!rz)rz=requestAnimationFrame(function(){rz=0;redraw()})});
+
+  setDefaults();
+  applyHash();
+  render(true);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){mfont='';redraw()},function(){});
+
+})();
+</script>
+<script>
+/* V7 intent form, in its own script so that a calculator error can never leave it unwired. It saves through leads.js when that is
+   present and configured, and never shows success unless the save worked. Without JavaScript the button stays disabled. */
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id)};
+  var form=$('v7-form');
+  if(!form)return;
+  var KIND='v7-orbital-intent';
+  var FALLBACK='Thanks! Our request inbox is being set up, so your intent could not be saved yet. Please check back in a few days.';
+  var fEmail=$('v7-email'),fHours=$('v7-hours'),fWhen=$('v7-when'),fUse=$('v7-use'),fHp=$('v7-website'),fBtn=$('v7-submit'),fMsg=$('v7-msg');
+  var leads=function(){return (typeof MoltbotLeads!=='undefined'&&MoltbotLeads&&typeof MoltbotLeads.submit==='function')?MoltbotLeads:null};
+  var EMAIL_RE=/^[^\s@<>()\[\]\\,;:"]{1,64}@(?:[^\s@<>()\[\]\\,;:".]+\.)+[^\s@<>()\[\]\\,;:".]{2,}$/;
+  var fallbackText=function(L,reason){try{if(L&&typeof L.fallbackMessage==='function'){var m=L.fallbackMessage(KIND,reason);if(m)return String(m)}}catch(err){}return FALLBACK};
+  var setErr=function(input,id,text){$(id).textContent=text;if(text)input.setAttribute('aria-invalid','true');else input.removeAttribute('aria-invalid')};
+  /* #v7-msg sits inside an always-rendered role="status" box, so screen readers hear the message when it appears. */
+  var show=function(kind,text){fMsg.className='msg '+kind;fMsg.textContent=text;fMsg.hidden=false};
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var email=(fEmail.value||'').trim(),hoursRaw=(fHours.value||'').trim(),hours=null,ok=true;
+    setErr(fEmail,'v7-email-err','');setErr(fHours,'v7-hours-err','');fMsg.hidden=true;fMsg.textContent='';
+    if(email.length>254||!EMAIL_RE.test(email)){setErr(fEmail,'v7-email-err','Please enter a valid email address, like name@example.com.');ok=false}
+    if(hoursRaw!==''){hours=Number(hoursRaw);if(!(isFinite(hours)&&hours>0&&hours<1e9)){setErr(fHours,'v7-hours-err','Enter a number of GPU-hours above zero, or leave it empty.');ok=false}}
+    if(!ok){(fEmail.getAttribute('aria-invalid')?fEmail:fHours).focus();return}
+    if(fHp.value){show('ok','Thanks. Your intent is recorded.');form.reset();return}
+    var L=leads(),label=fBtn.textContent,when=fWhen.value||'not given',use=fUse.value||'not given';
+    fBtn.disabled=true;fBtn.textContent='Sending...';
+    var payload={kind:KIND,email:email,name:'',company:'',tier:'',
+      message:'Orbital GPU-hours intent. Use case: '+use+'. Earliest start: '+when+'. GPU-hours per month: '+(hours==null?'not given':hours)+'.',
+      extra:{gpu_hours_per_month:hours,earliest_start:when,use_case:use,page:'space-data-center-cost-calculator.html'}};
+    var p=L?Promise.resolve().then(function(){return L.submit(payload)}):Promise.resolve({ok:false,reason:'not_loaded'});
+    p.then(function(res){
+      if(res&&res.ok===true){show('ok','Thanks. Your intent is recorded. We will only email you about orbital compute.');form.reset()}
+      else{show('warn',fallbackText(L,res&&res.reason))}
+    },function(){show('warn',fallbackText(L,'error'))}).then(function(){fBtn.disabled=false;fBtn.textContent=label});
+  });
+  fBtn.disabled=false;
+})();
+</script>
+</body>
+</html>

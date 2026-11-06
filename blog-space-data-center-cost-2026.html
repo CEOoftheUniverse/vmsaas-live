@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are Data Centers in Space Cheaper? The 2026 Cost Math</title>
+<meta name="description" content="Are data centers in space cheaper? Not yet. Our model puts low orbit at 5.27x Earth today, 1.92x at USD 200/kg launch and Mars orbit at 4.51-5.56x (central).">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-space-data-center-cost-2026.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Are Data Centers in Space Cheaper? The 2026 Cost Math">
+<meta property="og:description" content="Earth AI compute costs USD 1.62 per GPU-hour in our panel's model. Low orbit costs 5.27x that today and 1.92x at USD 200/kg launch; Mars orbit 4.51-5.56x (central).">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-space-data-center-cost-2026.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta property="og:site_name" content="MoltBot Cloud">
+<meta property="article:published_time" content="2026-11-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Are Data Centers in Space Cheaper? The 2026 Cost Math">
+<meta name="twitter:description" content="Earth USD 1.62 per GPU-hour; low orbit 5.27x today and 1.92x at USD 200/kg launch; Mars orbit 4.51-5.56x (central). Why chips, not power, decide the cost.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Are Data Centers in Space Cheaper? The 2026 Cost Math","description":"Are data centers in space cheaper? Not yet. Our model puts low orbit at 5.27x Earth today, 1.92x at USD 200/kg launch and Mars orbit at 4.51-5.56x (central).","keywords":"space data center cost, orbital data center cost per GPU hour, are data centers in space cheaper, data centers in space 2026","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/blog-space-data-center-cost-2026.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"Are Data Centers in Space Cheaper? The 2026 Cost Math","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog-space-data-center-cost-2026.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Are data centers in space cheaper than on Earth?","acceptedAnswer":{"@type":"Answer","text":"Not in 2026, and not in any of the 13 off-Earth scenarios in the panel's cost model. Low Earth orbit costs 5.27x Earth at today's launch price and 1.92x at USD 200/kg. The best off-Earth case, a low-cost Moon factory, still costs 1.38x."}},
+{"@type":"Question","name":"What does orbital compute cost per GPU-hour?","acceptedAnswer":{"@type":"Answer","text":"The panel's model gives USD 8.53 per GPU-hour in low orbit at today's launch price and USD 3.12 at USD 200/kg, against USD 1.62 on Earth (cost basis, no margin). SemiAnalysis models USD 8.64 in orbit and USD 2.37 on the ground."}},
+{"@type":"Question","name":"Which launch price makes a space data center break even?","acceptedAnswer":{"@type":"Answer","text":"Under the model's central inputs, none does, not even a free launch. With optimistic hardware (USD 400/kg build cost, 3% yearly chip loss) it is USD 671/kg at 10 kg/kW and USD 184/kg at 20 kg/kW. Published estimates run from about USD 50/kg to USD 500/kg."}},
+{"@type":"Question","name":"Is Mars a good place for AI data centers?","acceptedAnswer":{"@type":"Answer","text":"For Earth users, no. In the central case, Mars orbit costs 4.51x Earth with all hardware shipped from Earth (2045 at the earliest) and 5.56x with Mars-made bulk (2060 at the earliest). It suits Mars-local users and batch jobs, because signals take 3.0-22.3 minutes each way."}}
+]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;margin-left:0}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem;display:inline-block;line-height:44px}
+nav a.trial{color:var(--a);font-weight:700}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+.crumbs{font-size:.78rem;margin-bottom:.75rem}
+.crumbs a{color:var(--m)}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:2rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,2.6vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:1.5rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong,b{color:var(--t)}
+a{color:var(--a)}
+.c ul{margin:0 0 1rem 1.2rem}
+.c li{color:var(--m);font-size:.9rem;margin:.45rem 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;font-size:.8rem}
+.tw table{margin:0}
+caption,.tcap{caption-side:top;text-align:left;color:var(--t);font-weight:600;font-size:.82rem;line-height:1.5;padding:0 0 .6rem}
+.tcap{margin:0}
+.tcap .swipe{display:block;color:var(--m);font-weight:400;font-size:.75rem}
+th,td{padding:.6rem .55rem;text-align:right;border-bottom:1px solid var(--b)}
+td{white-space:nowrap}
+thead th{color:var(--m);font-weight:600;font-size:.72rem;letter-spacing:.2px;vertical-align:bottom}
+tbody th{font-weight:400}
+.nw{white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+.txt th,.txt td{text-align:left;white-space:normal;vertical-align:top}
+.wide table{border-collapse:separate;border-spacing:0;overflow:visible}
+.wide tbody th{min-width:10.5rem}
+tr.highlight td,tr.highlight th{background:rgba(99,102,241,.08);font-weight:600;color:var(--t)}
+@media (min-width:1000px){.tw.wide{margin-left:-4rem;margin-right:-4rem}.tcap .swipe{display:none}}
+@media (max-width:999px){
+.wide th:first-child,.wide td:first-child{position:sticky;left:0;z-index:1;background:var(--s);box-shadow:inset -1px 0 0 rgba(255,255,255,.12)}
+.wide tr.highlight th:first-child{background:#1e1e2c}
+}
+.note{font-size:.78rem;color:var(--m);margin:-.75rem 0 1.5rem}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr strong{color:var(--g)}
+.tldr p{margin-bottom:.4rem}
+.tldr ul{margin:0 0 0 1.1rem}
+.tldr li{font-size:.88rem;margin:.35rem 0}
+.watch li{margin:.6rem 0}
+.cta{text-align:center;padding:2.5rem 1.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2rem 0}
+.cta h2{margin:0 0 .5rem}
+.cta .sub{font-size:.8rem;margin:1.1rem 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.35em;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem}
+.related{margin:2rem 0}
+.related h2{font-size:1.05rem;margin:0 0 .5rem}
+.related a{display:block;color:var(--a);text-decoration:none;padding:.5rem 0;font-size:.85rem}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-block}
+.c{padding:5.25rem 1rem 3rem}
+.cta{padding:2rem 1rem}
+.wide tbody th{min-width:8.5rem}
+}
+</style>
+</head>
+<body>
+<nav><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
+
+<article class="c">
+<p class="crumbs"><a href="index.html">MoltBot Cloud</a> / <a href="blog.html">Blog</a> / Space compute</p>
+<h1>Are Data Centers in Space Cheaper? The 2026 Cost Math</h1>
+<div class="meta"><span>Published <time datetime="2026-11-05">5 Nov 2026</time></span><span>8 min read</span><span>Space compute</span></div>
+
+<div class="tldr">
+<p><strong>TL;DR</strong></p>
+<ul>
+<li>On Earth, AI compute costs <b>USD 11,839 per kW-year</b> in the panel's model, about <b>USD 1.62 per GPU-hour</b> at cost. Chips are about 65% of that; electricity is 5-10%.</li>
+<li>Low Earth orbit costs <b>5.27x Earth</b> at today's launch price of about USD 3,600/kg. Cheaper launch helps, then flattens: 1.92x at USD 200/kg, 1.76x at USD 30/kg.</li>
+<li><b>Free launch plus a free satellite</b> only brings orbit to <b>0.98x</b> Earth, because chips cost more in orbit and fail with nobody there to fix them.</li>
+<li>The best off-Earth case is a low-cost Moon factory feeding low orbit: <b>1.38x</b> Earth, around 2038 at the earliest.</li>
+<li>Mars orbit costs <b>4.51-5.56x</b> Earth in the central cases, and 146x at SpaceX's advertised Mars cargo price.</li>
+</ul>
+</div>
+
+<p>Short answer: not yet. Data centers in space get free, nearly constant sunlight, but electricity is a small part of what AI compute costs. Chips are the big part, and in orbit they cost more and cannot be repaired when they fail.</p>
+<p>Unless a source is linked, the numbers below are projections from the panel's cost model, built for our November 2026 space-compute study. You can change every input in the <a href="space-data-center-cost-calculator.html">space data center cost calculator</a>.</p>
+
+<h2 id="cost-by-place">What does AI compute cost on Earth, in orbit and at Mars?</h2>
+<p>The model prices each option in US dollars per delivered kW of IT power per year. It assumes 5-year chips, an 8% cost of capital and no profit margin. A GPU-hour assumes a 1.2 kW slot.</p>
+
+<div class="tw wide">
+<p class="tcap"><span id="cost-table-cap">Cost of AI compute by place (panel's model, central inputs unless noted, USD 2026, projection)</span><span class="swipe" aria-hidden="true">Scroll the table sideways to see all 11 columns.</span></p>
+<table aria-labelledby="cost-table-cap">
+<thead><tr><th scope="col">Scenario</th><th scope="col">USD per <span class="nw">kW-year</span></th><th scope="col">USD per MWh</th><th scope="col">USD per <span class="nw">GPU-hour</span></th><th scope="col">vs Earth</th><th scope="col">Energy %</th><th scope="col">Chips %</th><th scope="col">Transport %</th><th scope="col">Build %</th><th scope="col">Ops %</th><th scope="col">Earliest</th></tr></thead>
+<tbody>
+<tr class="highlight"><th scope="row">Earth hyperscale, grid power</th><td>11,839</td><td>1,351</td><td>1.62</td><td>1.00x</td><td>7</td><td>65</td><td>0</td><td>16</td><td>12</td><td>2026</td></tr>
+<tr><th scope="row">Earth, Nordic hydro</th><td>11,528</td><td>1,315</td><td>1.58</td><td>0.97x</td><td>5</td><td>67</td><td>0</td><td>16</td><td>12</td><td>2028</td></tr>
+<tr><th scope="row">Low orbit, launch at USD 3,600/kg (today)</th><td>62,344</td><td>7,112</td><td>8.53</td><td>5.27x</td><td>6</td><td>17</td><td>61</td><td>7</td><td>9</td><td>2028</td></tr>
+<tr><th scope="row">Low orbit, launch at USD 500/kg</th><td>26,256</td><td>2,995</td><td>3.59</td><td>2.22x</td><td>13</td><td>40</td><td>20</td><td>17</td><td>9</td><td>2030</td></tr>
+<tr><th scope="row">Low orbit, launch at USD 200/kg</th><td>22,763</td><td>2,597</td><td>3.12</td><td>1.92x</td><td>15</td><td>47</td><td>9</td><td>20</td><td>9</td><td>2035</td></tr>
+<tr><th scope="row">Low orbit, launch at USD 100/kg</th><td>21,599</td><td>2,464</td><td>2.96</td><td>1.82x</td><td>16</td><td>49</td><td>5</td><td>21</td><td>9</td><td>2040</td></tr>
+<tr><th scope="row">Low orbit, launch at USD 30/kg</th><td>20,784</td><td>2,371</td><td>2.85</td><td>1.76x</td><td>17</td><td>51</td><td>2</td><td>22</td><td>9</td><td>2045</td></tr>
+<tr><th scope="row">Moon-made bulk in low orbit, low-cost base</th><td>16,381</td><td>1,869</td><td>2.24</td><td>1.38x</td><td>8</td><td>66</td><td>7</td><td>11</td><td>9</td><td>2038</td></tr>
+<tr><th scope="row">Moon-made bulk in low orbit, central</th><td>25,726</td><td>2,935</td><td>3.52</td><td>2.17x</td><td>17</td><td>42</td><td>9</td><td>23</td><td>9</td><td>2045</td></tr>
+<tr><th scope="row">Mars orbit, all hardware shipped from Earth</th><td>53,421</td><td>6,094</td><td>7.31</td><td>4.51x</td><td>14</td><td>22</td><td>44</td><td>10</td><td>10</td><td>2045</td></tr>
+<tr><th scope="row">Mars orbit, Mars-made bulk, central</th><td>65,835</td><td>7,510</td><td>9.01</td><td>5.56x</td><td>34</td><td>18</td><td>17</td><td>21</td><td>10</td><td>2060</td></tr>
+<tr><th scope="row">Mars surface, fission power</th><td>153,226</td><td>17,480</td><td>20.98</td><td>12.94x</td><td>8</td><td>8</td><td>68</td><td>2</td><td>14</td><td>2040</td></tr>
+</tbody></table></div>
+<p class="note">In space, energy means power hardware and build means the spacecraft. Desert solar, gas, geothermal and nuclear-restart sites on Earth land at 1.01-1.03x. Moon and Mars rows assume about USD 100/kg to low orbit, and Mars rows about USD 1,500/kg from Earth to Mars orbit; neither price has been demonstrated. Low- and high-cost bases span 1.38-5.50x for the Moon and 2.71-24.87x for Mars-made bulk.</p>
+
+<h2 id="chips">Why do chips, not electricity, decide the bill?</h2>
+<p>Start with the Earth baseline. Chips, servers and networking cost about USD 30,000 per kW and last 5 years, so they are about 65% of the yearly cost. Electricity at USD 80/MWh is only 7%.</p>
+<p>Free sunlight can only save that small slice. Orbit then adds costs the ground does not have: launch, the satellite (USD 1,000 per kg to build in the central case), a 10% premium for space-ready chips and about 9% of chips lost each year with no repair. Space operations and insurance add 2.5% a year of the chip, satellite and launch cost.</p>
+<p>The sunlight is free, but the power plant that collects it is not. Even at USD 30-200/kg launch, orbital solar hardware delivers power at USD 318-370/MWh with 5-year arrays, or USD 163-190 with 15-year arrays, against USD 80 from the grid. A dawn-dusk orbit does give a panel about 4-8x more energy (<a href="https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/">Google Research</a> says up to 8x); our <a href="blog-space-solar-5x-energy.html">space solar explainer</a> shows what that buys.</p>
+
+<h2 id="launch">How much does the launch price matter?</h2>
+<p>A lot at first, then very little. A dedicated <a href="https://en.wikipedia.org/wiki/Falcon_9">Falcon 9</a> lists at USD 74M in 2026, about USD 3,250-4,230/kg, and the one public Starship price, a 2024-era USD 90M commitment, is about USD 600-900/kg at 100-150 t (<a href="https://www.fool.com/investing/2026/03/21/how-much-will-a-spacex-starship-launch-cost/">Motley Fool</a>). The model uses USD 3,600/kg for today, where launch is 61% of the cost.</p>
+<p>Below about USD 200/kg, launch falls under 10% of the cost, and chips (47-51%), the satellite build (20-22%) and space power hardware (15-17%) take over.</p>
+
+<h2 id="break-even">Why do published break-even launch prices differ about 10x?</h2>
+<p>Published break-even launch prices run from about USD 50/kg to USD 500/kg. Two choices drive most of the spread: how many kilograms of satellite each kW of compute needs, and which costs the study counts.</p>
+
+<div class="tw txt"><table>
+<caption>Break-even launch price to low Earth orbit</caption>
+<thead><tr><th scope="col">Source</th><th scope="col">USD per kg</th><th scope="col">What it counts</th></tr></thead>
+<tbody>
+<tr><th scope="row"><a href="https://www.bain.com/insights/orbital-data-centers-beyond-the-grid/">Bain</a></th><td>50-100</td><td>A 100 MW orbital system against the ground</td></tr>
+<tr><th scope="row"><a href="https://www.forethought.org/research/will-we-really-put-data-centers-in-space">Forethought</a></th><td>about 100</td><td>1 GW over 5 years, orbit against the grid</td></tr>
+<tr><th scope="row"><a href="https://andrewmccalip.com/space-datacenters">Andrew McCalip</a></th><td>77-260</td><td>Our reading of his calculator; depends on which cost lines count</td></tr>
+<tr><th scope="row"><a href="https://arxiv.org/abs/2511.19468">Google Project Suncatcher</a></th><td>200 or less</td><td>Launch cost against ground electricity only</td></tr>
+<tr><th scope="row">Starcloud CEO, via <a href="https://techcrunch.com/2026/03/30/starcloud-raises-170-million-series-ato-build-data-centers-in-space">TechCrunch</a></th><td>about 500</td><td>Power at about USD 0.05/kWh</td></tr>
+<tr><th scope="row">Panel's model, launch vs electricity</th><td>49-292</td><td>Google-style framing at 10-59 kg per kW</td></tr>
+<tr><th scope="row">Panel's model, whole cost</th><td>none; 184-671 with optimistic hardware</td><td>Chips, satellite build, chip losses, operations</td></tr>
+</tbody></table></div>
+
+<p>Framing explains the gap. Compared with ground electricity only, the panel's model gives USD 49-292/kg, close to the published range. Count the satellite build and unrepaired chip losses too, and no launch price matches Earth at any mass under central inputs. With optimistic hardware (USD 400/kg build cost, 3% a year chip loss), break-even is USD 671/kg at 10 kg/kW and USD 184/kg at 20 kg/kW, and there is none at 33 kg/kW or heavier.</p>
+
+<h2 id="free-launch">What if launch were free?</h2>
+<p>Orbit still would not clearly beat the ground. With free launch alone, the model stays above Earth at every satellite mass it tests (10-59 kg/kW). Make the satellite free too, and it lands at USD 11,641 per kW-year, or 0.98x Earth: roughly level with the ground. Unrepaired chip losses and the space-chip premium cancel the savings on buildings and electricity. With optimistic inputs (3% yearly chip loss, no chip premium, operations at 1.5% a year) the floor drops to 0.76x.</p>
+<p>So the real levers are satellites and chips, not rockets. In the USD 200/kg case, satellite build cost alone (tested at USD 400-5,000/kg) swings the result by 178%, and mass per kW (13-73 kg) by 89%.</p>
+
+<h2 id="moon-mars">Is the Moon or Mars a cheaper place to build?</h2>
+<p><strong>The Moon is the best off-Earth factory in the model.</strong> Here arrays, radiators and structure come from the Moon and the chips from Earth. A low-cost lunar base gives 1.38x Earth and the central case 2.17x; even free Moon-made hardware leaves a 1.20x floor. The catch: in the central case, Moon-made bulk beats Earth-built bulk only while Earth launch costs more than about USD 700/kg, yet building the lunar base already assumes launch near USD 100/kg. SpaceX went Moon-first in Feb 2026 (<a href="https://payloadspace.com/spacex-delays-mars-plans-in-favor-of-the-moon/">Payload</a>).</p>
+<p><strong>Mars costs more than the Moon.</strong> In the central case, shipping everything from Earth to Mars orbit (4.51x) stays cheaper than Mars-made bulk (5.56x) until Earth-to-Mars-orbit freight tops about USD 2,550/kg; the model assumes USD 1,500. At SpaceX's advertised introductory Mars cargo price of USD 100M per tonne from 2030 (<a href="https://teslanorth.com/2025/10/12/spacex-starship-to-begin-moon-cargo-missions-in-2028-mars-flights-by-2030/">TeslaNorth</a>), about USD 100,000/kg, Mars-orbit compute shipped from Earth would cost 146x Earth.</p>
+<p>Even free Mars-made hardware leaves a 2.02x floor, because chips still come from Earth, arrive about 1.75 years late and fail with no repair. Mars sits 3.0-22.3 light-minutes away, so it suits Mars-local users and batch jobs. Our <a href="blog-mars-ai-data-centers.html">Mars AI data centers article</a> covers resources, radiation and timing.</p>
+
+<h2 id="other-estimates">How do other estimates compare?</h2>
+<p>Run at other studies' own settings, the panel's model lands close to them. <a href="https://www.bcg.com/publications/2026/space-based-data-centers-cost-outlook">BCG</a> puts today's orbital premium at 2.5-3x Earth (projection) at about USD 1,500/kg launch, which implies about 20 kg/kW; the model gives 2.33x at those settings.</p>
+
+<div class="tw txt"><table>
+<caption>Orbit vs ground, USD per GPU-hour</caption>
+<thead><tr><th scope="col">Estimate</th><th scope="col">Orbit</th><th scope="col">Ground</th><th scope="col">Type and date</th></tr></thead>
+<tbody>
+<tr class="highlight"><th scope="row">Panel's model, 1.2 kW slot, no margin</th><td>8.53 today; 3.12 at USD 200/kg</td><td>1.62</td><td>Model, 5 Nov 2026</td></tr>
+<tr><th scope="row"><a href="https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters">SemiAnalysis</a>, 16-GPU B300 cluster</th><td>8.64</td><td>2.37</td><td>Model, 3 Jun 2026; parity about 2040 in its base case</td></tr>
+<tr><th scope="row"><a href="https://odc.space/">ODC.space</a> 42U orbital rack, before chips</th><td>58-79</td><td>n/a</td><td>List price as GPU-hour equivalent; delivery from 2029 (single source)</td></tr>
+<tr><th scope="row"><a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data</a> H100 rental index</th><td>n/a</td><td>2.97</td><td>Market index, 5 Nov 2026</td></tr>
+</tbody></table></div>
+
+<p>Atomic-6's ODC.space publishes the only rack-scale orbital price list we found, and customers supply their own chips. Ground rents sit above the model's no-margin cost basis; our <a href="gpu-price-index.html">GPU price index</a> tracks them with dates and sources.</p>
+
+<h2 id="who-flies">Who already flies AI compute in orbit?</h2>
+<p>Real hardware is flying, at small scale. Western spacecraft have carried at most about 1 kW of compute each.</p>
+<ul>
+<li><strong>Google Project Suncatcher.</strong> Four Trillium TPUs on a satellite built with Planet launched on 1 Oct 2026 (<a href="https://www.npr.org/2026/10/01/nx-s1-5983697/project-suncatcher-google-ai-data-center-space">NPR</a>) and ran Gemma 4 in orbit around 30 Oct (<a href="https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/">Google blog</a>). On about 1 kW of solar, the TPUs work in 15-20 minute bursts.</li>
+<li><strong>Starcloud.</strong> An NVIDIA H100 has flown on Starcloud-1 since Nov 2025. The company targets a satellite of about 200 kW around late 2028, has filed for 88,000 satellites (about 20 GW) and has raised about USD 450M at a USD 2.3B valuation (<a href="https://www.starcloud.com">Starcloud</a>).</li>
+<li><strong>ADA Space and Zhejiang Lab.</strong> The <a href="https://www.china-in-space.com/p/three-body-computing-constellation">Three-Body Computing Constellation</a> has flown 12 computing satellites since May 2025 (about 5 POPS) and ran Qwen3 (<a href="https://www.adaspace.com">ADA Space</a>). Eight more launched on 14 Oct 2026, for 20 in total (single source).</li>
+<li><strong>Kepler and Axiom Space.</strong> The first paid orbital compute is edge-class: 40 Jetson Orin modules on 10 optical relay satellites (<a href="https://kepler.space/2026/03/16/">Kepler</a>), plus two Axiom data-center nodes since Jan 2026 with 2.5 Gbps optical links (<a href="https://www.axiomspace.com/orbital-data-center">Axiom Space</a>).</li>
+</ul>
+<p>These are real first steps. Our study found no binding, priced contract for orbital compute capacity as of 5 Nov 2026.</p>
+
+<h2 id="what-changes">What would make data centers in space cheaper?</h2>
+<ul>
+<li><strong>Cheaper, lighter satellites.</strong> Build cost per kg and mass per kW are the model's two biggest levers. Break-even needs both to fall, and chip losses to drop too.</li>
+<li><strong>Chips that last in orbit.</strong> In <a href="https://arxiv.org/abs/2511.19468">Google's proton-beam test</a>, a Trillium TPU had no hard failures up to 15 krad (150 Gy), 20x its 5-year low-orbit dose behind 10 mm of aluminium; its HBM memory showed irregularities from 2 krad (20 Gy). Heavy-ion effects are still untested, and no in-orbit error data has been published yet.</li>
+<li><strong>A real Starship price.</strong> Launch near USD 200/kg brings low orbit to 1.92x Earth. <a href="https://en.wikipedia.org/wiki/Starship_Propellant_Transfer_Demonstration">Ship-to-ship propellant transfer</a>, which heavy Moon and Mars cargo depends on, is planned for early 2027 and has not flown yet.</li>
+<li><strong>Jobs Earth serves poorly.</strong> Data made in orbit, government inference and latency-tolerant batch work can move first. <a href="https://www.bcg.com/publications/2026/space-based-data-centers-cost-outlook">BCG</a> sizes these workloads at 10-15% of the AI data-center market by 2040 (projection).</li>
+<li><strong>Customers at Mars.</strong> A settlement or robot economy that needs compute next to its own data would change the Mars math.</li>
+</ul>
+
+<h2 id="watch">Watch the hardware and the physics</h2>
+<ul class="watch">
+<li><a href="https://www.youtube.com/watch?v=cNI4N3-FcEI">How Data Centers in Space Could Change AI</a>, Bloomberg Originals. A 13-minute documentary on Earth's power squeeze, the proposed designs and the engineering hurdles.</li>
+<li><a href="https://www.youtube.com/watch?v=hKw6cRKcqzY">Inside The Startup Launching AI Data Centers Into Space</a>, Y Combinator. Filmed inside Starcloud; the founders explain the Starcloud-1 H100 prototype.</li>
+<li><a href="https://www.youtube.com/watch?v=w5l3dcJz2ew">Long March-2D launches "Space Computing Satellite Constellation"</a>, SciNews. Real footage of the first 12 Three-Body satellites lifting off on 14 May 2025.</li>
+<li><a href="https://www.youtube.com/watch?v=s2U54BS25bE">Blastoff! SpaceX Starship launches to orbit for first time, booster splashes down</a>, VideoFromSpace (Space.com), footage by SpaceX. Flight 14 on 28 Sep 2026.</li>
+<li><a href="https://www.youtube.com/watch?v=FlQYU3m1e80">Is It Really Impossible To Cool A Datacenter In Space?</a>, Scott Manley. Works through the heat balance to size the radiators an orbital data center needs, using Starlink-class satellites as the yardstick.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<h3>Are data centers in space cheaper than on Earth?</h3>
+<p>Not in 2026, and not in any of the 13 off-Earth scenarios in the panel's cost model. Low Earth orbit costs 5.27x Earth at today's launch price and 1.92x at USD 200/kg. The best off-Earth case, a low-cost Moon factory, still costs 1.38x.</p>
+<h3>What does orbital compute cost per GPU-hour?</h3>
+<p>The panel's model gives USD 8.53 per GPU-hour in low orbit at today's launch price and USD 3.12 at USD 200/kg, against USD 1.62 on Earth (cost basis, no margin). SemiAnalysis models USD 8.64 in orbit and USD 2.37 on the ground.</p>
+<h3>Which launch price makes a space data center break even?</h3>
+<p>Under the model's central inputs, none does, not even a free launch. With optimistic hardware (USD 400/kg build cost, 3% yearly chip loss) it is USD 671/kg at 10 kg/kW and USD 184/kg at 20 kg/kW. Published estimates run from about USD 50/kg to USD 500/kg.</p>
+<h3>Is Mars a good place for AI data centers?</h3>
+<p>For Earth users, no. In the central case, Mars orbit costs 4.51x Earth with all hardware shipped from Earth (2045 at the earliest) and 5.56x with Mars-made bulk (2060 at the earliest). It suits Mars-local users and batch jobs, because signals take 3.0-22.3 minutes each way.</p>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="space-data-center-cost-calculator.html"><span aria-hidden="true">→</span> Space data center cost calculator</a>
+<a href="blog-space-solar-5x-energy.html"><span aria-hidden="true">→</span> Is energy 5x better in space? Solar yes, batteries no</a>
+<a href="blog-mars-ai-data-centers.html"><span aria-hidden="true">→</span> AI data centers on Mars: resources, radiation and a 2060 timeline</a>
+<a href="gpu-price-index.html"><span aria-hidden="true">→</span> GPU rental price index (Nov 2026)</a>
+<a href="space-compute-feasibility-memo.html"><span aria-hidden="true">→</span> Space-compute feasibility memo (pre-order)</a>
+</div>
+
+<div class="cta">
+<h2>Run the numbers yourself</h2>
+<p>Move the launch price, satellite mass, build cost and chip-loss rate, and compare Earth, Earth orbit, Moon-made parts and Mars orbit per GPU-hour.</p>
+<a href="space-data-center-cost-calculator.html" class="btn">Open the cost calculator <span aria-hidden="true">→</span></a>
+<p class="sub">Planning a real mission? Pre-order a <a href="space-compute-feasibility-memo.html">space-compute feasibility memo</a>: your scenario in our cost model vs Earth, with a human physics check, from USD 1,500.</p>
+</div>
+</article>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:var(--m);font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+</body>
+</html>

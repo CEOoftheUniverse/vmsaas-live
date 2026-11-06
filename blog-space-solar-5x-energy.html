@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Energy 5x Better in Space? Solar Panels Yes, Batteries No</title>
+<meta name="description" content="Solar panels in a dawn-dusk orbit collect about 4-8x the energy of ground panels, but batteries store no more. The sources, Mars figures and modelled costs.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-space-solar-5x-energy.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Is Energy 5x Better in Space? Solar Panels Yes, Batteries No">
+<meta property="og:description" content="Solar panels in a dawn-dusk orbit collect about 4-8x the energy of ground panels, but batteries store no more. The sources, Mars figures and modelled costs.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-space-solar-5x-energy.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta property="article:published_time" content="2026-11-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is Energy 5x Better in Space? Solar Yes, Batteries No">
+<meta name="twitter:description" content="A panel in a dawn-dusk orbit collects about 4-8x the energy of a ground panel. Batteries store no more, and cheap sunlight is not cheap AI compute.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Is Energy 5x Better in Space? Solar Panels Yes, Batteries No","description":"Solar panels in a dawn-dusk orbit collect about 4-8x the energy of ground panels, but batteries store no more. The sources, Mars figures and modelled costs.","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"datePublished":"2026-11-05","dateModified":"2026-11-05","publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/blog-space-solar-5x-energy.html"},"articleSection":"Space compute","keywords":"is energy 5x better in space, 5x energy in space, solar panels in space 5x, is solar power better in space, batteries in space, space based solar power for data centers","inLanguage":"en"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"Is Energy 5x Better in Space?","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog-space-solar-5x-energy.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is solar power really 5x better in space?","acceptedAnswer":{"@type":"Answer","text":"For solar panels, roughly yes. A panel in a dawn-dusk Earth orbit collects about 4-8x the yearly energy of a ground panel: about 4.2-4.6x the best desert tracker and up to 8x a panel at mid-latitude."}},{"@type":"Question","name":"Do batteries store more energy in space?","acceptedAnswer":{"@type":"Answer","text":"No. Battery energy is set by chemistry, and in low orbit about 5,500 charge cycles a year limit usable depth of discharge to 10-40%. The gain is that a dawn-dusk orbit needs about 40x less storage than 24/7 solar on the ground."}},{"@type":"Question","name":"Is space-based solar power cheaper for data centers?","acceptedAnswer":{"@type":"Answer","text":"Not yet. In our model, orbital solar power costs USD 318-370 per MWh with 5-year arrays even at USD 30-200/kg launch, against USD 80 on the grid. Electricity is also only 5-10% of the cost of AI compute on the ground, so cheaper power barely moves the total."}},{"@type":"Question","name":"How much sunlight does a solar panel get in Mars orbit?","acceptedAnswer":{"@type":"Answer","text":"About 586 W/m² on average, 43% of Earth orbit. A high, eclipse-free Mars orbit still gives about 2-2.8x a good Earth desert, while the Mars surface gives less than a good Earth site."}}]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444;--al:#818cf8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:100;background:var(--a);color:#fff;padding:.6rem 1rem;border-radius:8px;text-decoration:none;font-weight:700}
+.skip:focus{top:.6rem}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);margin-left:0}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem}
+nav .links{display:flex;align-items:center}
+nav .links a,nav .brand{display:inline-flex;align-items:center;min-height:44px}
+nav .links a.trial{color:var(--a);font-weight:700}
+nav a:hover,nav a:focus-visible{color:var(--t)}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,1.1rem + 2.4vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:2rem;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,1rem + .8vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.5;margin:1.5rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+.c ul{color:var(--m);font-size:.9rem;margin:0 0 1rem 1.25rem}
+.c li{margin-bottom:.5rem}
+strong{color:var(--t)}
+a{color:var(--a)}
+.c p a,.c li a,.c td a{color:var(--al);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;font-size:.82rem}
+caption{caption-side:top;text-align:left;color:var(--t);font-weight:600;font-size:.85rem;line-height:1.5;padding:0 0 .6rem}
+th,td{padding:.7rem .8rem;text-align:center;border-bottom:1px solid var(--b);vertical-align:top;line-height:1.55}
+th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.7rem;letter-spacing:.5px}
+th:first-child,td:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ground td{background:rgba(34,197,94,.04)}
+.money th:not(:first-child){letter-spacing:0}
+.bar{display:block;height:6px;min-width:64px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:.4rem}
+.bar i{display:block;height:100%;border-radius:3px;background:var(--c)}
+.bar i.mars{background:var(--o)}
+.note{color:var(--m);font-size:.78rem;line-height:1.6;margin:-.75rem 0 1.5rem}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--al)}
+.callout p:last-child{margin-bottom:0}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr .lab{color:var(--g);font-weight:700}
+.c .tldr ul{color:var(--t);margin:.6rem 0 0 1.1rem;font-size:.88rem}
+.c .tldr li:last-child{margin-bottom:0}
+.c ul.watch{list-style:none;margin-left:0}
+.watch li{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:.9rem 1rem;margin-bottom:.75rem}
+.watch .pub{display:block;color:var(--m);font-size:.75rem;margin:.15rem 0 .25rem}
+.watch a{font-weight:600}
+.faq h3{color:var(--t)}
+.cta{text-align:center;padding:2.5rem 1.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2.5rem 0 2rem}
+.cta h2{margin:0 0 .5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem}
+.btn:hover,.btn:focus-visible{background:#4f46e5}
+.related{margin:2rem 0}
+.related a{display:block;color:var(--al);text-decoration:none;padding:.55rem 0;font-size:.85rem;line-height:1.6}
+.related a:hover,.related a:focus-visible{text-decoration:underline}
+.small{font-size:.78rem}
+.nw{white-space:nowrap}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-flex}
+.c{padding:5rem 1rem 3rem}
+th,td{padding:.6rem .55rem}
+.money th,.money td{padding:.6rem .28rem}
+.money th{font-size:.62rem;letter-spacing:0}
+.money th:first-child,.money td:first-child{padding-left:.6rem}
+.cta{padding:2rem 1rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to article</a>
+<nav aria-label="Main"><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span>&nbsp;Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
+
+<article class="c" id="main">
+<h1>Is Energy 5x Better in Space? Solar Panels Yes, Batteries No</h1>
+<div class="meta"><span>November 5, 2026</span><span>8&nbsp;min read</span><span>Space compute</span></div>
+
+<div class="tldr">
+<span class="lab">TL;DR</span>
+<ul>
+<li><strong>Solar panels: yes.</strong> A panel in a dawn-dusk Earth orbit collects about <span class="nw">4-8x</span> the energy of a ground panel, and <span class="nw">4.2-4.6x</span> the best desert tracker.</li>
+<li><strong>Batteries: no.</strong> Their energy is set by chemistry, and about 5,500 charge cycles a year in low orbit limit usable depth of discharge to <span class="nw">10-40%</span>.</li>
+<li><strong>The real battery win is size.</strong> That orbit needs about 40x less storage than 24/7 ground solar.</li>
+<li><strong>Mars orbit gets 586&nbsp;W/m²</strong>, 43% of Earth orbit, so even a high Mars orbit beats a good desert by only about <span class="nw">2-2.8x</span>.</li>
+<li><strong>Cheap sunlight is not cheap compute.</strong> Even at USD&nbsp;<span class="nw">30-200/kg</span> launch, orbital solar power costs USD&nbsp;<span class="nw">318-370/MWh</span> in our model (<span class="nw">5-year</span> arrays) against USD&nbsp;80 on the grid, and electricity is only <span class="nw">5-10%</span> of the cost of AI compute on the ground.</li>
+</ul>
+</div>
+
+<p>"Energy is 5x better in space" is a common line about orbital data centers. It is half right. Solar panels in the right orbit do collect several times more energy. Batteries store no more. And more sunlight does not make AI compute 5x cheaper. Model figures below come from our research panel's cost model (USD&nbsp;2026, at cost) and are projections.</p>
+
+<h2>Where does "energy is 5x better in space" come from?</h2>
+<p>The claim traces to three sources, and all three are about solar panels.</p>
+<ul>
+<li><strong>Starcloud, 2024.</strong> Its white paper, <a href="https://starcloudinc.github.io/wp.pdf"><cite>Why we should train AI in space</cite></a>, written when the company was still called Lumen Orbit, says "a given solar array in space will generate over 5 times the energy as the same array on Earth". The basis is a capacity factor above 95% in orbit against a 24% US median, plus about 40% stronger peak sunlight.</li>
+<li><strong>Google Research, 2025.</strong> In the <a href="https://research.google/blog/exploring-a-space-based-scalable-ai-infrastructure-system-design/">blog post introducing Project Suncatcher</a>, Google wrote that in the right orbit a solar panel "can be up to 8 times more productive than on earth". Its <a href="https://arxiv.org/abs/2511.19468">Suncatcher research paper</a> compares against a panel at mid-latitude.</li>
+<li><strong>Elon Musk, 2026.</strong> After <a href="https://www.pv-magazine.com/2026/01/26/musk-at-wef-solar-space-based-ai-data-centers-possible-in-two-to-three-years/">using the figure at Davos</a>, Musk told the <a href="https://www.dwarkesh.com/p/elon-musk">Dwarkesh Podcast</a> (5 Feb 2026) that you get "about five times the effectiveness of solar panels in space versus the ground", adding: "it's not five times cheaper, it's 10 times cheaper because you don't need any batteries."</li>
+</ul>
+<p>That quote puts "five times" and "batteries" in one breath, the likely origin of the battery version. None of the three says batteries hold more energy in space.</p>
+
+<h2>Is solar power better in space?</h2>
+<p>Yes, in the right orbit. A dawn-dusk sun-synchronous orbit rides the line between day and night, so a panel at <span class="nw">550-800</span>&nbsp;km sees full sunlight, 1,361&nbsp;W/m², for <span class="nw">95-97%</span> of the year. A yearly eclipse season of about <span class="nw">80-99</span> days still brings shadows of up to <span class="nw">18-22</span> minutes per orbit (<a href="https://proba2.sidc.be/about/launch">PROBA-2 data</a> plus our fact-checker's shadow model). The size of the gain depends on the ground panel you compare against:</p>
+
+<div class="tw">
+<table>
+<caption>"5x" compared with what? Yearly energy per kW of panel in a dawn-dusk orbit</caption>
+<thead><tr><th scope="col">Ground baseline</th><th scope="col">Gain in orbit</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><td>Best desert tracker (Atacama, Chile: 2,320&nbsp;kWh per kWp a year)</td><td class="num">4.2-4.6x</td><td><a href="https://investigadores.anid.cl/es/public_search/work?id=629926">Atacama study</a>, fact-checked</td></tr>
+<tr><td>Median US solar farm (24% capacity factor)</td><td class="num">Over 5x</td><td><a href="https://starcloudinc.github.io/wp.pdf">Starcloud white paper</a></td></tr>
+<tr><td>Median US solar farm, same DC basis as the space panel</td><td class="num">6-6.7x</td><td><a href="https://eta-publications.lbl.gov/sites/default/files/utility-scale_solar_2021_technical_brief.pdf">Berkeley Lab data</a>, fact-checked</td></tr>
+<tr><td>Panel at mid-latitude</td><td class="num">Up to 8x</td><td><a href="https://arxiv.org/abs/2511.19468">Google paper</a></td></tr>
+<tr><td>German or Nordic site</td><td class="num">About 11-12x</td><td>Our panel's estimate</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Per square metre of incoming sunlight, the gap to the best desert tracker is about 3.4x.</p>
+<p>So "<span class="nw">4-8x</span>" is a fair summary, and "5x" is a reasonable round number. Our panel plans with about <span class="nw">4-6x</span> against good sunny sites.</p>
+
+<h2>Do batteries hold more energy in space?</h2>
+<p>No. A battery's energy per kilogram is set by its chemistry, and a vacuum does not change it. Orbit makes batteries work harder: a satellite in an ordinary low orbit circles Earth about 15 times a day, roughly 5,500 charge cycles a year. To last, its batteries are held to <span class="nw">10-40%</span> depth of discharge, the share of capacity used per cycle (<a href="https://gomspace.com/wp-content/uploads/2025/08/gs-ds-nanopower-battery_3500m_Ah.pdf">GomSpace datasheet</a> basis). Usable energy per kilogram is lower in orbit, not higher.</p>
+<p>The real win is how little storage you need. A data center on 24/7 ground solar needs about <span class="nw">14-16</span>&nbsp;kWh of storage per kW to get through the night. In a dawn-dusk orbit the worst eclipse at 550&nbsp;km needs about 0.36&nbsp;kWh per kW, roughly 8&nbsp;kg of batteries per kW at 30% depth of discharge and 150&nbsp;Wh/kg. That is about 40x less (our panel's calculation). Throttling compute through the eclipse season shrinks it further, at a cost of about <span class="nw">4-5%</span> of a year's energy at <span class="nw">550-650</span>&nbsp;km.</p>
+<div class="callout">
+<div class="callout-title">The accurate version of the claim</div>
+<p>A panel in a dawn-dusk orbit collects about <span class="nw">4-8x</span> the energy of a ground panel. Its longest shadows last <span class="nw">18-22</span> minutes, not a whole night, so the satellite needs about 40x less storage than 24/7 ground solar. Each battery stores the same, or less.</p>
+</div>
+
+<h2>How much sunlight does a panel get in Mars orbit?</h2>
+<p>Much less. Mars orbit averages 586&nbsp;W/m², 43% of Earth orbit, swinging between 490 and 713&nbsp;W/m² over the Mars year (<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">NASA Mars fact sheet</a>). A high, eclipse-free dawn-dusk Mars orbit, at 1,000&nbsp;km or more, still beats a good Earth desert by about <span class="nw">2-2.8x</span>.</p>
+<p>On the surface the gain falls below 1x, with long nights and dust storms that block sunlight for weeks (<a href="https://www.nasa.gov/wp-content/uploads/2026/03/america-underway-in-space-on-nuclear-power.pdf">NASA nuclear power brief</a>). The cold, a mean of about 214&nbsp;K (<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">NASA fact sheet</a>), also cuts battery performance unless cells are heated.</p>
+
+<div class="tw">
+<table>
+<caption>Sunlight a panel actually gets (yearly average, W per m² of panel)</caption>
+<thead><tr><th scope="col">Place</th><th scope="col">W/m²</th><th scope="col">Time in sunlight</th></tr></thead>
+<tbody>
+<tr><td>Earth orbit, dawn-dusk at 650&nbsp;km</td><td class="num">1,307<span class="bar" aria-hidden="true"><i style="width:100%"></i></span></td><td>96%</td></tr>
+<tr><td>Moon, best polar ridge point</td><td class="num">1,136<span class="bar" aria-hidden="true"><i style="width:87%"></i></span></td><td><span class="nw">81-86%</span> (modelled)</td></tr>
+<tr><td>Mars orbit, dawn-dusk at 1,000&nbsp;km or higher</td><td class="num">586<span class="bar" aria-hidden="true"><i class="mars" style="width:45%"></i></span></td><td>About 100%</td></tr>
+<tr><td>Best desert on Earth (Atacama tracker)</td><td class="num">401<span class="bar" aria-hidden="true"><i style="width:31%"></i></span></td><td>Dark every night</td></tr>
+<tr><td>Low Mars orbit at 400&nbsp;km</td><td class="num">381<span class="bar" aria-hidden="true"><i class="mars" style="width:29%"></i></span></td><td>65%</td></tr>
+<tr><td>Mars surface at the equator, before dust</td><td class="num">140-160<span class="bar" aria-hidden="true"><i class="mars" style="width:11%"></i></span></td><td>Dark about 12.3&nbsp;h a night</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Orbit and Moon rows: 1,361&nbsp;W/m² at Earth or 586&nbsp;W/m² at Mars times the sunlit share (<a href="https://proba2.sidc.be/about/launch">PROBA-2 orbit data</a>; lunar <a href="https://en.wikipedia.org/wiki/Peak_of_eternal_light">peaks of eternal light</a>). Atacama: the study's measured 3,510&nbsp;kWh/m² a year. Mars surface: our calculation of the daily average through the thin air, before dust.</p>
+<p>For the same power, our model needs Mars-orbit arrays 2.32x larger. Our article on <a href="blog-mars-ai-data-centers.html">AI data centers on Mars</a> covers the rest of the case.</p>
+
+<h2>Is space-based solar power cheaper for data centers?</h2>
+<p>Not yet. Space-based solar power usually means beaming energy down to Earth, the idea behind <a href="https://www.youtube.com/watch?v=8ScTbb-43A4">ESA's SOLARIS programme</a>. An orbital data center uses the power where it is made. The sunlight is free; the power plant is not. Space-grade triple-junction cells cost about USD&nbsp;<span class="nw">250-450</span> per watt, against USD&nbsp;<span class="nw">0.28-0.39</span> for ground silicon (<a href="https://www.eurekalert.org/news-releases/1145150">University of Surrey review</a>, single source).</p>
+<p>Our model counts arrays, power electronics and batteries at 10.8&nbsp;kg per kW of computing load and USD&nbsp;1,000/kg to build, plus launch:</p>
+
+<div class="tw">
+<table>
+<caption>Electricity cost in our model, orbit vs ground (USD per MWh)</caption>
+<thead><tr><th scope="col">Power source</th><th scope="col"><span class="nw">5-year</span> arrays</th><th scope="col"><span class="nw">15-year</span> arrays</th></tr></thead>
+<tbody>
+<tr><td>Orbit, launch at USD&nbsp;3,600/kg (about today's <a href="https://en.wikipedia.org/wiki/Falcon_9">Falcon 9</a>)</td><td class="num">1,420</td><td class="num">729</td></tr>
+<tr><td>Orbit, launch at USD&nbsp;500/kg</td><td class="num">463</td><td class="num">238</td></tr>
+<tr><td>Orbit, launch at USD&nbsp;200/kg</td><td class="num">370</td><td class="num">190</td></tr>
+<tr><td>Orbit, launch at USD&nbsp;30/kg</td><td class="num">318</td><td class="num">163</td></tr>
+<tr class="ground"><td>Ground: US grid, large-load price</td><td class="num" colspan="2">80</td></tr>
+<tr class="ground"><td>Ground: desert solar plus batteries, 24/7</td><td class="num" colspan="2">105</td></tr>
+<tr class="ground"><td>Ground: Nordic hydro</td><td class="num" colspan="2">55</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Ground prices are model inputs: grid between Texas (USD&nbsp;72.1) and US average (USD&nbsp;96.4) industrial power in Aug 2026 (<a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a">EIA Electric Power Monthly</a>); desert solar from <a href="https://ember-energy.org/latest-insights/solar-electricity-every-hour-of-every-day-is-here-and-it-changes-everything/">Ember's 2025 estimate</a> of USD&nbsp;104 for 97% round-the-clock solar in Las Vegas; Nordic is our assumption.</p>
+<p>At USD&nbsp;<span class="nw">30-200/kg</span> launch, orbital power costs <span class="nw">2-4.6x</span> the grid, depending on array life. Matching the grid needs power hardware near USD&nbsp;400/kg, <span class="nw">15-year</span> arrays and launch near USD&nbsp;30/kg. <a href="https://starcloudinc.github.io/wp.pdf">Starcloud's white paper</a> projects about USD&nbsp;2 per MWh by counting silicon cells at USD&nbsp;0.03 per watt and one USD&nbsp;5M launch per 40&nbsp;MW, spread over 10 years.</p>
+
+<h2>Would 5x cheaper power make AI compute 5x cheaper?</h2>
+<p>No, because on Earth the chips are the bill. In our model a grid-powered hyperscale site costs USD&nbsp;11,839 per kW of computing a year, about USD&nbsp;1.62 per GPU-hour at cost. Chips are about 65% of that and electricity only about 7%, roughly 12 cents per GPU-hour. So 5x cheaper electricity would cut Earth compute costs by only about 6%, and free electricity by about 7% (our calculation).</p>
+
+<div class="tw">
+<table class="money">
+<caption>Where the money goes: cost per GPU-hour and its main parts (our model, central inputs)</caption>
+<thead><tr><th scope="col">Site</th><th scope="col">Cost (USD)</th><th scope="col">× Earth</th><th scope="col">Power</th><th scope="col">Chips</th><th scope="col">Launch</th></tr></thead>
+<tbody>
+<tr class="ground"><td>Earth, grid power</td><td class="num">1.62</td><td class="num">1.00</td><td class="num">7%</td><td class="num">65%</td><td class="num">0%</td></tr>
+<tr class="ground"><td>Earth, desert solar plus batteries</td><td class="num">1.67</td><td class="num">1.03</td><td class="num">10%</td><td class="num">63%</td><td class="num">0%</td></tr>
+<tr><td>Orbit, launch at USD 3,600/kg</td><td class="num">8.53</td><td class="num">5.27</td><td class="num">6%</td><td class="num">17%</td><td class="num">61%</td></tr>
+<tr><td>Orbit, launch at USD 200/kg</td><td class="num">3.12</td><td class="num">1.92</td><td class="num">15%</td><td class="num">47%</td><td class="num">9%</td></tr>
+<tr><td>Orbit, launch at USD 30/kg</td><td class="num">2.85</td><td class="num">1.76</td><td class="num">17%</td><td class="num">51%</td><td class="num">2%</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">At cost: <span class="nw">5-year</span> chips, 8% cost of capital, one GPU-hour = a 1.2&nbsp;kW slot. In orbit, "power" means arrays, power electronics and batteries.</p>
+<p>Even free launch plus a free satellite only brings orbit to 0.98x a ground site, because orbital chips cost about 10% more, are lost at about 9% a year with no repair, and need space operations and insurance. For what GPUs rent for today, see our <a href="gpu-price-index.html">GPU price index</a>.</p>
+
+<h2>What would change the answer</h2>
+<ul>
+<li><strong>Lighter, cheaper satellites</strong>, the biggest levers in our model. With settings modelled on the Starcloud white paper (USD&nbsp;30/kg launch, about 4&nbsp;kg per kW, USD&nbsp;250/kg build, 3% a year chip loss), orbit comes out at 0.88x Earth. Our central case uses 33&nbsp;kg per kW.</li>
+<li><strong>A real break-even.</strong> Under our central inputs no launch price makes orbit as cheap as Earth. With USD&nbsp;400/kg build cost and 3% a year chip loss, it breaks even at USD&nbsp;671/kg launch for 10&nbsp;kg per kW, or USD&nbsp;184/kg for 20&nbsp;kg per kW.</li>
+<li><strong>Cheaper cells.</strong> Silicon could make satellite power systems up to 90% cheaper in the Surrey review's small-satellite cases (projected), at about 2.6x lower radiation tolerance.</li>
+<li><strong>Longer-lived arrays.</strong> Keeping them 15 years roughly halves orbital power cost, to USD&nbsp;<span class="nw">163-190/MWh</span> at USD&nbsp;<span class="nw">30-200/kg</span> launch.</li>
+<li><strong>Better ground storage.</strong> This one helps the ground: in June 2025 <a href="https://ember-energy.org/latest-insights/solar-electricity-every-hour-of-every-day-is-here-and-it-changes-everything/">Ember's analysis</a> priced 97% round-the-clock solar in Las Vegas 22% below a year earlier.</li>
+</ul>
+
+<h2>Watch it for real</h2>
+<ul class="watch">
+<li><a href="https://www.youtube.com/watch?v=o1JK79jszqo">Google's latest moonshot to put machine learning in space</a><span class="pub">Google · 2&nbsp;min · animation of a real project</span>Why a panel in the right orbit can yield up to 8x the energy of one on Earth.</li>
+<li><a href="https://www.youtube.com/watch?v=hKw6cRKcqzY">Inside The Startup Launching AI Data Centers Into Space</a><span class="pub">Y Combinator · 13&nbsp;min · real footage</span>Filmed inside Starcloud, the source of the 5x figure, on powering compute with continuous sunlight.</li>
+<li><a href="https://www.youtube.com/watch?v=tvPUlq-adWI">Space Solar Power Project: DOLCE in Space</a><span class="pub">Caltech · 2&nbsp;min · real footage</span>A 1.8&nbsp;m by 1.8&nbsp;m foldable building block for a future solar power station, unfolding in orbit in 2023.</li>
+<li><a href="https://www.youtube.com/watch?v=8ScTbb-43A4">SOLARIS: Preparing for space-based solar power</a><span class="pub">European Space Agency · 4&nbsp;min · concept animation</span>The other kind of space solar: large arrays beaming energy down to receivers on the ground.</li>
+</ul>
+
+<section class="faq" aria-labelledby="faq">
+<h2 id="faq">Frequently asked questions</h2>
+<h3>Is solar power really 5x better in space?</h3>
+<p>For solar panels, roughly yes. A panel in a dawn-dusk Earth orbit collects about <span class="nw">4-8x</span> the yearly energy of a ground panel: about <span class="nw">4.2-4.6x</span> the best desert tracker and up to 8x a panel at mid-latitude.</p>
+<h3>Do batteries store more energy in space?</h3>
+<p>No. Battery energy is set by chemistry, and in low orbit about 5,500 charge cycles a year limit usable depth of discharge to <span class="nw">10-40%</span>. The gain is that a dawn-dusk orbit needs about 40x less storage than 24/7 solar on the ground.</p>
+<h3>Is space-based solar power cheaper for data centers?</h3>
+<p>Not yet. In our model, orbital solar power costs USD&nbsp;<span class="nw">318-370</span> per MWh with <span class="nw">5-year</span> arrays even at USD&nbsp;<span class="nw">30-200/kg</span> launch, against USD&nbsp;80 on the grid. Electricity is also only <span class="nw">5-10%</span> of the cost of AI compute on the ground, so cheaper power barely moves the total.</p>
+<h3>How much sunlight does a solar panel get in Mars orbit?</h3>
+<p>About 586&nbsp;W/m² on average, 43% of Earth orbit. A high, eclipse-free Mars orbit still gives about <span class="nw">2-2.8x</span> a good Earth desert, while the Mars surface gives less than a good Earth site.</p>
+</section>
+
+<p class="small">Sources checked on 5 Nov 2026.</p>
+
+<div class="cta">
+<h2>Run the numbers yourself</h2>
+<p>Set launch price, satellite mass, electricity price and chip losses, then compare AI compute on Earth, in orbit, on the Moon and at Mars.</p>
+<a href="space-data-center-cost-calculator.html" class="btn">Open the cost calculator →</a>
+</div>
+
+<div class="related">
+<h3>Related reads</h3>
+<a href="blog-space-data-center-cost-2026.html">→ Are data centers in space cheaper? The 2026 cost math</a>
+<a href="space-data-center-cost-calculator.html">→ Space data-center cost calculator: Earth, orbit, Moon, Mars</a>
+<a href="blog-mars-ai-data-centers.html">→ AI data centers on Mars: resources, radiation and a 2060 timeline</a>
+<a href="gpu-price-index.html">→ GPU price index: dated, sourced rental prices</a>
+<a href="space-compute-feasibility-memo.html">→ Space-compute feasibility memo for your project</a>
+</div>
+</article>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+</body>
+</html>
