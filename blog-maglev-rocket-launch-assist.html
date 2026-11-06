@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maglev Launch Assist: What an Underground Track Really Buys</title>
+<meta name="description" content="Maglev launch assist saves only USD 39-243k of fuel per launch but adds 24-30% payload in our model. Physics, power, payback, China's 2028 pad, the Moon.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-maglev-rocket-launch-assist.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Maglev Launch Assist: What an Underground Track Really Buys">
+<meta property="og:description" content="Fuel saved is worth USD 39-243k per launch, but in our model an angled 270-300 m/s release adds 24-30% payload. Physics, power, payback and the Moon.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-maglev-rocket-launch-assist.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maglev Launch Assist: What an Underground Track Really Buys">
+<meta name="twitter:description" content="A maglev push barely saves fuel money but adds 24-30% payload in our model. Physics, power, payback, China's 2028 pad and why the Moon is the best home.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Maglev Launch Assist: What an Underground Track Really Buys","description":"Maglev launch assist saves only USD 39-243k of fuel per launch but adds 24-30% payload in our model. Physics, power, payback, China's 2028 pad, the Moon.","inLanguage":"en","articleSection":"Launch physics","keywords":"maglev rocket launch, electromagnetic launch assist, rocket launch rail, underground maglev launch, mass driver moon","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"datePublished":"2026-11-05","dateModified":"2026-11-05","publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/blog-maglev-rocket-launch-assist.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"Maglev Launch Assist","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog-maglev-rocket-launch-assist.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does a maglev launch assist save rocket fuel?","acceptedAnswer":{"@type":"Answer","text":"Yes, but little money. Propellant is only 0.3-1.6% of a launch price, so a 270-300 m/s push saves USD 39-243k of fuel per launch in the panel's model."}},
+{"@type":"Question","name":"How much extra payload can an electromagnetic launch assist add?","acceptedAnswer":{"@type":"Answer","text":"About 24-30% for a Falcon-9-class rocket released from an angled ramp at 270-300 m/s (panel's 2-D model). Simpler estimates give 12-21%; a vertical shaft about 9.5%."}},
+{"@type":"Question","name":"Is anyone building a maglev rocket launch pad?","acceptedAnswer":{"@type":"Answer","text":"China's Galactic Energy, with CASIC and the Ziyang launch institute, plans a pad that pushes rockets vertically past Mach 1 before ignition, targeted for 2028. It is announced, not built."}},
+{"@type":"Question","name":"Why is the Moon a better place for a mass driver?","acceptedAnswer":{"@type":"Answer","text":"It has no air and weak gravity. Escaping the Moon takes 0.79 kWh/kg, against 3.5 for Mars and 17.4 for Earth, so an electric track can do the whole launch."}}
+]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;margin-left:0;white-space:nowrap;display:inline-block;line-height:44px}
+nav .brand span{color:var(--a)}
+nav .links{display:flex;align-items:center}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem;display:inline-flex;align-items:center;min-height:44px}
+nav a.trial{color:var(--a);font-weight:700}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.25;font-weight:800;letter-spacing:-.5px;margin-bottom:1rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:2rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,2.6vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.5;margin:1.5rem 0 .5rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+ul{margin:0 0 1rem 1.25rem}
+li{color:var(--m);font-size:.9rem;margin-bottom:.45rem}
+strong{color:var(--t)}
+a{color:var(--a)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;margin:0;font-size:.82rem}
+caption{caption-side:top;text-align:left;color:var(--t);font-weight:600;font-size:.85rem;padding:0 0 .6rem}
+th,td{padding:.7rem .8rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--b);color:var(--m)}
+td:first-child{color:var(--t)}
+th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.7rem;letter-spacing:.5px}
+table.wide{min-width:640px}
+table.mid{min-width:520px}
+.note{font-size:.75rem;color:var(--m);margin:-.75rem 0 1.5rem}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--a)}
+.callout p:last-child{margin-bottom:0}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr strong{color:var(--g)}
+.tldr ul{margin:.5rem 0 0 1.1rem}
+.tldr li:last-child{margin-bottom:0}
+.layouts{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin:1.5rem 0}
+.layouts figure{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:.75rem}
+.layouts svg{display:block;width:100%;height:auto}
+.layouts figcaption{font-size:.78rem;color:var(--m);line-height:1.5;margin-top:.5rem}
+.layouts figcaption strong{display:block;font-size:.82rem}
+.layouts .dirt{fill:rgba(255,255,255,.035)}
+.layouts .gnd{stroke:rgba(255,255,255,.3);stroke-width:1.5}
+.layouts .bore{fill:none;stroke:rgba(99,102,241,.18);stroke-width:14}
+.layouts .trk{fill:none;stroke:var(--a);stroke-width:4;stroke-linecap:round}
+.layouts .rkt{fill:var(--t)}
+.layouts .best{border-color:rgba(34,197,94,.35)}
+.layouts .best .trk{stroke:var(--g)}
+.layouts .best .bore{stroke:rgba(34,197,94,.16)}
+.layouts .best figcaption strong{color:var(--g)}
+.watch li{margin-bottom:.8rem}
+.watch .pub{display:block;font-size:.8rem;color:var(--m)}
+.faq h3{color:var(--t)}
+.cta{text-align:center;padding:2.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2rem 0}
+.cta h2{margin:0 0 .5rem}
+.cta p{margin-bottom:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem}
+.related{margin:2rem 0}
+.related h2{font-family:'Inter',system-ui,sans-serif;font-size:1rem;line-height:1.5;margin:0 0 .5rem}
+.related a{display:block;color:var(--a);text-decoration:none;padding:.55rem 0;font-size:.85rem}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-flex}
+.c{padding:5.5rem 1rem 3rem}
+.layouts{grid-template-columns:1fr}
+.layouts figure{display:grid;grid-template-columns:112px 1fr;gap:.85rem;align-items:center}
+.layouts figcaption{margin-top:0}
+.cta{padding:1.75rem 1rem}
+table{font-size:.78rem}
+th,td{padding:.55rem}
+table.mid{min-width:0}
+table.wide,table.wide caption,table.wide tbody,table.wide tr,table.wide td{display:block;min-width:0}
+table.wide thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+table.wide caption{padding:.8rem .8rem .2rem}
+table.wide tr{padding:.6rem 0;border-bottom:1px solid var(--b)}
+table.wide tr:last-child{border-bottom:0}
+table.wide td{border:0;padding:.15rem .8rem}
+table.wide td:first-child{font-weight:600;padding-bottom:.35rem}
+table.wide td[data-label]::before{content:attr(data-label) ": ";color:var(--t);font-weight:600}
+}
+</style>
+</head>
+<body>
+<nav aria-label="Main"><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a class="keep" href="space-data-center-cost-calculator.html">Calculator</a><a class="trial" href="signup.html">Start Free Trial</a></div></div></nav>
+
+<article class="c">
+<h1>Maglev Launch Assist: What an Underground Track Really Buys</h1>
+<div class="meta"><span><time datetime="2026-11-05">November 5, 2026</time></span><span>8 min read</span><span>Launch physics</span></div>
+
+<div class="tldr">
+<strong>TL;DR</strong>
+<ul>
+<li><strong>Fuel is cheap:</strong> propellant is 0.3-1.6% of a launch price, so the fuel a maglev push saves is worth only USD 39-243k per launch (panel's model).</li>
+<li><strong>Payload is the prize:</strong> an angled 270-300 m/s release adds about 24-30% payload to a Falcon-9-class rocket in the panel's 2-D model (12-21% in simpler estimates).</li>
+<li><strong>A spring adds almost nothing:</strong> a 10 m stroke at 3 g gives 24 m/s, and a Falcon-9-class rocket would need 300-720 t of spring steel for it.</li>
+<li><strong>Power is the hard part:</strong> about 3-6 GW (Falcon-9-class) to 26-53 GW (Starship-class), delivered in about 10 seconds.</li>
+<li><strong>The Moon is the best home:</strong> escape takes 0.79 kWh/kg against 3.5 for Mars. On Earth, the test to watch is <a href="https://interestingengineering.com/innovation/spacex-rival-chinas-maglev-launch-pad" target="_blank" rel="noopener">China's planned maglev pad</a> (target 2028).</li>
+</ul>
+</div>
+
+<p>The idea behind maglev launch assist is appealing: an electric track under the pad, like a maglev train in a tunnel, pushes the rocket to speed before its engines light, and a spring platform adds a final kick. Electricity is cheap, so the rocket should need less fuel.</p>
+<p>We tested it with our study panel's launch-physics model, a 2-D ascent of a 550 t Falcon-9-class rocket and a 5,000 t Starship-class stack at 3 Nov 2026 fuel prices (model results, not flight data). The physics works, but the value is payload, not fuel, and the best site is the Moon.</p>
+
+<h2>How would an underground maglev launch work?</h2>
+<p>A maglev sled carries the rocket along a launch rail and lets go at a set speed; the engines fly the rest. In the panel's model, shape matters as much as speed:</p>
+<ul>
+<li><strong>A horizontal underground train is the weakest layout.</strong> Turning upward at 270 m/s needs a curve of 2.5-3.7 km radius.</li>
+<li><strong>A tunnel sloping up at 75-77 degrees works best.</strong> It is about 1.2-1.5 km long at 3 g, plus a braking run for the sled.</li>
+<li><strong>A vertical shaft keeps only about +9.5% payload at 270 m/s</strong> for a Falcon-9-class rocket, because a fast rocket cannot pitch over in dense air.</li>
+</ul>
+<div class="layouts" role="group" aria-label="Three maglev track layouts compared (schematic)">
+<figure>
+<svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><rect class="dirt" x="0" y="50" width="200" height="100"/><path class="bore" d="M24 128 H104 A66 66 0 0 0 170 62 V50"/><path class="trk" d="M24 128 H104 A66 66 0 0 0 170 62 V50"/><line class="gnd" x1="0" y1="50" x2="200" y2="50"/><path class="rkt" d="M170 14 L173.5 22 V40 L176 44 H164 L166.5 40 V22 Z"/></svg>
+<figcaption><strong>Horizontal tunnel</strong>Weakest: turning up at 270&nbsp;m/s needs a 2.5-3.7&nbsp;km radius curve</figcaption>
+</figure>
+<figure class="best">
+<svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><rect class="dirt" x="0" y="50" width="200" height="100"/><path class="bore" d="M86 136 L107.4 50"/><path class="trk" d="M86 136 L107.4 50"/><line class="gnd" x1="0" y1="50" x2="200" y2="50"/><path class="rkt" transform="rotate(14 107.4 46)" d="M107.4 14 L110.9 22 V40 L113.4 44 H101.4 L103.9 40 V22 Z"/></svg>
+<figcaption><strong>Sloped tunnel, 75-77°</strong>Best in the model: +24-30% payload, about 1.2-1.5&nbsp;km long at 3&nbsp;g</figcaption>
+</figure>
+<figure>
+<svg viewBox="0 0 200 150" aria-hidden="true" focusable="false"><rect class="dirt" x="0" y="50" width="200" height="100"/><path class="bore" d="M100 136 V50"/><path class="trk" d="M100 136 V50"/><line class="gnd" x1="0" y1="50" x2="200" y2="50"/><path class="rkt" d="M100 14 L103.5 22 V40 L106 44 H94 L96.5 40 V22 Z"/></svg>
+<figcaption><strong>Vertical shaft</strong>About +9.5% payload at 270&nbsp;m/s</figcaption>
+</figure>
+</div>
+<p class="note">Schematic, not to scale. Figures are from the panel's 2-D model for a Falcon-9-class rocket.</p>
+<p>Air pressure sets the top speed. Rockets are built for a <a href="https://orbitalradar.com/glossary/max-q" target="_blank" rel="noopener">peak dynamic pressure (max-Q)</a> of about 30-40 kPa. Staying under 40 kPa caps the release at about 256 m/s at sea level and 297 m/s from a 3 km-high exit; a 270-300 m/s sea-level exit meets 45-55 kPa.</p>
+
+<h2>Does maglev launch assist save rocket fuel?</h2>
+<p>Yes, but the fuel is worth little. A Falcon 9 lists at USD 74M (<a href="https://payloadspace.com/spacex-increases-launch-and-starlink-prices" target="_blank" rel="noopener">Payload</a>), and the one public Starship price is a 2024-era USD 90M commitment (<a href="https://www.fool.com/investing/2026/03/21/how-much-will-a-spacex-starship-launch-cost/" target="_blank" rel="noopener">Motley Fool</a>). At 3 Nov 2026 spot prices for <a href="https://www.eia.gov/dnav/pet/hist/EER_EPJK_PF4_RGC_DPGD.htm" target="_blank" rel="noopener">kerosene jet fuel</a> and <a href="https://www.eia.gov/dnav/ng/hist/rngwhhdd.htm" target="_blank" rel="noopener">natural gas</a> (US EIA), propellant is 0.3-1.0% of the Falcon 9 price and 0.6-1.6% of the Starship price.</p>
+<p>So the fuel a push saves is worth only USD 39-243k per launch, and the electricity it uses costs less than USD 9,000.</p>
+
+<div class="tw">
+<table class="mid">
+<caption>What a 270-300 m/s push is worth per launch (panel's model)</caption>
+<thead><tr><th scope="col">Per launch</th><th scope="col">Falcon-9-class, 550 t</th><th scope="col">Starship-class, 5,000 t</th></tr></thead>
+<tbody>
+<tr><td>Propellant share of the launch price</td><td>0.3-1.0% of USD 74M</td><td>0.6-1.6% of USD 90M</td></tr>
+<tr><td>Propellant that could be left out</td><td>85-92 t</td><td>760-828 t</td></tr>
+<tr><td>Value of that propellant</td><td>USD 39-134k</td><td>USD 78-243k</td></tr>
+<tr><td>Electricity for the push</td><td>USD 724-894</td><td>USD 6,581-8,125</td></tr>
+<tr><td>Extra payload instead, same fuel</td><td>+24-27% (5.5-6.0 t, expendable)</td><td>+50-55% (reusable)</td></tr>
+<tr><td>Value of the extra payload at 270 m/s</td><td>USD 4.7-17.8M</td><td>USD 3.0-44.7M</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Fuel saved and extra payload are alternatives, not a combined benefit. Payload value is an upper bound: it assumes every extra kilogram is sold. Electricity at USD 0.08/kWh, with a sled at 30% of rocket mass and an 80% efficient drive.</p>
+
+<h2>How much extra payload does it give?</h2>
+<p>Here the track earns its keep. A head start lets the rocket skip its slow, gravity-heavy first seconds, so each m/s of push is worth about 1.8 m/s of rocket performance in the panel's model (2.0 for the Starship-class stack).</p>
+
+<div class="tw">
+<table class="mid">
+<caption>Payload gain by method (Falcon-9-class; NASA row for comparison)</caption>
+<thead><tr><th scope="col">Estimate</th><th scope="col">Release</th><th scope="col">Result</th></tr></thead>
+<tbody>
+<tr><td>Panel's 2-D model, angled ramp</td><td>270-300 m/s</td><td>+24-30% payload (24-27% expendable, 27-29% in reusable mode)</td></tr>
+<tr><td>Panel's 2-D model, 3 km-high exit</td><td>300 m/s</td><td>About +29% at about 41 kPa</td></tr>
+<tr><td>Simpler 1-D estimates</td><td>270 m/s</td><td>+12-21% payload</td></tr>
+<tr><td>Panel's 2-D model, vertical shaft</td><td>270 m/s</td><td>About +9.5% payload</td></tr>
+<tr><td><a href="https://www.sciencedaily.com/releases/1999/10/991007152354.htm" target="_blank" rel="noopener">NASA Maglifter studies</a></td><td>About 270 m/s (600 mph)</td><td>About 20% lower liftoff weight</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Model gains are upper bounds: the model adds no structural penalty for sled loads.</p>
+
+<h2>When does a USD 3B track pay for itself?</h2>
+<p>Fuel cannot repay a track; payload can, if the rocket flies often.</p>
+
+<div class="tw">
+<table>
+<caption>Flights a year to repay an assumed USD 3B track (panel's estimate)</caption>
+<thead><tr><th scope="col">What pays for the track</th><th scope="col">Flights a year</th></tr></thead>
+<tbody>
+<tr><td>Fuel savings alone</td><td>About 3,000</td></tr>
+<tr><td>Extra payload, flights sold at USD 90M</td><td>About 20</td></tr>
+<tr><td>Extra payload, flights sold at USD 10M</td><td>About 184</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>So only a high-cadence launch operator captures the value. The track also has rivals: stretching the rocket by 10-25% buys similar payload with no new infrastructure, and extra payload is worth about 20x less once launch prices fall toward USD 200/kg.</p>
+
+<h2>Can a spring launch platform help?</h2>
+<p>Very little. Spring steel stores only 300-717 J/kg, while a rocket at 300 m/s carries about 45 kJ in every kilogram. A 10 m stroke gives 24 m/s at 3 g whatever the rocket's mass, and a Falcon-9-class rocket would need 300-720 t of spring steel for it.</p>
+<p>The useful "spring" is regenerative braking: the sled brakes into flywheels and returns the energy for the next launch.</p>
+
+<h2>How much power does an electromagnetic launch assist need?</h2>
+<p>Energy is cheap; power is hard. Peak power is mass × acceleration × speed. At 2-4 g and 270 m/s that is about 3-6 GW for a ~550 t Falcon-9-class rocket and 26-53 GW for a ~5,000 t Starship-class stack (simple physics, our calculation). At 3 g the push lasts about 10 seconds.</p>
+<p>Batteries cannot discharge that fast. The store has to be flywheels, pulsed alternators or supercapacitors, like the flywheel alternators of the <a href="https://en.wikipedia.org/wiki/Electromagnetic_Aircraft_Launch_System" target="_blank" rel="noopener">EMALS</a> carrier catapult, whose full 484 MJ store would give a Falcon 9 only 42 m/s (the panel's calculation). A push from below at 2-3 g also raises a rocket's base loads about 2-2.7x, so rocket and cradle must be designed together.</p>
+
+<h2>Who is building a maglev rocket launch pad now?</h2>
+<p>China plans the first real-world test. <a href="https://www.galactic-energy.cn/" target="_blank" rel="noopener">Galactic Energy</a>, with the China Aerospace Science and Industry Corporation (CASIC) and the Ziyang Commercial Space Launch Technology Research Institute, plans a pad whose superconducting magnets push a rocket vertically past Mach 1 before ignition. It is targeted for 2028 (<a href="https://www.scmp.com/news/china/science/article/3303761/china-bid-challenge-giant-spacex-deploying-maglev-rocket-launch-pad-2028" target="_blank" rel="noopener">SCMP</a>; <a href="https://interestingengineering.com/innovation/spacex-rival-chinas-maglev-launch-pad" target="_blank" rel="noopener">Interesting Engineering</a>). It is announced, not built, and no g-level, track length or budget has been published.</p>
+<p>Li Ping, the institute's president, says the pad could double payload; that claim has a single source. In the panel's model a release near Mach 1 is worth about +25-60%, less from a strictly vertical exit, and doubling needs 500-1,000 m/s.</p>
+
+<h2>What has been tried before?</h2>
+<div class="tw">
+<table class="wide">
+<caption>Launch assist and mass drivers: a short history</caption>
+<thead><tr><th scope="col">Project</th><th scope="col">Idea</th><th scope="col">Best result</th><th scope="col">Status</th></tr></thead>
+<tbody>
+<tr><td><a href="https://ntrs.nasa.gov/citations/19960023619" target="_blank" rel="noopener">NASA Maglifter</a> and Marshall tracks (1996-2002)</td><td data-label="Idea">Maglev sled as a first stage</td><td data-label="Best result">A 4.5 kg test carrier reached about 25 m/s on a 13 m track (<a href="https://www.eurekalert.org/news-releases/1023685" target="_blank" rel="noopener">EurekAlert</a>); the goal was 183 m/s (<a href="https://ntrs.nasa.gov/citations/20000103883" target="_blank" rel="noopener">NASA launch-assist paper</a>)</td><td data-label="Status">Ended about 2002</td></tr>
+<tr><td><a href="https://ssi.org/about/history/" target="_blank" rel="noopener">SSI mass drivers</a> (1977 on)</td><td data-label="Idea">Electromagnetic coil launchers</td><td data-label="Best result">About 30-33 g (Mass Driver 1, 1977) to 1,800 g (Mass Driver III)</td><td data-label="Status">Lab demonstrations</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/StarTram" target="_blank" rel="noopener">StarTram</a> (Powell and Maise)</td><td data-label="Idea">Maglev in a vacuum tunnel to orbit</td><td data-label="Best result">Paper design: cargo at 8.8 km/s through a 130 km tunnel at 30 g; Gen-1 put at USD 19B (Wikipedia) to about USD 30B (<a href="https://iafastro.directory/iac/archive/browse/IAC-08/D3/2/2009/" target="_blank" rel="noopener">2008 IAC paper</a>)</td><td data-label="Status">Concept</td></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Electromagnetic_Aircraft_Launch_System" target="_blank" rel="noopener">EMALS</a> (General Atomics)</td><td data-label="Idea">Linear-motor carrier catapult</td><td data-label="Best result">45 t aircraft to 240 km/h on a 91 m track, from a 484 MJ flywheel store</td><td data-label="Status">Operating</td></tr>
+<tr><td><a href="https://www.spinlaunch.com/" target="_blank" rel="noopener">SpinLaunch</a></td><td data-label="Idea">Vacuum centrifuge</td><td data-label="Best result">A 33 m suborbital accelerator fired 10-11 test shots from Oct 2021; the orbital version has not been built</td><td data-label="Status">Pivoted; its satellite unit, <a href="https://www.meridianspace.com/newsroom" target="_blank" rel="noopener">Meridian Space</a>, spun out in Sep 2026</td></tr>
+<tr><td><a href="https://nuclearweaponarchive.org/Usa/Weapons/Mx.html" target="_blank" rel="noopener">Missile cold launch</a></td><td data-label="Idea">Gas ejects the missile before ignition</td><td data-label="Best result">Peacekeeper's engine lit about 46 m (150 ft) up; Trident II submarine missiles are also ejected before ignition</td><td data-label="Status">Operating</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Why is the Moon the best place for a mass driver?</h2>
+<p>Off Earth the idea gets much stronger: the Moon has no air, and orbit or escape needs only 1.7-2.4 km/s. In the panel's model a lunar mass driver gives each kilogram 0.39 kWh of kinetic energy for low-lunar-orbit speed and 0.79 kWh for escape, against 3.5 to escape Mars and 17.4 for Earth. At 50% efficiency and USD 0.08/kWh that is USD 0.06-0.13 of electricity per kilogram.</p>
+<p>NASA's <a href="https://nss.org/settlement/nasa/spaceres/III-3.html" target="_blank" rel="noopener">1977 Ames design</a> was sized to fire 10.5 kg payloads at 2.4 km/s. SpaceX, Moon-first since February 2026 (<a href="https://payloadspace.com/spacex-delays-mars-plans-in-favor-of-the-moon/" target="_blank" rel="noopener">Payload</a>; <a href="https://www.nbcnews.com/science/space/spacex-prioritizes-moon-before-mars-musk-says-rcna258168" target="_blank" rel="noopener">NBC News</a>), names lunar factories for AI satellites and a lunar mass driver in its IPO filings, with no date (<a href="https://thenextweb.com/news/spacex-moon-factories-ai-compute-satellites-lunar-mass-driver" target="_blank" rel="noopener">The Next Web</a>).</p>
+<p>Two tasks come first. Lunar power must get cheap: at a rough USD 340-1,700/kWh from a first reactor, launch energy alone would cost USD 270-2,700/kg (the panel's estimate from unverified inputs). And launch savings must matter: at USD 500/kg, launch is only about 5% of the cost of deploying an AI satellite (<a href="https://caseyhandmer.wordpress.com/2026/05/08/how-to-build-a-lunar-mass-driver/" target="_blank" rel="noopener">Casey Handmer</a>).</p>
+
+<h2>Does launch assist make space data centers cheaper?</h2>
+<p>Only a little. In the panel's cost model chips are about 65% of a ground data center's cost, so even free launch plus a free satellite only brings orbit to 0.98x a ground site (<a href="blog-space-data-center-cost-2026.html">the full 2026 space data center cost math</a>). Test your own launch price in the <a href="space-data-center-cost-calculator.html">space data center cost calculator</a>.</p>
+
+<h2>Watch it for real</h2>
+<ul class="watch">
+<li><a href="https://www.youtube.com/watch?v=Z6esOcWrrEE" target="_blank" rel="noopener">SpinLaunch Suborbital Accelerator: First Launch</a><span class="pub">SpinLaunch (official channel), real footage, 2021</span>An electric vacuum centrifuge hurls a test projectile skyward with no rocket fuel.</li>
+<li><a href="https://www.youtube.com/watch?v=UCPIDHg5sp8" target="_blank" rel="noopener">Raw: China's superconducting maglev sets world record</a><span class="pub">CGTN (National University of Defense Technology test), real footage, 2025</span>A tonne-class test vehicle reaches 700 km/h in about 2 s on a 400 m line; the university names launch assist as a possible use.</li>
+<li><a href="https://www.youtube.com/watch?v=6qahWEhrDfg" target="_blank" rel="noopener">USS Ford launches fighters with EMALS</a><span class="pub">AiirSource Military (US DoD footage), real footage, 2017</span>A linear electric motor throws a Super Hornet off the deck.</li>
+<li><a href="https://www.youtube.com/watch?v=BOonxuKWUD4" target="_blank" rel="noopener">Unarmed Trident II (D5) missile being fired</a><span class="pub">Royal Navy (official channel), real footage, 2012</span>A real cold launch: gas ejects the missile from its underwater tube, and the rocket lights after it breaks the surface.</li>
+<li><a href="https://www.youtube.com/watch?v=1lSym6J4hIk" target="_blank" rel="noopener">SpaceX IPO promo with a mass driver on the Moon</a><span class="pub">SpaceX (credited), via VideoFromSpace (Space.com), 2026</span>A concept animation, not footage, of a lunar mass driver launching satellites.</li>
+</ul>
+
+<h2>What would change the answer</h2>
+<ul>
+<li><strong>China's pad flies.</strong> Real release speeds and payloads would replace these estimates.</li>
+<li><strong>A rocket built for the track.</strong> The gains above are upper bounds; a rocket designed with its cradle would show what survives the sled loads.</li>
+<li><strong>Cheap pulse power.</strong> Gigawatts for 10 seconds at low cost would solve the hardest engineering task.</li>
+<li><strong>Lunar industry.</strong> NASA's first lunar reactor, <a href="https://www.nasa.gov/wp-content/uploads/2026/03/america-underway-in-space-on-nuclear-power.pdf" target="_blank" rel="noopener">LR-1</a>, is planned to land in 2030, and its <a href="https://newspaceeconomy.ca/2026/09/01/what-does-nasas-sparc-lunar-reactor-procurement-reveal-about-lunar-reactor-1/" target="_blank" rel="noopener">draft procurement</a> asks for at least 20 kWe; a 1,000 t/yr factory needs 5-10 MWe. The panel's median projection for such a factory is 2045-48.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>Does a maglev launch assist save rocket fuel?</h3>
+<p>Yes, but little money. Propellant is only 0.3-1.6% of a launch price, so a 270-300 m/s push saves USD 39-243k of fuel per launch in the panel's model.</p>
+<h3>How much extra payload can an electromagnetic launch assist add?</h3>
+<p>About 24-30% for a Falcon-9-class rocket released from an angled ramp at 270-300 m/s (panel's 2-D model). Simpler estimates give 12-21%; a vertical shaft about 9.5%.</p>
+<h3>Is anyone building a maglev rocket launch pad?</h3>
+<p>China's Galactic Energy, with CASIC and the Ziyang launch institute, plans a pad that pushes rockets vertically past Mach 1 before ignition, targeted for 2028. It is announced, not built.</p>
+<h3>Why is the Moon a better place for a mass driver?</h3>
+<p>It has no air and weak gravity. Escaping the Moon takes 0.79 kWh/kg, against 3.5 for Mars and 17.4 for Earth, so an electric track can do the whole launch.</p>
+</div>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="blog-space-data-center-cost-2026.html">→ Are data centers in space cheaper? The 2026 cost math</a>
+<a href="blog-mars-ai-data-centers.html">→ AI data centers on Mars: resources, radiation, 2060</a>
+<a href="gpu-price-index.html">→ GPU price index: sourced H100 rental prices, Nov 2026</a>
+<a href="space-data-center-cost-calculator.html">→ Space data center cost calculator: Earth, orbit, Moon and Mars</a>
+<a href="space-compute-feasibility-memo.html">→ Space-compute feasibility memo (pre-order): a sourced study of your project</a>
+</div>
+
+<div class="cta">
+<h2>Put your own numbers in</h2>
+<p>Try different launch prices, chip lifetimes and power costs, and compare AI compute on Earth, in Earth orbit, with Moon-made parts and in Mars orbit.</p>
+<a href="space-data-center-cost-calculator.html" class="btn">Open the Cost Calculator →</a>
+</div>
+</article>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+</body>
+</html>

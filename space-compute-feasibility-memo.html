@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Compute Feasibility Memo: Orbit, Moon and Mars vs Earth</title>
+<meta name="description" content="Will AI compute in orbit, on the Moon or at Mars pay off? We run your mission in our cost model vs Earth. Pre-order at launch pricing from USD 1,500.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Space Compute Feasibility Memo: Orbit, Moon and Mars vs Earth">
+<meta property="og:description" content="Your orbital, lunar or Mars compute plan in our cost model vs Earth: break-even launch price, ranked risks, human physics check. Pre-order from USD 1,500.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Space Compute Feasibility Memo: Orbit, Moon and Mars vs Earth">
+<meta name="twitter:description" content="Your space compute plan vs an Earth data center: break-even launch price, ranked risks, human physics check. Pre-order from USD 1,500.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","@id":"https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html#service","name":"Space Compute Feasibility Memo","serviceType":"Space compute feasibility and cost analysis","description":"A written memo that runs an orbital, lunar or Mars compute plan through the panel's closed-form cost model against an Earth data center, with the break-even launch price, ranked risks and a human physics check.","url":"https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","areaServed":"Worldwide","audience":{"@type":"BusinessAudience","audienceType":"Founders, investors, satellite operators and data-center teams"},"provider":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"offers":[{"@type":"Offer","name":"Quick Memo","description":"About 5 pages in 48 hours: one scenario in our cost model vs Earth, the break-even launch price and the top 3 risks, with a human physics check. Launch pricing, confirmed by reply before any payment.","price":"1500","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html#order","seller":{"@type":"Organization","name":"MoltBot Cloud"}},{"@type":"Offer","name":"Full Feasibility Memo","description":"About 15 pages in 5 business days: your mission parameters in our TCO model, a sensitivity table, a radiation, thermal and launch checklist and a sourced landscape, with a human physics check. Launch pricing, confirmed by reply before any payment.","price":"4900","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html#order","seller":{"@type":"Organization","name":"MoltBot Cloud"}},{"@type":"Offer","name":"Custom Due-Diligence","description":"A model audit of a company's claims, with optional outside expert review named and priced in the quote, and a human physics check. Priced by quote from USD 9,500, confirmed by reply before any payment.","priceCurrency":"USD","priceSpecification":{"@type":"PriceSpecification","minPrice":"9500","priceCurrency":"USD"},"availability":"https://schema.org/PreOrder","url":"https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html#order","seller":{"@type":"Organization","name":"MoltBot Cloud"}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Space Compute Feasibility Memo","item":"https://ceooftheuniverse.github.io/vmsaas-live/space-compute-feasibility-memo.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Who is the memo for?","acceptedAnswer":{"@type":"Answer","text":"Founders checking unit economics before a raise, investors testing a company's claims, satellite operators pricing compute on board, and data-center teams deciding whether orbit, the Moon or Mars belongs on their roadmap. If the free calculator already answers your question, you may not need a memo."}},
+{"@type":"Question","name":"What do you need from me?","acceptedAnswer":{"@type":"Answer","text":"A short description of your plan: where the compute goes, how many kW of IT power, the expected mass per kW, the launch price you assume, the chip type and life, the workload and your target year. Rough numbers are fine. We mark every assumption we add."}},
+{"@type":"Question","name":"When do I pay?","acceptedAnswer":{"@type":"Answer","text":"Only after we agree on the work. We reply to confirm scope, price and delivery date before any payment, and no payment is taken on this page. The prices shown are launch pricing."}},
+{"@type":"Question","name":"Is this investment advice?","acceptedAnswer":{"@type":"Answer","text":"No. A memo is an engineering and cost analysis built on the panel's model and public sources. It is not investment, legal or tax advice, and its projections are not guarantees."}},
+{"@type":"Question","name":"Can the memo cover the Moon or Mars?","acceptedAnswer":{"@type":"Answer","text":"Yes. The model covers 19 scenarios, from six Earth sites and low Earth orbit at five launch prices to Moon-made hardware, Mars orbit and the Mars surface. At central inputs, Moon-made bulk hardware in low orbit costs 2.17x Earth (1.38x in its low-cost case), and Mars orbit costs 4.51x with all hardware shipped from Earth or 5.56x with Mars-made bulk. Mars sits 3.0-22.3 light-minutes from Earth and can be reached once every 26 months, so it suits Mars-local users and batch jobs."}},
+{"@type":"Question","name":"How reliable are the model's numbers?","acceptedAnswer":{"@type":"Answer","text":"The model is closed-form and transparent: every input is sourced or marked as our assumption, and the free calculator runs the same formulas. At BCG's own settings it gives 2.33x Earth, where BCG projects 2.5-3x. Its least-evidenced inputs are satellite build cost and chip losses, so every memo shows how far they move your answer."}}
+]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444;--b2:rgba(255,255,255,.12);--al:#a5b4fc;--lk:#818cf8;--k1:#3987e5;--k2:#d95926;--k3:#199e70;--k4:#c98500;--k5:#d55181;color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--a);color:#fff;padding:.6rem 1rem;border-radius:0 0 10px 0;font-weight:700}
+.skip:focus{left:0}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;margin-left:0}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem;display:inline-block;line-height:44px}
+nav a.trial{color:var(--a);font-weight:700}
+.c{max-width:720px;margin:0 auto;padding:0 2rem}
+.wide{max-width:1040px;margin:0 auto;padding:0 2rem}
+.top{padding-top:5.5rem}
+.crumbs{font-size:.78rem;margin-bottom:.75rem;color:var(--m)}
+.crumbs a{color:var(--m)}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.85rem,5vw,2.6rem);font-weight:800;letter-spacing:-.5px;line-height:1.2;margin-bottom:1rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.2rem,2.8vw,1.45rem);line-height:1.35;margin:3rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:1.5rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong,b{color:var(--t)}
+a{color:var(--lk)}
+a:hover{color:var(--al)}
+:focus-visible{outline:2px solid var(--al);outline-offset:2px}
+.lead{font-size:clamp(1rem,2.3vw,1.1rem);color:#d4d4d8;line-height:1.7;margin-bottom:1.1rem}
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.4rem}
+.meta span{font-size:.74rem;font-weight:600;color:var(--t);border:1px solid var(--b2);border-radius:999px;padding:.12rem .7rem;line-height:1.7}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin:0 0 1.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.5rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;border:0;font-family:inherit;cursor:pointer;text-align:center;line-height:1.35}
+.btn:hover{color:#fff;background:#5458e6}
+.btn.ghost{background:transparent;color:var(--t);border:1px solid var(--b2)}
+.btn.ghost:hover{color:var(--t);background:rgba(99,102,241,.1);border-color:var(--al)}
+.btn[disabled]{opacity:.65;cursor:wait}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr p{margin-bottom:.4rem}
+.tldr strong{color:var(--g)}
+.tldr ul{margin:0 0 0 1.1rem}
+.tldr li{color:var(--m);font-size:.88rem;margin:.4rem 0}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--al)}
+.callout p:last-child{margin-bottom:0}
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* audience */
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:.9rem;margin:1rem 0 0}
+.who div{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1rem 1.1rem}
+.who h3{margin:0 0 .3rem;font-size:.95rem}
+.who p{margin:0;font-size:.86rem;line-height:1.6}
+/* memo tiers */
+.band-head{text-align:center}
+.band-head h2{margin-bottom:.75rem}
+.band-note{max-width:46rem;margin:0 auto 1rem;text-align:center}
+.plabel{display:inline-block;font-size:.8rem;font-weight:600;color:var(--t);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.32);border-radius:10px;padding:.3rem .8rem;margin:0 0 .4rem;line-height:1.5}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17.5rem),1fr));gap:1.4rem 1rem;margin:1.6rem 0 1.25rem}
+.tier{position:relative;background:var(--s);border:1px solid var(--b2);border-radius:16px;padding:1.4rem 1.25rem 1.25rem;display:flex;flex-direction:column}
+.tier.feat{border-color:rgba(129,140,248,.55);box-shadow:inset 0 0 0 1px rgba(129,140,248,.2)}
+.tier .tag{position:absolute;top:0;left:1.25rem;transform:translateY(-50%);font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--al);background:#1b1a2e;border:1px solid rgba(165,180,252,.45);border-radius:999px;padding:0 .65rem;margin:0;line-height:1.8;white-space:nowrap}
+.tier h3{font-family:'Outfit',sans-serif;font-size:1.2rem;margin:0 0 .2rem}
+.tier .price{font-family:'Outfit',sans-serif;font-size:clamp(1.65rem,4vw,1.95rem);font-weight:800;color:var(--t);line-height:1.2;margin:0 0 .15rem}
+.tier .price small{font-size:.9rem;font-weight:700;color:var(--m)}
+.tier .terms{font-size:.82rem;color:var(--t);margin:0 0 .9rem}
+.tier .lead-in{font-size:.8rem;color:var(--m);margin:0 0 .2rem}
+.tier ul{list-style:none;margin:0 0 1rem}
+.tier li{position:relative;padding-left:1.5rem;color:var(--m);font-size:.86rem;margin:.45rem 0;line-height:1.55}
+.tier li::before{content:"";position:absolute;left:.3rem;top:.32em;width:.4rem;height:.72rem;border:solid var(--g);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.tier .best{font-size:.8rem;margin:auto 0 0;padding-top:.25rem;line-height:1.55}
+.tier .btn{margin-top:1rem;width:100%}
+.note{font-size:.8rem;color:var(--m)}
+/* method */
+.steps{list-style:none;margin:0 0 1rem;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding:.85rem 0 .85rem 2.75rem;border-bottom:1px solid var(--b);color:var(--m);font-size:.9rem;line-height:1.65}
+.steps li:last-child{border-bottom:0}
+.steps li::before{content:counter(st);position:absolute;left:0;top:.85rem;width:1.85rem;height:1.85rem;border-radius:50%;background:rgba(99,102,241,.14);color:var(--al);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center}
+details.more{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:0 1.1rem;margin:1.25rem 0}
+details.more summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600;font-size:.88rem;color:var(--t)}
+details.more[open]{padding-bottom:1rem}
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.25rem 0}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;font-size:.8rem}
+caption{caption-side:top;text-align:left;color:var(--t);font-weight:600;font-size:.82rem;padding:0 0 .6rem}
+th,td{padding:.6rem .7rem;text-align:left;border-bottom:1px solid var(--b);vertical-align:top}
+thead th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.68rem;letter-spacing:.4px;vertical-align:bottom}
+tbody th{font-weight:600;color:var(--t)}
+td{color:var(--m)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+.num td{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.num thead th{text-align:right}
+.num thead th:first-child{text-align:left}
+.num tr.hl td,.num tr.hl th{color:var(--t);font-weight:700}
+.inputs td{color:var(--t)}
+.num.sens td{white-space:normal}
+.num.sens td:last-child{white-space:nowrap}
+/* outline */
+.outline{list-style:none;margin:0 0 1rem;counter-reset:ol}
+.outline li{counter-increment:ol;position:relative;padding:.7rem 0 .7rem 2.6rem;border-bottom:1px solid var(--b);color:var(--m);font-size:.88rem;line-height:1.6}
+.outline li:last-child{border-bottom:0}
+.outline li::before{content:counter(ol);position:absolute;left:0;top:.75rem;width:1.75rem;height:1.75rem;border-radius:8px;background:var(--s);border:1px solid var(--b2);color:var(--t);font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center}
+.tags{display:block;margin-top:.35rem;line-height:1.4}
+.in{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;border:1px solid var(--b2);border-radius:999px;padding:0 .5rem;margin:0 .3rem 0 0;color:var(--t);line-height:1.75;white-space:nowrap}
+.in.full{border-color:rgba(165,180,252,.45);color:var(--al)}
+/* sample memo */
+.memo{background:var(--s);border:1px solid var(--b2);border-radius:16px;padding:1.4rem 1.3rem;margin:1.25rem 0}
+.memo-tag{display:inline-block;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--t);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.35);border-radius:999px;padding:0 .65rem;margin:0 0 .8rem;line-height:1.8}
+.memo h3{margin:1.6rem 0 .5rem;font-size:.95rem}
+:where(.memo) p{font-size:.88rem}
+.memo .q{color:var(--t);font-size:.95rem;font-weight:600;line-height:1.55}
+.memo table{background:var(--bg)}
+.memo ol{margin:0 0 1rem 1.2rem}
+.memo ol li{color:var(--m);font-size:.88rem;margin:.5rem 0;line-height:1.6}
+.memo .foot{font-size:.78rem;margin:1.25rem 0 0;padding-top:.9rem;border-top:1px solid var(--b)}
+/* chart: stacked bars on one axis */
+.viz{position:relative;margin:1.25rem 0 .5rem}
+.viz-t{color:var(--t);font-weight:600;font-size:.86rem;margin:0 0 .15rem}
+.viz-s{font-size:.76rem;margin:0 0 .7rem;line-height:1.55}
+.legend{list-style:none;display:flex;flex-wrap:wrap;gap:.2rem 1rem;margin:0 0 .9rem}
+.legend li{font-size:.78rem;color:var(--m);display:flex;align-items:center;gap:.4rem;line-height:1.6}
+.sw{display:inline-block;width:.7rem;height:.7rem;border-radius:3px;flex:none}
+.k1{background:var(--k1)}.k2{background:var(--k2)}.k3{background:var(--k3)}.k4{background:var(--k4)}.k5{background:var(--k5)}
+.vrow{margin:0 0 .65rem}
+.rl{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;font-size:.78rem;color:var(--m);margin:0 0 .25rem;line-height:1.45}
+.rl b{font-weight:600;white-space:nowrap}
+.track{position:relative;padding:4px 0;background:linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px) 0 0/20% 100%;box-shadow:inset 1px 0 0 #52525b,inset -1px 0 0 rgba(255,255,255,.08)}
+.bar{display:flex;gap:2px;height:24px;border-radius:0 4px 4px 0;cursor:default}
+.bar:focus-visible{outline:2px solid var(--al);outline-offset:3px}
+.seg{position:relative;flex:1 1 0;min-width:0;transition:filter .12s}
+.seg:last-child{border-radius:0 4px 4px 0}
+.seg:hover{filter:brightness(1.22)}
+.sl{display:none;position:absolute;left:6px;top:50%;transform:translateY(-50%);font-size:.68rem;font-weight:700;color:#09090b;line-height:1;white-space:nowrap;pointer-events:none}
+.axis{position:relative;height:1.35rem;font-size:.7rem;color:var(--m);font-variant-numeric:tabular-nums;margin-top:.15rem}
+.axis span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.axis span:first-child{transform:none}
+.axis span:last-child{transform:translateX(-100%)}
+.tip{position:absolute;z-index:5;pointer-events:none;background:#0f0f12;border:1px solid var(--b2);border-radius:8px;padding:.45rem .65rem;box-shadow:0 8px 22px rgba(0,0,0,.5);max-width:17rem}
+.tip p{margin:0;font-size:.75rem;line-height:1.5;color:var(--m);display:flex;align-items:center;gap:.4rem}
+.tip p.h{color:var(--t);font-weight:600;margin-bottom:.15rem}
+.tip b{color:var(--t)}
+.tk{display:inline-block;width:10px;height:3px;border-radius:2px;flex:none}
+details.tv{margin:.4rem 0 0}
+details.tv summary{cursor:pointer;min-height:44px;display:inline-flex;align-items:center;font-size:.8rem;font-weight:600;color:var(--lk)}
+@media (max-width:520px){.axis span.odd{display:none}}
+@media (forced-colors:active){.seg,.sw,.tk{forced-color-adjust:none}}
+/* limits */
+.limits{list-style:none;margin:0 0 1rem}
+.limits li{position:relative;padding:.6rem 0 .6rem 1.6rem;color:var(--m);font-size:.9rem;line-height:1.65;border-bottom:1px solid var(--b)}
+.limits li:last-child{border-bottom:0}
+.limits li::before{content:"";position:absolute;left:.15rem;top:1.3rem;width:.75rem;height:2px;background:var(--o);border-radius:2px}
+/* order form */
+.inbox{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:.85rem 1rem;color:var(--t);font-size:.86rem;line-height:1.6;margin:1rem 0}
+.formbox{background:var(--s);border:1px solid var(--b2);border-radius:14px;padding:1.25rem;margin:1.25rem 0 1.5rem}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:.9rem 1rem}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--t);margin-bottom:.3rem;line-height:1.4}
+.field label span{font-weight:400;color:var(--m)}
+.field input,.field select,.field textarea{width:100%;min-height:44px;background:var(--bg);color:var(--t);border:1px solid var(--b2);border-radius:10px;padding:.55rem .75rem;font:inherit;font-size:.9rem;line-height:1.5}
+.field textarea{min-height:8.5rem;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#7c7c85}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#fca5a5}
+.wide-field{margin-top:.9rem}
+.fh{font-size:.75rem;color:var(--m);margin:.3rem 0 0;line-height:1.5}
+.err{color:#fca5a5;font-size:.8rem;margin:.3rem 0 0;line-height:1.5}
+.err:empty{display:none}
+.check{display:flex;align-items:flex-start;gap:.7rem;margin:1rem 0 0;min-height:44px}
+.check input{flex:none;width:1.5rem;height:1.5rem;margin-top:.55rem;accent-color:var(--a);cursor:pointer}
+.check label{font-size:.9rem;color:var(--t);font-weight:600;line-height:1.5;padding:.55rem 0;min-height:44px;display:flex;align-items:center;cursor:pointer}
+.check input[aria-invalid="true"]{outline:2px solid #fca5a5;outline-offset:2px}
+.hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.factions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.1rem}
+.small{font-size:.76rem;color:var(--m);margin:0;line-height:1.55;flex:1 1 15rem}
+.msg{margin:1rem 0 0;padding:.75rem .9rem;border-radius:10px;font-size:.88rem;line-height:1.55;color:var(--t);border:1px solid var(--b2);background:rgba(255,255,255,.03)}
+.msg:empty{margin:0;padding:0;border:0;background:none}
+.msg[data-leads-state="success"]{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.35)}
+.msg[data-leads-state="fallback"]{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.35)}
+.msg[data-leads-state="invalid"]{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.4)}
+.next{margin:0 0 1rem 1.2rem}
+.next li{color:var(--m);font-size:.88rem;margin:.45rem 0;line-height:1.6}
+/* faq, cta, related, footer */
+.faq h3{font-size:.98rem;margin:1.5rem 0 .4rem;color:var(--t)}
+.cta{text-align:center;padding:2.5rem 1.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2.5rem 0 2rem}
+.cta h2{margin:0 0 .5rem}
+.cta p{max-width:34rem;margin:0 auto 1.25rem}
+.related{margin:2rem 0 3rem}
+.related h2{font-size:1.05rem;margin:0 0 .5rem}
+.related a{display:block;color:var(--lk);text-decoration:none;padding:.5rem 0;font-size:.85rem}
+.related a:hover{color:var(--al)}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-block}
+.c,.wide{padding-left:1rem;padding-right:1rem}
+.top{padding-top:5.25rem}
+.tier{padding:1.2rem 1rem 1.1rem}
+.memo{padding:1.15rem 1rem}
+.formbox{padding:1rem}
+.cta{padding:2rem 1rem}
+.hero-cta .btn{flex:1 1 12rem}
+.factions .btn{width:100%}
+.memo th,.memo td{padding:.55rem .45rem}
+.tier .tag{left:1rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
+
+<main id="main">
+<header class="c top">
+<p class="crumbs"><a href="index.html">MoltBot Cloud</a> / Space compute feasibility memo</p>
+<h1>Space Compute Feasibility Memo</h1>
+<p class="lead">Will AI compute in orbit, on the Moon or at Mars beat a data center on Earth, and when? Send us your mission. We run it through our cost model, find the launch price where it breaks even and rank the risks. A person checks the physics before you get it.</p>
+<div class="meta"><span>Pre-order</span><span>Launch pricing from USD 1,500</span><span>Human physics check</span><span>Updated 5 Nov 2026</span></div>
+<div class="hero-cta"><a class="btn" href="#order">Request a memo</a><a class="btn ghost" href="space-data-center-cost-calculator.html">Try the free calculator</a></div>
+<div class="tldr">
+<p><strong>What a memo answers</strong></p>
+<ul>
+<li><b>Cost vs Earth.</b> Your plan in USD per kW-year, per MWh and per GPU-hour, next to a grid-powered Earth data center (USD 1.62 per GPU-hour in our model).</li>
+<li><b>The break-even launch price.</b> The price per kg at which your design matches Earth, or a clear "none" with what would have to change.</li>
+<li><b>The risks that decide it.</b> Ranked, with the inputs that move your answer most.</li>
+</ul>
+</div>
+</header>
+
+<section class="c" id="why" aria-labelledby="why-title">
+<div class="callout">
+<p class="callout-title" id="why-title">Why the answer depends on your numbers</p>
+<p>In our model, low Earth orbit costs 5.27x Earth at today's launch price of about USD 3,600/kg, and still 1.92x at USD 200/kg. A dedicated Falcon 9 lists at USD 74M in 2026 and lifts 17.5-22.8 t to low orbit (<a href="https://en.wikipedia.org/wiki/Falcon_9">Wikipedia</a>), so about USD 3,250-4,230/kg. Chips are about 65% of an Earth data center's cost and electricity only 5-10%, so free sunlight cannot pay for the launch, the satellite and chips that fail with no repair. Once launch is cheap, satellite build cost and mass move the result more than the launch price does. A memo tests those inputs for your design.</p>
+</div>
+</section>
+
+<section class="c" id="who" aria-labelledby="who-title">
+<h2 id="who-title">Who the memo is for</h2>
+<div class="who">
+<div><h3>Founders</h3><p>Check your unit economics before a raise, and see the launch price your plan depends on.</p></div>
+<div><h3>Investors</h3><p>Test a company's cost, physics and timeline claims before you commit, against a transparent model you can rerun in our free <a href="space-data-center-cost-calculator.html">calculator</a>.</p></div>
+<div><h3>Satellite operators</h3><p>See what each kW of compute costs in orbit, and whether it earns its mass, power and heat.</p></div>
+<div><h3>Data-center teams</h3><p>Decide whether orbit, the Moon or Mars belongs on your roadmap, and in which decade.</p></div>
+</div>
+</section>
+
+<section class="wide" id="memos" aria-labelledby="memos-title">
+<div class="band-head">
+<h2 id="memos-title">Choose your memo</h2>
+<p class="plabel">Launch pricing — confirmed by reply before any payment</p>
+</div>
+<div class="tiers">
+<article class="tier" aria-labelledby="t-quick">
+<h3 id="t-quick">Quick Memo</h3>
+<p class="price">USD 1,500</p>
+<p class="terms">48 hours · about 5 pages</p>
+<ul>
+<li>One scenario in our cost model vs Earth</li>
+<li>The break-even launch price</li>
+<li>Your top 3 risks</li>
+<li>Human physics check</li>
+</ul>
+<p class="best">Best for a fast yes, no or not yet before a meeting.</p>
+<a class="btn" href="#order" data-tier="quick">Request a Quick Memo</a>
+</article>
+<article class="tier feat" aria-labelledby="t-full">
+<p class="tag">Most complete fixed price</p>
+<h3 id="t-full">Full Feasibility Memo</h3>
+<p class="price">USD 4,900</p>
+<p class="terms">5 business days · about 15 pages</p>
+<p class="lead-in">Everything in the Quick Memo, plus:</p>
+<ul>
+<li>Your mission parameters in our TCO model</li>
+<li>A sensitivity table: which inputs move your answer</li>
+<li>A radiation, thermal and launch checklist</li>
+<li>A sourced landscape of who flies what</li>
+<li>Human physics check</li>
+</ul>
+<p class="best">Best for pitch decks, board papers and roadmap decisions.</p>
+<a class="btn" href="#order" data-tier="full">Request a Full Memo</a>
+</article>
+<article class="tier" aria-labelledby="t-custom">
+<h3 id="t-custom">Custom Due-Diligence</h3>
+<p class="price"><small>from</small> USD 9,500</p>
+<p class="terms">By quote · scope agreed with you</p>
+<ul>
+<li>A model audit of a company's cost and physics claims</li>
+<li>Optional outside expert review, named and priced in your quote</li>
+<li>Human physics check</li>
+</ul>
+<p class="best">Best for investors and partners checking one company in depth.</p>
+<a class="btn" href="#order" data-tier="custom">Ask for a custom quote</a>
+</article>
+</div>
+<p class="note band-note">These are launch prices for our first memos. We reply to confirm scope, price and delivery date before any payment, and delivery times count from your approval. No payment is taken on this page.</p>
+<p class="note band-note">For comparison, space-market research reports sell for USD 2,249-5,099 after discounts (<a href="https://www.expertmarketresearch.com/reports/space-based-data-center-market/pricing-detail">Expert Market Research</a>) and USD 8,995 for 5 users (<a href="https://www.giiresearch.com/report/an2048950-global-space-economy-trends-forecasts.html">Analysys Mason, via GII</a>). <a href="https://brycetech.com/">BryceTech</a>'s public ceiling rates reach USD 443-480 an hour (<a href="https://api.gsa.gov/acquisition/calc/v3/api/ceilingrates/?keyword=bryce&amp;ordering=current_price&amp;sort=desc&amp;page=1&amp;page_size=30">GSA CALC</a>). A report covers a market; a memo covers your plan.</p>
+</section>
+
+<section class="c" id="method" aria-labelledby="method-title">
+<h2 id="method-title">How we work</h2>
+<p>Each memo uses the same model, sources and checks as our November 2026 space-compute study.</p>
+<ol class="steps" role="list">
+<li><b>The panel's cost model.</b> A closed-form total-cost-of-ownership (TCO) model, built by our AI research panel, that prices 19 scenarios: six Earth sites, low Earth orbit at five launch prices, Moon-made hardware, Mars orbit and the Mars surface. It counts USD per delivered kW of IT power per year, with 5-year chips, an 8% cost of capital and no margin.</li>
+<li><b>471 sources.</b> The panel's 58 AI agents read 1,346 web pages and PDFs and kept 471 sources. Every outside number in a memo links to where it came from.</li>
+<li><b>Adversarial fact-checks.</b> A separate AI fact-checking agent attacked each of the 14 main research lanes, looking for second sources, and AI physics, economics and timeline critics then challenged the results. Memos reuse only the study's claims that came out confirmed or corrected, and link a source for anything new.</li>
+<li><b>The calculator.</b> The same formulas run in our free <a href="space-data-center-cost-calculator.html">space data center cost calculator</a>. They reproduce the full model within 0.02%, so you can test any number in your memo yourself.</li>
+<li><b>A human physics check.</b> Before delivery, a person checks the memo's power, heat, mass, radiation and orbit numbers.</li>
+</ol>
+<details class="more">
+<summary>See the model's central inputs</summary>
+<div class="tw"><table class="inputs">
+<caption>Central inputs of the panel's model (November 2026)</caption>
+<thead><tr><th scope="col">Input</th><th scope="col">Central value</th></tr></thead>
+<tbody>
+<tr><th scope="row">Chips, servers and network</th><td>USD 30,000 per kW</td></tr>
+<tr><th scope="row">Power per GPU slot</th><td>1.2 kW</td></tr>
+<tr><th scope="row">Hardware life</th><td>5 years</td></tr>
+<tr><th scope="row">Cost of capital</th><td>8% a year</td></tr>
+<tr><th scope="row">Building, power and cooling on Earth</th><td>USD 17,600 per kW</td></tr>
+<tr><th scope="row">Electricity on Earth</th><td>USD 80/MWh, PUE 1.2</td></tr>
+<tr><th scope="row">Launch to low Earth orbit</th><td>USD 3,600/kg</td></tr>
+<tr><th scope="row">Spacecraft mass</th><td>33 kg per kW</td></tr>
+<tr><th scope="row">Spacecraft build cost</th><td>USD 1,000/kg</td></tr>
+<tr><th scope="row">Chips lost in orbit, no repair</th><td>9% a year</td></tr>
+<tr><th scope="row">Space-ready chip premium</th><td>10%</td></tr>
+<tr><th scope="row">Space operations and insurance</th><td>2.5% a year</td></tr>
+</tbody></table></div>
+<p class="note">Your memo replaces any of these with your own numbers and shows the difference.</p>
+</details>
+</section>
+
+<section class="c" id="outline" aria-labelledby="outline-title">
+<h2 id="outline-title">Sample memo outline</h2>
+<p>A Full Feasibility Memo runs about 15 pages. A Quick Memo covers one scenario and keeps the sections marked Quick.</p>
+<ol class="outline" role="list">
+<li><b>The answer on one page.</b> Verdict, cost vs Earth, earliest year and what would change it. <span class="tags"><span class="in">Quick + Full</span></span></li>
+<li><b>Your mission as modelled.</b> Site or orbit, kW of IT power, kg per kW, launch price, build cost, chip life and loss rate, workload. <span class="tags"><span class="in">Quick + Full</span></span></li>
+<li><b>Cost vs Earth.</b> USD per kW-year, per MWh and per GPU-hour, split into energy, chips, transport, build and operations. <span class="tags"><span class="in">Quick + Full</span></span></li>
+<li><b>Break-even launch price.</b> By mass per kW, with the hardware assumptions it needs. <span class="tags"><span class="in">Quick + Full</span></span></li>
+<li><b>Risks, ranked.</b> Each with what would retire it. <span class="tags"><span class="in">Quick: top 3</span> <span class="in full">Full: all</span></span></li>
+<li><b>Sensitivity table.</b> Which inputs move your answer most, over sourced ranges. <span class="tags"><span class="in full">Full only</span></span></li>
+<li><b>Radiation, thermal and launch checklist.</b> Dose and silent-error budget, radiator area and mass per kW, launch vehicle, price per kg and launch windows. <span class="tags"><span class="in full">Full only</span></span></li>
+<li><b>Landscape.</b> Who flies or plans compute off Earth, at what scale and price, with dates and sources. <span class="tags"><span class="in full">Full only</span></span></li>
+<li><b>Sources and assumptions.</b> Every input with its source, or marked as our assumption. <span class="tags"><span class="in">Quick + Full</span></span></li>
+<li><b>Physics check sign-off.</b> What the reviewer checked and changed. <span class="tags"><span class="in">Quick + Full</span></span></li>
+</ol>
+</section>
+
+<section class="c" id="sample" aria-labelledby="sample-title">
+<h2 id="sample-title">Sample result</h2>
+<p>This excerpt shows the format of a Quick Memo, plus one table from the Full Memo. It answers an example question with the panel's published model results, not client data.</p>
+<div class="memo">
+<p class="memo-tag">Sample · illustrative</p>
+<p class="q">Question: will AI inference in a dawn-dusk low Earth orbit beat a ground data center if launch falls to USD 200/kg?</p>
+<p><b>Answer: not on cost.</b> In the panel's model, orbit costs 1.92x a grid-powered Earth data center, and the earliest year this case could start is about 2035.</p>
+
+<div class="tw"><table class="num">
+<caption>Cost at central inputs (panel's model, USD, projection)</caption>
+<thead><tr><th scope="col">Measure</th><th scope="col">Low Earth orbit, launch at USD 200/kg</th><th scope="col">Earth hyperscale, grid power</th></tr></thead>
+<tbody>
+<tr><th scope="row">USD per kW-year</th><td>22,763</td><td>11,839</td></tr>
+<tr><th scope="row">USD per MWh</th><td>2,597</td><td>1,351</td></tr>
+<tr><th scope="row">USD per GPU-hour (1.2 kW slot, no margin)</th><td>3.12</td><td>1.62</td></tr>
+<tr class="hl"><th scope="row">vs Earth</th><td>1.92x</td><td>1.00x</td></tr>
+<tr><th scope="row">Earliest</th><td>2035</td><td>2026</td></tr>
+</tbody></table></div>
+
+<figure class="viz" id="split-chart" aria-labelledby="split-title">
+<figcaption>
+<p class="viz-t" id="split-title">Where the money goes, USD per kW of IT per year</p>
+<p class="viz-s">Panel's model, central inputs, projection. Build is the satellite in orbit and the building on Earth. Power is the solar and power hardware in orbit and the electricity on Earth.</p>
+</figcaption>
+<ul class="legend" aria-label="Cost types, in bar order">
+<li><span class="sw k1"></span>Chips and servers</li>
+<li><span class="sw k2"></span>Build</li>
+<li><span class="sw k3"></span>Power</li>
+<li><span class="sw k4"></span>Operations</li>
+<li><span class="sw k5"></span>Launch</li>
+</ul>
+<div class="vrow">
+<p class="rl"><span>Low Earth orbit, launch at USD 200/kg</span><b>USD 22,763 · 1.92x</b></p>
+<div class="track"><div class="bar" tabindex="0" role="img" style="width:91.052%" data-row="Low Earth orbit, launch at USD 200/kg" data-total="USD 22,763 per kW-year" aria-label="Low Earth orbit at USD 200/kg launch, USD 22,763 per kW-year: chips and servers 47%, build 20%, power 15%, operations 9%, launch 9%">
+<span class="seg k1" style="flex-grow:47" data-name="Chips and servers" data-share="47%"><span class="sl">47%</span></span>
+<span class="seg k2" style="flex-grow:20" data-name="Build" data-share="20%"><span class="sl">20%</span></span>
+<span class="seg k3" style="flex-grow:15" data-name="Power" data-share="15%"><span class="sl">15%</span></span>
+<span class="seg k4" style="flex-grow:9" data-name="Operations" data-share="9%"><span class="sl">9%</span></span>
+<span class="seg k5" style="flex-grow:9" data-name="Launch" data-share="9%"><span class="sl">9%</span></span>
+</div></div>
+</div>
+<div class="vrow">
+<p class="rl"><span>Earth hyperscale, grid power</span><b>USD 11,839 · 1.00x</b></p>
+<div class="track"><div class="bar" tabindex="0" role="img" style="width:47.356%" data-row="Earth hyperscale, grid power" data-total="USD 11,839 per kW-year" aria-label="Earth hyperscale on grid power, USD 11,839 per kW-year: chips and servers 65%, build 16%, power 7%, operations 12%, launch 0%">
+<span class="seg k1" style="flex-grow:65" data-name="Chips and servers" data-share="65%"><span class="sl">65%</span></span>
+<span class="seg k2" style="flex-grow:16" data-name="Build" data-share="16%"><span class="sl">16%</span></span>
+<span class="seg k3" style="flex-grow:7" data-name="Power" data-share="7%"><span class="sl">7%</span></span>
+<span class="seg k4" style="flex-grow:12" data-name="Operations" data-share="12%"><span class="sl">12%</span></span>
+</div></div>
+</div>
+<div class="axis" aria-hidden="true"><span style="left:0">0</span><span class="odd" style="left:20%">5,000</span><span style="left:40%">10,000</span><span class="odd" style="left:60%">15,000</span><span style="left:80%">20,000</span><span class="odd" style="left:100%">25,000</span></div>
+<div class="tip" id="split-tip" role="tooltip" hidden></div>
+<details class="tv">
+<summary>Table view of the chart</summary>
+<div class="tw"><table class="num">
+<caption>Share of cost by type (panel's model, central inputs)</caption>
+<thead><tr><th scope="col">Cost type</th><th scope="col">Low Earth orbit, USD 200/kg launch</th><th scope="col">Earth hyperscale, grid power</th></tr></thead>
+<tbody>
+<tr><th scope="row">Chips and servers</th><td>47%</td><td>65%</td></tr>
+<tr><th scope="row">Build</th><td>20%</td><td>16%</td></tr>
+<tr><th scope="row">Power</th><td>15%</td><td>7%</td></tr>
+<tr><th scope="row">Operations and insurance</th><td>9%</td><td>12%</td></tr>
+<tr><th scope="row">Launch</th><td>9%</td><td>0%</td></tr>
+<tr class="hl"><th scope="row">Total, USD per kW-year</th><td>22,763</td><td>11,839</td></tr>
+</tbody></table></div>
+</details>
+</figure>
+
+<h3>Break-even launch price</h3>
+<p>None under central inputs, at any mass. Even free launch and a free satellite only bring orbit to 0.98x Earth. With optimistic hardware (USD 400/kg build cost and 3% a year chip loss), break-even is USD 671/kg at 10 kg/kW and USD 184/kg at 20 kg/kW, and there is none at 33 kg/kW or heavier.</p>
+
+<h3>Top 3 risks</h3>
+<ol>
+<li><b>Satellite build cost.</b> It moves the result more than any other input, and it is the least-evidenced one: our range runs from USD 400 to 5,000 per kg.</li>
+<li><b>Chips that fail with no repair.</b> At 9% a year, unrepaired chip losses and the 10% space-chip premium cancel the savings on buildings and electricity.</li>
+<li><b>Radiation errors.</b> In <a href="https://arxiv.org/abs/2511.19468">Google's proton-beam test</a>, a Trillium TPU had no hard failures up to 15 krad(Si), 20x the dose it would collect behind 10 mm of aluminium over 5 years in low Earth orbit, but its HBM memory showed irregularities from 2 krad. Heavy-ion effects are untested and no in-orbit error data is published yet. Inference tolerates silent data corruption at about 7.5-10 events per chip-year; training must design around it.</li>
+</ol>
+
+<h3>From the Full Memo: what moves the answer most</h3>
+<div class="tw"><table class="num sens">
+<caption>Sensitivity of the low-orbit case at USD 200/kg (base USD 22,763 per kW-year)</caption>
+<thead><tr><th scope="col">Input</th><th scope="col">Range tested</th><th scope="col">USD per kW-year at low / high input</th><th scope="col">Swing</th></tr></thead>
+<tbody>
+<tr><th scope="row">Satellite build cost</th><td>USD 400-5,000/kg</td><td>17,487 to 57,937</td><td>178%</td></tr>
+<tr><th scope="row">Mass per kW</th><td>13-73 kg/kW</td><td>16,023 to 36,244</td><td>89%</td></tr>
+<tr><th scope="row">Chips, servers and network</th><td>USD 20,000-45,000/kW</td><td>18,883 to 28,584</td><td>43%</td></tr>
+<tr><th scope="row">Chips lost per year</th><td>3-15%</td><td>19,928 to 25,814</td><td>26%</td></tr>
+<tr><th scope="row">Chip life</th><td>4-6 years</td><td>26,052 to 20,644</td><td>24%</td></tr>
+<tr><th scope="row">Cost of capital</th><td>6-12%</td><td>21,571 to 25,252</td><td>16%</td></tr>
+</tbody></table></div>
+<p class="note">Swing is the gap between the low and high result as a share of the base case.</p>
+<p class="foot">Model results are projections, not price quotes or guarantees. Test any number in the <a href="space-data-center-cost-calculator.html">cost calculator</a>.</p>
+</div>
+</section>
+
+<section class="c" id="limits" aria-labelledby="limits-title">
+<h2 id="limits-title">What we do not do</h2>
+<ul class="limits">
+<li><b>No investment advice.</b> A memo is an engineering and cost analysis. It is not investment, legal or tax advice, and it does not tell anyone to buy or sell.</li>
+<li><b>No guarantees.</b> Model results are projections. Real prices, dates and failure rates can differ, so every memo shows how far the answer moves when they do.</li>
+<li><b>No compute for sale here.</b> MoltBot Cloud does not run hardware in orbit, on the Moon or at Mars, and this page does not sell live MoltBot compute. You are ordering analysis only.</li>
+<li><b>No payment on this page.</b> We confirm scope and price by reply first.</li>
+</ul>
+</section>
+
+<section class="c" id="order" aria-labelledby="order-title">
+<h2 id="order-title">Request a memo</h2>
+<p>Tell us what you are planning. We reply to confirm scope, price and delivery date before any payment. This form asks for no payment details.</p>
+<p class="inbox" id="m-inbox" hidden>Opening soon: our order inbox is still being set up, so this form cannot save requests yet. If you send one now, the form will tell you it was not saved. Please check back in a few days.</p>
+<noscript><p class="inbox">This form needs JavaScript to send your request.</p></noscript>
+<form class="formbox" id="memo-form" method="post" action="#order" novalidate>
+<div class="fgrid">
+<div class="field"><label for="m-name">Name <span>(required)</span></label><input id="m-name" name="name" type="text" autocomplete="name" maxlength="200" required aria-describedby="m-name-err"><p class="err" id="m-name-err"></p></div>
+<div class="field"><label for="m-email">Work email <span>(required)</span></label><input id="m-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="m-email-err"><p class="err" id="m-email-err"></p></div>
+<div class="field"><label for="m-company">Company <span>(optional)</span></label><input id="m-company" name="company" type="text" autocomplete="organization" maxlength="200"></div>
+<div class="field"><label for="m-tier">Memo</label><select id="m-tier" name="tier" aria-describedby="m-tier-hint"><option value="quick">Quick Memo: USD 1,500, 48 hours</option><option value="full">Full Feasibility Memo: USD 4,900, 5 business days</option><option value="custom">Custom Due-Diligence: from USD 9,500, by quote</option></select><p class="fh" id="m-tier-hint">Launch pricing — confirmed by reply before any payment.</p></div>
+</div>
+<div class="field wide-field"><label for="m-message">Mission details <span>(optional)</span></label><textarea id="m-message" name="message" rows="6" maxlength="5000" placeholder="For example: 100 kW of inference in a dawn-dusk orbit from 2030, launch at USD 500/kg" aria-describedby="m-message-hint"></textarea><p class="fh" id="m-message-hint">Helpful: where the compute goes (orbit, Moon or Mars), kW of IT power, kg per kW, the launch price you assume, chip type and life, workload and target year. Rough numbers are fine; we mark every assumption we add.</p></div>
+<div class="check"><input id="m-consent" name="consent" type="checkbox" value="request, not a purchase" required aria-describedby="m-consent-err"><label for="m-consent">I understand this is a request, not a purchase. You will reply to confirm scope and price before any payment.</label></div>
+<p class="err" id="m-consent-err"></p>
+<div class="hp" aria-hidden="true"><label for="m-website">Leave this field empty</label><input id="m-website" name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other"></div>
+<div class="factions"><button type="submit" class="btn" id="m-submit">Send order request</button><p class="small">No payment is taken here. We use your details only to reply about your memo. See our <a href="privacy.html">privacy policy</a>.</p></div>
+<p class="msg" id="m-status" data-leads-status role="status" aria-live="polite"></p>
+</form>
+<h3>What happens next</h3>
+<ol class="next">
+<li>We reply by email to confirm scope, price and delivery date.</li>
+<li>You approve. Only then do we ask for payment.</li>
+<li>We deliver: a Quick Memo within 48 hours or a Full Memo within 5 business days of your approval. Custom work follows the plan we agree.</li>
+</ol>
+</section>
+
+<section class="c faq" id="faq" aria-labelledby="faq-title">
+<h2 id="faq-title">Questions people ask</h2>
+<h3>Who is the memo for?</h3>
+<p>Founders checking unit economics before a raise, investors testing a company's claims, satellite operators pricing compute on board, and data-center teams deciding whether orbit, the Moon or Mars belongs on their roadmap. If the free <a href="space-data-center-cost-calculator.html">calculator</a> already answers your question, you may not need a memo.</p>
+<h3>What do you need from me?</h3>
+<p>A short description of your plan: where the compute goes, how many kW of IT power, the expected mass per kW, the launch price you assume, the chip type and life, the workload and your target year. Rough numbers are fine. We mark every assumption we add.</p>
+<h3>When do I pay?</h3>
+<p>Only after we agree on the work. We reply to confirm scope, price and delivery date before any payment, and no payment is taken on this page. The prices shown are launch pricing.</p>
+<h3>Is this investment advice?</h3>
+<p>No. A memo is an engineering and cost analysis built on the panel's model and public sources. It is not investment, legal or tax advice, and its projections are not guarantees.</p>
+<h3>Can the memo cover the Moon or Mars?</h3>
+<p>Yes. The model covers 19 scenarios, from six Earth sites and low Earth orbit at five launch prices to Moon-made hardware, Mars orbit and the Mars surface. At central inputs, Moon-made bulk hardware in low orbit costs 2.17x Earth (1.38x in its low-cost case), and Mars orbit costs 4.51x with all hardware shipped from Earth or 5.56x with Mars-made bulk. Mars sits 3.0-22.3 light-minutes from Earth and can be reached once every 26 months, so it suits Mars-local users and batch jobs.</p>
+<h3>How reliable are the model's numbers?</h3>
+<p>The model is closed-form and transparent: every input is sourced or marked as our assumption, and the free calculator runs the same formulas. At <a href="https://www.bcg.com/publications/2026/space-based-data-centers-cost-outlook">BCG</a>'s own settings it gives 2.33x Earth, where BCG projects 2.5-3x. Its least-evidenced inputs are satellite build cost and chip losses, so every memo shows how far they move your answer.</p>
+</section>
+
+<div class="c">
+<div class="cta">
+<h2>Want to test the numbers first?</h2>
+<p>The free calculator runs the same model in your browser. Move the launch price, satellite mass, build cost and chip-loss rate, and compare Earth, orbit, Moon and Mars per GPU-hour.</p>
+<a href="space-data-center-cost-calculator.html" class="btn">Open the cost calculator →</a>
+</div>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="space-data-center-cost-calculator.html">→ Space data center cost calculator: Earth vs orbit, Moon and Mars</a>
+<a href="blog-space-data-center-cost-2026.html">→ Are data centers in space cheaper? The 2026 cost math</a>
+<a href="blog-space-solar-5x-energy.html">→ Is energy 5x better in space? Solar panels yes, batteries no</a>
+<a href="blog-mars-ai-data-centers.html">→ AI data centers on Mars: resources, radiation and a 2060 timeline</a>
+<a href="blog-maglev-rocket-launch-assist.html">→ Maglev launch assist: what an underground track really buys</a>
+<a href="gpu-price-index.html">→ GPU rental price list, November 2026</a>
+<a href="radiation-tolerant-ai-runtime.html">→ Radiation-tolerant AI runtime: early access and bit-flip budget calculator</a>
+</div>
+</div>
+</main>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:#7c7c85;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var doc = document;
+  var KIND = { quick: 'space-memo-quick', full: 'space-memo-full', custom: 'space-memo-custom' };
+  var PRICE = { quick: 'USD 1,500', full: 'USD 4,900', custom: 'from USD 9,500, by quote' };
+  /* The same rule as EMAIL_RE in leads.js, so the page and leads.js accept the same addresses. */
+  var EMAIL = /^[^\s@<>()\[\]\\,;:"]{1,64}@(?:[^\s@<>()\[\]\\,;:".]+\.)+[^\s@<>()\[\]\\,;:".]{2,}$/;
+  var hasOwn = Object.prototype.hasOwnProperty;
+
+  function trim(value) { return String(value || '').replace(/^\s+|\s+$/g, ''); }
+
+  /* ---- Order form: page checks run first, then leads.js sends (or explains why it could not). ---- */
+  var form = doc.getElementById('memo-form');
+  if (form) {
+    var tier = doc.getElementById('m-tier');
+    var nameEl = doc.getElementById('m-name');
+    var emailEl = doc.getElementById('m-email');
+    var consent = doc.getElementById('m-consent');
+    var status = doc.getElementById('m-status');
+    var wired = false; /* true once leads.js has wired the form and will send it */
+
+    var pick = function (value) {
+      var v = trim(value).toLowerCase();
+      if (hasOwn.call(KIND, v)) tier.value = v;
+    };
+    try {
+      var fromUrl = /[?&]tier=([a-z]+)/i.exec(window.location.search || '');
+      if (fromUrl) pick(fromUrl[1]);
+    } catch (e) { /* keep the default */ }
+    var tierLinks = doc.querySelectorAll('a[data-tier]');
+    for (var i = 0; i < tierLinks.length; i++) {
+      tierLinks[i].addEventListener('click', function () { pick(this.getAttribute('data-tier')); });
+    }
+
+    var setError = function (input, text) {
+      var box = doc.getElementById(input.id + '-err');
+      if (box) box.textContent = text;
+      if (text) input.setAttribute('aria-invalid', 'true');
+      else input.removeAttribute('aria-invalid');
+    };
+
+    /* Registered before leads.js wires the form, so it runs first and can stop a send. */
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var bad = [];
+      if (trim(nameEl.value) === '') { setError(nameEl, 'Please enter your name.'); bad.push(nameEl); }
+      else setError(nameEl, '');
+      var email = trim(emailEl.value);
+      if (email.length > 254 || !EMAIL.test(email)) {
+        setError(emailEl, 'Please enter a valid email address, like name@example.com.');
+        bad.push(emailEl);
+      } else setError(emailEl, '');
+      if (!consent.checked) { setError(consent, 'Please tick this box to continue.'); bad.push(consent); }
+      else setError(consent, '');
+      if (bad.length) {
+        event.stopImmediatePropagation();
+        status.textContent = '';
+        status.removeAttribute('data-leads-state');
+        bad[0].focus();
+        return;
+      }
+      if (!wired) { /* leads.js did not load, or could not wire the form: say so instead of doing nothing */
+        event.stopImmediatePropagation();
+        status.setAttribute('data-leads-state', 'fallback');
+        status.textContent = 'Thanks for your interest in a feasibility memo! Our order form could not load, so your request was not saved. No payment was taken. Please reload the page and try again.';
+      }
+    });
+    form.addEventListener('input', function (event) {
+      var t = event.target;
+      if (t && t.id && t.getAttribute('aria-invalid') === 'true' && doc.getElementById(t.id + '-err')) setError(t, '');
+    });
+    consent.addEventListener('change', function () { if (consent.checked) setError(consent, ''); });
+
+    var wireUp = function () {
+      var leads = window.MoltbotLeads;
+      var note = doc.getElementById('m-inbox');
+      if (!leads || typeof leads.wire !== 'function') {
+        if (note) note.hidden = false;
+        return;
+      }
+      var handle = leads.wire(form, {
+        kind: 'space-memo-quick',
+        kindFrom: function (f) { return KIND[f.elements.tier.value] || 'space-memo-quick'; },
+        extra: function (f) {
+          return { price: PRICE[f.elements.tier.value] || '', pricing: 'launch pricing, confirmed by reply before any payment' };
+        },
+        success: 'Thanks! Your order request was saved. We will reply by email to confirm scope, price and delivery date before any payment. No payment was taken.'
+      });
+      wired = !!handle;
+      if (note && (!handle || (typeof leads.isConfigured === 'function' && !leads.isConfigured()))) note.hidden = false;
+    };
+    if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', wireUp);
+    else wireUp();
+  }
+
+  /* ---- Sample chart: show in-bar shares only where they fit; hover and focus tooltips. ---- */
+  var chart = doc.getElementById('split-chart');
+  if (chart) {
+    var tip = doc.getElementById('split-tip');
+    var bars = chart.querySelectorAll('.bar');
+    var segs = chart.querySelectorAll('.seg');
+
+    var fitLabels = function () {
+      var labels = [];
+      for (var j = 0; j < segs.length; j++) {
+        var label = segs[j].querySelector('.sl');
+        if (label) { label.style.display = 'block'; labels.push([segs[j], label]); }
+      }
+      for (var k = 0; k < labels.length; k++) {
+        labels[k][1].style.display = labels[k][1].offsetWidth + 12 <= labels[k][0].clientWidth ? 'block' : 'none';
+      }
+    };
+
+    var line = function (key, value, text, head) {
+      var p = doc.createElement('p');
+      if (head) p.className = 'h';
+      if (key) {
+        var mark = doc.createElement('span');
+        mark.className = 'tk';
+        mark.style.background = key;
+        p.appendChild(mark);
+      }
+      if (value) {
+        var strong = doc.createElement('b');
+        strong.textContent = value;
+        p.appendChild(strong);
+      }
+      if (text) p.appendChild(doc.createTextNode(text));
+      return p;
+    };
+
+    var place = function (x, y) {
+      var box = chart.getBoundingClientRect();
+      tip.hidden = false;
+      var w = tip.offsetWidth;
+      var h = tip.offsetHeight;
+      var left = Math.max(0, Math.min(x - box.left - w / 2, box.width - w));
+      var top = y - box.top - h - 12;
+      if (top < 0) top = y - box.top + 18;
+      tip.style.left = left + 'px';
+      tip.style.top = top + 'px';
+    };
+
+    var clear = function () { while (tip.firstChild) tip.removeChild(tip.firstChild); };
+    var hide = function () { tip.hidden = true; };
+
+    var showSegment = function (seg, x, y) {
+      var bar = seg.parentNode;
+      clear();
+      tip.appendChild(line(getComputedStyle(seg).backgroundColor, seg.getAttribute('data-share'), ' ' + seg.getAttribute('data-name'), false));
+      tip.appendChild(line('', '', 'of ' + bar.getAttribute('data-total') + ', ' + bar.getAttribute('data-row'), false));
+      place(x, y);
+    };
+
+    var showBar = function (bar) {
+      clear();
+      tip.appendChild(line('', '', bar.getAttribute('data-row') + ': ' + bar.getAttribute('data-total'), true));
+      var parts = bar.querySelectorAll('.seg');
+      for (var n = 0; n < parts.length; n++) {
+        tip.appendChild(line(getComputedStyle(parts[n]).backgroundColor, parts[n].getAttribute('data-share'), ' ' + parts[n].getAttribute('data-name'), false));
+      }
+      var r = bar.getBoundingClientRect();
+      place(r.left + r.width / 2, r.top);
+    };
+
+    for (var s = 0; s < segs.length; s++) {
+      segs[s].addEventListener('pointermove', function (event) { showSegment(this, event.clientX, event.clientY); });
+      segs[s].addEventListener('pointerleave', function (event) { if (event.pointerType !== 'touch') hide(); });
+    }
+    for (var b = 0; b < bars.length; b++) {
+      bars[b].addEventListener('focus', function () { showBar(this); });
+      bars[b].addEventListener('blur', hide);
+      bars[b].addEventListener('keydown', function (event) { if (event.key === 'Escape') hide(); });
+    }
+    doc.addEventListener('pointerdown', function (event) {
+      if (!chart.contains(event.target)) hide();
+    });
+
+    fitLabels();
+    var resizeTimer = null;
+    window.addEventListener('resize', function () {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(fitLabels, 120);
+    });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(fitLabels);
+  }
+})();
+</script>
+<script src="leads.js" defer></script>
+</body>
+</html>

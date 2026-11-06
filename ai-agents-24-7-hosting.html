@@ -3,126 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Run AI Agents 24/7: GPU Cloud Hosting Compared</title>
-<meta name="description" content="How to Run AI Agents 24/7: GPU Cloud Hosting Compared - MoltBot Cloud Blog">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>GPU Cloud Prices for 24/7 AI Agents (November 2026)</title>
+<meta name="description" content="Dated, sourced GPU prices for running AI agents 24/7: Vast.ai, RunPod, Salad, Vagon and CoreWeave compared, checked in November 2026.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/ai-agents-24-7-hosting.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="GPU Cloud Prices for 24/7 AI Agents (November 2026)">
+<meta property="og:description" content="What it costs to keep a GPU running for an AI agent: on-demand, spot and batch prices from Vast.ai, RunPod, Salad, Vagon and CoreWeave, each dated and sourced.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/ai-agents-24-7-hosting.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta property="og:site_name" content="MoltBot Cloud">
+<meta property="article:published_time" content="2026-09-29">
+<meta property="article:modified_time" content="2026-11-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPU Cloud Prices for 24/7 AI Agents (November 2026)">
+<meta name="twitter:description" content="RTX 3090s from USD 0.09 an hour and H100s from USD 1.87 on demand: dated, sourced GPU prices from five clouds, checked 5 Nov 2026.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"GPU Cloud Prices for 24/7 AI Agents (November 2026)","description":"Dated, sourced GPU prices for running AI agents 24/7: Vast.ai, RunPod, Salad, Vagon and CoreWeave compared, checked in November 2026.","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"datePublished":"2026-09-29","dateModified":"2026-11-05","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/ai-agents-24-7-hosting.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"GPU Cloud Prices for 24/7 AI Agents","item":"https://ceooftheuniverse.github.io/vmsaas-live/ai-agents-24-7-hosting.html"}]}
+</script>
 <style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,sans-serif;background:#09090b;color:#e4e4e7;line-height:1.8}
-.c{max-width:720px;margin:0 auto;padding:4rem 2rem}
-h1{font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:1rem}
-h2{font-size:1.3rem;color:#818cf8;margin:2rem 0 1rem}
-h3{font-size:1.1rem;margin:1.5rem 0 .5rem}
-p{color:#a1a1aa;margin-bottom:1rem;font-size:.95rem}
-a{color:#818cf8}
-.meta{color:#71717a;font-size:.85rem;margin-bottom:2rem}
-code{background:rgba(255,255,255,.06);padding:.15rem .4rem;border-radius:4px;font-size:.9em}
-table{width:100%;border-collapse:collapse;margin:1rem 0}
-th,td{padding:.5rem .75rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.06);font-size:.85rem}
-th{color:#71717a;font-weight:600}
-ul,ol{color:#a1a1aa;padding-left:1.5rem;margin-bottom:1rem}
-li{margin:.3rem 0}
-strong{color:#e4e4e7}
-blockquote{border-left:3px solid #6366f1;padding:.5rem 1rem;margin:1rem 0;background:rgba(99,102,241,.05)}
-blockquote p{margin:0;color:#c4b5fd}
-.back{color:#71717a;font-size:.85rem;display:block;margin-bottom:2rem;text-decoration:none}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;margin-left:0}
+nav .brand span{color:var(--a)}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem;display:inline-block;line-height:44px}
+nav a.trial{color:var(--a);font-weight:700}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+.crumbs{font-size:.78rem;margin-bottom:.75rem}
+.crumbs a{color:var(--m)}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:2rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,2.6vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:2rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong,b{color:var(--t)}
+a{color:var(--a)}
+.c ul{margin:0 0 1rem 1.2rem}
+.c li{color:var(--m);font-size:.9rem;margin:.4rem 0}
+.c p+ul{margin-top:-.5rem}
+.tcap{color:var(--t);font-weight:600;font-size:.82rem;line-height:1.5;margin:1.25rem 0 .6rem}
+.tcap .swipe{display:block;color:var(--m);font-weight:400;font-size:.75rem}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+.tcap+.tw{margin-top:0}
+table{width:100%;min-width:640px;border-collapse:separate;border-spacing:0;background:var(--s);border-radius:12px;font-size:.8rem;line-height:1.5}
+th,td{padding:.6rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--b)}
+thead th{color:var(--m);font-weight:600;font-size:.72rem;letter-spacing:.2px;vertical-align:bottom}
+tbody th{font-weight:600;color:var(--t);min-width:9.5rem}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+th.n,td.n,td.na{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.na{color:var(--m)}
+.tw tr>:nth-child(4){min-width:10rem}
+.tw tr>:nth-child(5){min-width:9.5rem}
+@media (min-width:1000px){.tw.wide{margin-left:-4rem;margin-right:-4rem}.tcap .swipe{display:none}}
+@media (max-width:999px){.wide tbody th,.wide thead th:first-child{position:sticky;left:0;z-index:1;background:var(--s);box-shadow:inset -1px 0 0 rgba(255,255,255,.12)}}
+.note{font-size:.78rem;color:var(--m)}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr strong{color:var(--g)}
+.tldr p{margin-bottom:.4rem}
+.tldr ul{margin:0 0 0 1.1rem}
+.tldr p+ul{margin-top:0}
+.tldr li{font-size:.88rem;margin:.35rem 0}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:2rem 0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--a)}
+.callout p:last-child{margin-bottom:0}
+.cta{text-align:center;padding:2.5rem 1.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2rem 0}
+.cta h2{margin:0 0 .5rem}
+.cta .sub{font-size:.8rem;margin:1.1rem 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.35em;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem}
+.related{margin:2rem 0}
+.related h2{font-size:1.05rem;margin:0 0 .5rem}
+.related a{display:block;color:var(--a);text-decoration:none;padding:.5rem 0;font-size:.85rem}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-block}
+.c{padding:5.25rem 1rem 3rem}
+.cta{padding:2rem 1rem}
+tbody th{min-width:8rem}
+}
 </style>
 </head>
 <body>
-<div class="c">
-<a href="index.html" class="back">← Back to MoltBot Cloud</a>
-<h1>How to Run AI Agents 24/7: GPU Cloud Hosting Compared</h1>
-<p class="meta">Published 2026-09-29 · MoltBot Cloud Blog · Generated by Omnisphere</p>
-<h1>Comparing GPU Cloud Hosting for Running AI Agents 24/7 in 2026</h1>
+<nav><div class="inner"><a class="brand" href="index.html">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
 
-<p>As artificial intelligence (AI) continues to gain traction, the demand for reliable, scalable, and cost-effective GPU cloud hosting solutions has surged. By 2026, there will be multiple options available catering to different needs and budgets, making it crucial to choose wisely. In this blog post, we will explore five notable players in the GPU cloud hosting arena: Vast.ai, RunPod, Salad.com, Vagon, and CoreWeave. Each of these platforms has unique features, pricing, and ideal use cases for running AI agents 24/7.</p>
+<article class="c">
+<p class="crumbs"><a href="index.html">MoltBot Cloud</a> / <a href="blog.html">Blog</a> / GPU prices</p>
+<h1>GPU Cloud Prices for 24/7 AI Agents (November 2026)</h1>
+<p class="meta">Published <time datetime="2026-09-29">29 Sep 2026</time> · Prices checked and updated 5 Nov 2026 · MoltBot Cloud Blog · First draft generated by <a href="https://ceooftheuniverse.github.io/omnisphere/">Omnisphere</a></p>
 
-<h3>1. Vast.ai: The Cheapest Marketplace</h3>
-
-<p>**Pricing:** Vast.ai offers some of the lowest rates in GPU cloud hosting, starting as low as $0.01 per hour depending on resource availability.</p>
-
-<p><strong>Pros:</strong></p>
-<li>Extremely affordable pricing makes it accessible for startups and individual developers.</li>
-<li>Flexible marketplace model allows users to select from various hardware configurations and prices.</li>
-<li>Easy to use API for automated workflows.</li>
-
-<p><strong>Cons:</strong></p>
-<li>Performance can vary based on the provider; resource quality isn't guaranteed.</li>
-<li>Some users report a steeper learning curve compared to more user-friendly platforms.</li>
-
-<p>**Best for:** Budget-conscious users and independent developers who want to experiment with running AI agents without a hefty investment.</p>
-
-<h3>2. RunPod: Reliable Performance</h3>
-
-<p>**Pricing:** RunPod typically offers competitive rates starting around $0.05 per hour.</p>
-
-<p><strong>Pros:</strong></p>
-<li>Reliable performance with a focus on uptime and stability.</li>
-<li>Offers a simple interface that makes it easy for users to deploy and manage AI workloads.</li>
-<li>Good customer support is available.</li>
-
-<p><strong>Cons:</strong></p>
-<li>Slightly higher pricing compared to other budget options like Vast.ai.</li>
-<li>Limited geographic data center locations can affect latency.</li>
-
-<p>**Best for:** Developers who prioritize reliability and support over the lowest price.</p>
-
-<h3>3. Salad.com: Affordable and Unique</h3>
-
-<p>**Pricing:** Salad.com offers cloud compute services at an incredibly low rate of about $0.02 per hour.</p>
-
-<p><strong>Pros:</strong></p>
-<li>Unique model that allows users to earn computing credits by sharing unused GPU power from their gaming rigs.</li>
-<li>Affordable pricing with an easily accessible interface, making it user-friendly.</li>
-<li>A community-focused platform with forums and active support.</li>
-
-<p><strong>Cons:</strong></p>
-<li>Limited scalability compared to larger commercial solutions.</li>
-<li>Performance heavily depends on community contributions.</li>
-
-<p>**Best for:** Gamers or tech-savvy users who are looking for an inexpensive way to run AI agents while leveraging unused computing power.</p>
-
-<h3>4. Vagon: Cloud Desktop</h3>
-
-<p>**Pricing:** Vagon offers plans starting around $0.045 per hour for cloud desktops equipped with GPU capabilities.</p>
-
-<p><strong>Pros:</strong></p>
-<li>Excellent for users who require a desktop-like environment in the cloud.</li>
-<li>Supports a wide variety of GPU configurations suitable for AI tasks.</li>
-<li>Good for collaborative projects with easy file sharing features.</li>
-
-<p><strong>Cons:</strong></p>
-<li>Slightly higher cost compared to dedicated GPU hosting options.</li>
-<li>Not the best choice for those looking for bare-metal performance.</li>
-
-<p>**Best for:** Teams or individuals needing a full desktop experience while working on AI projects or machine learning tasks.</p>
-
-<h3>5. CoreWeave: Enterprise Solutions</h3>
-
-<p>**Pricing:** CoreWeave offers competitive enterprise pricing that can start from $0.10 per hour, depending on the resources configured.</p>
-
-<p><strong>Pros:</strong></p>
-<li>High-quality GPU resources designed for enterprise-level applications.</li>
-<li>Excellent support for large-scale machine learning tasks and resource-intensive projects.</li>
-<li>Flexible resource scaling to accommodate varying workloads.</li>
-
-<p><strong>Cons:</strong></p>
-<li>More expensive than most of the other options listed.</li>
-<li>May require more technical expertise to fully leverage the platform.</li>
-
-<p>**Best for:** Businesses or enterprises running large-scale AI applications or those that demand high performance and reliability.</p>
-
-<h3>Final Recommendations</h3>
-
-<p>When it comes to GPU cloud hosting for running AI agents 24/7 in 2026, the best choice will largely depend on your specific use case:</p>
-
-<li>**For budget-conscious developers or hobbyists:** Vast.ai and Salad.com offer cheap alternatives perfect for experimentation.</li>
-<li>**For reliable performance:** RunPod stands out for those who need consistent uptime and support.</li>
-<li>**For team collaboration:** Vagon provides a full desktop experience along with necessary resources.</li>
-<li>**For enterprise solutions:** CoreWeave is the go-to option for businesses requiring robust performance and scalability.</li>
-
-<p>In the ever-evolving landscape of GPU cloud hosting, understanding your needs and projected workloads will guide you to the best platform for running your AI agents effectively and efficiently.</p>
-<p style="margin-top:3rem;color:#52525b;font-size:.8rem">Generated by <a href="https://ceooftheuniverse.github.io/omnisphere/">Omnisphere</a> Multi-LLM Router · <a href="https://ceooftheuniverse.github.io/vmsaas-live/">MoltBot Cloud</a></p>
+<div class="tldr">
+<p><strong>TL;DR</strong> (prices checked 5 Nov 2026)</p>
+<ul>
+<li>An RTX 3090 (24 GB) running 24/7 costs about <b>USD 69-161 a month</b> on demand, from Vast.ai's cheapest listing (USD 0.0943 an hour) to RunPod's Community Cloud rate (USD 0.22). RunPod's RTX A5000 (24 GB) costs USD 116.80 a month.</li>
+<li>An H100 running 24/7 costs about <b>USD 1,363-4,493 a month</b> on demand at the three providers here that rent H100s, from Vast.ai's cheapest listing (USD 1.87 an hour, an unverified host) to CoreWeave (USD 6.16 per GPU).</li>
+<li>The lowest rates, such as Salad's USD 0.015 batch tier and Vast.ai's interruptible bids, can stop your job at any time. Use them for batch work, not for agents that must stay up.</li>
+<li>Marketplace prices move within minutes, so compare the same GPU model, price type and date.</li>
+</ul>
 </div>
+
+<h2>Comparing GPU cloud hosting for always-on AI agents</h2>
+
+<p>An AI agent that works around the clock needs a GPU that stays up, or a fair share of one. In 2026 there are many options for different needs and budgets, so it pays to compare prices by GPU model, priority tier and date. This guide compares five GPU clouds, Vast.ai, RunPod, Salad, Vagon and CoreWeave, and what each one costs for running AI agents 24/7.</p>
+
+<p><strong>How we checked:</strong> we read each provider's public pricing page or public API on 5 Nov 2026 between 16:05 and 16:25 UTC. Vast.ai's price list was last updated at 15:30 UTC. All prices are in US dollars per GPU per hour. A 24/7 month is 730 hours.</p>
+
+<h3 id="prices">Prices at a glance</h3>
+<p class="tcap"><span id="price-cap">GPU rental prices for always-on agents, checked 5 Nov 2026 (USD)</span><span class="swipe" aria-hidden="true">Scroll the table sideways to see every column.</span></p>
+<div class="tw wide">
+<table aria-labelledby="price-cap">
+<thead><tr><th scope="col">Provider and GPU</th><th scope="col" class="n">Per GPU-hour</th><th scope="col" class="n">24/7 month<br>(730 h)</th><th scope="col">Price type</th><th scope="col">Source and date</th></tr></thead>
+<tbody>
+<tr><th scope="row">Vast.ai H100 SXM 80 GB, all hosts</th><td class="n">1.8675 / 2.387</td><td class="n">1,363 / 1,743</td><td>On demand: lowest / median listing</td><td><a href="https://vast.ai/pricing">Vast.ai price list</a>, 5 Nov 2026, 15:30 UTC</td></tr>
+<tr><th scope="row">Vast.ai H100 SXM 80 GB, verified hosts</th><td class="n">2.28-3.81</td><td class="n">1,665-2,778</td><td>On demand: lowest listing in two checks</td><td><a href="https://cloud.vast.ai/create/">Vast.ai console</a>, 5 Nov 2026, 16:08 and 16:21 UTC</td></tr>
+<tr><th scope="row">Vast.ai H100 SXM 80 GB</th><td class="n">about 0.67-1.00</td><td class="na">Not for 24/7</td><td>Interruptible: lowest bid</td><td><a href="https://cloud.vast.ai/create/">Vast.ai console</a>, 5 Nov 2026, 16:08-16:21 UTC</td></tr>
+<tr><th scope="row">Vast.ai RTX 3090 24 GB, all hosts</th><td class="n">0.0943 / 0.1892</td><td class="n">69 / 138</td><td>On demand: lowest / median listing</td><td><a href="https://vast.ai/pricing">Vast.ai price list</a>, 5 Nov 2026, 15:30 UTC</td></tr>
+<tr><th scope="row">RunPod RTX A5000 24 GB</th><td class="n">0.16</td><td class="n">117</td><td>On demand, Community Cloud (Secure Cloud 0.27)</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">RunPod RTX 3090 24 GB</th><td class="n">0.22</td><td class="n">161</td><td>On demand, Community Cloud (Secure Cloud 0.50)</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">RunPod H100 PCIe 80 GB</th><td class="n">1.99</td><td class="n">1,453</td><td>On demand, Community Cloud (Secure Cloud 2.89)</td><td><a href="https://www.runpod.io/pricing">RunPod pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">Salad RTX 3060-class consumer GPUs</th><td class="n">from 0.015</td><td class="na">Not for 24/7</td><td>Batch (Lowest priority), can be preempted</td><td><a href="https://salad.com/pricing">Salad pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">Salad RTX 3090 24 GB</th><td class="n">0.20</td><td class="n">146</td><td>High priority: not preempted, but nodes can disconnect</td><td><a href="https://salad.com/pricing">Salad pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">Vagon NVIDIA T4 16 GB cloud computer</th><td class="n">0.99</td><td class="n">723 + storage</td><td>Billed per minute, plus storage from 7.99 a month</td><td><a href="https://vagon.io/cloud-computer/pricing">Vagon pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">CoreWeave H100 80 GB, 8-GPU HGX instance</th><td class="n">6.155</td><td class="n">4,493</td><td>On demand, per GPU (spot 2.46)</td><td><a href="https://www.coreweave.com/pricing">CoreWeave pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">CoreWeave L40 48 GB, 8-GPU instance</th><td class="n">1.25</td><td class="n">913</td><td>On demand, per GPU (spot 0.78)</td><td><a href="https://www.coreweave.com/pricing">CoreWeave pricing</a>, 5 Nov 2026</td></tr>
+<tr><th scope="row">Silicon Data H100 rental index (SDH100RT)</th><td class="n">2.97</td><td class="n">2,168</td><td>Market index, neo-cloud segment</td><td><a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data index</a>, 5 Nov 2026</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">The 24/7 month is our calculation: the hourly price × 730 hours for one GPU, rounded to whole dollars. Vast.ai figures include a 10 GB disk, and "all hosts" includes unverified hosts. CoreWeave sells these GPUs in 8-GPU instances, so its per-GPU price is the instance price divided by 8. We show no 24/7 cost for interruptible and batch tiers, because they can stop your job. For more GPUs and providers, see our <a href="gpu-price-index.html">GPU rental price list</a>.</p>
+
+<h3>1. Vast.ai: a low-cost GPU marketplace</h3>
+
+<p>Vast.ai is a marketplace where independent hosts rent out their GPUs and set their own prices. On 5 Nov 2026, 77 GPU models had live offers in its price list, from consumer RTX cards to data-center H100s.</p>
+
+<p><strong>Pricing:</strong> On 5 Nov 2026 (15:30 UTC), <a href="https://vast.ai/pricing">Vast.ai's live price list</a> showed H100 SXM rentals from USD 1.87 an hour on demand (median USD 2.39, all hosts) and RTX 3090s from USD 0.09 an hour. Interruptible H100 bids started at about USD 0.67-1.00 an hour (16:08-16:21 UTC, <a href="https://cloud.vast.ai/create/">Vast.ai console</a>). Prices move within minutes, so compare the same GPU model and priority tier.</p>
+
+<p>For an agent that must stay up, look at verified hosts. In our two checks, at 16:08 and 16:21 UTC, only 2-4 verified machines offered H100 SXMs, and their cheapest price moved between USD 2.28 and 3.81 an hour. Verified RTX 3090s started at USD 0.13-0.15 an hour.</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Some of the lowest on-demand prices in this guide, such as RTX 3090s from USD 0.09 an hour.</li>
+<li>A wide choice of GPUs, hosts and locations.</li>
+<li>A public API for automated workflows. We used it for these price checks.</li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Quality varies by host. The cheapest H100 SXM listing came from an unverified host.</li>
+<li>Supply can be thin: only 6-8 machines offered H100 SXMs in our checks, so prices can jump within minutes.</li>
+<li>Interruptible instances can stop at any time, so checkpoint your work.</li>
+</ul>
+
+<p><strong>Best for:</strong> budget-minded developers and experiments. For an always-on agent, choose a verified host and keep checkpoints.</p>
+
+<h3>2. RunPod: fixed hourly prices</h3>
+
+<p>RunPod rents GPUs at fixed list prices in two tiers: Community Cloud and the higher-priced Secure Cloud. Its pricing page cites GPUs in more than 30 regions.</p>
+
+<p><strong>Pricing:</strong> In November 2026 <a href="https://www.runpod.io/pricing">RunPod</a> rented an RTX A5000 (24 GB) for USD 0.16 an hour and an H100 PCIe for USD 1.99 an hour on Community Cloud.</p>
+
+<p>These are on-demand list prices, billed per second with no commitment, checked 5 Nov 2026 (RunPod's page is dated 4 Nov 2026). On Secure Cloud the same GPUs cost USD 0.27 and USD 2.89 an hour. An RTX 3090 costs USD 0.22 an hour on Community Cloud.</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Fixed, published prices that do not swing with a marketplace.</li>
+<li>Per-second billing with no commitment.</li>
+<li>Low prices for 24 GB cards, from USD 0.16 an hour for an RTX A5000.</li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+<ul>
+<li>A list price is not a promise of stock. At 16:11 UTC on 5 Nov 2026, RunPod's public API showed no single-GPU stock for the RTX A5000, RTX 3090 or H100 PCIe.</li>
+<li>Higher than the cheapest marketplace listings: an RTX 3090 costs USD 0.22 an hour, against USD 0.09 on Vast.ai.</li>
+</ul>
+
+<p><strong>Best for:</strong> steady agents that need a known monthly bill, such as one RTX A5000 for USD 116.80 a month. Check RunPod's terms for uptime commitments before you rely on it for production agents.</p>
+
+<h3>3. Salad: low-cost consumer GPUs</h3>
+
+<p>Salad runs your containers on idle consumer hardware, and you pick a priority tier for each job.</p>
+
+<p><strong>Pricing:</strong> <a href="https://salad.com/pricing">Salad</a>'s lowest-priority batch tier starts at USD 0.015 an hour for RTX 3060-class consumer GPUs (November 2026). It suits batch work rather than always-on agents.</p>
+
+<p>For an always-on agent, compare Salad's High priority tier, which other workloads never preempt. On 5 Nov 2026 it cost USD 0.20 an hour for an RTX 3090 and USD 0.44 for an RTX 4090. Billing is per second, and vCPU and RAM are included.</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Very low prices, from USD 0.015 per GPU-hour at Lowest priority.</li>
+<li>Per-second billing, with vCPU and RAM included in the GPU price.</li>
+<li>Four priority tiers, so you pay only for the reliability a job needs.</li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Even High priority nodes can disconnect. Salad then moves your container to another node.</li>
+<li>Medium, Low and Lowest tiers can be preempted by higher-priority work.</li>
+</ul>
+
+<p><strong>Best for:</strong> batch jobs and stateless inference behind a queue. For an always-on agent, use High priority and plan for restarts.</p>
+
+<h3>4. Vagon: GPU cloud desktops</h3>
+
+<p>Vagon rents cloud computers: a full desktop with a GPU that streams to your screen.</p>
+
+<p><strong>Pricing:</strong> <a href="https://vagon.io/cloud-computer/pricing">Vagon</a>'s cloud computers start at USD 0.99 an hour for an NVIDIA T4 machine (4 cores, 16 GB RAM), billed per minute, plus a storage plan from USD 7.99 a month (5 Nov 2026).</p>
+
+<p>The USD 7.99 plan includes 75 GB of disk. Prices vary by region: the same T4 machine costs USD 1.49 an hour in Hong Kong and USD 1.66 in São Paulo (<a href="https://vagon.io/region-prices">Vagon region prices</a>, 5 Nov 2026). Running it 24/7 would cost about USD 723 a month, plus storage.</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+<li>A full desktop with a GPU, streamed to your screen.</li>
+<li>Per-minute billing for the time the computer runs.</li>
+<li>Drag-and-drop file transfer, and machines with up to four GPUs.</li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Costs more per hour than marketplace GPUs: USD 0.99 for a T4 machine, plus storage.</li>
+<li>Built for hands-on desktop sessions rather than headless servers.</li>
+</ul>
+
+<p><strong>Best for:</strong> hands-on AI work in a full desktop, such as testing a model or preparing data, rather than agents that run 24/7.</p>
+
+<h3>5. CoreWeave: large GPU instances for companies</h3>
+
+<p>CoreWeave rents large GPU machines, most with 8 GPUs each, to companies that run AI at scale.</p>
+
+<p><strong>Pricing:</strong> <a href="https://www.coreweave.com/pricing">CoreWeave</a> lists an H100 at USD 6.16 an hour on demand (USD 2.46 spot) and an L40 at USD 1.25 an hour (November 2026).</p>
+
+<p>These are per-GPU prices in North America on 5 Nov 2026. The H100 comes as an 8-GPU HGX instance at USD 49.24 an hour on demand (USD 19.71 spot), and the L40 as an 8-GPU instance at USD 10.00 an hour (USD 6.27 spot). Single-GPU prices are listed for its inference platform.</p>
+
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Large machines: an HGX H100 instance has 8 GPUs with 80 GB each, 128 vCPUs and 2,048 GB of RAM.</li>
+<li>Spot prices well below on-demand: USD 2.46 per H100-hour instead of USD 6.16.</li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+<ul>
+<li>The highest on-demand H100 price in this guide.</li>
+<li>You rent 8 GPUs at a time: an HGX H100 instance costs about USD 35,945 for a 24/7 month (our calculation).</li>
+</ul>
+
+<p><strong>Best for:</strong> companies running large training or inference jobs that need many GPUs in one place.</p>
+
+<h3>What a full-time GPU costs</h3>
+
+<p>A GPU running 24/7 for a month is about 730 hours. At the rates above, that is USD 116.80 for RunPod's RTX A5000 and USD 1,452.70 for its H100 PCIe. For a market reference, the <a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 rental index</a> stood at USD 2.97 an hour on 5 Nov 2026. MoltBot Cloud plans (pre-order) share GPUs instead, from $49 a month with 60 GPU-hours included; see <a href="pricing.html#gpu">how GPU time works</a> and our <a href="gpu-price-index.html">GPU rental price list</a>.</p>
+
+<h3>Final recommendations</h3>
+
+<p>When it comes to GPU cloud hosting for running AI agents 24/7 in 2026, the best choice depends on your specific use case:</p>
+
+<ul>
+<li><strong>Lowest cost, with some care:</strong> Vast.ai, if you pick verified hosts and checkpoint your work, or Salad's batch tier for work that can wait.</li>
+<li><strong>A steady, known bill:</strong> RunPod's fixed prices, such as USD 0.16 an hour for an RTX A5000 on Community Cloud.</li>
+<li><strong>Hands-on desktop work:</strong> Vagon's cloud computers, from USD 0.99 an hour for a T4 machine.</li>
+<li><strong>Large fleets:</strong> CoreWeave's 8-GPU instances, from USD 1.25 per L40-hour.</li>
+<li><strong>One agent without renting a whole GPU:</strong> a shared GPU plan such as MoltBot Cloud (pre-order), from $49 a month with up to 60 GPU-hours.</li>
+</ul>
+
+<p>Whichever you choose, compare the same GPU model, price type and date, and check the provider's page on the day you rent. Marketplace prices can change within minutes.</p>
+
+<div class="callout">
+<p class="callout-title">Could a GPU in orbit be cheaper?</p>
+<p>Not under the central inputs of our panel's cost model. A GPU-hour costs about USD 1.62 in an Earth hyperscale data center and USD 8.53 in low Earth orbit at today's launch price of about USD 3,600/kg. These are model projections at cost, with no profit margin and a 1.2 kW slot per GPU. Try your own inputs in the <a href="space-data-center-cost-calculator.html">space data center cost calculator</a>.</p>
+</div>
+
+<p class="note">Correction, 5 Nov 2026: earlier versions of this article gave "starting" prices of USD 0.01-0.10 an hour with no GPU model, price type or date. We replaced them with the dated, sourced prices above.</p>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="gpu-price-index.html"><span aria-hidden="true">→</span> GPU rental price list, November 2026</a>
+<a href="pricing.html#gpu"><span aria-hidden="true">→</span> How GPU time works on MoltBot Cloud plans</a>
+<a href="ai-agent-hosting-guide.html"><span aria-hidden="true">→</span> AI agent hosting guide: running agents 24/7</a>
+<a href="space-data-center-cost-calculator.html"><span aria-hidden="true">→</span> Space data center cost calculator</a>
+<a href="blog-space-data-center-cost-2026.html"><span aria-hidden="true">→</span> Are data centers in space cheaper? The 2026 cost math</a>
+<a href="blog-ai-agent-pricing.html"><span aria-hidden="true">→</span> AI agent pricing comparison 2026</a>
+</div>
+
+<div class="cta">
+<h2>Run an agent without renting a whole GPU</h2>
+<p>MoltBot Cloud is in pre-order. The Base plan includes one always-on agent with the AI stack pre-installed and up to 60 shared GPU-hours a month on 24 GB-class GPUs, for $49 a month. Checkout is not open yet.</p>
+<a href="signup.html" class="btn">Join the waitlist <span aria-hidden="true">→</span></a>
+<p class="sub">7 days free at launch. Need more GPU time? Dedicated GPUs and extra hours cost the market rate plus 10%, from USD 0.18 an hour for a 24 GB card, quoted before you buy. See <a href="pricing.html#gpu">how GPU time works</a>.</p>
+</div>
+</article>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:var(--m);font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
 </body>
 </html>

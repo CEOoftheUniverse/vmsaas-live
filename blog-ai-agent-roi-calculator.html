@@ -53,7 +53,7 @@
         footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"AI Agent ROI Calculator: How Much Can You Save?","author":{"@type":"Organization","name":"MoltBot Cloud"},"datePublished":"2026-04-14","dateModified":"2026-07-02","description":"Interactive ROI calculator comparing AI agent costs vs traditional hiring."}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"AI Agent ROI Calculator: How Much Can You Save?","author":{"@type":"Organization","name":"MoltBot Cloud"},"datePublished":"2026-04-14","dateModified":"2026-11-05","description":"Interactive ROI calculator comparing AI agent costs vs traditional hiring."}
     </script>
 </head>
 <body>
@@ -77,25 +77,26 @@
 <option value="299">Enterprise — $299/mo (10 agents)</option>
 </select>
 </div>
-<div class="calc-row"><label>Productivity multiplier</label>
+<div class="calc-row"><label for="multiplier">Productivity multiplier (your assumption)</label>
 <select id="multiplier">
-<option value="2">2x (conservative)</option>
-<option value="3" selected>3x (typical)</option>
-<option value="5">5x (power users)</option>
-<option value="10">10x (enterprise swarm)</option>
+<option value="1.5">1.5x</option>
+<option value="2" selected>2x</option>
+<option value="3">3x</option>
+<option value="5">5x</option>
 </select>
 </div>
 </div>
 
 <div class="result-box">
 <div class="label">Annual savings with MoltBot</div>
-<div class="big" id="savings">$238,212</div>
-<div class="label" id="savings-detail">Equivalent to 1.9 developer salaries saved per year</div>
+<div class="big" id="savings">$598,212</div>
+<div class="label" id="savings-detail">Equivalent to 5.0 developer salaries saved per year</div>
+<div class="label" style="font-size:.75rem">Estimate from your inputs, not a measured result</div>
 </div>
 
 <div class="comparison">
 <div class="comp-card"><h4>Traditional Hire</h4><div class="cost" id="hire-cost" style="color:#ef4444">$120,000</div><div class="detail">Per year, per developer<br>+ benefits, onboarding, management</div></div>
-<div class="comp-card highlight"><h4>MoltBot Swarm</h4><div class="cost" id="agent-cost" style="color:var(--g)">$1,788</div><div class="detail">Per year, 3 agents<br>No benefits, no PTO, 24/7 uptime</div></div>
+<div class="comp-card highlight"><h4>MoltBot Swarm</h4><div class="cost" id="agent-cost" style="color:var(--g)">$1,788</div><div class="detail">Per year billed monthly ($1,428 billed yearly), 3 agents<br>No benefits, no PTO; always-on agents (planned)</div></div>
 </div>
 
 <h2>The Math Behind the Calculator</h2>
@@ -104,7 +105,7 @@
 
 <table>
 <tr><th>Cost Factor</th><th>Human Developer</th><th>MoltBot Agent</th></tr>
-<tr><td>Annual cost</td><td style="color:var(--t)">$120,000 - $200,000</td><td style="color:var(--g)">$588 - $3,588</td></tr>
+<tr><td>Annual cost</td><td style="color:var(--t)">$120,000 - $200,000</td><td style="color:var(--g)">$468 - $3,588 (planned plan prices)</td></tr>
 <tr><td>Benefits & overhead</td><td>+30-40%</td><td>$0</td></tr>
 <tr><td>Onboarding time</td><td>3-6 months</td><td>60 seconds</td></tr>
 <tr><td>Working hours</td><td>8hrs/day, M-F</td><td>24/7/365</td></tr>
@@ -115,13 +116,13 @@
 <h2>Real-World ROI Scenarios</h2>
 
 <h3>Scenario 1: Solo Founder</h3>
-<p>A solo founder using the <strong>Base plan ($49/mo)</strong> with a 3x multiplier effectively becomes a 3-person team. Annual cost: <strong>$588</strong> vs hiring 2 junior devs at $180,000+.</p>
+<p>A solo founder on the <strong>Base plan ($49/mo)</strong> who assumes a 3x multiplier would, in this model, ship like a 3-person team. Annual cost: <strong>$588</strong> billed monthly, or $468 billed yearly.</p>
 
 <h3>Scenario 2: Startup (5-Dev Team)</h3>
-<p>A 5-person team on <strong>Swarm ($149/mo)</strong> with 3 agents gets the output of an 8-person team. That's 3 "free" developers at <strong>$1,788/year</strong> instead of $360,000 in salaries.</p>
+<p>A 5-person team on <strong>Swarm ($149/mo, 3 agents)</strong> that assumes a 1.6x multiplier would, in this model, ship like an 8-person team: 3 developers' worth of extra output for <strong>$1,788 a year</strong> billed monthly ($1,428 billed yearly), against $360,000 for 3 hires at the calculator's $120,000 default salary.</p>
 
 <h3>Scenario 3: Enterprise (20-Dev Team)</h3>
-<p>A 20-person team on <strong>Enterprise ($299/mo)</strong> with 10 agents achieves 50-person output. The 30-developer equivalent gap costs <strong>$3,588/year</strong> vs $3.6M in additional headcount.</p>
+<p>A 20-person team on <strong>Enterprise ($299/mo, 10 agents)</strong> that assumes a 2.5x multiplier would, in this model, ship like a 50-person team. The plan costs <strong>$3,588 a year</strong> billed monthly, or $2,868 billed yearly, against $3.6M for 30 hires at the default salary.</p>
 
 <h2>What Tasks Generate the Best ROI?</h2>
 
@@ -141,7 +142,7 @@
 
 <div class="cta">
 <h3>Ready to Calculate Your Savings?</h3>
-<p style="color:var(--m);font-size:.9rem">Start with the Swarm plan and measure your team's output for 30 days. If agents don't 3x your velocity, cancel anytime.</p>
+<p style="color:var(--m);font-size:.9rem">Join the waitlist, then try the Swarm plan free for 7 days at launch and measure your team's output on a pilot project.</p>
 <a href="signup.html?plan=swarm" class="btn">Start Free Trial →</a>
 </div>
 
@@ -155,7 +156,7 @@ function calc() {
     const team = parseInt(document.getElementById('team-size').value) || 5;
     const salary = parseInt(document.getElementById('dev-salary').value) || 120000;
     const plan = parseInt(document.getElementById('plan').value) || 149;
-    const mult = parseInt(document.getElementById('multiplier').value) || 3;
+    const mult = parseFloat(document.getElementById('multiplier').value) || 2;
     const annualAgent = plan * 12;
     const equivalentDevs = team * (mult - 1);
     const equivalentSalary = equivalentDevs * salary;

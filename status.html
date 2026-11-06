@@ -56,8 +56,8 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <nav><div class="inner"><div class="brand">Molt<span>Bot</span> Status</div><div><a href="index.html">Home</a><a href="changelog.html">Changelog</a><a href="signup.html" style="color:var(--a);font-weight:700">Sign Up →</a></div></div></nav>
 <div class="c">
 <div class="status-banner ok" id="banner">
-    <div class="status-icon">✅</div>
-    <div class="status-text" id="banner-text">All Systems Operational</div>
+    <div class="status-icon">🕓</div>
+    <div class="status-text" id="banner-text">Pre-order: the hosted service is not running yet</div>
     <div class="status-sub" id="banner-sub">Last checked: loading...</div>
 </div>
 
@@ -66,12 +66,11 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
     <div class="service"><div><div class="svc-name">SaaS Backend (Vercel)</div><div class="svc-info">moltbot-cloud-saas.vercel.app</div></div><div class="svc-status"><span class="dot dot-g" id="d-saas"></span><span class="pill pill-g" id="p-saas">Checking...</span></div></div>
     <div class="service"><div><div class="svc-name">Omnisphere Gateway</div><div class="svc-info">Port 3005 — LLM Arbitrage Router</div></div><div class="svc-status"><span class="dot dot-o" id="d-gw"></span><span class="pill pill-o" id="p-gw">Local Only</span></div></div>
     <div class="service"><div><div class="svc-name">FastAPI Agent Backend</div><div class="svc-info">Port 8080 — Agent Orchestration</div></div><div class="svc-status"><span class="dot dot-o" id="d-api"></span><span class="pill pill-o" id="p-api">Local Only</span></div></div>
-    <div class="service"><div><div class="svc-name">Stripe Payments</div><div class="svc-info">Checkout & Billing</div></div><div class="svc-status"><span class="dot dot-g"></span><span class="pill pill-g">Operational</span></div></div>
+    <div class="service"><div><div class="svc-name">Stripe Payments</div><div class="svc-info">Checkout & Billing</div></div><div class="svc-status"><span class="dot dot-o"></span><span class="pill pill-o">Not live yet (pre-order)</span></div></div>
 </div>
 
-<h2>90-Day Uptime</h2>
-<div class="uptime-bar" id="uptime-bar"></div>
-<div class="bar-labels"><span>90 days ago</span><span>Today</span></div>
+<h2>Uptime history</h2>
+<div class="uptime-bar" id="uptime-bar" aria-live="polite" style="display:block;height:auto;color:#a1a1aa;font-size:.85rem"></div>
 
 <h2>Recent Incidents</h2>
 <div class="incident-list">
@@ -84,14 +83,9 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <footer><div class="c">© 2026 MoltBot Cloud · <a href="index.html" style="color:var(--a)">Home</a> · <a href="terms.html" style="color:var(--a)">Terms</a></div></footer>
 
 <script>
-// Generate uptime bars
+// No uptime history yet: MoltBot Cloud is in pre-order, so there is no live service to measure.
 const bar = document.getElementById('uptime-bar');
-for (let i = 0; i < 90; i++) {
-    const seg = document.createElement('div');
-    seg.className = 'bar-segment' + (i === 77 ? ' partial' : '');
-    seg.title = `Day ${90 - i}: ${i === 77 ? '99.2%' : '100%'}`;
-    bar.appendChild(seg);
-}
+bar.textContent = 'No uptime history yet. MoltBot Cloud is in pre-order; we will start tracking uptime at launch.';
 
 // Live check SaaS backend
 async function checkSaaS() {

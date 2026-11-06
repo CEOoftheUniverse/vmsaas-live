@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Data Centers on Mars: Resources, Radiation and a 2060 Timeline</title>
+<meta name="description" content="Could AI data centers on Mars work? Soil, ice, radiation, a 3-22 minute link to Earth, our 5.56x cost model and a staged timeline to 2060, all sourced.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/blog-mars-ai-data-centers.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="AI Data Centers on Mars: Resources, Radiation and a 2060 Timeline">
+<meta property="og:description" content="Mars could supply most of an orbital AI module's mass, radiation is a solvable task, and our model puts Mars-orbit compute at 5.56x Earth cost. Sourced math.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/blog-mars-ai-data-centers.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta property="article:published_time" content="2026-11-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Data Centers on Mars: Resources, Radiation and 2060">
+<meta name="twitter:description" content="Mars soil, radiation, a 3-22 minute link and a 5.56x cost model: when could AI compute in Mars orbit make sense?">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"AI Data Centers on Mars: Resources, Radiation and a 2060 Timeline","description":"Could AI data centers on Mars be built from Martian materials and run in Mars orbit? Resources, radiation, the Earth link, a sourced cost model and a staged timeline to 2060.","inLanguage":"en","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}},"datePublished":"2026-11-05","dateModified":"2026-11-05","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ceooftheuniverse.github.io/vmsaas-live/blog-mars-ai-data-centers.html"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"AI Data Centers on Mars","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog-mars-ai-data-centers.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Can AI data centers be built on Mars?","acceptedAnswer":{"@type":"Answer","text":"Mostly. Local soil, air and ice could supply about 87-90% of an orbital AI module's mass with crude local solar panels, but chips come from Earth for decades. The panel projects that Mars-orbit compute makes sense after about 2050-60, for Mars-local users and batch jobs."}},
+{"@type":"Question","name":"Is radiation on Mars too strong for AI chips?","acceptedAnswer":{"@type":"Answer","text":"Not for total dose: chips at Mars get about 10x less than in low Earth orbit. Heavy ions and solar storms may still raise silent-error rates, so designs need error-correcting memory, checkpoints and storm safe modes."}},
+{"@type":"Question","name":"How long does data take between Mars and Earth?","acceptedAnswer":{"@type":"Answer","text":"3.0-22.3 minutes one way. The best laser link at Mars-like distance carried about 25 Mbps, so Mars suits batch jobs, not chat."}},
+{"@type":"Question","name":"What would a Mars-orbit data center cost?","acceptedAnswer":{"@type":"Answer","text":"In our model, 5.56x an Earth data center with Mars-made bulk parts and 4.51x with everything shipped from Earth, if freight to Mars orbit falls to about USD 1,500/kg. At SpaceX's advertised Mars cargo price it would be 146x."}},
+{"@type":"Question","name":"Is anyone planning AI data centers on Mars?","acceptedAnswer":{"@type":"Answer","text":"Not as of November 2026. AI compute flies in Earth orbit, and SpaceX moved its priority to the Moon, where its filings describe factories for AI satellites."}}
+]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444;--al:#818cf8}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;white-space:nowrap}
+nav .brand span{color:var(--a)}
+nav .links{display:flex;align-items:center}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem}
+nav .links a{display:inline-block;padding:.6rem 0}
+nav a.brand{margin-left:0}
+nav a.trial{color:var(--a);font-weight:700}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.55rem,5.4vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:2rem;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,3.8vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:1.5rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong{color:var(--t)}
+a{color:var(--a)}
+.c p a,.c li a,.c td a{color:var(--al)}
+sub{font-size:.7em;line-height:0}
+.list{color:var(--m);font-size:.9rem;margin:0 0 1rem 1.2rem}
+.list li{margin-bottom:.55rem}
+.tcap{color:var(--t);font-weight:600;font-size:.85rem;margin:1.75rem 0 .5rem}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+.tcap+.tw{margin-top:0}
+.tw:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;font-size:.82rem}
+table.wide{min-width:600px}
+th,td{padding:.65rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--b)}
+th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.7rem;letter-spacing:.5px}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr.hl td{background:rgba(99,102,241,.07)}
+.ok{color:var(--g);font-weight:600}
+.imp{color:var(--o);font-weight:600}
+.note{font-size:.78rem;margin:-.75rem 0 1.5rem}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout p:last-child{margin-bottom:0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--al)}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr strong{color:var(--g)}
+.tldr p{margin-bottom:.4rem}
+.tldr .list{margin-bottom:0}
+.tldr .list li:last-child{margin-bottom:0}
+.cta{text-align:center;padding:2.5rem;background:var(--s);border:1px solid var(--b);border-radius:16px;margin:2rem 0}
+.cta h2{margin:0 0 .5rem}
+.cta .sub{font-size:.8rem;margin:1rem 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.75rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem}
+.related{margin:2rem 0}
+.related h2{font-size:1rem;margin:0 0 .5rem}
+.related a{display:block;color:var(--al);text-decoration:none;padding:.7rem 0;font-size:.85rem;line-height:1.6}
+.related a:hover,.related a:focus-visible{text-decoration:underline}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-block}
+.c{padding:5rem 1rem 3rem}
+.cta{padding:1.75rem 1rem}
+th,td{padding:.55rem .6rem}
+.tcap.sw::after{content:" (scroll sideways)";font-weight:400;color:var(--m)}
+}
+</style>
+</head>
+<body>
+<nav><div class="inner"><a href="index.html" class="brand">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
+
+<article class="c">
+<h1>AI Data Centers on Mars: Resources, Radiation and a 2060 Timeline</h1>
+<div class="meta"><span>November 5, 2026</span><span>9 min read</span><span>Space compute</span></div>
+
+<div class="tldr">
+<p><strong>TL;DR</strong></p>
+<ul class="list">
+<li>Mars soil, air and ice could supply about <strong>87-90%</strong> of an orbital AI module's mass if it uses crude local solar panels (a projection). Chips still come from Earth.</li>
+<li>Radiation is a solvable task: chips at Mars get about <strong>10x less</strong> total dose than in low Earth orbit. Silent errors and solar storms are the engineering work.</li>
+<li>The link limits the job: Mars is <strong>3.0-22.3 light-minutes</strong> away, with about <strong>25 Mbps</strong> shown by laser.</li>
+<li>Our cost model: <strong>5.56x</strong> Earth (central), <strong>4.51x</strong> if all hardware ships from Earth, and a <strong>2.02x</strong> floor even with free Mars parts.</li>
+<li>The panel's projected timeline: Earth-orbit demos now, Moon factories in the 2040s, Mars industry in the 2050s-70s, Mars-orbit compute after about <strong>2050-60</strong>.</li>
+</ul>
+</div>
+
+<p>Could AI data centers on Mars be built from Martian rock and run in orbit around the planet? Physically, mostly yes. Economically, not for decades, and no company or agency plans one as of November 2026.</p>
+
+<h2 id="resources">Does Mars have the resources for a data center?</h2>
+<p>Yes, for the heavy parts. Average Martian soil is 46.5 wt% silica, 16.4 wt% iron oxides and 10.5 wt% alumina (<a href="https://sciences.ucf.edu/class/wp-content/uploads/sites/23/2019/11/MingMorris2017.pdf">Ming and Morris 2017</a>), so 1 km² dug 1 m deep holds about 326,000 t of silicon and 186,000 t of iron. Buried ice under Utopia Planitia holds up to 14,300 km³ of water (<a href="https://www.jpl.nasa.gov/news/mars-ice-deposit-holds-as-much-water-as-lake-superior/">NASA JPL</a>).</p>
+<p>Quantity is not the bottleneck. In our model, 1 GW of orbital hardware needs about 60,100 t of local bulk per 5-year hardware generation, or 0.51 km² of soil dug 1 m deep at 50% yield. A modelled 1 MW module in high Mars orbit could be 87-90% Mars-made by mass with crude local solar panels, or 29-31% with flight-grade panels from Earth (projection; the energy to lift surface-made parts to orbit is not counted).</p>
+
+<p class="tcap" id="t-res">Table 1. What Mars can supply for a data center</p>
+<div class="tw" role="region" aria-labelledby="t-res" tabindex="0">
+<table aria-labelledby="t-res">
+<thead><tr><th scope="col">Material</th><th scope="col">What Mars has</th><th scope="col">Use</th><th scope="col">Verdict</th></tr></thead>
+<tbody>
+<tr><td>Silicon</td><td>SiO<sub>2</sub> 46.5 wt%; ~326,000 t of Si per km²</td><td>Solar cells, glass</td><td class="ok">Plenty</td></tr>
+<tr><td>Iron, magnesium</td><td>Iron oxides 16.4 wt%; ~186,000 t of Fe and ~81,000 t of Mg per km²</td><td>Structure</td><td class="ok">Plenty</td></tr>
+<tr><td>Aluminium</td><td>Al<sub>2</sub>O<sub>3</sub> 10.5 wt%; ~83,000 t per km²</td><td>Radiators, cabling</td><td class="ok">Plenty</td></tr>
+<tr><td>Water ice</td><td>Up to 14,300 km³ at Utopia Planitia; 1.6 million km³ at the south pole</td><td>Propellant, coolant, shielding</td><td class="ok">Plenty</td></tr>
+<tr><td>Carbon, nitrogen</td><td>Air: 95.1% CO<sub>2</sub>, 2.59% N<sub>2</sub></td><td>Fuel, coolant</td><td class="ok">Plenty</td></tr>
+<tr><td>Copper, gallium, indium, rare earths</td><td>No ore body found</td><td>Wiring, power chips, magnets</td><td class="imp">Import</td></tr>
+<tr><td>AI chips, HBM memory</td><td>No fab; one would draw ~110-165 MW</td><td>Accelerators</td><td class="imp">Import for decades</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Per km² dug 1 m deep, at an assumed 1.5 t/m³. Sources: <a href="https://sciences.ucf.edu/class/wp-content/uploads/sites/23/2019/11/MingMorris2017.pdf">Ming and Morris</a>, <a href="https://www.jpl.nasa.gov/news/mars-ice-deposit-holds-as-much-water-as-lake-superior/">NASA JPL</a>, <a href="https://space.physics.uiowa.edu/~dag/publications/2007_SubsurfaceRadarSoundingOfTheSouthPolarLayeredDepositsOfMars_science.pdf">Plaut et al. 2007</a>, <a href="https://www.sciencedaily.com/releases/2019/11/191112114014.htm">Curiosity air data</a>, <a href="https://www.jpl.nasa.gov/news/nasa-is-locating-ice-on-mars-with-this-new-map/">NASA ice map</a>.</p>
+
+<h2 id="missing">What Mars cannot make yet</h2>
+<p>Chips are the clear gap. A leading-edge fab uses about 2,000-3,000 kWh per 300 mm wafer (<a href="https://iedm23.mapyourshow.com/mys_shared/iedm23/handouts/28-1_Wed_13242.pdf">imec data, IEDM 2023</a>), so a 40,000-wafer-a-month plant draws about 110-165 MW. Chips, memory and power electronics will come from Earth for decades.</p>
+<p>Factories are the open task. Only 122 g of oxygen has ever been made on Mars, by MOXIE in 16 runs during 2021-2023 (<a href="https://aeroastro.mit.edu/news-impact/oxygen-generating-experiment-moxie-completes-mars-mission">MIT AeroAstro</a>), and the panel dates a 1 t-a-day propellant plant to 2035 or later. Power gates every step. NASA's first lunar reactor, now in procurement, asks for at least 20 kWe in under 15 t for a 2030 landing (<a href="https://newspaceeconomy.ca/2026/09/01/what-does-nasas-sparc-lunar-reactor-procurement-reveal-about-lunar-reactor-1/">New Space Economy</a>), while a 1,000 t-a-year factory needs 5-10 MWe by the panel's estimate.</p>
+
+<div class="callout">
+<p class="callout-title">Why chips set the bill</p>
+<p>In our model, chips are about 65% of an Earth data center's cost and electricity only 5-10%. Free sunlight cannot pay for freight and for chips that fail with nobody there to swap them.</p>
+</div>
+
+<h2 id="radiation">Is radiation on Mars a problem for electronics?</h2>
+<p>It is a solvable task, and the yearly dose at Mars is about a tenth of low Earth orbit.</p>
+
+<p class="tcap" id="t-rad">Table 2. Radiation dose for chips: Earth orbit vs Mars</p>
+<div class="tw" role="region" aria-labelledby="t-rad" tabindex="0">
+<table aria-labelledby="t-rad">
+<thead><tr><th scope="col">Place</th><th scope="col">Dose in silicon</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><td>Low Earth orbit, behind 10 mm of aluminium</td><td>~150 rad/yr (projection)</td><td><a href="https://arxiv.org/abs/2511.19468">Google beam test</a></td></tr>
+<tr><td>Cruise to Mars</td><td>0.33 mGy/day, ~12 rad/yr (~18 at solar minimum)</td><td><a href="https://arxiv.org/pdf/1503.06631">Curiosity in cruise</a></td></tr>
+<tr><td>400 km Mars orbit, 2018-19</td><td>352-366 µGy/day, ~13 rad/yr</td><td><a href="https://www.spaceclimate.bas.bg/ws-sozopol/pdf/Articles/Semkova2025.pdf">ExoMars TGO</a></td></tr>
+<tr><td>Mars surface</td><td>0.21 mGy/day, ~8 rad/yr</td><td><a href="https://www.swri.org/press-release/swri-scientists-publish-first-radiation-measurements-surface-mars">Curiosity RAD</a></td></tr>
+<tr class="hl"><td>Solar storm, Mars orbit, 20-24 May 2024</td><td>24.7 mGy in 64 h</td><td><a href="https://www.spaceclimate.bas.bg/ws-sozopol/pdf/Articles/Semkova2025.pdf">ExoMars TGO</a></td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">1 rad = 10 mGy. Cosmic-ray dose swings with the solar cycle: in Mars orbit it fell to about 6 µGy/h at solar maximum, October 2024 to May 2025 (<a href="https://www.spaceclimate.bas.bg/ws-sozopol/pdf/Articles/Semkova2025.pdf">ExoMars TGO</a>). Instruments and shielding differ, so compare orders of magnitude.</p>
+
+<p>Total dose leaves a wide margin. In <a href="https://arxiv.org/abs/2511.19468">Google's proton-beam test</a>, a Trillium TPU showed no hard failures up to 15 krad, 20x the 750 rad it would collect over a 5-year low Earth orbit mission, and its HBM memory showed irregularities from 2 krad. The test used 67 MeV protons only, so heavy-ion effects are still untested, and no in-orbit error data is published yet.</p>
+<p>The engineering task is silent data corruption, where a flipped bit gives a wrong answer without a crash. In low Earth orbit, <a href="https://arxiv.org/abs/2511.19468">Google's beam data</a> imply about 7.5-10 events per chip-year, roughly one every 6 minutes across 10,000 chips. Inference tolerates it. Training must design around it with error-correcting memory, frequent checkpoints and redundant runs. Ground clusters already use these tools against hardware faults: <a href="https://arxiv.org/pdf/2407.21783">Meta's Llama 3 run</a> logged 419 unexpected interruptions in 54 days on 16,384 H100s.</p>
+<p>Mars adds two tasks. The May 2024 storm delivered as much dose as about 200 days of cosmic rays in under three days, and it came from the far side of the Sun, where Earth's GOES satellites barely registered it (<a href="https://www.spaceclimate.bas.bg/ws-sozopol/pdf/Articles/Semkova2025.pdf">ExoMars TGO data</a>). Recovery must be automatic: the <a href="https://en.wikipedia.org/wiki/Mars_Reconnaissance_Orbiter">Mars Reconnaissance Orbiter</a> had four spontaneous resets in 2009, with radiation suspected but not confirmed. Mars hardware needs storm safe modes, a local space-weather watch and software that restarts on its own.</p>
+<p>The tooling is still open. NVIDIA has disclosed no single-event mitigation for its <a href="https://www.nvidia.com/en-us/edge-computing/space-computing/">Space-1 Vera Rubin module</a>, and the panel's physics critic found only one small open-source radiation-tolerant ML framework. Our <a href="radiation-tolerant-ai-runtime.html">radiation-tolerant AI runtime</a>, now in development, targets this gap.</p>
+
+<h2 id="link">How fast can Mars orbit computing talk to Earth?</h2>
+<p>Mars sits 3.0-22.3 light-minutes away as the planets move (distances from the <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">NASA Mars fact sheet</a>), so a round trip takes 6-45 minutes, and a solar conjunction blocks the link for two to three weeks every 26 months. NASA's <a href="https://www.jpl.nasa.gov/news/nasas-optical-comms-demo-transmits-data-over-140-million-miles/">DSOC laser</a> reached 25 Mbps at 226 million km in 2024. By our estimate, serving Earth users from Mars would need 2,000-20,000x that per GW of text inference.</p>
+<p>Data-light work fits. A 60-160 TB training corpus streams up in 90 days at 62-165 Mbps, which is 2.5-7x what DSOC reached and, by our estimate, within reach of 2030s laser relays. Freight waits for launch windows every 26 months; after the late-2026 window, the next open around December 2028, February 2031 and April 2033. So Mars-orbit compute suits Mars-local work best (robot autonomy, prospecting, construction planning), then batch jobs like training, reinforcement learning and synthetic data. Chat and agent hosting for Earth users stay on Earth.</p>
+
+<h2 id="cost">What would AI data centers on Mars cost? Our model's answer</h2>
+<p>The panel's cost model gives USD per delivered kW of IT per year (5-year chips, 8% cost of capital, no margin), including the 9% of chips a year that fail in space with no repair. A GPU-hour assumes a 1.2 kW slot.</p>
+
+<p class="tcap sw" id="t-cost">Table 3. Cost of AI compute by site (the panel's model, central inputs, USD 2026)</p>
+<div class="tw" role="region" aria-labelledby="t-cost" tabindex="0">
+<table class="wide" aria-labelledby="t-cost">
+<thead><tr><th scope="col">Scenario</th><th scope="col" class="n">vs Earth</th><th scope="col" class="n">Earliest</th><th scope="col" class="n">USD per GPU-hour</th><th scope="col" class="n">USD per kW-year</th></tr></thead>
+<tbody>
+<tr><td>Earth hyperscale, grid power</td><td class="n">1.00x</td><td class="n">2026</td><td class="n">1.62</td><td class="n">11,839</td></tr>
+<tr><td>Low Earth orbit at USD 200/kg launch</td><td class="n">1.92x</td><td class="n">2035</td><td class="n">3.12</td><td class="n">22,763</td></tr>
+<tr><td>Moon-made bulk shipped to low Earth orbit</td><td class="n">2.17x</td><td class="n">2045</td><td class="n">3.52</td><td class="n">25,726</td></tr>
+<tr><td>Mars orbit, all hardware shipped from Earth</td><td class="n">4.51x</td><td class="n">2045</td><td class="n">7.31</td><td class="n">53,421</td></tr>
+<tr class="hl"><td><strong>Mars orbit, Mars-made bulk, central</strong></td><td class="n"><strong>5.56x</strong></td><td class="n"><strong>2060</strong></td><td class="n"><strong>9.01</strong></td><td class="n"><strong>65,835</strong></td></tr>
+<tr><td>Mars surface, fission-powered</td><td class="n">12.94x</td><td class="n">2040</td><td class="n">20.98</td><td class="n">153,226</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Low- and high-cost Mars bases give 2.71x (2050) and 24.87x (2070). Moon and Mars rows assume about USD 100/kg to low Earth orbit, and the Mars rows about USD 1,500/kg from Earth to Mars orbit; neither price has been demonstrated.</p>
+
+<p>Shipping everything from Earth (4.51x) beats Mars-made bulk (5.56x) until freight to Mars orbit tops about USD 2,550/kg. At SpaceX's advertised Mars cargo price of USD 100,000/kg (<a href="https://www.benzinga.com/news/space/25/10/48168768/elon-musks-spacex-eyes-100-million-per-ton-mars-cargo-missions-by-2030-as-11th-starship-launch-approaches">Benzinga</a>, <a href="https://teslanorth.com/2025/10/12/spacex-starship-to-begin-moon-cargo-missions-in-2028-mars-flights-by-2030">TeslaNorth</a>), Mars compute would cost 146x Earth. Even free Mars-made hardware leaves a 2.02x floor, because chips still come from Earth, arrive about 1.75 years late and fail with no repair. Try the inputs in our <a href="space-data-center-cost-calculator.html">space data center cost calculator</a>.</p>
+
+<h2 id="roadmap">When could it happen? A staged roadmap to 2060</h2>
+<p>Each step gets proven closer to home first. In February 2026 SpaceX moved its priority from Mars to the Moon; Musk said ships can fly to the Moon about every 10 days, against one Mars window every 26 months (<a href="https://payloadspace.com/spacex-delays-mars-plans-in-favor-of-the-moon/">Payload</a>, <a href="https://www.nbcnews.com/science/space/spacex-prioritizes-moon-before-mars-musk-says-rcna258168">NBC News</a>). Its IPO filings describe lunar factories for AI satellites, with chips shipped from Earth (announced, no date; <a href="https://thenextweb.com/news/spacex-moon-factories-ai-compute-satellites-lunar-mass-driver">The Next Web</a>). Escaping the Moon takes 0.79 kWh/kg against 3.5 kWh/kg for Mars.</p>
+
+<p class="tcap sw" id="t-road">Table 4. Five stages from Earth to Mars orbit</p>
+<div class="tw" role="region" aria-labelledby="t-road" tabindex="0">
+<table class="wide" aria-labelledby="t-road">
+<thead><tr><th scope="col">Stage</th><th scope="col">When</th><th scope="col">Where</th><th scope="col">What it proves</th></tr></thead>
+<tbody>
+<tr><td>0 · Earth</td><td>Now</td><td>Ground data centers</td><td>Cheapest compute today</td></tr>
+<tr><td>1 · Earth orbit</td><td>Demos now; MW to GW in 2030-40</td><td>Dawn-dusk orbit, 550-800 km</td><td>Solar compute, cooling, radiation</td></tr>
+<tr><td>2 · Moon</td><td>2040s (median 2045-48)</td><td>South-pole factories, mass driver</td><td>Robots turn regolith into hardware</td></tr>
+<tr><td>3 · Mars industry</td><td>2050s-70s</td><td>Surface, Phobos, Deimos</td><td>Local propellant, panels, structure</td></tr>
+<tr class="hl"><td>4 · Mars-orbit compute</td><td>After about 2050-60</td><td>Dawn-dusk Mars orbit at 1,000 km or higher, or a Deimos dock</td><td>Mars-local users, batch jobs</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Every date after "now" is the panel's projection.</p>
+
+<p>The panel's red team puts the chance that Mars-orbit compute serves Earth customers before 2060 at under 5%.</p>
+
+<h2 id="where">Where would it go? Phobos, Deimos or a high orbit</h2>
+<p>The panel's pick for a compute site is an eclipse-free dawn-dusk Mars orbit at 1,000 km or higher, or a dock at Deimos. Sunlight there averages 586 W/m², 43% of Earth orbit (<a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">NASA Mars fact sheet</a>). By the panel's orbital math, surface-made hardware needs about 5.3-5.5 km/s to reach areostationary orbit, while Deimos sits about 0.1 km/s from it and Phobos about 0.66 km/s. <a href="https://www.mmx.jaxa.jp/en/">JAXA's MMX</a>, launched in October 2026, is due to land on Phobos in 2029-2030 and return samples in 2031, showing what Phobos is made of.</p>
+
+<h2 id="change">What would change the answer</h2>
+<p>Each condition has a milestone you can track:</p>
+<ul class="list">
+<li><strong>Delivery near USD 2,000/kg</strong>, 50x below the advertised price. It needs ship-to-ship propellant transfer, whose first demo now targets early 2027 (<a href="https://en.wikipedia.org/wiki/Starship_Propellant_Transfer_Demonstration">propellant transfer demo status</a>).</li>
+<li><strong>Customers at Mars</strong>, such as a settlement or robot economy.</li>
+<li><strong>Gbps laser links</strong>, about 40x the 25 Mbps DSOC reached. If deep-space data rates keep growing about 10x per decade, as <a href="https://ntrs.nasa.gov/citations/20210008546">JPL expects</a>, that arrives around 2040 (our extrapolation).</li>
+<li><strong>Megawatt fission.</strong> Today's 1-40 kWe designs and NASA's <a href="https://newspaceeconomy.ca/2026/09/01/what-does-nasas-sparc-lunar-reactor-procurement-reveal-about-lunar-reactor-1/">LR-1 lunar reactor draft</a> sit at about 150-750 kg per kWe, and a factory needs 5-10 MWe.</li>
+<li><strong>Robots that repair robots</strong> through 26-month resupply gaps.</li>
+<li><strong>Heavy-ion tests and in-orbit error data</strong> for current GPUs and HBM.</li>
+<li><strong>A US licence path</strong> for private industry at Mars. The <a href="https://space.commerce.gov">Office of Space Commerce</a>'s 2026 certification pilot names orbital computing and lunar operations, but not Mars.</li>
+</ul>
+
+<h2 id="watch">Watch it for real</h2>
+<ul class="list">
+<li><a href="https://www.youtube.com/watch?v=DpWXBlqWfIc">Making Oxygen on Mars</a>, MIT AeroAstro (real footage): how MOXIE turned Martian CO<sub>2</sub> into oxygen.</li>
+<li><a href="https://www.youtube.com/watch?v=8NPgswgbTnE">Testing AI chips to survive in space</a>, Google (real footage): qualifying TPUs for launch loads and radiation.</li>
+<li><a href="https://www.youtube.com/watch?v=GvJtVOmFs5Q">The Video NASA's Laser Communications Experiment Streamed From Deep Space</a>, NASA JPL (real footage): the first HD video sent by laser from deep space, 2023.</li>
+<li><a href="https://www.youtube.com/watch?v=DTNRc2N1vbg">Perseverance AutoNav Avoids a Boulder</a>, NASA JPL (replay of real telemetry): a rover planning its own path.</li>
+<li><a href="https://www.youtube.com/watch?v=u3SBNgwVVCk">MMX Martian Moons eXploration mission movie (2025 edition)</a>, JAXA (mission animation): the Phobos sample return due in 2031.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+<h3>Can AI data centers be built on Mars?</h3>
+<p>Mostly. Local soil, air and ice could supply about 87-90% of an orbital AI module's mass with crude local solar panels, but chips come from Earth for decades. The panel projects that Mars-orbit compute makes sense after about 2050-60, for Mars-local users and batch jobs.</p>
+<h3>Is radiation on Mars too strong for AI chips?</h3>
+<p>Not for total dose: chips at Mars get about 10x less than in low Earth orbit. Heavy ions and solar storms may still raise silent-error rates, so designs need error-correcting memory, checkpoints and storm safe modes.</p>
+<h3>How long does data take between Mars and Earth?</h3>
+<p>3.0-22.3 minutes one way. The best laser link at Mars-like distance carried about 25 Mbps, so Mars suits batch jobs, not chat.</p>
+<h3>What would a Mars-orbit data center cost?</h3>
+<p>In our model, 5.56x an Earth data center with Mars-made bulk parts and 4.51x with everything shipped from Earth, if freight to Mars orbit falls to about USD 1,500/kg. At SpaceX's advertised Mars cargo price it would be 146x.</p>
+<h3>Is anyone planning AI data centers on Mars?</h3>
+<p>Not as of November 2026. AI compute flies in Earth orbit, and SpaceX moved its priority to the Moon, where its filings describe factories for AI satellites.</p>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="blog-space-data-center-cost-2026.html"><span aria-hidden="true">→ </span>Are data centers in space cheaper? The 2026 cost math</a>
+<a href="blog-maglev-rocket-launch-assist.html"><span aria-hidden="true">→ </span>Maglev launch assist: what an underground track really buys</a>
+<a href="radiation-tolerant-ai-runtime.html"><span aria-hidden="true">→ </span>Radiation-tolerant AI runtime (in development)</a>
+<a href="space-data-center-cost-calculator.html"><span aria-hidden="true">→ </span>Space data center cost calculator</a>
+<a href="space-compute-feasibility-memo.html"><span aria-hidden="true">→ </span>Space-compute feasibility memo (pre-order)</a>
+</div>
+
+<div class="cta">
+<h2>Run the Mars numbers yourself</h2>
+<p>Compare Earth, orbit, Moon and Mars with the formulas behind this article.</p>
+<a href="space-data-center-cost-calculator.html" class="btn">Open the cost calculator<span aria-hidden="true">&nbsp;→</span></a>
+<p class="sub">Planning a real project? <a href="space-compute-feasibility-memo.html">Request a feasibility memo</a> (pre-order).</p>
+</div>
+</article>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+</body>
+</html>

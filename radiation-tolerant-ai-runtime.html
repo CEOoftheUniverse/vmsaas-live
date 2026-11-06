@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiation-Tolerant AI Runtime and Bit-Flip Budget Calculator</title>
+<meta name="description" content="Size the bit-flip budget for AI chips in orbit: silent errors, checkpoint interval and overhead. Join early access to our planned open-source runtime.">
+<link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/radiation-tolerant-ai-runtime.html">
+<meta name="theme-color" content="#09090b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Radiation-Tolerant AI Runtime and Bit-Flip Budget Calculator">
+<meta property="og:description" content="Radiation flips bits in orbit. Estimate silent errors, checkpoint intervals and overhead for your fleet, and join early access to our planned open-source runtime.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MoltBot Cloud">
+<meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/radiation-tolerant-ai-runtime.html">
+<meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Radiation-Tolerant AI Runtime: Bit-Flip Budget">
+<meta name="twitter:description" content="Estimate silent errors, checkpoint intervals and overhead for AI chips in orbit. Early access to a planned open-source runtime.">
+<meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MoltBot Cloud radiation-tolerant AI runtime","applicationCategory":"DeveloperApplication","description":"Planned open-source runtime to keep AI training and inference correct when radiation flips bits. Planned v0.1: fault injection, ABFT checksums for matrix multiplies, and SEU-aware checkpoint and rollback. ECC/DCGM telemetry and fault-tolerant inference are planned for a later release. In development; early access.","creativeWorkStatus":"In development","featureList":["Fault injection (planned v0.1)","ABFT checksums for matrix multiplies (planned v0.1)","SEU-aware checkpoint and rollback (planned v0.1)","ECC and DCGM telemetry (planned, later release)","Fault-tolerant inference (planned, later release)"],"datePublished":"2026-11-05","dateModified":"2026-11-05","url":"https://ceooftheuniverse.github.io/vmsaas-live/radiation-tolerant-ai-runtime.html","image":"https://ceooftheuniverse.github.io/vmsaas-live/og-blog.png","author":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/","logo":{"@type":"ImageObject","url":"https://ceooftheuniverse.github.io/vmsaas-live/og-image.png"}}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Bit-flip budget calculator","applicationCategory":"DeveloperApplication","operatingSystem":"Any (runs in a web browser)","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"description":"Estimates silent errors per day, the fleet's mean time between errors, the Young/Daly checkpoint interval and checkpoint overhead for AI chips exposed to radiation.","url":"https://ceooftheuniverse.github.io/vmsaas-live/radiation-tolerant-ai-runtime.html#calculator","datePublished":"2026-11-05","dateModified":"2026-11-05","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://ceooftheuniverse.github.io/vmsaas-live/blog.html"},{"@type":"ListItem","position":3,"name":"Radiation-tolerant AI runtime","item":"https://ceooftheuniverse.github.io/vmsaas-live/radiation-tolerant-ai-runtime.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Does radiation break AI chips in orbit?","acceptedAnswer":{"@type":"Answer","text":"Not in the tests so far. In Google's proton-beam test, a Trillium TPU had no hard failures up to 150 Gy (15 krad), 20x the dose of a 5-year mission in low Earth orbit. Heavy ions are still untested, and the bigger task is silent bit flips."}},
+{"@type":"Question","name":"What is silent data corruption?","acceptedAnswer":{"@type":"Answer","text":"A bit flip that changes a result without a crash or an error message. In low Earth orbit it happens about 7.5-10 times per chip-year, so a 10,000-chip fleet sees one about every 6 minutes. Inference tolerates it. Training needs checks such as ABFT checksums, error-correcting memory and checkpoints."}},
+{"@type":"Question","name":"How often should a GPU fleet in orbit checkpoint?","acceptedAnswer":{"@type":"Answer","text":"A common rule is the Young/Daly interval: the square root of 2 × checkpoint time × mean time between errors. For 10,000 chips at 7.5 errors per chip-year and a 60-second checkpoint, that is about every 3.7 minutes, at about 53% extra run time. The calculator on this page works it out for your fleet."}},
+{"@type":"Question","name":"Is the runtime available, and will it be open source?","acceptedAnswer":{"@type":"Answer","text":"Not yet. It is in development, and v0.1 is planned as open source, with fault injection, ABFT checksums and SEU-aware checkpoint and rollback. ECC/DCGM telemetry and fault-tolerant inference are planned for a later release. There is no release date yet. Join early access to hear first."}},
+{"@type":"Question","name":"Does it help GPU clusters on Earth too?","acceptedAnswer":{"@type":"Answer","text":"It is designed to. Large ground clusters fail often too: Meta's Llama 3 run on 16,384 H100 GPUs had 419 unexpected interruptions in 54 days. The same planned fault injection, checksums, checkpoint tuning and ECC telemetry would apply on Earth."}}
+]}
+</script>
+<style>
+:root{--bg:#09090b;--s:#18181b;--b:rgba(255,255,255,.06);--t:#f4f4f5;--m:#a1a1aa;--a:#6366f1;--g:#22c55e;--c:#06b6d4;--o:#f59e0b;--r:#ef4444;--in:#0f0f12;--line:rgba(255,255,255,.14);--link:#818cf8}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.8;overflow-wrap:break-word}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:1rem;top:.75rem;z-index:200;background:var(--a);color:#fff;padding:.55rem 1rem;border-radius:8px;text-decoration:none;font-weight:600}
+nav{background:rgba(9,9,11,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--b);position:fixed;top:0;width:100%;z-index:99}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+nav .brand{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--t);text-decoration:none;white-space:nowrap}
+nav .brand span{color:var(--a)}
+nav .links{display:flex;align-items:center}
+nav a{color:var(--m);text-decoration:none;font-size:.875rem;font-weight:500;margin-left:1.25rem}
+nav .links a{display:inline-block;padding:.6rem 0}
+nav a.brand{margin-left:0}
+nav a.trial{color:var(--a);font-weight:700}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:4px}
+.c{max-width:720px;margin:0 auto;padding:5.5rem 2rem 4rem}
+[id]{scroll-margin-top:80px}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(1.55rem,5.4vw,2.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:1rem}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.15rem,3.8vw,1.3rem);line-height:1.35;margin:2.5rem 0 1rem}
+h3{font-size:1rem;line-height:1.45;margin:1.5rem 0 .6rem}
+p{color:var(--m);font-size:.9rem;margin-bottom:1rem}
+strong{color:var(--t)}
+a{color:var(--link)}
+sub,sup{font-size:.7em;line-height:0}
+.pill{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;color:var(--t);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.32);border-radius:999px;padding:.3rem .8rem;margin-bottom:1rem;line-height:1.4}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--o);flex:none}
+.lead{font-size:1rem;color:#d4d4d8;margin-bottom:1.25rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin:0 0 1.25rem}
+.meta{color:var(--m);font-size:.8rem;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:.25rem 1.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--a);color:#fff;padding:.7rem 1.5rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;border:1px solid var(--a);font-family:inherit;cursor:pointer;line-height:1.3;text-align:center}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.2);color:var(--t)}
+.btn.small{font-size:.82rem;padding:.55rem 1rem;font-weight:600}
+.btn:disabled{opacity:.6;cursor:not-allowed}
+.list{color:var(--m);font-size:.9rem;margin:0 0 1rem 1.2rem}
+.list li{margin-bottom:.55rem}
+.tldr{background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.tldr p{margin-bottom:.4rem}
+.tldr .list{margin-bottom:0}
+.tldr .list li:last-child{margin-bottom:0}
+.callout{background:rgba(99,102,241,.05);border:1px solid rgba(99,102,241,.15);border-radius:12px;padding:1.25rem;margin:1.5rem 0}
+.callout p:last-child{margin-bottom:0}
+.callout-title{font-weight:700;font-size:.85rem;margin-bottom:.5rem;color:var(--t)}
+.tcap{color:var(--t);font-weight:600;font-size:.85rem;margin:1.75rem 0 .5rem}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
+.tcap+.tw{margin-top:0}
+.tw:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+table{width:100%;border-collapse:collapse;background:var(--s);border-radius:12px;overflow:hidden;font-size:.82rem}
+table.wide{min-width:600px}
+th,td{padding:.65rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--b)}
+thead th{color:var(--m);font-weight:600;text-transform:uppercase;font-size:.7rem;letter-spacing:.5px}
+tbody th{font-weight:600;color:var(--t)}
+td{color:#d4d4d8}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+thead th.n{white-space:normal}
+tr.hl th,tr.hl td{background:rgba(99,102,241,.1)}
+.note{font-size:.78rem;margin:-.75rem 0 1.5rem}
+.calc,.ea{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:1.5rem;margin:1.5rem 0}
+.calc h2,.ea h2{margin-top:0}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.25rem}
+.field label{display:block;font-weight:600;font-size:.85rem;color:var(--t);margin-bottom:.35rem;line-height:1.4}
+.field .opt{color:var(--m);font-weight:400}
+.field input,.field select,.field textarea{width:100%;min-height:44px;padding:.55rem .75rem;background:var(--in);border:1px solid var(--line);border-radius:10px;color:var(--t);font:inherit;font-size:1rem;line-height:1.4}
+.field textarea{min-height:96px;resize:vertical}
+.field ::placeholder{color:#7c7c86;opacity:1}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--m) 50%),linear-gradient(135deg,var(--m) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:2.25rem}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:2px solid var(--link);outline-offset:1px;border-color:var(--a)}
+.field input[aria-invalid="true"],.field input[data-leads-invalid]{border-color:var(--r)}
+.field.wide-f{grid-column:1/-1}
+.hint{font-size:.76rem;color:var(--m);margin:.3rem 0 0;line-height:1.5}
+.err{font-size:.78rem;color:#fca5a5;margin:.3rem 0 0;line-height:1.5}
+.err:empty{display:none}
+.row-actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-top:1rem}
+.row-actions .hint{margin:0}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1.5rem}
+.tile{background:var(--in);border:1px solid var(--b);border-radius:12px;padding:.9rem 1rem;min-width:0}
+.tile.span2{grid-column:span 2}
+.tile .lab{font-size:.78rem;color:var(--m);line-height:1.4;margin:0}
+.tile .val{font-size:1.5rem;font-weight:600;color:var(--t);line-height:1.25;margin:.3rem 0 .15rem}
+.tile .sub{font-size:.75rem;color:var(--m);line-height:1.45;margin:0}
+.meter{height:8px;border-radius:4px;background:rgba(99,102,241,.2);overflow:hidden;margin:.6rem 0 .45rem}
+.meter i{display:block;height:100%;width:0;border-radius:4px;background:var(--a)}
+.meter[data-level="high"]{background:rgba(245,158,11,.2)}
+.meter[data-level="high"] i{background:var(--o)}
+.meter[data-level="max"]{background:rgba(239,68,68,.2)}
+.meter[data-level="max"] i{background:var(--r)}
+@media (prefers-reduced-motion:no-preference){.meter i{transition:width .25s ease}}
+.lvl{font-weight:600;color:var(--t)}
+.verdict{display:flex;gap:.7rem;align-items:flex-start;margin-top:.75rem;padding:.85rem 1rem;border:1px solid var(--b);border-radius:12px;background:var(--in)}
+.verdict p{margin:0;color:var(--t);font-size:.88rem;line-height:1.6}
+.verdict svg{width:20px;height:20px;flex:none;margin-top:.15rem}
+.verdict[data-level="none"] svg,.verdict[data-level="low"] svg{color:var(--g)}
+.verdict[data-level="moderate"] svg{color:var(--link)}
+.verdict[data-level="high"]{border-color:rgba(245,158,11,.35)}
+.verdict[data-level="high"] svg{color:var(--o)}
+.verdict[data-level="max"]{border-color:rgba(239,68,68,.4)}
+.verdict[data-level="max"] svg{color:var(--r)}
+.verdict[hidden],.verdict svg[hidden]{display:none}
+.summary{font-size:.82rem;margin:.75rem 0 0}
+.math{list-style:none;margin:0 0 1rem;padding:0}
+.math li{color:var(--m);font-size:.85rem;margin-bottom:.6rem;padding-left:1rem;border-left:2px solid rgba(99,102,241,.35)}
+.f{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;color:var(--t);background:rgba(255,255,255,.05);padding:.1rem .35rem;border-radius:4px;white-space:nowrap}
+.abft{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:0 0 1.5rem}
+.abft figure{margin:0}
+.abft .tw{margin:0}
+.abft figcaption{color:var(--t);font-size:.8rem;font-weight:600;margin-bottom:.4rem}
+.abft table{font-size:.8rem}
+.abft th,.abft td{padding:.5rem .55rem;text-align:center}
+.abft thead th{font-size:.66rem}
+.abft tbody th{text-align:left;color:var(--m);font-weight:500}
+.abft .sum{background:rgba(255,255,255,.03)}
+.abft .bad{font-weight:700;color:var(--t);background:rgba(239,68,68,.14)}
+.abft .mark{display:block;font-size:.68rem;color:var(--m);font-weight:500;white-space:nowrap}
+.stack{list-style:none;margin:1.5rem 0;display:grid;gap:.5rem}
+.stack li{border:1px solid var(--b);background:var(--s);border-radius:12px;padding:.8rem 1rem;color:var(--m);font-size:.85rem;line-height:1.6}
+.stack li strong{display:block;font-size:.9rem}
+.stack li.us{border-color:rgba(99,102,241,.45);background:rgba(99,102,241,.08)}
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1.5rem 0}
+.card{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:1rem 1.1rem}
+.card h3{margin:.35rem 0 .4rem;font-size:.95rem}
+.card p{font-size:.85rem;margin:0}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.3px;color:var(--o);border:1px solid rgba(245,158,11,.35);border-radius:6px;padding:.05rem .45rem;line-height:1.6}
+.check{display:flex;gap:.7rem;align-items:center;min-height:44px;padding:.6rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--in);cursor:pointer}
+.field .check input{width:22px;height:22px;min-height:0;padding:0;margin:0;flex:none;accent-color:var(--a);cursor:pointer}
+.field .check label{margin:0;font-size:.88rem;color:var(--t);line-height:1.5;cursor:pointer}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.form-note{font-size:.76rem;margin:.9rem 0 0}
+.status{margin-top:1rem;font-size:.88rem;line-height:1.6;color:var(--t);border:1px solid var(--line);border-radius:10px;background:var(--in);padding:.8rem 1rem}
+.status:empty{display:none}
+.status[data-leads-state="success"]{border-color:rgba(34,197,94,.45)}
+.status[data-leads-state="fallback"]{border-color:rgba(245,158,11,.45)}
+.status[data-leads-state="invalid"]{border-color:rgba(239,68,68,.5)}
+.submit-row{margin-top:1.1rem}
+.related{margin:2rem 0}
+.related h2{font-size:1rem;margin:0 0 .5rem}
+.related a{display:flex;align-items:center;min-height:44px;color:var(--link);text-decoration:none;padding:.3rem 0;font-size:.88rem;line-height:1.5}
+footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#52525b;font-size:.8rem}
+@media (max-width:640px){
+nav .inner{padding:0 1rem}
+nav .links a{display:none}
+nav .links a.keep{display:inline-block}
+.c{padding:5rem 1rem 3rem}
+.calc,.ea{padding:1.25rem 1rem}
+th,td{padding:.55rem .6rem}
+.tcap.sw::after{content:" (scroll sideways)";font-weight:400;color:var(--m)}
+.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile .val{font-size:1.3rem}
+.feat{grid-template-columns:1fr}
+.hero-cta .btn{flex:1 1 100%}
+.submit-row .btn{width:100%}
+}
+@media (max-width:560px){
+.fields{grid-template-columns:1fr}
+.abft{grid-template-columns:1fr}
+}
+@media (max-width:360px){
+.f{white-space:normal}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Main"><div class="inner"><a href="index.html" class="brand">Molt<span>Bot</span> Cloud</a><div class="links"><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="space-data-center-cost-calculator.html" class="keep">Calculator</a><a href="signup.html" class="trial">Start Free Trial</a></div></div></nav>
+
+<main class="c" id="main">
+<p class="pill"><span class="dot" aria-hidden="true"></span>In development · Early access</p>
+<h1>Radiation-tolerant AI runtime: keep AI correct when bits flip</h1>
+<p class="lead">In a <a href="https://arxiv.org/abs/2511.19468">ground proton test</a>, a modern AI chip took 20 times the radiation dose of a 5-year mission in low Earth orbit with no hard failures. The harder problem is bits that flip without a crash. We are building a runtime, planned as open source, to catch those flips and keep training and inference correct. It is in development: size your bit-flip budget below, then request early access.</p>
+<div class="hero-cta"><a class="btn" href="#calculator">Size your bit-flip budget</a><a class="btn ghost" href="#early-access">Request early access</a></div>
+<div class="meta"><span>Updated November 5, 2026</span><span>Status: in development, no release date yet</span><span>Planned open-source v0.1</span></div>
+
+<div class="tldr">
+<p><strong>In short</strong></p>
+<ul class="list">
+<li><strong>Chips survive the dose.</strong> Google's Trillium TPU had no hard failures up to 150&nbsp;Gy (15&nbsp;krad), 20x a 5-year low-orbit dose, in a proton-only test.</li>
+<li><strong>Bits still flip.</strong> About 7.5-10 silent errors per chip-year in low Earth orbit: roughly one every 6 minutes across 10,000 chips.</li>
+<li><strong>Global checkpoints alone get expensive.</strong> At 10,000 chips, 7.5 errors per chip-year and 60-second checkpoints, the first-order cost is about 53% extra run time. Checksums inside each matrix multiply (ABFT) and local recovery cut that.</li>
+<li><strong>Our runtime is in development.</strong> Planned open-source v0.1: fault injection, ABFT checksums and SEU-aware checkpoints. ECC/DCGM telemetry and fault-tolerant inference are planned for a later release.</li>
+<li><strong>10 free one-hour radiation-readiness reviews</strong> for early-access teams.</li>
+</ul>
+</div>
+
+<h2 id="problem">The problem: chips survive the dose, bits still flip</h2>
+<p>Radiation harms chips in two ways. Total dose slowly wears them out, and single particles flip bits at random. Google measured both for its Trillium TPU (v6e) in a <a href="https://arxiv.org/abs/2511.19468">67 MeV proton-beam test</a>. The chip showed no hard failures up to 150&nbsp;Gy (15&nbsp;krad), 20x the 7.5&nbsp;Gy (750&nbsp;rad) it would collect behind 10&nbsp;mm of aluminium over a 5-year mission in low Earth orbit. Its HBM memory showed irregularities from 20&nbsp;Gy (2&nbsp;krad), still about 2.7x that dose. The test used protons only, so heavy-ion effects are still untested, and no in-orbit error data has been published yet.</p>
+<p>The open task is silent data corruption: a particle flips a bit and the chip keeps running with a wrong result. The same test saw one silent error per 0.14-0.2 Gy (14.4-20 rad). At about 1.5 Gy (150 rad) a year in low Earth orbit, that is about 7.5-10 silent errors per chip-year, or roughly one every 6 minutes across 10,000 chips. <a href="https://arxiv.org/abs/2511.19468">Google's paper</a> puts that at about one bad answer in 3 million at one request per second, so inference tolerates it. Training must design around it, because a wrong value can carry into later steps.</p>
+
+<p class="tcap sw" id="t-evidence">Table 1. What tests and missions show</p>
+<div class="tw" role="region" aria-labelledby="t-evidence" tabindex="0">
+<table class="wide" aria-labelledby="t-evidence">
+<thead><tr><th scope="col">Evidence</th><th scope="col">Result</th><th scope="col">What it means</th></tr></thead>
+<tbody>
+<tr><th scope="row"><a href="https://arxiv.org/abs/2511.19468">Google proton test</a>, Trillium TPU (v6e)</th><td>No hard failures up to 150&nbsp;Gy (15&nbsp;krad). HBM irregularities from 20&nbsp;Gy (2&nbsp;krad).</td><td>Wide total-dose margin in low Earth orbit (proton data only)</td></tr>
+<tr><th scope="row">Same test, error rates</th><td>1 silent error per 0.14-0.2 Gy. 1 uncorrectable HBM error per about 0.44 Gy (44 rad).</td><td>About 7.5-10 silent errors and 3.4 uncorrectable memory errors per chip-year (our conversion at about 150 rad a year)</td></tr>
+<tr><th scope="row">Mars dose: <a href="https://arxiv.org/pdf/1503.06631">cruise</a>, <a href="https://doi.org/10.1016/j.icarus.2020.114264">orbit</a>, <a href="https://doi.org/10.1126/science.1244797">surface</a></th><td>0.33&nbsp;mGy/day in silicon in cruise (~12&nbsp;rad/yr, ~18 at solar minimum). 352-366&nbsp;µGy/day in a 400&nbsp;km Mars orbit (2018-19). 0.21&nbsp;mGy/day (~8&nbsp;rad/yr) on the surface.</td><td>Total dose about 10x below Earth orbit, but heavy ions and storms may raise silent-error rates</td></tr>
+<tr><th scope="row"><a href="https://doi.org/10.1016/j.lssr.2025.02.010">Solar storm, 20-24 May 2024</a> (ExoMars TGO)</th><td>24.7 mGy in 64 h in Mars orbit</td><td>About 200 days of cosmic-ray dose (at 2024 solar-maximum rates) in under 3 days, by the TGO team's count</td></tr>
+<tr><th scope="row"><a href="https://en.wikipedia.org/wiki/Mars_Reconnaissance_Orbiter">Mars Reconnaissance Orbiter</a>, 2009</th><td>Four spontaneous resets; radiation suspected, not confirmed</td><td>Hardware far from Earth must recover from resets on its own</td></tr>
+<tr><th scope="row"><a href="https://www.nvidia.com/en-us/edge-computing/space-computing/">NVIDIA Space-1 Vera Rubin</a>, announced March 2026</th><td>Up to 25x H100 for inference; no ship date</td><td>No single-event mitigation disclosed</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">1 Gy = 100 rad; 1 mGy = 0.1 rad. Instruments and shielding differ, so compare orders of magnitude.</p>
+
+<p>Mars is gentler on total dose but harder on recovery. Heavy ions and storms may raise silent-error rates there, and Earth is <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html">3.0-22.3 light-minutes</a> away, so software must handle resets and storms by itself.</p>
+<p>The software layer is still open. NVIDIA has disclosed no single-event mitigation for its <a href="https://www.nvidia.com/en-us/edge-computing/space-computing/">Space-1 Vera Rubin module</a>, announced in March 2026 with up to 25x H100 inference compute and no ship date (<a href="https://payloadspace.com/nvidia-announces-new-hardware-to-unlock-orbital-data-centers/">Payload</a>). Our research found only one dedicated open-source radiation-tolerant ML framework, <a href="https://github.com/r0nlt/Space-Radiation-Tolerant">Space-Radiation-Tolerant</a>, and its results so far come from simulation. Research does back protection in software: <a href="https://arxiv.org/abs/2407.11853">RedNet</a> used the uneven sensitivity of neural-network layers to cut the influence of radiation errors to about zero, and sped up on-satellite inference by 8.4-33% at negligible extra cost, in tests with Chaohu-1 satellite data and a radiation emulator.</p>
+
+<section class="calc" id="calculator" aria-labelledby="calc-h">
+<h2 id="calc-h">Bit-flip budget calculator</h2>
+<p>How often will a silent error hit your fleet, and what would global checkpointing alone cost? Change the numbers below. The math runs in your browser.</p>
+<form id="bf-inputs" class="fields" novalidate>
+<div class="field">
+<label for="bf-n">Fleet size (chips)</label>
+<input id="bf-n" name="fleet" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="10,000" aria-describedby="bf-n-hint bf-n-err">
+<p class="hint" id="bf-n-hint">Accelerators running one job. A whole number from 1 to 10,000,000.</p>
+<p class="err" id="bf-n-err"></p>
+</div>
+<div class="field">
+<label for="bf-r">Silent errors per chip-year</label>
+<input id="bf-r" name="rate" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="7.5" aria-describedby="bf-r-hint bf-r-err">
+<p class="hint" id="bf-r-hint">7.5-10 in low Earth orbit, from Google's proton data. 0 to 50.</p>
+<p class="err" id="bf-r-err"></p>
+</div>
+<div class="field">
+<label for="bf-c">Checkpoint write time (seconds)</label>
+<input id="bf-c" name="checkpoint" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="60" aria-describedby="bf-c-hint bf-c-err">
+<p class="hint" id="bf-c-hint">Time to save one full checkpoint. 0 to 86,400.</p>
+<p class="err" id="bf-c-err"></p>
+</div>
+<div class="field">
+<label for="bf-t">Job length (hours)</label>
+<input id="bf-t" name="job" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="720" aria-describedby="bf-t-hint bf-t-err">
+<p class="hint" id="bf-t-hint">720 h is 30 days. 0 to 100,000.</p>
+<p class="err" id="bf-t-err"></p>
+</div>
+</form>
+<div class="row-actions"><button type="button" class="btn ghost small" id="bf-reset">Reset to defaults</button><p class="hint">Defaults: 10,000 chips, 7.5 errors per chip-year, 60 s checkpoint, 720 h job.</p></div>
+
+<div role="region" aria-label="Calculator results" id="bf-results">
+<div class="tiles">
+<div class="tile"><p class="lab">Silent errors per day</p><p class="val" id="bf-perday">205</p><p class="sub">across the whole fleet</p></div>
+<div class="tile"><p class="lab">Time between errors,&nbsp;M</p><p class="val" id="bf-m">7.0 min</p><p class="sub" id="bf-m-sub">fleet-wide average</p></div>
+<div class="tile"><p class="lab">Checkpoint interval,&nbsp;τ</p><p class="val" id="bf-tau">3.7 min</p><p class="sub" id="bf-tau-sub">Young/Daly: τ&nbsp;=&nbsp;√(2CM)</p></div>
+<div class="tile"><p class="lab">Silent errors during the job</p><p class="val" id="bf-job">6,160</p><p class="sub" id="bf-job-sub">in the 720-hour job</p></div>
+<div class="tile span2"><p class="lab">Checkpoint overhead, first-order</p><p class="val" id="bf-ovh">53%</p><div class="meter" id="bf-meter" data-level="high" aria-hidden="true"><i id="bf-meter-fill" style="width:53%"></i></div><p class="sub"><span class="lvl" id="bf-level">High</span> · extra run time from writing checkpoints and redoing lost work</p><p class="sub">Fuller model, best interval: <span id="bf-slow">run time ×1.80</span></p></div>
+</div>
+<div class="verdict" id="bf-verdict" data-level="high">
+<svg class="vi" data-for="none low" viewBox="0 0 20 20" aria-hidden="true" focusable="false" hidden><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6.2 10.4l2.5 2.5 5.1-5.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg class="vi" data-for="moderate" viewBox="0 0 20 20" aria-hidden="true" focusable="false" hidden><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9v5M10 6.2v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="vi" data-for="high" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 2.5l8 14.5H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 8v4.2M10 14.6v.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+<svg class="vi" data-for="max" viewBox="0 0 20 20" aria-hidden="true" focusable="false" hidden><path d="M6.7 2h6.6L18 6.7v6.6L13.3 18H6.7L2 13.3V6.7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.4 7.4l5.2 5.2M12.6 7.4l-5.2 5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+<p id="bf-verdict-text">High. Global checkpointing alone gets expensive at this scale. Catch most errors where they happen, with ABFT checksums, and recover locally.</p>
+</div>
+<p class="summary" id="bf-summary" aria-live="polite">About 205 silent errors a day, one every 7.0 min. Checkpoint every 3.7 min, at about 53% overhead (first-order). About 6,160 silent errors during the 720-hour job.</p>
+</div>
+<noscript><p class="note">The calculator needs JavaScript. The numbers shown are for the default inputs.</p></noscript>
+
+<p class="tcap sw" id="t-scale">Table 2. The same error rate and checkpoint time at other fleet sizes</p>
+<div class="tw" role="region" aria-labelledby="t-scale" tabindex="0">
+<table class="wide" aria-labelledby="t-scale">
+<thead><tr><th scope="col">Fleet size (chips)</th><th scope="col" class="n">Time between errors</th><th scope="col" class="n">Checkpoint interval</th><th scope="col" class="n">Overhead, first-order</th><th scope="col" class="n">Run time, fuller model</th></tr></thead>
+<tbody id="bf-scale-body">
+<tr><th scope="row">1</th><td class="n">49 days</td><td class="n">6.2 h</td><td class="n">0.5%</td><td class="n">×1.005</td></tr>
+<tr><th scope="row">100</th><td class="n">12 h</td><td class="n">37 min</td><td class="n">5.3%</td><td class="n">×1.055</td></tr>
+<tr><th scope="row">1,000</th><td class="n">1.2 h</td><td class="n">12 min</td><td class="n">17%</td><td class="n">×1.19</td></tr>
+<tr class="hl"><th scope="row">10,000 (yours)</th><td class="n">7.0 min</td><td class="n">3.7 min</td><td class="n">53%</td><td class="n">×1.80</td></tr>
+<tr><th scope="row">100,000</th><td class="n">42 s</td><td class="n">1.2 min</td><td class="n">over 100%</td><td class="n">×10.3</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="math">How the math works</h3>
+<ul class="math">
+<li>Silent errors per day <span class="f">= N × r ÷ 365.25</span>, for N chips at r silent errors per chip-year.</li>
+<li>Fleet mean time between errors <span class="f">M = 8,766 h ÷ (N × r)</span>. A year is 8,766 hours (365.25 days).</li>
+<li>Checkpoint interval <span class="f">τ = √(2 × C × M)</span>, with the checkpoint write time C and M both in seconds (<a href="https://doi.org/10.1145/361147.361115">Young, 1974</a>; <a href="https://doi.org/10.1016/j.future.2004.11.016">Daly, 2006</a>).</li>
+<li>Checkpoint overhead <span class="f">≈ C ÷ τ + τ ÷ (2M)</span>: time spent writing checkpoints, plus half an interval of work redone after each error. At the Young/Daly interval the two parts are equal.</li>
+<li>Silent errors during the job <span class="f">= N × r × T ÷ 8,766</span>, with the job length T in hours. The chance of at least one is <span class="f">1 − e^(−that number)</span>.</li>
+<li>Fuller model: run time ÷ error-free run time <span class="f">= M × (e^((τ + C) ÷ M) − 1) ÷ τ</span>, at the τ that makes it smallest (<a href="https://doi.org/10.1016/j.future.2004.11.016">Daly, 2006</a>).</li>
+</ul>
+<p class="note">Assumptions: errors arrive at random and independently; every error is caught and sends the whole job back to its last checkpoint, as in one synchronous training run; restarts take no time; all chips share one error rate. The first-order formulas hold when C is much shorter than M. As C nears M, the real cost rises faster, which the fuller model shows.</p>
+</section>
+
+<h2 id="why">Why global checkpoints alone fall short at fleet scale</h2>
+<p>Errors add up with fleet size. Double the chips and the time between errors halves. The best-case checkpoint overhead grows with the square root of the fleet size, so 10 times more chips means about 3.2 times more overhead. With the defaults, 10,000 chips see a silent error about every 7 minutes. A global checkpoint every 3.7 minutes then costs about 53% extra run time (first-order), and the fuller model puts the run at about 1.8 times its error-free length. At 100,000 chips, errors arrive every 42 seconds, faster than a 60-second checkpoint can be written.</p>
+<p>Silent errors add a second problem: a checkpoint only helps if you know something went wrong. A silent error leaves no trace, so a plain checkpoint can save the bad state and keep it. Detection has to come first.</p>
+<p>That is why our planned runtime will put the checks where errors happen. Algorithm-based fault tolerance (ABFT) checks each matrix multiply as it runs. A mismatch points to the bad value, which can then be fixed or recomputed locally, without rolling back the whole job. Global checkpoints can then become a backstop for rarer events, such as uncorrectable memory errors and host resets, and be spaced further apart.</p>
+
+<p class="tcap" id="t-abft">How a checksum catches a flipped bit</p>
+<div class="abft">
+<figure>
+<figcaption id="abft-a">Before: every sum matches</figcaption>
+<div class="tw">
+<table aria-labelledby="abft-a">
+<thead><tr><th scope="col"><span class="sr">Row</span></th><th scope="col">Col 1</th><th scope="col">Col 2</th><th scope="col">Row sum</th></tr></thead>
+<tbody>
+<tr><th scope="row">Row 1</th><td>1</td><td>2</td><td class="sum">3</td></tr>
+<tr><th scope="row">Row 2</th><td>3</td><td>4</td><td class="sum">7</td></tr>
+<tr><th scope="row">Col sum</th><td class="sum">4</td><td class="sum">6</td><td class="sum">10</td></tr>
+</tbody>
+</table>
+</div>
+</figure>
+<figure>
+<figcaption id="abft-b">After one bit flips: 4 becomes 12</figcaption>
+<div class="tw">
+<table aria-labelledby="abft-b">
+<thead><tr><th scope="col"><span class="sr">Row</span></th><th scope="col">Col 1</th><th scope="col">Col 2</th><th scope="col">Row sum</th></tr></thead>
+<tbody>
+<tr><th scope="row">Row 1</th><td>1</td><td>2</td><td class="sum">3<span class="mark">matches</span></td></tr>
+<tr><th scope="row">Row 2</th><td>3</td><td class="bad">12<span class="mark">flipped</span></td><td class="sum">15<span class="mark">should be 7</span></td></tr>
+<tr><th scope="row">Col sum</th><td class="sum">4<span class="mark">matches</span></td><td class="sum">14<span class="mark">should be 6</span></td><td class="sum">18<span class="mark">should be 10</span></td></tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p class="note">Flipping one bit turns 4 (binary 0100) into 12 (1100). Row 2 and column 2 no longer match their checksums, which were computed alongside the multiply. Together they point to the bad cell, and the gap of 8 gives the fix. For large matrices, the checksums add little work compared with the multiply itself (<a href="https://doi.org/10.1109/TC.1984.1676475">Huang and Abraham, 1984</a>).</p>
+
+<div class="callout">
+<p class="callout-title">Ground clusters already live with this</p>
+<p>Meta's <a href="https://arxiv.org/pdf/2407.21783">Llama 3 training run</a> on 16,384 H100 GPUs had 419 unexpected interruptions in 54 days, about one every 3 hours, and recovered through checkpoints. At 7.5 silent errors per chip-year, the same fleet in orbit would see a silent error about every 4 minutes (our calculation). The same techniques apply on Earth, where large fleets also see silent data corruption.</p>
+</div>
+
+<h2 id="runtime">What we are building: planned v0.1 and later releases</h2>
+<p>A runtime layer between your model code and the GPU, planned as open source. It is in development, and nothing below is released yet. Items tagged “Planned v0.1” are planned for the first release.</p>
+<ol class="stack" aria-label="Where the runtime sits">
+<li><strong>Your code</strong>A training loop or an inference server.</li>
+<li class="us"><strong>Radiation-tolerant runtime (in development)</strong>Planned v0.1: fault injection, ABFT checksums, checkpoint and rollback. Later: telemetry and fault-tolerant inference.</li>
+<li><strong>Your hardware</strong>GPUs with ECC memory, read through NVIDIA DCGM.</li>
+</ol>
+<div class="feat">
+<div class="card"><span class="tag">Planned v0.1</span><h3>Fault injection</h3><p>Flip bits on purpose in weights, activations and memory, at rates you choose. Measure accuracy against the bit-flip rate before you fly. We plan to publish the benchmark with the code.</p></div>
+<div class="card"><span class="tag">Planned v0.1</span><h3>ABFT checksums for matrix multiplies</h3><p>Checksum rows and columns ride along with each matrix multiply. A flipped value breaks one row sum and one column sum, which locates it and gives the fix, with no global rollback.</p></div>
+<div class="card"><span class="tag">Planned v0.1</span><h3>SEU-aware checkpoint and rollback</h3><p>A single-event upset (SEU) is a bit flipped by one particle. Set the checkpoint interval from the measured upset rate with the Young/Daly rule, tighten it during solar storms, and roll back only the work an error touched.</p></div>
+<div class="card"><span class="tag">Planned</span><h3>ECC and DCGM telemetry</h3><p>Export ECC error counts and XID events (the driver's GPU error reports) from NVIDIA's <a href="https://docs.nvidia.com/datacenter/dcgm/latest/index.html">Data Center GPU Manager (DCGM)</a>, so you can track error rates per chip, per orbit and during storms.</p></div>
+<div class="card"><span class="tag">Planned</span><h3>Fault-tolerant inference</h3><p>Check suspect results and re-run them, and add redundancy only to the layers that matter most, the approach RedNet showed can work.</p></div>
+<div class="card"><span class="tag">Planned</span><h3>First targets</h3><p>NVIDIA GPUs with CUDA, with TensorRT and vLLM support planned. We will build and test on rented cloud GPUs on Earth first.</p></div>
+</div>
+
+<p class="tcap" id="t-status">Table 3. Status of each piece</p>
+<div class="tw" role="region" aria-labelledby="t-status" tabindex="0">
+<table aria-labelledby="t-status">
+<thead><tr><th scope="col">Piece</th><th scope="col">What it is</th><th scope="col">Status</th></tr></thead>
+<tbody>
+<tr><th scope="row">v0.1 runtime</th><td>Fault injection, ABFT checksums and a checkpoint policy</td><td>Planned, in development</td></tr>
+<tr><th scope="row">Later releases</th><td>An ECC/XID telemetry exporter and fault-tolerant inference</td><td>Planned</td></tr>
+<tr><th scope="row">Benchmark</th><td>Model accuracy against injected bit-flip rates, on open models</td><td>Planned</td></tr>
+<tr><th scope="row">Radiation-readiness reviews</th><td>10 free one-hour reviews for early-access teams</td><td>Request below</td></tr>
+<tr><th scope="row">Radiation-readiness audits</th><td>A deeper review of your fleet's error handling, USD 5,000-20,000</td><td>Planned</td></tr>
+<tr><th scope="row">Beam-test data</th><td>Proton and heavy-ion tests of current GPUs and HBM</td><td>Exploring</td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">What it is not: radiation-hardened hardware, or a substitute for beam tests and flight heritage. We have no beam-test or flight data of our own yet, and we plan to publish results as we get them.</p>
+
+<h2 id="who">Who it is for</h2>
+<ul class="list">
+<li><strong>Orbital data-center teams</strong> putting data-center GPUs or TPUs into satellites, where nobody can swap a part.</li>
+<li><strong>Earth-observation and edge-AI operators</strong> running models on Jetson-class modules in orbit.</li>
+<li><strong>Mission software teams for the Moon and Mars</strong>, where hardware must recover from resets and storms on its own, far from any repair.</li>
+<li><strong>GPU cluster operators on Earth</strong> who lose time to interruptions and silent data corruption in long training runs.</li>
+<li><strong>Researchers</strong> who want one shared, open way to inject faults and compare results.</li>
+</ul>
+
+<section class="ea" id="early-access" aria-labelledby="ea-h">
+<h2 id="ea-h">Request early access</h2>
+<p>Early access is free. Join the list for release news and design-partner calls, and ask for one of 10 free one-hour radiation-readiness reviews. In a review we go through your chips, orbit, error checks and checkpoint plan, using the calculator above.</p>
+<form id="ea-form" novalidate>
+<div class="fields">
+<div class="field">
+<label for="ea-email">Work email</label>
+<input id="ea-email" name="email" type="email" autocomplete="email" required aria-required="true" placeholder="name@company.com">
+</div>
+<div class="field">
+<label for="ea-company">Company or lab <span class="opt">(optional)</span></label>
+<input id="ea-company" name="company" type="text" autocomplete="organization">
+</div>
+<div class="field">
+<label for="ea-role">Your role <span class="opt">(optional)</span></label>
+<input id="ea-role" name="role" type="text" autocomplete="organization-title" placeholder="For example, flight software lead">
+</div>
+<div class="field">
+<label for="ea-gpu">GPU or accelerator <span class="opt">(optional)</span></label>
+<select id="ea-gpu" name="gpu">
+<option value="">Choose one</option>
+<option value="nvidia-hopper">NVIDIA H100 or H200</option>
+<option value="nvidia-blackwell">NVIDIA Blackwell (B200, B300, GB200)</option>
+<option value="nvidia-jetson">NVIDIA Jetson Orin or IGX Thor</option>
+<option value="nvidia-space-1">NVIDIA Space-1 Vera Rubin, when available</option>
+<option value="google-tpu">Google TPU</option>
+<option value="amd-instinct">AMD Instinct</option>
+<option value="fpga-other">FPGA or another accelerator</option>
+<option value="undecided">Not decided yet</option>
+</select>
+</div>
+<div class="field wide-f">
+<label for="ea-use">What do you want to protect? <span class="opt">(optional)</span></label>
+<textarea id="ea-use" name="message" rows="4" placeholder="For example: inference on 64 GPUs in a dawn-dusk orbit, or a 30-day training run"></textarea>
+</div>
+<div class="field wide-f">
+<div class="check"><input id="ea-review" name="review" type="checkbox" value="yes"><label for="ea-review">I'd like one of the 10 free one-hour radiation-readiness reviews</label></div>
+</div>
+</div>
+<div class="hp" aria-hidden="true"><label for="ea-website">Website (leave this empty)</label><input id="ea-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<div class="submit-row"><button type="submit" class="btn" id="ea-submit" disabled>Request early access</button></div>
+<p class="form-note">We use these details only to contact you about the runtime and the reviews. The calculator numbers above are sent with your request, so a review can start from them. See our <a href="privacy.html">privacy policy</a>.</p>
+<p class="status" id="ea-status" data-leads-status aria-live="polite" role="status"></p>
+</form>
+<noscript><p class="note">This form needs JavaScript. Please turn it on to send a request.</p></noscript>
+</section>
+
+<h2 id="faq">FAQ</h2>
+<h3>Does radiation break AI chips in orbit?</h3>
+<p>Not in the tests so far. In <a href="https://arxiv.org/abs/2511.19468">Google's proton-beam test</a>, a Trillium TPU had no hard failures up to 150 Gy (15 krad), 20x the dose of a 5-year mission in low Earth orbit. Heavy ions are still untested, and the bigger task is silent bit flips.</p>
+<h3>What is silent data corruption?</h3>
+<p>A bit flip that changes a result without a crash or an error message. In low Earth orbit it happens about 7.5-10 times per chip-year, so a 10,000-chip fleet sees one about every 6 minutes. Inference tolerates it. Training needs checks such as ABFT checksums, error-correcting memory and checkpoints.</p>
+<h3>How often should a GPU fleet in orbit checkpoint?</h3>
+<p>A common rule is the Young/Daly interval: the square root of 2 × checkpoint time × mean time between errors. For 10,000 chips at 7.5 errors per chip-year and a 60-second checkpoint, that is about every 3.7 minutes, at about 53% extra run time. The <a href="#calculator">calculator on this page</a> works it out for your fleet.</p>
+<h3>Is the runtime available, and will it be open source?</h3>
+<p>Not yet. It is in development, and v0.1 is planned as open source, with fault injection, ABFT checksums and SEU-aware checkpoint and rollback. ECC/DCGM telemetry and fault-tolerant inference are planned for a later release. There is no release date yet. <a href="#early-access">Join early access</a> to hear first.</p>
+<h3>Does it help GPU clusters on Earth too?</h3>
+<p>It is designed to. Large ground clusters fail often too: <a href="https://arxiv.org/pdf/2407.21783">Meta's Llama 3 run</a> on 16,384 H100 GPUs had 419 unexpected interruptions in 54 days. The same planned fault injection, checksums, checkpoint tuning and ECC telemetry would apply on Earth.</p>
+
+<div class="related">
+<h2>Related reads</h2>
+<a href="space-data-center-cost-calculator.html">→ Space data center cost calculator: Earth vs orbit, Moon and Mars</a>
+<a href="space-compute-feasibility-memo.html">→ Space-compute feasibility memo (pre-order)</a>
+<a href="blog-mars-ai-data-centers.html">→ AI data centers on Mars: resources, radiation and a 2060 timeline</a>
+<a href="blog-space-data-center-cost-2026.html">→ Are data centers in space cheaper? The 2026 cost math</a>
+</div>
+</main>
+
+<footer style="border-top:1px solid var(--b);padding:3rem 2rem 2rem;max-width:720px;margin:0 auto">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1.5rem;font-size:.78rem">
+<a href="index.html" style="color:var(--m);text-decoration:none">Home</a>
+<a href="blog.html" style="color:var(--m);text-decoration:none">Blog</a>
+<a href="features.html" style="color:var(--m);text-decoration:none">Features</a>
+<a href="pricing.html" style="color:var(--m);text-decoration:none">Pricing</a>
+<a href="getting-started.html" style="color:var(--m);text-decoration:none">Quick Start</a>
+<a href="faq.html" style="color:var(--m);text-decoration:none">FAQ</a>
+<a href="terms.html" style="color:var(--m);text-decoration:none">Terms</a>
+<a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--m);text-decoration:none">Omnisphere</a>
+</div>
+<div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var HOURS_PER_YEAR = 8766; /* 365.25 days */
+  var DAYS_PER_YEAR = 365.25;
+  var DEF = { n: 10000, r: 7.5, c: 60, t: 720 };
+  var FIELDS = {
+    n: { id: 'bf-n', min: 1, max: 10000000, label: 'Fleet size' },
+    r: { id: 'bf-r', min: 0, max: 50, label: 'Silent errors per chip-year' },
+    c: { id: 'bf-c', min: 0, max: 86400, label: 'Checkpoint write time' },
+    t: { id: 'bf-t', min: 0, max: 100000, label: 'Job length' }
+  };
+  var KEYS = ['n', 'r', 'c', 't'];
+  var SCALE = [1, 100, 1000, 10000, 100000];
+  var TAU_RULE = 'Young/Daly: τ = √(2CM)';
+  var LEVEL_LABEL = { none: 'None', low: 'Low', moderate: 'Moderate', high: 'High', max: 'Too high' };
+  var VERDICT = {
+    none: 'No silent errors at this rate, so errors set no checkpoint schedule. Keep checkpoints for other failures.',
+    low: 'Low. Once errors are detected, global checkpointing handles this rate comfortably.',
+    moderate: 'Moderate. Once errors are detected, checkpointing works, but catching them locally would win back time.',
+    high: 'High. Global checkpointing alone gets expensive at this scale. Catch most errors where they happen, with ABFT checksums, and recover locally.',
+    max: 'Too high. Errors arrive faster than global checkpoints can keep up. Errors must be caught and fixed locally.'
+  };
+  var last = null;
+  var timer = null;
+
+  function $(id) { return document.getElementById(id); }
+
+  /* Accepts 10000, 10,000, 10 000, 7.5 and 7,5. Returns NaN for anything else. */
+  function parseNum(raw) {
+    var s = String(raw === null || raw === undefined ? '' : raw).trim().replace(/[\s_  ']/g, '');
+    if (/^\d{1,3}(,\d{3})+(\.\d*)?$/.test(s)) s = s.replace(/,/g, '');
+    else if (/^\d*,\d+$/.test(s)) s = s.replace(',', '.');
+    if (!/^\+?(\d+\.?\d*|\.\d+)(e[+-]?\d+)?$/i.test(s)) return NaN;
+    return Number(s);
+  }
+
+  function group(x) { return Math.round(x).toLocaleString('en-US'); }
+  function plain(x) { return x.toLocaleString('en-US', { maximumFractionDigits: 3 }); }
+
+  function fmtCount(x) {
+    if (!isFinite(x)) return '—';
+    if (x <= 0) return '0';
+    if (x >= 1e9) return (x / 1e9).toLocaleString('en-US', { maximumFractionDigits: 1 }) + ' billion';
+    if (x >= 1e6) return (x / 1e6).toLocaleString('en-US', { maximumFractionDigits: 1 }) + ' million';
+    if (x >= 100) return group(x);
+    if (x >= 10) return x.toFixed(1);
+    if (x >= 1) return x.toFixed(2);
+    if (x < 0.001) return 'under 0.001';
+    return String(Number(x.toPrecision(2)));
+  }
+
+  function fmtDur(sec) {
+    if (!isFinite(sec)) return 'never';
+    if (sec <= 0) return '0 s';
+    if (sec < 1) { var ms = sec * 1000; return (ms < 10 ? ms.toFixed(1) : Math.round(ms)) + ' ms'; }
+    if (sec < 60) return (sec < 10 ? sec.toFixed(1) : Math.round(sec)) + ' s';
+    var m = sec / 60;
+    if (m < 60) return (m < 10 ? m.toFixed(1) : Math.round(m)) + ' min';
+    var h = sec / 3600;
+    if (h < 48) return (h < 10 ? h.toFixed(1) : Math.round(h)) + ' h';
+    var d = sec / 86400;
+    if (d < 730.5) return (d < 10 ? d.toFixed(1) : Math.round(d)) + ' days';
+    var y = sec / (86400 * DAYS_PER_YEAR);
+    return (y < 10 ? y.toFixed(1) : group(y)) + ' years';
+  }
+
+  function fmtPct(w) {
+    if (!isFinite(w) || w >= 1) return 'over 100%';
+    if (w <= 0) return '0%';
+    var p = w * 100;
+    if (p < 0.1) return 'under 0.1%';
+    if (p < 10) return p.toFixed(1) + '%';
+    return Math.round(p) + '%';
+  }
+
+  function fmtX(s) {
+    if (!isFinite(s) || s >= 1000) return 'over ×1,000';
+    if (s < 1.1) return '×' + s.toFixed(3);
+    if (s < 10) return '×' + s.toFixed(2);
+    if (s < 100) return '×' + s.toFixed(1);
+    return '×' + Math.round(s);
+  }
+
+  function fmtChance(p) {
+    if (p <= 0) return '0%';
+    if (p > 0.999) return 'over 99.9%';
+    if (p < 0.001) return 'under 0.1%';
+    var v = p * 100;
+    return (v < 10 ? v.toFixed(1) : Math.round(v)) + '%';
+  }
+
+  /* Daly (2006), exponential errors, no restart time: run time / error-free time = M (e^((tau + C)/M) - 1) / tau.
+     Minimised over tau with a golden-section search on y = tau / M, which always lies between 0 and 1. */
+  function fuller(Cs, Ms) {
+    if (!isFinite(Ms) || Cs <= 0) return 1;
+    var c = Cs / Ms;
+    if (c > 700) return Infinity;
+    var f = function (y) { return Math.expm1(y + c) / y; };
+    var lo = 1e-12, hi = 1, g = (Math.sqrt(5) - 1) / 2;
+    var x1 = hi - g * (hi - lo), x2 = lo + g * (hi - lo), f1 = f(x1), f2 = f(x2);
+    for (var i = 0; i < 200 && hi - lo > 1e-15; i++) {
+      if (f1 < f2) { hi = x2; x2 = x1; f2 = f1; x1 = hi - g * (hi - lo); f1 = f(x1); }
+      else { lo = x1; x1 = x2; f1 = f2; x2 = lo + g * (hi - lo); f2 = f(x2); }
+    }
+    return Math.min(f1, f2);
+  }
+
+  function compute(n, r, Cs, Th) {
+    var rate = n * r; /* silent errors per fleet-year */
+    var o = { n: n, r: r, c: Cs, t: Th, rate: rate };
+    o.perDay = rate / DAYS_PER_YEAR;
+    o.jobErrors = rate * Th / HOURS_PER_YEAR;
+    o.pAny = o.jobErrors > 0 ? -Math.expm1(-o.jobErrors) : 0;
+    if (rate > 0) {
+      o.M = HOURS_PER_YEAR * 3600 / rate;          /* seconds */
+      o.tau = Math.sqrt(2 * Cs * o.M);             /* seconds */
+      o.overhead = Cs > 0 ? Cs / o.tau + o.tau / (2 * o.M) : 0;
+      o.slow = fuller(Cs, o.M);
+    } else {
+      o.M = Infinity; o.tau = Infinity; o.overhead = 0; o.slow = 1;
+    }
+    o.level = rate <= 0 ? 'none' : o.overhead < 0.05 ? 'low' : o.overhead < 0.25 ? 'moderate' : o.overhead < 1 ? 'high' : 'max';
+    return o;
+  }
+
+  function tauText(o) {
+    if (o.rate <= 0) return 'not needed';
+    if (o.c <= 0) return 'any';
+    return fmtDur(o.tau);
+  }
+
+  function readInputs() {
+    var v = {}, bad = [];
+    KEYS.forEach(function (k) {
+      var f = FIELDS[k], el = $(f.id), err = $(f.id + '-err');
+      var x = parseNum(el.value);
+      var ok = isFinite(x) && x >= f.min && x <= f.max && (k !== 'n' || Math.floor(x) === x);
+      if (ok) {
+        el.removeAttribute('aria-invalid');
+        err.textContent = '';
+      } else {
+        el.setAttribute('aria-invalid', 'true');
+        err.textContent = 'Enter a ' + (k === 'n' ? 'whole number' : 'number') + ' from ' + plain(f.min) + ' to ' + plain(f.max) + '.';
+        bad.push(f.label);
+      }
+      v[k] = ok ? x : NaN;
+    });
+    v.bad = bad;
+    return v;
+  }
+
+  function setText(id, text) { var el = $(id); if (el) el.textContent = text; }
+
+  function renderScale(r, Cs, nUser) {
+    var body = $('bf-scale-body');
+    if (!body) return;
+    var rows = SCALE.slice();
+    var mineOk = isFinite(nUser);
+    if (mineOk && rows.indexOf(nUser) < 0) rows.push(nUser);
+    rows.sort(function (a, b) { return a - b; });
+    while (body.firstChild) body.removeChild(body.firstChild);
+    var valid = isFinite(r) && isFinite(Cs);
+    rows.forEach(function (n) {
+      var tr = document.createElement('tr');
+      var mine = mineOk && n === nUser;
+      if (mine) tr.className = 'hl';
+      var th = document.createElement('th');
+      th.scope = 'row';
+      th.textContent = plain(n) + (mine ? ' (yours)' : '');
+      tr.appendChild(th);
+      var cells;
+      if (!valid) {
+        cells = ['—', '—', '—', '—'];
+      } else {
+        var o = compute(n, r, Cs, 0);
+        cells = o.rate > 0 ? [fmtDur(o.M), tauText(o), fmtPct(o.overhead), fmtX(o.slow)] : ['no errors', 'not needed', '0%', '×1.000'];
+      }
+      cells.forEach(function (t) {
+        var td = document.createElement('td');
+        td.className = 'n';
+        td.textContent = t;
+        tr.appendChild(td);
+      });
+      body.appendChild(tr);
+    });
+  }
+
+  function showVerdict(level) {
+    var box = $('bf-verdict');
+    if (!box) return;
+    if (!level) { box.hidden = true; return; }
+    box.hidden = false;
+    box.setAttribute('data-level', level);
+    var icons = box.querySelectorAll('.vi');
+    for (var i = 0; i < icons.length; i++) {
+      var on = (' ' + icons[i].getAttribute('data-for') + ' ').indexOf(' ' + level + ' ') >= 0;
+      if (on) icons[i].removeAttribute('hidden'); else icons[i].setAttribute('hidden', '');
+    }
+    setText('bf-verdict-text', VERDICT[level]);
+  }
+
+  function announce(text, now) {
+    var el = $('bf-summary');
+    if (!el) return;
+    if (timer) { clearTimeout(timer); timer = null; }
+    if (now) { el.textContent = text; return; }
+    timer = setTimeout(function () { timer = null; el.textContent = text; }, 400);
+  }
+
+  function update(now) {
+    var v = readInputs();
+    renderScale(v.r, v.c, v.n);
+    if (v.bad.length) {
+      last = null;
+      ['bf-perday', 'bf-m', 'bf-tau', 'bf-job', 'bf-ovh'].forEach(function (id) { setText(id, '—'); });
+      setText('bf-m-sub', 'fleet-wide average');
+      setText('bf-tau-sub', TAU_RULE);
+      setText('bf-job-sub', 'during the job');
+      setText('bf-level', '—');
+      setText('bf-slow', '—');
+      var meter = $('bf-meter');
+      if (meter) meter.setAttribute('data-level', 'low');
+      var fill = $('bf-meter-fill');
+      if (fill) fill.style.width = '0%';
+      showVerdict(null);
+      announce('Check the highlighted ' + (v.bad.length > 1 ? 'fields: ' : 'field: ') + v.bad.join(', ') + '.', now);
+      return;
+    }
+    var o = compute(v.n, v.r, v.c, v.t);
+    last = o;
+    var noErr = o.rate <= 0;
+    setText('bf-perday', fmtCount(o.perDay));
+    setText('bf-m', noErr ? 'never' : fmtDur(o.M));
+    setText('bf-m-sub', noErr ? 'no silent errors at this rate' : 'fleet-wide average');
+    setText('bf-tau', tauText(o));
+    var tauSub = TAU_RULE;
+    if (!noErr && o.c <= 0) tauSub = 'saving is free, so checkpoint as often as you like';
+    else if (!noErr && o.tau < o.c) tauSub = 'shorter than one checkpoint write';
+    else if (!noErr && o.t > 0 && o.tau > o.t * 3600) tauSub = 'longer than the job itself';
+    setText('bf-tau-sub', tauSub);
+    setText('bf-job', fmtCount(o.jobErrors));
+    var hoursText = plain(o.t) + '-hour job';
+    setText('bf-job-sub', o.t <= 0 ? 'enter a job length above 0 h' : o.jobErrors > 0 && o.jobErrors < 20 ? 'chance of at least one: ' + fmtChance(o.pAny) : 'in the ' + hoursText);
+    setText('bf-ovh', fmtPct(o.overhead));
+    setText('bf-level', LEVEL_LABEL[o.level]);
+    setText('bf-slow', 'run time ' + fmtX(o.slow));
+    var meterEl = $('bf-meter');
+    if (meterEl) meterEl.setAttribute('data-level', o.level);
+    var fillEl = $('bf-meter-fill');
+    if (fillEl) fillEl.style.width = (Math.min(1, o.overhead) * 100).toFixed(1) + '%';
+    showVerdict(o.level);
+    var s;
+    if (noErr) {
+      s = 'No silent errors expected at this rate, so errors set no checkpoint schedule.';
+    } else {
+      var ov = o.level === 'max' ? 'with overhead over 100%, so global checkpointing alone cannot keep up'
+        : 'at about ' + fmtPct(o.overhead) + ' overhead (first-order)';
+      var every = o.c <= 0 ? 'Checkpoints are free'
+        : o.tau < o.c ? 'The Young/Daly interval (' + fmtDur(o.tau) + ') is shorter than one checkpoint write (' + fmtDur(o.c) + '), so global checkpointing alone cannot keep up'
+        : 'Checkpoint every ' + fmtDur(o.tau) + ', ' + ov;
+      s = 'About ' + fmtCount(o.perDay) + ' silent errors a day, one every ' + fmtDur(o.M) + '. ' + every + '.' +
+        (o.t > 0 ? ' About ' + fmtCount(o.jobErrors) + ' silent errors during the ' + hoursText + '.' : '');
+    }
+    announce(s, now);
+  }
+
+  function fmtInput(k, x) { return k === 'n' ? group(x) : plain(x); }
+
+  function setInputs(vals) {
+    KEYS.forEach(function (k) { if (isFinite(vals[k])) $(FIELDS[k].id).value = fmtInput(k, vals[k]); });
+  }
+
+  function fromQuery() {
+    try {
+      var q = new URLSearchParams(window.location.search);
+      var vals = {};
+      KEYS.forEach(function (k) {
+        if (!q.has(k)) return;
+        var x = parseNum(q.get(k));
+        if (isFinite(x) && x >= FIELDS[k].min && x <= FIELDS[k].max && (k !== 'n' || Math.floor(x) === x)) vals[k] = x;
+      });
+      setInputs(vals);
+    } catch (e) { /* old browser: keep the defaults */ }
+  }
+
+  /* Calculator numbers that travel with an early-access request. */
+  window.bitFlipBudget = function () {
+    var o = last;
+    if (!o) return null;
+    return {
+      calc_fleet_chips: o.n,
+      calc_errors_per_chip_year: o.r,
+      calc_checkpoint_s: o.c,
+      calc_job_h: o.t,
+      calc_errors_per_day: Math.round(o.perDay * 100) / 100,
+      calc_mtbe_s: isFinite(o.M) ? Math.round(o.M * 10) / 10 : null,
+      calc_overhead_first_order_pct: Math.round(o.overhead * 1000) / 10
+    };
+  };
+
+  var inputs = $('bf-inputs');
+  if (inputs) {
+    inputs.addEventListener('input', function () { update(false); });
+    inputs.addEventListener('submit', function (e) { e.preventDefault(); update(true); });
+  }
+  var reset = $('bf-reset');
+  if (reset) reset.addEventListener('click', function () { setInputs(DEF); update(true); });
+  fromQuery();
+  update(true);
+
+  /* Early-access form. leads.js is deferred, so wire the form once the DOM is ready. */
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = $('ea-form');
+    var btn = $('ea-submit');
+    if (!form) return;
+    if (window.MoltbotLeads && typeof window.MoltbotLeads.wire === 'function') {
+      window.MoltbotLeads.wire(form, {
+        kind: 'v8-early-access',
+        success: function () {
+          var review = $('ea-review');
+          return 'Thanks! Your early-access request was saved.' + (review && review.checked
+            ? ' We will email you about booking one of the 10 free one-hour reviews.'
+            : ' We will email you when v0.1 is ready.');
+        },
+        extra: function () { return window.bitFlipBudget(); }
+      });
+    } else {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var st = $('ea-status');
+        if (st) {
+          st.textContent = 'Sorry, the form did not load, so your request was not sent. Please reload the page and try again.';
+          st.setAttribute('data-leads-state', 'fallback');
+        }
+      });
+    }
+    if (btn) btn.disabled = false;
+  });
+})();
+</script>
+<script src="leads.js" defer></script>
+</body>
+</html>
