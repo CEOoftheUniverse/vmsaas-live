@@ -485,7 +485,7 @@ Floor = chips' × K ÷ (0.99 × S)</div>
 <aside class="callout" aria-labelledby="market-title">
 <p class="callout-title" id="market-title">Market check: model cost vs market prices</p>
 <ul class="mk">
-<li><span class="pill">Index</span>The panel's Earth cost basis is USD 1.62 per GPU-hour with no margin. Renting costs more: the <a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 rental index</a> stood at USD 2.97 per GPU-hour on 5 Nov 2026. More offers are in our <a href="gpu-price-index.html">GPU rental price index</a>.</li>
+<li><span class="pill">Index</span>The panel's Earth cost basis is USD 1.62 per GPU-hour with no margin. Renting costs more: the <a href="https://www.silicondata.com/products/silicon-index/h100">Silicon Data H100 rental index</a> stood at USD 2.97 per GPU-hour on 5 Nov 2026. More offers are in our <a href="gpu-price-index.html">GPU rental price list</a>.</li>
 <li><span class="pill">Projection</span><a href="https://newsletter.semianalysis.com/p/to-boldly-go-the-case-for-space-datacenters">SemiAnalysis</a> models USD 8.64 per GPU-hour in orbit vs USD 2.37 on the ground for a 16-GPU B300 cluster (3 Jun 2026), with parity around 2040 in its base case. The panel's model gives USD 8.53 per GPU-hour in low Earth orbit at today's launch price.</li>
 <li><span class="pill">Single source</span><a href="https://odc.space/">ODC.space</a> lists a 42U orbital rack at USD 58-79 per GPU-hour-equivalent before chips, with delivery from 2029.</li>
 </ul>
@@ -501,7 +501,7 @@ Floor = chips' × K ÷ (0.99 × S)</div>
 <div class="field"><label for="v7-when">Earliest start</label><select id="v7-when" name="earliest_start"><option value="" selected>Choose one</option><option value="as soon as possible">As soon as possible</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030 or later">2030 or later</option><option value="not sure">Not sure yet</option></select></div>
 <div class="field"><label for="v7-use">Use case</label><select id="v7-use" name="use_case"><option value="" selected>Choose one</option><option value="inference for Earth users">Inference for Earth users</option><option value="training or fine-tuning">Training or fine-tuning</option><option value="batch jobs (RL, synthetic data)">Batch jobs (RL, synthetic data)</option><option value="processing data already in orbit">Processing data already in orbit</option><option value="research or testing">Research or testing</option><option value="other">Other</option></select></div>
 </div>
-<div class="hp" aria-hidden="true"><label for="v7-website">Leave this field empty</label><input id="v7-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<div class="hp" aria-hidden="true"><label for="v7-website">Leave this field empty</label><input id="v7-website" name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true"></div>
 <div class="factions"><button type="submit" class="btn" id="v7-submit" disabled>Register my intent</button><p class="small">No payment details are asked for. We keep your email and answers only to measure demand for orbital compute and to email you about it. See our <a href="privacy.html">privacy policy</a>.</p></div>
 <noscript><p class="msg warn">This form needs JavaScript. Nothing was sent.</p></noscript>
 <div id="v7-live" role="status"><p class="msg" id="v7-msg" hidden></p></div>
@@ -536,7 +536,7 @@ Floor = chips' × K ÷ (0.99 × S)</div>
 <a href="blog-space-solar-5x-energy.html">→ Is energy 5x better in space? Solar panels yes, batteries no</a>
 <a href="blog-mars-ai-data-centers.html">→ AI data centers on Mars: resources, radiation and a 2060 timeline</a>
 <a href="blog-maglev-rocket-launch-assist.html">→ Maglev launch assist: what an underground track really buys</a>
-<a href="gpu-price-index.html">→ GPU rental price index, November 2026</a>
+<a href="gpu-price-index.html">→ GPU rental price list, November 2026</a>
 <a href="radiation-tolerant-ai-runtime.html">→ Radiation-tolerant AI runtime: early access and bit-flip budget calculator</a>
 </div>
 </div>
@@ -966,7 +966,7 @@ Floor = chips' × K ÷ (0.99 × S)</div>
     if(email.length>254||!EMAIL_RE.test(email)){setErr(fEmail,'v7-email-err','Please enter a valid email address, like name@example.com.');ok=false}
     if(hoursRaw!==''){hours=Number(hoursRaw);if(!(isFinite(hours)&&hours>0&&hours<1e9)){setErr(fHours,'v7-hours-err','Enter a number of GPU-hours above zero, or leave it empty.');ok=false}}
     if(!ok){(fEmail.getAttribute('aria-invalid')?fEmail:fHours).focus();return}
-    if(fHp.value){show('ok','Thanks. Your intent is recorded.');form.reset();return}
+    if(fHp.value){fHp.value='';show('warn',fallbackText(leads(),'not_configured'));return}
     var L=leads(),label=fBtn.textContent,when=fWhen.value||'not given',use=fUse.value||'not given';
     fBtn.disabled=true;fBtn.textContent='Sending...';
     var payload={kind:KIND,email:email,name:'',company:'',tier:'',
