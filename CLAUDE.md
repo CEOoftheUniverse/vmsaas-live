@@ -28,4 +28,5 @@ Everything else: just do it. These few stay gated because they are hard to undo 
 - Every form submits through `leads.js`. Paste one endpoint into `LEADS_ENDPOINT` (Formspree, Supabase or a redeployed backend) to start saving leads; until then the forms show an honest "inbox is being set up" message. The old Vercel backend (`moltbot-cloud-saas.vercel.app`) no longer exists.
 - Plan and GPU wording follows `pricing.html` (shared GPU-hours per plan, dedicated GPUs at market rate + 10%, 7-day trial at launch). Keep every page consistent with it.
 - For new pages, start from `space-data-center-cost-calculator.html` or one of the `blog-space-*.html` articles: tables wrapped in `.tw`, a phone-friendly nav, JSON-LD, and every outside number linked to its source.
+- Space-compute pages carry the owner's principle (section `#peaceful-use`): peaceful, civilian purposes only, and ecological (clean orbits, planetary protection, full life-cycle footprint). Keep it on any new space page.
 - Work on `claude/*` branches and open draft pull requests.
