@@ -76,6 +76,7 @@
 
     <main class="api-main">
       <h1>API Reference</h1>
+      <p style="color:#fbbf24;font-size:.9rem;margin:.5rem 0 1rem">Planned API, shown as a preview. MoltBot Cloud is in pre-order, so these endpoints and keys are not live yet.</p>
       <p class="desc">REST API for programmatic control of MoltBot agents, tasks, and infrastructure.</p>
 
       <h2 id="auth">Authentication</h2>
@@ -107,9 +108,9 @@ curl https://api.moltbot.cloud/v1/agents \
       "id": "agent_01ABCDEF",
       "name": "coding-agent-1",
       "status": "running",
-      "gpu": "rtx4090",
+      "gpu_pool": "standard_24gb",
       "created_at": "2026-04-14T12:00:00Z",
-      "memory_gb": 24,
+      "gpu_hours_left": 41.5,
       "active_task": "task_01XYZABC"
     }
   ],
@@ -129,7 +130,7 @@ curl https://api.moltbot.cloud/v1/agents \
             <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
             <tbody>
               <tr><td>name</td><td><span class="type">string</span></td><td><span class="required">required</span></td><td>Human-readable agent name</td></tr>
-              <tr><td>gpu</td><td><span class="type">string</span></td><td><span class="required">required</span></td><td><code>rtx4090</code> | <code>a100</code> | <code>h100</code></td></tr>
+              <tr><td>gpu_pool</td><td><span class="type">string</span></td><td>optional</td><td><code>standard_24gb</code> (all plans, default) | <code>h100</code> (Swarm and Enterprise) | <code>dedicated</code> (add-on, market rate + 10%)</td></tr>
               <tr><td>system_prompt</td><td><span class="type">string</span></td><td>optional</td><td>Initial system prompt for the agent</td></tr>
               <tr><td>model</td><td><span class="type">string</span></td><td>optional</td><td>Default LLM model (default: <code>claude-opus-4</code>)</td></tr>
             </tbody>
@@ -137,7 +138,7 @@ curl https://api.moltbot.cloud/v1/agents \
           <pre><code>curl -X POST https://api.moltbot.cloud/v1/agents \
   -H "Authorization: Bearer mk_live_xxx" \
   -H "Content-Type: application/json" \
-  -d '{"name":"my-agent","gpu":"rtx4090","model":"claude-opus-4"}'</code></pre>
+  -d '{"name":"my-agent","gpu_pool":"standard_24gb","model":"claude-opus-4"}'</code></pre>
         </div>
       </div>
 
@@ -196,7 +197,7 @@ curl https://api.moltbot.cloud/v1/agents \
 client = MoltBot(api_key="mk_live_xxx")
 
 # Create and run an agent
-agent = client.agents.create(name="my-agent", gpu="rtx4090")
+agent = client.agents.create(name="my-agent", gpu_pool="standard_24gb")
 task = agent.run("Audit our GitHub repo for security vulnerabilities")
 
 # Poll for completion
@@ -210,15 +211,15 @@ print(result.output)</code></pre>
 
 const client = new MoltBot({ apiKey: 'mk_live_xxx' });
 
-const agent = await client.agents.create({ name: 'my-agent', gpu: 'rtx4090' });
+const agent = await client.agents.create({ name: 'my-agent', gpu_pool: 'standard_24gb' });
 const task = await agent.run('Generate unit tests for all untested functions');
 const result = await task.wait();
 console.log(result.output);</code></pre>
 
       <div style="margin-top:3rem;padding:2rem;background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2);border-radius:12px;text-align:center">
         <h3 style="margin:0 0 .5rem">Ready to build?</h3>
-        <p style="color:#94a3b8;margin-bottom:1.5rem">Get your API key in seconds. 14-day free trial, no credit card.</p>
-        <a href="signup.html" class="btn-primary">Get API Key →</a>
+        <p style="color:#94a3b8;margin-bottom:1.5rem">API keys open at launch. Join the waitlist today; your 7-day free trial starts at launch.</p>
+        <a href="signup.html" class="btn-primary">Join the Waitlist →</a>
       </div>
     </main>
   </div>

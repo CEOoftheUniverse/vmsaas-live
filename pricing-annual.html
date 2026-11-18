@@ -4,11 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Annual Pricing — MoltBot Cloud Save 20%</title>
-  <meta name="description" content="Save 20% on MoltBot Cloud with annual billing. Lock in AI agent infrastructure at $39/mo (Base), $119/mo (Swarm), or $239/mo (Enterprise). Cancel anytime.">
+  <meta name="description" content="Pre-order: save 20% on MoltBot Cloud with annual billing. $39/mo Base, $119/mo Swarm or $239/mo Enterprise, billed yearly. Shared GPU time included.">
   <meta name="keywords" content="MoltBot annual pricing, AI agent subscription, cheap AI hosting annual, save on AI agents">
   <meta property="og:title" content="MoltBot Annual Pricing — Save 20%">
   <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/pricing-annual.html">
+  <meta property="og:description" content="Pre-order: save 20% on MoltBot Cloud with annual billing. $39/mo Base, $119/mo Swarm or $239/mo Enterprise, billed yearly. Shared GPU time included.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoltBot Annual Pricing — Save 20%">
+  <meta name="twitter:description" content="Pre-order: MoltBot Cloud annual plans from $39/mo, billed yearly, with shared GPU time included.">
+  <meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
   <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/pricing-annual.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Product","name":"MoltBot Cloud Annual Plans","description":"Pre-order annual AI agent VM plans with shared GPU time included. Annual billing saves 20%.","brand":{"@type":"Organization","name":"MoltBot Cloud"},"offers":[
+    {"@type":"Offer","name":"Base Worker, billed yearly","price":"468","priceCurrency":"USD","priceValidUntil":"2027-01-01","availability":"https://schema.org/PreOrder","description":"USD 39 a month billed yearly. 1 agent; shared 24 GB-class GPU pool, up to 60 GPU-hours a month (fair use)."},
+    {"@type":"Offer","name":"Swarm Matrix, billed yearly","price":"1428","priceCurrency":"USD","priceValidUntil":"2027-01-01","availability":"https://schema.org/PreOrder","description":"USD 119 a month billed yearly. 3 concurrent agents; 120 GPU-hours on 24 GB-class GPUs + 5 H100-hours a month, priority queue."},
+    {"@type":"Offer","name":"Enterprise Fleet, billed yearly","price":"2868","priceCurrency":"USD","priceValidUntil":"2027-01-01","availability":"https://schema.org/PreOrder","description":"USD 239 a month billed yearly. 10 concurrent agents; 240 GPU-hours on 24 GB-class GPUs + 10 H100-hours a month, top priority."}
+  ]}
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -22,11 +36,11 @@
     .toggle::after{content:'';position:absolute;left:4px;top:4px;width:20px;height:20px;border-radius:50%;background:white;transition:transform .3s}
     .toggle.annual::after{transform:translateX(28px)}
     .savings-badge{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,211,238,.2);border-radius:20px;padding:.25rem .75rem;font-size:.8rem;font-weight:700;margin-left:.5rem}
-    .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;padding:0 10% 6rem;max-width:1100px;margin:0 auto}
+    .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;padding:0 1.5rem 6rem;max-width:1100px;margin:0 auto}
     .plan-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem;position:relative;transition:all .3s}
     .plan-card:hover{transform:translateY(-4px)}
     .plan-card.featured{border-color:rgba(79,70,229,.4);background:linear-gradient(135deg,rgba(79,70,229,.1),rgba(34,211,238,.05))}
-    .plan-card.featured::before{content:'MOST POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:white;padding:.2rem 1rem;border-radius:20px;font-size:.7rem;font-weight:700;letter-spacing:.05em}
+    .plan-card.featured::before{content:'RECOMMENDED';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:white;padding:.2rem 1rem;border-radius:20px;font-size:.7rem;font-weight:700;letter-spacing:.05em}
     .plan-name{font-size:1.3rem;font-weight:700;margin-bottom:.25rem}
     .plan-desc{color:#64748b;font-size:.85rem;margin-bottom:1.5rem}
     .plan-price{margin-bottom:.25rem}
@@ -51,6 +65,7 @@
     .faq-item summary::after{content:'+';font-size:1.2rem;color:var(--accent)}
     .faq-item[open] summary::after{content:'−'}
     .faq-item p{color:#94a3b8;margin-top:.75rem;font-size:.9rem;line-height:1.7}
+    @media(max-width:640px){.glass-nav{padding:1rem}.nav-links{gap:1rem}.nav-links a:not(.btn-primary):not([href="pricing.html"]){display:none}}
   </style>
 </head>
 <body>
@@ -67,10 +82,10 @@
 
   <section class="pricing-hero">
     <h1>Save <span style="background:linear-gradient(135deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">20%</span> with annual billing</h1>
-    <p>Lock in today's pricing for 12 months. Cancel anytime — if you cancel in the first 30 days, you get a full refund.</p>
+    <p>Pre-order: checkout is not open yet. When it opens, annual plans lock your price for 12 months. Planned terms: cancel anytime, with a full refund if you cancel in the first 30 days.</p>
     <div class="toggle-bar">
       <span class="toggle-label">Monthly</span>
-      <div class="toggle annual" id="billing-toggle" onclick=""></div>
+      <a class="toggle annual" id="billing-toggle" href="pricing.html" aria-label="Switch to monthly pricing"></a>
       <span class="toggle-label active">Annual <span class="savings-badge">Save 20%</span></span>
     </div>
   </section>
@@ -79,34 +94,34 @@
     <!-- Base Plan -->
     <div class="plan-card">
       <div class="plan-name">Base Worker</div>
-      <div class="plan-desc">1 persistent agent on RTX 4090. Perfect for solo founders and small teams.</div>
+      <div class="plan-desc">1 always-on agent with shared GPU time. Perfect for solo founders and small teams.</div>
       <div class="plan-price">
         <span class="was">$49</span><span class="amount">$39</span><span class="period">/mo</span>
       </div>
       <div class="billed-annual">Billed $468/year · Save $120</div>
       <ul class="plan-features">
         <li>1× Persistent Agent (OpenClaw Core)</li>
-        <li>RTX 4090 Dedicated VRAM (24GB)</li>
-        <li>Qwen 3.5 Local + Claude Sonnet 4 API</li>
+        <li>Shared GPU pool: 60 GPU-hours/mo on 24 GB-class GPUs</li>
+        <li>Qwen 3.5 on the shared GPU pool + Claude Sonnet 4 API</li>
         <li>24/7 Autonomous Execution</li>
         <li>10GB Persistent Storage</li>
         <li>ChromaDB Vector Memory</li>
         <li>Email Support</li>
       </ul>
-      <a href="signup.html?plan=base&billing=annual" class="plan-cta secondary">Start Base Annual →</a>
+      <a href="signup.html?plan=base&billing=annual" class="plan-cta secondary" aria-label="Join the Waitlist: Base Worker, billed yearly">Join the Waitlist →</a>
     </div>
 
     <!-- Swarm Plan -->
     <div class="plan-card featured">
       <div class="plan-name">Swarm Matrix</div>
-      <div class="plan-desc">3 concurrent agents on A100 80GB. Our most popular plan for growing teams.</div>
+      <div class="plan-desc">3 concurrent agents with priority GPU time. Our recommended plan for growing teams.</div>
       <div class="plan-price">
         <span class="was">$149</span><span class="amount">$119</span><span class="period">/mo</span>
       </div>
       <div class="billed-annual">Billed $1,428/year · Save $360</div>
       <ul class="plan-features">
         <li>3× Concurrent Agents</li>
-        <li>A100 80GB Dedicated</li>
+        <li>Shared GPU pool: 120 GPU-hours/mo (24 GB class) + 5 H100-hours, priority queue</li>
         <li>All 7 AI Models (Claude, GPT, Gemini, Kimi, Grok, Qwen, DeepSeek)</li>
         <li>Smart Model Routing (Arbitrage Engine)</li>
         <li>50GB Persistent Storage</li>
@@ -114,44 +129,45 @@
         <li>Team Workspace (5 seats)</li>
         <li>Priority Support</li>
       </ul>
-      <a href="signup.html?plan=swarm&billing=annual" class="plan-cta primary">Start Swarm Annual →</a>
+      <a href="signup.html?plan=swarm&billing=annual" class="plan-cta primary" aria-label="Join the Waitlist: Swarm Matrix, billed yearly">Join the Waitlist →</a>
     </div>
 
     <!-- Enterprise Plan -->
     <div class="plan-card">
       <div class="plan-name">Enterprise</div>
-      <div class="plan-desc">10 concurrent agents on 4× H100 cluster. For agencies and scale-ups.</div>
+      <div class="plan-desc">10 concurrent agents with top-priority GPU time. For agencies and scale-ups.</div>
       <div class="plan-price">
         <span class="was">$299</span><span class="amount">$239</span><span class="period">/mo</span>
       </div>
       <div class="billed-annual">Billed $2,868/year · Save $720</div>
       <ul class="plan-features">
         <li>10× Concurrent Agents (Full Orchestra)</li>
-        <li>4× H100 80GB Cluster</li>
+        <li>Shared GPU pool: 240 GPU-hours/mo (24 GB class) + 10 H100-hours, top priority</li>
+        <li>Dedicated GPUs on request: market rate + 10%</li>
         <li>All 7 AI Models + Custom Model Support</li>
         <li>200GB Storage + Dedicated Vector DB</li>
         <li>Omnisphere Visual Pipeline Builder</li>
         <li>Unlimited Team Seats</li>
-        <li>Custom SLA + Dedicated Support</li>
-        <li>White-label Ready</li>
+        <li>99.5% uptime target; custom SLA and named support contact (planned)</li>
+        <li>White-label option (planned)</li>
       </ul>
-      <a href="signup.html?plan=enterprise&billing=annual" class="plan-cta secondary">Start Enterprise Annual →</a>
+      <a href="signup.html?plan=enterprise&billing=annual" class="plan-cta secondary" aria-label="Join the Waitlist: Enterprise, billed yearly">Join the Waitlist →</a>
     </div>
   </div>
 
   <div class="guarantee">
-    <p>🛡️ <strong>30-day money-back guarantee.</strong> If you're not satisfied in the first 30 days, we'll refund your full annual payment — no questions asked.</p>
+    <p>🛡️ <strong>Planned 30-day money-back guarantee.</strong> Once checkout opens, if you're not satisfied in the first 30 days, we'll refund your full annual payment — no questions asked.</p>
   </div>
 
   <section class="faq">
     <h2>Frequently asked questions</h2>
     <details class="faq-item">
       <summary>Can I cancel my annual plan early?</summary>
-      <p>Yes. You can cancel at any time from the customer portal. If you cancel within the first 30 days, you receive a full refund. After 30 days, your plan continues until the end of your annual billing period.</p>
+      <p>Yes, under our planned terms. Once billing is live, you can cancel at any time from the customer portal. If you cancel within the first 30 days, you receive a full refund. After 30 days, your plan continues until the end of your annual billing period.</p>
     </details>
     <details class="faq-item">
       <summary>Can I upgrade mid-year?</summary>
-      <p>Yes. Upgrades are prorated. If you upgrade from Base to Swarm 6 months into your annual plan, you pay the prorated difference for the remaining 6 months.</p>
+      <p>Yes, under our planned terms. Upgrades are prorated. If you upgrade from Base to Swarm 6 months into your annual plan, you pay the prorated difference for the remaining 6 months.</p>
     </details>
     <details class="faq-item">
       <summary>Is the price locked in?</summary>
@@ -159,11 +175,11 @@
     </details>
     <details class="faq-item">
       <summary>Do I get all the same features as monthly?</summary>
-      <p>Yes — same features, same GPU tier, same model access. The only difference is 20% off the price and a 12-month billing cycle.</p>
+      <p>Yes — same features, same shared GPU-hour allowances, same model access. The only difference is 20% off the price and a 12-month billing cycle.</p>
     </details>
     <details class="faq-item">
       <summary>What payment methods are accepted?</summary>
-      <p>We accept all major credit cards (Visa, Mastercard, Amex) via Stripe. Annual plans can also be paid by wire transfer — contact us for an invoice.</p>
+      <p>Checkout is not open yet. When it opens, we plan to take major credit cards (Visa, Mastercard, Amex) through Stripe, and to offer invoices for annual Enterprise plans.</p>
     </details>
   </section>
 

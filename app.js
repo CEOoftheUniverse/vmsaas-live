@@ -1,4 +1,4 @@
-// Basic JS to handle the mock provisioning UX
+// DEMO ONLY - mock provisioning UX. MoltBot Cloud is in pre-order: do not load this file on a live page or wire it to a form.
 
 function mockProvision() {
     const form = document.getElementById('checkoutForm');
@@ -16,9 +16,8 @@ function mockProvision() {
     setTimeout(() => {
         status.innerHTML = `
             <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎉</div>
-            <h3 style="color: white; margin-bottom: 0.2rem;">Deployment Successful!</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem;">Your MoltBot Native Windows Environment (${tier.toUpperCase()}) is booting.</p>
-            <p style="color: #22d3ee; margin-top: 1rem; font-family: monospace; font-size: 1.1rem;">IP: 104.131.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}</p>
+            <h3 style="color: white; margin-bottom: 0.2rem;">Demo only</h3>
+            <p style="color: #94a3b8; font-size: 0.9rem;">This is a preview of the planned ${tier.toUpperCase()} setup. No VM was created: MoltBot Cloud is in pre-order.</p>
         `;
         btn.style.display = 'none';
     }, 3500);

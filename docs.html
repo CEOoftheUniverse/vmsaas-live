@@ -9,7 +9,19 @@
   <meta property="og:title" content="MoltBot Cloud Documentation">
   <meta property="og:description" content="Everything you need to deploy and manage autonomous AI agent fleets.">
   <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/docs.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoltBot Cloud Documentation">
+  <meta name="twitter:description" content="Docs for the planned MoltBot Cloud platform: quickstart, agents, swarms, model routing, shared GPU time and billing. Now in pre-order.">
+  <meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
   <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/docs.html">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebPage","name":"MoltBot Cloud Documentation","url":"https://ceooftheuniverse.github.io/vmsaas-live/docs.html","description":"Docs for the planned MoltBot Cloud platform (pre-order): quickstart, agents, swarms, model routing, shared GPU time and billing.","isPartOf":{"@type":"WebSite","name":"MoltBot Cloud","url":"https://ceooftheuniverse.github.io/vmsaas-live/"}},
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MoltBot Cloud","item":"https://ceooftheuniverse.github.io/vmsaas-live/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://ceooftheuniverse.github.io/vmsaas-live/docs.html"}]}
+  ]}
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -42,7 +54,7 @@
     .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-left: 0.5rem; }
     .badge-new { background: rgba(34,211,238,0.15); color: var(--accent); }
     .badge-beta { background: rgba(251,146,60,0.15); color: #fb923c; }
-    @media(max-width:768px){ .docs-layout{grid-template-columns:1fr} .docs-sidebar{display:none} .docs-content{padding:2rem 1.5rem} }
+    @media(max-width:768px){ .docs-layout{grid-template-columns:1fr} .docs-sidebar{display:none} .docs-content{padding:2rem 1.5rem;min-width:0} }
   </style>
 </head>
 <body>
@@ -90,7 +102,7 @@
 
     <main class="docs-content">
       <h1>MoltBot Docs</h1>
-      <p class="lead">Everything you need to deploy, manage, and scale autonomous AI agent fleets on dedicated GPU infrastructure.</p>
+      <p class="lead">Everything you need to deploy, manage, and scale autonomous AI agent fleets on private VMs with shared GPU time. MoltBot Cloud is in pre-order, so these docs describe the planned platform.</p>
 
       <div class="quicklinks">
         <a href="#quickstart" class="quicklink">
@@ -135,7 +147,7 @@ const client = new MoltBot({
       <pre><code>const agent = await client.agents.deploy({
   name: 'my-first-agent',
   model: 'auto',        // Smart model routing
-  tier: 'base',         // RTX 4090, $49/mo
+  tier: 'base',         // 1 agent, shared 24 GB GPU pool, $49/mo
   task: 'code-review',
 });
 
@@ -154,7 +166,7 @@ console.log(result.output);</code></pre>
 
       <div class="doc-card">
         <h3>🤖 Agents</h3>
-        <p>An agent is a persistent process running on a dedicated GPU VM. Each agent has its own memory, tool access, and model configuration. Agents run 24/7 and can be given recurring tasks or respond to triggers.</p>
+        <p>An agent is a persistent process running on your private VM, with GPU work sent to a shared GPU pool. Each agent has its own memory, tool access, and model configuration. Agents run 24/7 and can be given recurring tasks or respond to triggers.</p>
       </div>
 
       <div class="doc-card">
@@ -169,11 +181,11 @@ console.log(result.output);</code></pre>
 
       <div class="doc-card">
         <h3>⚡ Model Routing <span class="badge badge-new">Auto</span></h3>
-        <p>MoltBot's arbitrage engine automatically selects the cheapest model capable of completing your task. Set <span class="inline-code">model: 'auto'</span> to save up to 90% on inference costs without sacrificing quality.</p>
+        <p>MoltBot's arbitrage engine automatically selects the cheapest model capable of completing your task. Set <span class="inline-code">model: 'auto'</span> to send simple tasks to lower-cost models and keep frontier models for hard ones.</p>
       </div>
 
       <h2 id="models">Supported Models</h2>
-      <table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;">
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:1.5rem"><table style="width:100%;border-collapse:collapse;">
         <thead>
           <tr style="border-bottom:1px solid var(--glass-border);text-align:left;">
             <th style="padding:0.75rem;color:var(--accent)">Model</th>
@@ -205,39 +217,44 @@ console.log(result.output);</code></pre>
             <td style="padding:0.75rem">DeepSeek R2</td><td style="padding:0.75rem">DeepSeek</td><td style="padding:0.75rem">128K</td><td style="padding:0.75rem">Mathematics, STEM</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h2 id="gpu">GPU Tiers</h2>
 
       <div class="doc-card">
-        <h3>Base — RTX 4090 (24GB VRAM) · $49/mo</h3>
+        <h3>Base — Shared 24 GB GPU pool · $49/mo</h3>
         <p>1 persistent agent. Ideal for code review, content generation, data analysis, and single-threaded automation.</p>
-        <ul><li>24GB VRAM, 128GB system RAM</li><li>Qwen 3.5 local + cloud model routing</li><li>10GB persistent storage</li></ul>
+        <ul><li>Up to 60 GPU-hours a month on 24 GB-class GPUs (fair use)</li><li>Qwen 3.5 on the GPU pool + cloud model routing</li><li>10GB persistent storage</li></ul>
       </div>
 
       <div class="doc-card">
-        <h3>Swarm Matrix — A100 80GB · $149/mo</h3>
+        <h3>Swarm Matrix — Shared GPU pool with H100 hours · $149/mo</h3>
         <p>3 concurrent agents with full model access. Smart routing across all 7 providers. Best for teams and complex pipelines.</p>
-        <ul><li>80GB VRAM, 256GB RAM</li><li>All 7 AI models</li><li>50GB persistent storage + ChromaDB memory</li></ul>
+        <ul><li>Up to 120 GPU-hours (24 GB class) + 5 H100-hours a month, priority queue</li><li>All 7 AI models</li><li>50GB persistent storage + ChromaDB memory</li></ul>
       </div>
 
       <div class="doc-card">
-        <h3>Enterprise — 4× H100 Cluster · $299/mo</h3>
-        <p>10 concurrent agents, Omnisphere pipeline builder, priority support, and custom SLA.</p>
-        <ul><li>4× H100 80GB cluster, 512GB RAM</li><li>200GB storage + dedicated vector DB</li><li>Visual pipeline builder, webhook triggers, custom models</li></ul>
+        <h3>Enterprise — Top-priority GPU pool · $299/mo</h3>
+        <p>10 concurrent agents, Omnisphere pipeline builder, priority support, and a 99.5% uptime target (custom SLA planned for contracts).</p>
+        <ul><li>Up to 240 GPU-hours (24 GB class) + 10 H100-hours a month, top priority</li><li>200GB storage + dedicated vector DB</li><li>Visual pipeline builder, webhook triggers, custom models</li></ul>
+      </div>
+
+      <div class="doc-card">
+        <h3>Dedicated GPU add-on · market rate + 10%</h3>
+        <p>A GPU reserved for you alone, billed per GPU-hour: from USD 0.18/h for a 24 GB card and USD 2.19/h for an H100 80 GB, based on <a href="https://www.runpod.io/pricing" style="color:var(--accent)">RunPod</a> rates in November 2026 (USD 0.16 and USD 1.99). Extra pool hours cost the same. Compare providers on the <a href="gpu-price-index.html" style="color:var(--accent)">GPU rental price list</a>.</p>
       </div>
 
       <h2 id="plans">Plans & Billing</h2>
-      <p>MoltBot uses monthly subscription billing via Stripe. Usage is metered for API calls above your plan's included allocation. You can upgrade, downgrade, or cancel at any time from the <a href="portal.html" style="color:var(--accent)">customer portal</a>.</p>
-      <pre><code># Check your current usage via API
+      <p>MoltBot Cloud is in pre-order, so billing is not live yet. When checkout opens, plans will bill monthly or yearly through Stripe. GPU time beyond your plan's fair-use allowance is billed at market rate + 10%, from USD 0.18 per GPU-hour (24 GB class) and USD 2.19 per H100-hour. You will be able to upgrade, downgrade, or cancel at any time from the <a href="portal.html" style="color:var(--accent)">customer portal</a>.</p>
+      <pre><code># Check your current usage via API (planned endpoint)
 GET /api/usage
 Authorization: Bearer YOUR_API_KEY
 
 {
   "plan": "swarm",
   "period_start": "2026-04-01",
-  "api_calls_used": 12840,
-  "api_calls_included": 50000,
+  "gpu_hours_used": { "standard_24gb": 42.5, "h100": 1.2 },
+  "gpu_hours_included": { "standard_24gb": 120, "h100": 5 },
   "overage_cost": "$0.00"
 }</code></pre>
 

@@ -87,7 +87,7 @@
 
       <div class="callout info">
         <h4>ℹ️ Real-world cost spread</h4>
-        <p>Claude Opus 4 costs ~$0.015/1K output tokens. Qwen 3.5 B (local) costs effectively $0. A well-routed system pays Opus prices only for tasks that need it — often less than 15% of requests.</p>
+        <p>Claude Opus 4 is among the most expensive models per output token. A local Qwen 3.5 model has no per-token API fee; you pay only for the GPU it runs on. A well-routed system pays Opus prices only for tasks that need it — often less than 15% of requests.</p>
       </div>
 
       <pre><code># MoltBot Omnisphere routing table (simplified)
@@ -133,8 +133,8 @@ def semantic_route(prompt: str) -> str:
       <p>This is what MoltBot's Omnisphere engine uses. Route to the cheapest model that is predicted to meet a quality threshold for the given request. Quality is estimated using a fast classifier trained on past outputs.</p>
 
       <div class="callout tip">
-        <h4>✓ Result</h4>
-        <p>In production across 50+ customers, arbitrage routing reduces average cost-per-request by 64% with zero measurable quality regression on customer-defined evals.</p>
+        <h4>✓ What to measure</h4>
+        <p>Sending most requests to lower-cost models can cut the average cost per request sharply. MoltBot Cloud is in pre-order, so we have no customer results to share yet: check quality on your own evals before you rely on the savings.</p>
       </div>
 
       <pre><code>def arbitrage_route(prompt: str, quality_threshold: float = 0.85) -> str:

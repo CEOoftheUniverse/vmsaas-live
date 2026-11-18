@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — MoltBot Cloud | AI Agent VMs from $49/mo</title>
-<meta name="description" content="MoltBot Cloud pricing: AI agent VMs with Claude, GPT, Gemini pre-installed. Base $49/mo, Swarm $149/mo, Enterprise $299/mo. 60% cheaper than DIY.">
+<meta name="description" content="MoltBot Cloud pre-order pricing: AI agent VMs with shared GPU time. Base $49/mo, Swarm $149/mo, Enterprise $299/mo. Dedicated GPUs at market rate + 10%.">
 <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/pricing.html">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="MoltBot Cloud Pricing — AI Agent VMs from $49/mo">
-<meta property="og:description" content="AI agent VMs with Claude, GPT, Gemini. Base $49, Swarm $149, Enterprise $299. 60% cheaper than DIY.">
+<meta property="og:description" content="Pre-order: AI agent VMs with Claude, GPT and Gemini plus shared GPU time. Base $49, Swarm $149, Enterprise $299 a month.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ceooftheuniverse.github.io/vmsaas-live/pricing.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MoltBot Cloud Pricing — from $49/mo">
-<meta name="twitter:description" content="AI agent VMs with Claude, GPT, Gemini. 60% cheaper than DIY.">
+<meta name="twitter:description" content="Pre-order: AI agent VMs from $49/mo with shared GPU time included.">
 <meta property="og:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
 <meta name="twitter:image" content="https://ceooftheuniverse.github.io/vmsaas-live/og-image.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🤖</text></svg>">
@@ -23,12 +23,12 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "MoltBot Cloud VM Plans",
-  "description": "AI agent VMs with Claude, GPT, Gemini pre-installed. 60% cheaper than DIY.",
+  "description": "Pre-order AI agent VM plans with Claude, GPT and Gemini pre-installed and a shared GPU pool. Dedicated GPUs are an add-on billed at market rate plus 10%.",
   "brand": {"@type": "Organization", "name": "MoltBot Cloud"},
   "offers": [
-    {"@type": "Offer", "name": "Base Worker", "price": "49", "priceCurrency": "USD", "priceValidUntil": "2027-01-01", "availability": "https://schema.org/PreOrder", "description": "1 agent, RTX 4090, Qwen 3.5 + Claude Sonnet 4"},
-    {"@type": "Offer", "name": "Swarm Matrix", "price": "149", "priceCurrency": "USD", "priceValidUntil": "2027-01-01", "availability": "https://schema.org/PreOrder", "description": "3 concurrent agents, A100 80GB, smart model routing"},
-    {"@type": "Offer", "name": "Enterprise Fleet", "price": "299", "priceCurrency": "USD", "priceValidUntil": "2027-01-01", "availability": "https://schema.org/PreOrder", "description": "10 agents, 4x A100 cluster, priority support"}
+    {"@type": "Offer", "name": "Base Worker", "price": "49", "priceCurrency": "USD", "priceValidUntil": "2027-01-01", "availability": "https://schema.org/PreOrder", "description": "Pre-order. 1 agent; shared 24 GB-class GPU pool, up to 60 GPU-hours a month (fair use); Qwen 3.5 + Claude Sonnet 4; 10 GB storage"},
+    {"@type": "Offer", "name": "Swarm Matrix", "price": "149", "priceCurrency": "USD", "priceValidUntil": "2027-01-01", "availability": "https://schema.org/PreOrder", "description": "Pre-order. 3 concurrent agents; shared GPU pool, up to 120 GPU-hours on 24 GB-class GPUs + 5 H100-hours a month, priority queue; 7 AI model families with smart routing; 50 GB storage"},
+    {"@type": "Offer", "name": "Enterprise Fleet", "price": "299", "priceCurrency": "USD", "priceValidUntil": "2027-01-01", "availability": "https://schema.org/PreOrder", "description": "Pre-order. 10 concurrent agents; shared GPU pool, up to 240 GPU-hours on 24 GB-class GPUs + 10 H100-hours a month, top priority; dedicated GPUs at market rate + 10%; priority support; 200 GB storage"}
   ]
 }
 </script>
@@ -37,11 +37,13 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "What GPU do I get with MoltBot Cloud?", "acceptedAnswer": {"@type": "Answer", "text": "Base: RTX 3090 (24GB VRAM). Swarm: RTX 4090 (24GB). Enterprise: A100 SXM (80GB). All sourced from Vast.ai and RunPod for best pricing."}},
-    {"@type": "Question", "name": "Can I cancel MoltBot Cloud anytime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Monthly billing, cancel anytime. No contracts, no penalties."}},
-    {"@type": "Question", "name": "What AI models are included?", "acceptedAnswer": {"@type": "Answer", "text": "Claude (Opus/Sonnet/Haiku), GPT-4o, Gemini (Flash/Pro), MiniMax M2.5, DeepSeek V3.2. Smart routing picks the optimal model automatically."}},
+    {"@type": "Question", "name": "What GPU do I get with MoltBot Cloud?", "acceptedAnswer": {"@type": "Answer", "text": "Plans share a GPU pool instead of reserving a card per customer. Base: up to 60 GPU-hours a month on 24 GB-class GPUs (RTX A5000, 3090 or 4090 class). Swarm: 120 hours plus 5 H100-hours, priority queue. Enterprise: 240 hours plus 10 H100-hours, top priority. Dedicated GPUs cost market rate plus 10%: from USD 0.18 an hour (24 GB) or USD 2.19 (H100) (RunPod rates, November 2026). MoltBot Cloud is in pre-order."}},
+    {"@type": "Question", "name": "What counts as a GPU-hour?", "acceptedAnswer": {"@type": "Answer", "text": "One GPU for one hour while your job holds it. Two GPUs for 30 minutes also count as one GPU-hour. Hours reset each month and do not roll over. We plan to show your usage in the customer portal."}},
+    {"@type": "Question", "name": "What if I need more GPU time?", "acceptedAnswer": {"@type": "Answer", "text": "Extra pool hours and dedicated GPUs cost the market rate plus 10% per GPU-hour: from USD 0.18 an hour for a 24 GB card or USD 2.19 for an H100 (RunPod Community Cloud rates, 5 Nov 2026). Extra time is opt-in and quoted before you buy."}},
+    {"@type": "Question", "name": "Can I cancel MoltBot Cloud anytime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Once checkout opens, you can pay monthly or yearly and cancel anytime. No contracts, no penalties."}},
+    {"@type": "Question", "name": "What AI models are included?", "acceptedAnswer": {"@type": "Answer", "text": "7 AI model families: Claude, GPT, Gemini, Qwen, Kimi, Grok and DeepSeek. Base uses Qwen 3.5 and Claude Sonnet 4; Swarm and Enterprise can use all 7. Smart routing picks a suitable model for each task. Model API use has fair-use limits, which we will publish before checkout opens."}},
     {"@type": "Question", "name": "How is MoltBot Cloud different from running my own OpenClaw?", "acceptedAnswer": {"@type": "Answer", "text": "We handle GPU provisioning, model API keys, monitoring, backups, and updates. You focus on building — we handle infrastructure."}},
-    {"@type": "Question", "name": "Is there a free trial?", "acceptedAnswer": {"@type": "Answer", "text": "We're in early access. Join the waitlist and get 7 days free when we launch."}}
+    {"@type": "Question", "name": "Is there a free trial?", "acceptedAnswer": {"@type": "Answer", "text": "We're in pre-order. Join the waitlist and get 7 days free when we launch."}}
   ]
 }
 </script>
@@ -87,6 +89,7 @@ h1 .grad{background:linear-gradient(135deg,var(--a),var(--c));-webkit-background
 .compare{margin:4rem 0}
 .compare h2{font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:2rem}
 table{width:100%;border-collapse:collapse}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.5rem 0}
 th,td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--b);font-size:.85rem}
 th{color:var(--m);font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
 .check{color:var(--g)}
@@ -97,6 +100,8 @@ th{color:var(--m);font-weight:600;font-size:.75rem;text-transform:uppercase;lett
 .faq-item h3{font-size:1rem;font-weight:600;margin-bottom:.5rem}
 .faq-item p{color:var(--m);font-size:.85rem}
 footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(--m);font-size:.8rem}
+@media(max-width:640px){.c{padding:0 1rem}nav .inner{padding:0 1rem}nav a{margin-left:1rem}nav a[href^="https://github.com"]{display:none}}
+@media(max-width:640px){th,td{padding:.6rem .4rem}}
 </style>
 </head>
 <body>
@@ -105,7 +110,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 <div class="c">
 <section class="hero">
 <h1>Simple <span class="grad">Pricing</span></h1>
-<p class="sub">Pre-configured AI agent VMs with smart model routing. Pay monthly, cancel anytime. All plans include 24/7 uptime and persistent memory.</p>
+<p class="sub">Pre-configured AI agent VMs with smart model routing and shared GPU time. MoltBot Cloud is in pre-order: checkout is not open yet, so join the waitlist today. Every plan includes persistent memory and a planned 99.5% uptime target.</p>
 </section>
 
 <div class="grid">
@@ -114,54 +119,73 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 <div class="price">$49<small>/mo</small></div>
 <div class="desc">Perfect for solo developers. One powerful AI agent with smart model routing.</div>
 <ul>
-<li>1 Agent VM (RTX 3090)</li>
-<li>Smart routing: Opus→Sonnet→GPT→Gemini</li>
+<li>1 always-on agent on a private VM</li>
+<li>Shared GPU pool: up to 60 GPU-hours/mo on 24 GB-class GPUs</li>
+<li>10 GB persistent storage</li>
+<li>Smart routing: Qwen 3.5 + Claude Sonnet 4</li>
 <li>Persistent memory across sessions</li>
 <li>15+ pre-installed skills</li>
 <li>Cron scheduling (24/7 tasks)</li>
 <li>Web browsing + API access</li>
 </ul>
-<a href="signup.html?plan=base" class="btn btn-s">Get Started →</a>
+<a href="signup.html?plan=base" class="btn btn-s">Join the Base Waitlist →</a>
 </div>
 
 <div class="card pop">
-<div class="tag">MOST POPULAR</div>
+<div class="tag">RECOMMENDED</div>
 <h3>Swarm</h3>
 <div class="price">$149<small>/mo</small></div>
 <div class="desc">Multi-agent team with Mission Control orchestration. Build and ship faster.</div>
 <ul>
-<li>3 Agent VMs (RTX 4090)</li>
+<li>3 concurrent agents</li>
+<li>Shared GPU pool: 120 GPU-hours/mo (24 GB class) + 5 H100-hours, priority queue</li>
+<li>50 GB persistent storage</li>
 <li>Mission Control squad orchestration</li>
-<li>Multi-model consensus queries</li>
+<li>All 7 AI model families, with multi-model consensus</li>
 <li>Custom agent configurations</li>
 <li>Priority support</li>
 <li>Omnisphere API access ($10 credits)</li>
 </ul>
-<a href="signup.html?plan=swarm" class="btn btn-p">Get Started →</a>
+<a href="signup.html?plan=swarm" class="btn btn-p">Join the Swarm Waitlist →</a>
 </div>
 
 <div class="card">
 <h3>Enterprise</h3>
 <div class="price">$299<small>/mo</small></div>
-<div class="desc">Full 10-agent team with dedicated GPU. SLA-backed uptime for production use.</div>
+<div class="desc">Full 10-agent team with top-priority GPU time. Add a dedicated GPU at market rate + 10% when a job needs one.</div>
 <ul>
-<li>10 Agent VMs (A100 80GB)</li>
-<li>99.99% uptime SLA</li>
+<li>10 concurrent agents</li>
+<li>Shared GPU pool: 240 GPU-hours/mo (24 GB class) + 10 H100-hours, top priority</li>
+<li>99.5% uptime target (planned)</li>
+<li>200 GB persistent storage</li>
 <li>Custom model routing rules</li>
-<li>Dedicated GPU resources</li>
+<li>Dedicated GPUs on request: market rate + 10%</li>
 <li>API access + webhooks</li>
-<li>Dedicated support engineer</li>
+<li>Named support contact (planned)</li>
 </ul>
-<a href="signup.html?plan=enterprise" class="btn btn-s">Contact Sales →</a>
+<a href="signup.html?plan=enterprise" class="btn btn-s">Join the Enterprise Waitlist →</a>
 </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
+<section id="gpu" class="compare" style="margin:0 0 4rem">
+<h2>How GPU time works</h2>
+<p class="sub" style="margin:0 auto 1.5rem;text-align:center">Plans share a pool of rented GPUs instead of reserving one card for each customer. That is how plans start at $49 a month: one H100 running full time costs about USD 1,450 a month, even at RunPod's USD 1.99 community rate.</p>
+<div class="tw"><table>
+<tr><th>Plan</th><th>24 GB GPU-hours/mo</th><th>H100 hours/mo</th><th>Queue</th></tr>
+<tr><td>Base · $49</td><td>60</td><td>—</td><td>Standard</td></tr>
+<tr><td>Swarm · $149</td><td>120</td><td>5</td><td>Priority</td></tr>
+<tr><td>Enterprise · $299</td><td>240</td><td>10</td><td>Top priority</td></tr>
+<tr><td>Dedicated GPU (add-on)</td><td colspan="2">Market rate + 10%: from USD 0.18/h (24 GB) or USD 2.19/h (H100)</td><td>None: the card is yours</td></tr>
+</table></div>
+<p style="font-size:.8rem;color:var(--m)">24 GB-class means RTX A5000, RTX 3090 or RTX 4090 cards; the exact card varies. Fair use: a GPU-hour counts only while your job holds a GPU; hours reset monthly; busy times can mean a short queue. Model API use also has fair-use limits, which we will publish before checkout opens. Extra hours cost the same as a dedicated GPU; they are opt-in, quoted before you buy and subject to availability. Rates checked 5 Nov 2026 on <a href="https://www.runpod.io/pricing" style="color:var(--a)">RunPod</a>: RTX A5000 USD 0.16/h, H100 PCIe USD 1.99/h (Community Cloud). More on our <a href="gpu-price-index.html" style="color:var(--a)">GPU rental price list</a>. The pool is planned and goes live with checkout.</p>
+</section>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2rem">
 <div class="card" style="border-color:rgba(245,158,11,.3);background:linear-gradient(135deg,var(--s),rgba(245,158,11,.03))">
 <div class="tag" style="background:#f59e0b">ADD-ON</div>
 <h3 style="color:#f59e0b">Copilot IDE</h3>
 <div class="price">$50<small>/mo</small></div>
-<div class="desc">Autonomous agents directly in VS Code. Like GitHub Copilot but with 3 parallel agents and 12 models.</div>
+<div class="desc">Autonomous agents directly in VS Code: up to 3 parallel agents using your plan's models and GPU pool. Pre-order; in development.</div>
 <ul>
 <li>VS Code extension (.vsix)</li>
 <li>3 parallel agents in your IDE</li>
@@ -174,72 +198,49 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:var(
 
 <div class="card" style="text-align:center;padding:2rem">
 <h3 style="color:var(--c)">Omnisphere API</h3>
-<div class="price" style="font-size:2rem">$0.003<small>/query avg</small></div>
-<div class="desc">Multi-LLM arbitrage router. 8 models, OpenAI-compatible. <a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--a)">Learn more →</a></div>
+<div class="price" style="font-size:2rem">$0.003<small>/query, planned average</small></div>
+<div class="desc">Multi-LLM router, OpenAI-compatible, 8 models. The price of each query depends on the model and its length; $0.003 is our planned average. <a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--a)">Learn more →</a></div>
 </div>
 </div>
 
 <div class="compare">
-<h2>How We Compare</h2>
-<table>
-<tr><th>Feature</th><th style="color:var(--a)">MoltBot Cloud</th><th>Vagon</th><th>RunPod</th><th>DIY (AWS)</th></tr>
-<tr><td>Starting price</td><td style="color:var(--g)"><strong>$49/mo</strong></td><td>$99/mo*</td><td>$70/mo*</td><td>$200+/mo</td></tr>
-<tr><td>AI stack pre-installed</td><td class="check">✓ Full stack</td><td class="x">✗ Blank VM</td><td class="x">✗ Blank VM</td><td class="x">✗ Manual</td></tr>
-<tr><td>Multi-model routing</td><td class="check">✓ 8 models</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗ DIY</td></tr>
-<tr><td>Agent orchestration</td><td class="check">✓ Mission Control</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗ DIY</td></tr>
-<tr><td>Persistent memory</td><td class="check">✓ Built-in</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗ DIY</td></tr>
-<tr><td>Setup time</td><td style="color:var(--g)"><strong>60 seconds</strong></td><td>30 min</td><td>1-2 hours</td><td>4-8 hours</td></tr>
-<tr><td>Skills ecosystem</td><td class="check">✓ 15+ built-in</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td></tr>
-</table>
-<p style="font-size:.75rem;color:#52525b;margin-top:.5rem">*Estimated based on typical GPU usage for AI agent workloads</p>
+<h2>What a GPU of your own costs</h2>
+<div class="tw"><table>
+<tr><th>Option</th><th>What you get</th><th>GPU time a month</th><th>Price a month</th></tr>
+<tr><td style="color:var(--a)"><strong>MoltBot Base</strong> (pre-order)</td><td>1 always-on agent, AI stack pre-installed</td><td>Up to 60 shared GPU-hours (24 GB class)</td><td style="color:var(--g)"><strong>$49 flat</strong></td></tr>
+<tr><td>RunPod RTX A5000 (24 GB), rented 24/7</td><td>One GPU; you install the stack</td><td>730 hours</td><td>USD 116.80 (USD 0.16/h)</td></tr>
+<tr><td>RunPod Community Cloud H100 PCIe, rented 24/7</td><td>One H100 80 GB; you install the stack</td><td>730 hours</td><td>USD 1,452.70 (USD 1.99/h)</td></tr>
+<tr><td>AWS p5.48xlarge, one H100, 24/7</td><td>One of 8 H100s, on demand</td><td>730 hours</td><td>USD 5,022.40 (USD 6.88/h)</td></tr>
+</table></div>
+<p style="font-size:.75rem;color:#71717a;margin-top:.5rem">On-demand prices checked 5 Nov 2026: <a href="https://www.runpod.io/pricing" style="color:var(--a)">RunPod</a>; AWS via <a href="https://instances.vantage.sh/aws/ec2/p5.48xlarge" style="color:var(--a)">Vantage</a>. A rented GPU runs full time but comes without agents, models or setup. Our plans share GPUs, which keeps them low in price; add a dedicated GPU when you need one.</p>
 </div>
 
 <div class="faq">
 <h2>FAQ</h2>
-<div class="faq-item"><h3>What GPU do I get?</h3><p>Base: RTX 3090 (24GB VRAM). Swarm: RTX 4090 (24GB). Enterprise: A100 SXM (80GB). All sourced from Vast.ai and RunPod for best pricing.</p></div>
-<div class="faq-item"><h3>Can I cancel anytime?</h3><p>Yes. Monthly billing, cancel anytime. No contracts, no penalties.</p></div>
-<div class="faq-item"><h3>What AI models are included?</h3><p>Claude (Opus/Sonnet/Haiku), GPT-4o, Gemini (Flash/Pro), MiniMax M2.5, DeepSeek V3.2. Smart routing picks the optimal model automatically.</p></div>
+<div class="faq-item"><h3>What GPU do I get?</h3><p>Plans share a GPU pool instead of reserving a card per customer. Base: up to 60 GPU-hours a month on 24 GB-class GPUs (RTX A5000, 3090 or 4090 class). Swarm: 120 hours plus 5 H100-hours, priority queue. Enterprise: 240 hours plus 10 H100-hours, top priority. Dedicated GPUs cost market rate plus 10%: from USD 0.18 an hour (24 GB) or USD 2.19 (H100) (<a href="https://www.runpod.io/pricing" style="color:var(--a)">RunPod</a> rates, November 2026). See <a href="#gpu" style="color:var(--a)">how GPU time works</a>.</p></div>
+<div class="faq-item"><h3>What counts as a GPU-hour?</h3><p>One GPU for one hour while your job holds it. Two GPUs for 30 minutes also count as one GPU-hour. Hours reset each month and do not roll over. We plan to show your usage in the customer portal.</p></div>
+<div class="faq-item"><h3>What if I need more GPU time?</h3><p>Extra pool hours and dedicated GPUs cost the market rate plus 10% per GPU-hour: from USD 0.18 an hour for a 24 GB card or USD 2.19 for an H100 (<a href="https://www.runpod.io/pricing" style="color:var(--a)">RunPod</a> Community Cloud rates, 5 Nov 2026). Extra time is opt-in and quoted before you buy.</p></div>
+<div class="faq-item"><h3>Can I cancel anytime?</h3><p>Yes. Once checkout opens, you can pay monthly or yearly and cancel anytime. No contracts, no penalties.</p></div>
+<div class="faq-item"><h3>What AI models are included?</h3><p>7 AI model families: Claude, GPT, Gemini, Qwen, Kimi, Grok and DeepSeek. Base uses Qwen 3.5 and Claude Sonnet 4; Swarm and Enterprise can use all 7. Smart routing picks a suitable model for each task. Model API use has fair-use limits, which we will publish before checkout opens.</p></div>
 <div class="faq-item"><h3>How is this different from running my own OpenClaw?</h3><p>We handle GPU provisioning, model API keys, monitoring, backups, and updates. You focus on building — we handle infrastructure.</p></div>
-<div class="faq-item"><h3>Is there a free trial?</h3><p>We're in early access. Join the waitlist and get 7 days free when we launch.</p></div>
+<div class="faq-item"><h3>Is there a free trial?</h3><p>We're in pre-order. Join the waitlist and get 7 days free when we launch.</p></div>
 </div>
 
 <div id="waitlist" class="card" style="text-align:center;padding:3rem;margin:3rem 0">
 <h2 style="margin-bottom:1rem">Join the Waitlist</h2>
-<p style="color:var(--m);margin-bottom:1.5rem">Be first to access MoltBot Cloud when we launch. 4 people already signed up.</p>
-<form id="wl-form" style="max-width:400px;margin:0 auto;display:flex;gap:.5rem">
-<input id="wl-email" type="email" placeholder="your@email.com" required style="flex:1;padding:.7rem 1rem;border-radius:8px;border:1px solid var(--b);background:rgba(255,255,255,.05);color:var(--t);font-size:.9rem">
-<button type="submit" style="background:var(--a);color:#fff;border:none;padding:.7rem 1.5rem;border-radius:8px;font-weight:700;cursor:pointer;white-space:nowrap">Join →</button>
-</form>
-<div id="wl-result" style="margin-top:1rem;font-size:.85rem"></div>
+<p style="color:var(--m);margin-bottom:1.5rem">Be first to hear when checkout opens. Joining is free and needs no card. Your 7-day free trial starts at launch.</p>
+<form id="wl-form" data-leads-kind="waitlist" style="max-width:400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.5rem">
+<label for="wl-email" style="position:absolute;left:-9999px">Email address</label>
+<input id="wl-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required style="flex:1 1 200px;min-height:44px;padding:.7rem 1rem;border-radius:8px;border:1px solid var(--b);background:rgba(255,255,255,.05);color:var(--t);font-size:.9rem">
+<input name="website" type="text" tabindex="-1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-bwignore="true" data-form-type="other" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+<button type="submit" style="min-height:44px;background:var(--a);color:#fff;border:none;padding:.7rem 1.5rem;border-radius:8px;font-weight:700;cursor:pointer;white-space:nowrap">Join →</button>
+<div id="wl-result" data-leads-status aria-live="polite" style="flex-basis:100%;margin-top:1rem;font-size:.85rem"></div>
 </form>
 </div>
 </div>
 
 <footer><div class="c">MoltBot Cloud — AI Agent VMs · <a href="https://github.com/CEOoftheUniverse/moltbot-saas" style="color:var(--a)">GitHub</a> · <a href="https://ceooftheuniverse.github.io/omnisphere/" style="color:var(--a)">Omnisphere API</a></div></footer>
 
-<script>
-document.getElementById('wl-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('wl-email').value;
-    const res = document.getElementById('wl-result');
-    try {
-        // Try backend first, fall back to static confirmation
-        const r = await fetch('https://moltbot-cloud-saas.vercel.app/api/waitlist', {
-            method: 'POST', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ email, tier: 'base', referral: localStorage.getItem('moltbot_referral') || '' })
-        }).catch(() => fetch('http://127.0.0.1:3000/api/waitlist', {
-            method: 'POST', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ email, tier: 'base', referral: localStorage.getItem('moltbot_referral') || '' })
-        })).catch(() => null);
-        if (r?.ok) {
-            const d = await r.json();
-            res.innerHTML = `<span style="color:#22c55e">✅ You're #${d.position} on the list!</span>`;
-        } else {
-            res.innerHTML = `<span style="color:#22c55e">✅ Recorded! We'll email you when ready.</span>`;
-        }
-    } catch { res.innerHTML = `<span style="color:#22c55e">✅ Noted! We'll reach out soon.</span>`; }
-    document.getElementById('wl-email').value = '';
-});
-</script>
+<script src="leads.js" defer></script>
 </body>
 </html>

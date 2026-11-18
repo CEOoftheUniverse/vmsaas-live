@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Security — MoltBot Cloud Enterprise Security</title>
-<meta name="description" content="MoltBot Cloud security: dedicated VMs, encrypted data, no AI training on your code, SOC 2 roadmap, GDPR compliant. Enterprise-grade security from day one.">
+<meta name="description" content="MoltBot Cloud security design (pre-order): private VMs, encrypted data, no AI training on your code, a SOC 2 roadmap and GDPR compliance.">
 <link rel="canonical" href="https://ceooftheuniverse.github.io/vmsaas-live/security.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
@@ -48,18 +48,18 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <div class="c">
 <div class="hero">
 <h1>Enterprise-Grade <span class="grad">Security</span></h1>
-<p class="sub">Your code stays on your VM. We never train on it. Dedicated infrastructure with full isolation.</p>
+<p class="sub">Your code stays on your private VM, and we never train on it. MoltBot Cloud is in pre-order, so this page describes the security design we are building.</p>
 </div>
 
 <div class="badge-row">
     <span class="badge">🔒 Encrypted at Rest</span>
     <span class="badge">🔐 TLS 1.3 in Transit</span>
-    <span class="badge">🛡️ Dedicated VMs</span>
+    <span class="badge">🛡️ Private VMs</span>
     <span class="badge">📋 GDPR Compliant</span>
 </div>
 
 <div class="pillars">
-    <div class="pillar"><div class="pillar-icon">🏰</div><div class="pillar-title">Full Isolation</div><div class="pillar-desc">Dedicated VM per customer. No shared compute, no container neighbors.</div></div>
+    <div class="pillar"><div class="pillar-icon">🏰</div><div class="pillar-title">Full Isolation</div><div class="pillar-desc">A private VM per customer for your agents and files. GPU jobs run on a shared pool unless you add a dedicated GPU.</div></div>
     <div class="pillar"><div class="pillar-icon">🚫</div><div class="pillar-title">Zero Training</div><div class="pillar-desc">Your code is never used to train AI models. Period.</div></div>
     <div class="pillar"><div class="pillar-icon">🔑</div><div class="pillar-title">Your Keys</div><div class="pillar-desc">Bring your own API keys. We store them encrypted, never log them.</div></div>
     <div class="pillar"><div class="pillar-icon">💾</div><div class="pillar-title">Daily Backups</div><div class="pillar-desc">Automated daily snapshots. 30-day retention after cancellation.</div></div>
@@ -67,7 +67,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 
 <h2>🔐 Infrastructure Security</h2>
 <ul class="checklist">
-    <li>Each customer gets a <strong>dedicated Windows VM</strong> — no shared containers or multi-tenant compute</li>
+    <li>Each customer will get a <strong>private Windows VM</strong> for agents and files; GPU jobs run on a shared GPU pool unless you add a dedicated GPU</li>
     <li>All data encrypted at rest using <strong>AES-256</strong></li>
     <li>All connections secured with <strong>TLS 1.3</strong></li>
     <li>VM access via <strong>RDP with unique credentials</strong> — only you have the password</li>
@@ -78,7 +78,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <h2>🛡️ Data Privacy</h2>
 <ul class="checklist">
     <li>Your code, prompts, and agent outputs are <strong>never used to train AI models</strong></li>
-    <li>LLM API calls are made from your VM, not through our infrastructure</li>
+    <li>Cloud model API calls are made from your VM; open models such as Qwen 3.5 run on our shared GPU pool</li>
     <li>ChromaDB memory stores are <strong>local to your VM only</strong></li>
     <li>No telemetry or analytics collected from agent activity</li>
     <li><strong>GDPR and CCPA</strong> compliant — full data deletion on request</li>
@@ -96,10 +96,10 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <h2>📊 Monitoring & Compliance</h2>
 <ul class="checklist">
     <li>Health checks run every <strong>60 seconds</strong> with auto-restart on failure</li>
-    <li>Public status page at <a href="status.html" style="color:var(--a)">status.moltbot.cloud</a></li>
-    <li><strong>99.5% uptime SLA</strong> on all plans</li>
-    <li>Incident response within 4 hours (Enterprise: 1 hour)</li>
-    <li>SOC 2 Type II certification <strong>in progress</strong> (target Q3 2026)</li>
+    <li>Public <a href="status.html" style="color:var(--a)">status page</a>, with uptime tracked from launch</li>
+    <li><strong>99.5% uptime target</strong> on all plans once live (planned; not yet an SLA)</li>
+    <li>Planned incident response within 4 hours; Enterprise response times set by contract</li>
+    <li>SOC 2 Type II: <strong>not yet certified</strong>; we plan to start an audit after launch</li>
 </ul>
 
 <div class="promise">
@@ -118,7 +118,7 @@ footer{border-top:1px solid var(--b);padding:2rem 0;text-align:center;color:#525
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2rem;font-size:.78rem">
 <div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Product</div><a href="features.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Features</a><a href="pricing.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Pricing</a><a href="integrations.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Integrations</a><a href="security.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Security</a></div>
 <div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Resources</div><a href="blog.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Blog</a><a href="api-docs.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">API Docs</a><a href="getting-started.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Quick Start</a><a href="changelog.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Changelog</a></div>
-<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Company</div><a href="case-studies.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Case Studies</a><a href="compare.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Compare</a><a href="referral.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Refer & Earn</a><a href="status.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Status</a></div>
+<div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Company</div><a href="case-studies.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Example Scenarios</a><a href="compare.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Compare</a><a href="referral.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Refer & Earn</a><a href="status.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Status</a></div>
 <div><div style="font-weight:700;margin-bottom:.75rem;color:var(--t)">Legal</div><a href="terms.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Terms</a><a href="terms.html#privacy" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">Privacy</a><a href="faq.html" style="display:block;color:var(--m);text-decoration:none;margin-bottom:.4rem">FAQ</a></div>
 </div>
 <div style="text-align:center;color:#52525b;font-size:.75rem">© 2026 MoltBot Cloud. All rights reserved.</div>
